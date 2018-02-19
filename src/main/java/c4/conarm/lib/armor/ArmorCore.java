@@ -183,8 +183,8 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
         ArmorNBT data = new ArmorNBT();
 
         if (materials.size() >= 2) {
-            PlatesMaterialStats plating = materials.get(0).getStatsOrUnknown(ArmorMaterialType.PLATES);
-            CoreMaterialStats core = materials.get(1).getStatsOrUnknown(ArmorMaterialType.CORE);
+            CoreMaterialStats core = materials.get(0).getStatsOrUnknown(ArmorMaterialType.CORE);
+            PlatesMaterialStats plating = materials.get(1).getStatsOrUnknown(ArmorMaterialType.PLATES);
             data.core(slotIn, core);
 
             if (materials.size() >= 3) {

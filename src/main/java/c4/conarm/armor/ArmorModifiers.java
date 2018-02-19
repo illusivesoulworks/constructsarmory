@@ -5,7 +5,6 @@ import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.armor.ArmorCore;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
-import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -27,17 +26,18 @@ import java.util.Map;
 public class ArmorModifiers {
 
 //    public static Modifier modSilkstep = new ModSilkstep();
-//    public static Modifier modSpeedy = new ModSpeedy();
-//    public static Modifier modParasitic = new ModParasitic();
-//    public static Modifier modEmerald = new ModEmerald();
-//    public static Modifier modDiamond = new ModDiamond();
+    public static Modifier modSpeedy = new ModSpeedy();
+    public static Modifier modParasitic = new ModParasitic();
+    public static Modifier modEmerald = new ModEmerald();
+    public static Modifier modDiamond = new ModDiamond();
 //    public static Modifier modSticky = new ModSticky();
 //    public static Modifier modLowGravity = new ModLowGravity();
 //    public static Modifier modMending = new ModMending();
-//    public static Modifier modFireResist = new ModFireResistance();
-//    public static Modifier modProjResist = new ModProjectileResistance();
-//    public static Modifier modBlastResist = new ModBlastResistance();
-//    public static Modifier modResist = new ModResistance();
+    public static Modifier modFireResist = new ModFireResistant();
+    public static Modifier modProjResist = new ModProjectileResistant();
+    public static Modifier modBlastResist = new ModBlastResistant();
+    public static Modifier modResist = new ModResistant();
+    public static Modifier modReinforced = new ModReinforced();
 //    public static Modifier modFrostStep = new ModFrostStep();
 //    public static Modifier modMagmaStep = new ModMagmaStep();
 //    public static Modifier modArthopodWard = new ModAntiMonsterResistance("arthopod_ward", 0x61ba49, 5, 24, EnumCreatureAttribute.ARTHROPOD);
@@ -50,18 +50,18 @@ public class ArmorModifiers {
 //        ArmoryRegistry.registerModifier(modSilkstep);
 //        modSilkstep.addItem(TinkerCommons.matSilkyJewel, 2, 1);
 //
-//        ArmoryRegistry.registerModifier(modSpeedy);
-//        modSpeedy.addItem("dustRedstone");
-//        modSpeedy.addItem("blockRedstone", 1, 9);
-//
-//        ArmoryRegistry.registerModifier(modParasitic);
-//        modParasitic.addItem("boneWithered");
-//
-//        ArmoryRegistry.registerModifier(modDiamond);
-//        modDiamond.addItem("gemDiamond");
-//
-//        ArmoryRegistry.registerModifier(modEmerald);
-//        modEmerald.addItem("gemEmerald");
+        ArmoryRegistry.registerModifier(modSpeedy);
+        modSpeedy.addItem("dustRedstone");
+        modSpeedy.addItem("blockRedstone", 1, 9);
+
+        ArmoryRegistry.registerModifier(modParasitic);
+        modParasitic.addItem("boneWithered");
+
+        ArmoryRegistry.registerModifier(modDiamond);
+        modDiamond.addItem("gemDiamond");
+
+        ArmoryRegistry.registerModifier(modEmerald);
+        modEmerald.addItem("gemEmerald");
 //
 //        ArmoryRegistry.registerModifier(modSticky);
 //        modSticky.addItem(Blocks.WEB, 1);
@@ -72,17 +72,20 @@ public class ArmorModifiers {
 //        ArmoryRegistry.registerModifier(modMending);
 //        modMending.addItem(TinkerCommons.matMendingMoss, 1, 1);
 //
-//        ArmoryRegistry.registerModifier(modFireResist);
-//        modFireResist.addItem(Items.BLAZE_POWDER);
-//
-//        ArmoryRegistry.registerModifier(modBlastResist);
-//        modBlastResist.addItem(Items.GUNPOWDER);
-//
-//        ArmoryRegistry.registerModifier(modProjResist);
-//        modProjResist.addItem(Items.FEATHER);
-//
-//        ArmoryRegistry.registerModifier(modResist);
-//        modProjResist.addItem("obsidian");
+        ArmoryRegistry.registerModifier(modFireResist);
+        modFireResist.addItem(Items.BLAZE_POWDER);
+
+        ArmoryRegistry.registerModifier(modBlastResist);
+        modBlastResist.addItem(Items.BRICK);
+
+        ArmoryRegistry.registerModifier(modProjResist);
+        modProjResist.addItem(Items.FEATHER);
+
+        ArmoryRegistry.registerModifier(modResist);
+        modResist.addItem(Blocks.OBSIDIAN, 1);
+
+        ArmoryRegistry.registerModifier(modReinforced);
+        modReinforced.addItem(TinkerCommons.matReinforcement, 1, 1);
 //
 //        ArmoryRegistry.registerModifier(modFrostStep);
 //        modFrostStep.addItem(Blocks.PACKED_ICE, 1);
@@ -96,9 +99,8 @@ public class ArmorModifiers {
 //        ArmoryRegistry.registerModifier(modHolyWard);
 //        modHolyWard.addItem(TinkerCommons.consecratedSoil, 1, 1);
 //
-//        //Modifiers that we can adopt directly from base Tinkers
-//        ArmoryRegistry.registerModifier(TinkerModifiers.modSoulbound);
-//        ArmoryRegistry.registerModifier(TinkerModifiers.modReinforced);
+        //Modifiers that we can adopt directly from base Tinkers
+        ArmoryRegistry.registerModifier(TinkerModifiers.modSoulbound);
     }
 
     private static Map<String, ModExtraArmorTrait> extraTraitLookup = new HashMap<>();

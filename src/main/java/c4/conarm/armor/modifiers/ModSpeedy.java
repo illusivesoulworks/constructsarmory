@@ -4,20 +4,35 @@ import c4.conarm.lib.armor.ArmorNBT;
 import c4.conarm.armor.ArmorTagUtil;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Multimap;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 public class ModSpeedy extends ArmorModifierTrait {
+
+    protected static final UUID[] SPEED_MODIFIERS = new UUID[]{
+            UUID.fromString("857af40b-def8-47e3-a838-527933eca586"),
+            UUID.fromString("1fd2c8fb-5a76-4e6f-bccd-c27f2287ad1b"),
+            UUID.fromString("54e47051-19ac-4e59-9e54-4f256484408a"),
+            UUID.fromString("ac16532f-d0b0-4b23-a89a-85ecaa3b5d7d") };
 
     public ModSpeedy() {
         super("speedy", 0x910000, 1, 50);
@@ -81,20 +96,25 @@ public class ModSpeedy extends ArmorModifierTrait {
     }
 
     @Override
-    public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag) {
+    public void getAttributeModifiers(@Nonnull EntityEquipmentSlot slot, ItemStack stack, Multimap<String, AttributeModifier> attributeMap) {
+        if(slot == EntityLiving.getSlotForItemStack(stack)) {
+            attributeMap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(SPEED_MODIFIERS[slot.getIndex()], "Speedy modifier", getSpeedBonus(stack), 2));
+        }
+    }
 
-        super.applyEffect(rootCompound, modifierTag);
-
+    protected float getSpeedBonus(ItemStack stack) {
+        NBTTagCompound modifierTag = new NBTTagCompound();
+        NBTTagList tagList = TagUtil.getModifiersTagList(TagUtil.getTagSafe(stack));
+        int index = TinkerUtil.getIndexInList(tagList, identifier);
+        if(index >= 0) {
+            modifierTag = tagList.getCompoundTagAt(index);
+        }
         ModifierNBT.IntegerNBT modData = ModifierNBT.readInteger(modifierTag);
-        ArmorNBT data = ArmorTagUtil.getArmorStats(rootCompound);
-
-//        data.movementSpeedMultiplier += getSpeedBonus(modData);
-
-        TagUtil.setToolTag(rootCompound, data.get());
+        return getSpeedBonus(modData);
     }
 
     protected float getSpeedBonus(ModifierNBT.IntegerNBT modData) {
-        return 0.2f * modData.current / modData.max;
+        return 0.1F * modData.current / modData.max;
     }
 
     @Override

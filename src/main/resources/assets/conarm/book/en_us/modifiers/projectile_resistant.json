@@ -1,0 +1,26 @@
+{
+  "armormodifier": "projectile_resistant",
+  "text": [
+    {
+      "text": "Attaching feathers to your armor will make you more aerodynamic and protect you from projectiles."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Trust us on this one."
+    }
+  ],
+  "effects": [
+    "Adds Projectile Protection",
+    "Requires only 1 modifier",
+    "Not compatible with other resists",
+    "Multiple levels"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

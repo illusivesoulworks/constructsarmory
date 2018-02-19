@@ -22,6 +22,9 @@ item.conarm.chestplate.desc=The Chestplate helps prevent wounds and injuries to 
 item.conarm.leggings.desc=The Leggings are perfect for keeping your legs safe and sound.
 item.conarm.boots.desc=The Boots make sure that you never have to worry about stubbed toes ever again.
 
+#################
+#     Traits    #
+#################
 modifier.absorbent.name=Absorbent
 modifier.absorbent.desc=§oMore absorbent than other brands.§r\nYour armor gets stronger in water and rain.
 modifier.alien_armor.name=modifier.alien.name
@@ -100,6 +103,30 @@ modifier.vengeful.name=Vengeful
 modifier.vengeful.desc=§oThey'll pay for this!§r\nYour attackers might not feel great after hitting you.
 modifier.voltaic.name=Voltaic
 modifier.voltaic.desc=§oBiribiri!§r\nGetting hit charges your armor. Once fully charged, get hit again to discharge and deal damage to all surrounding creatures.
+
+#################
+#   Modifiers   #
+#################
+modifier.blast_resistant.name=Blast Resistant
+modifier.blast_resistant.desc=§oTake cover!§r\nAdditional protection against explosions.
+modifier.diamond_armor.name=modifier.diamond.name
+modifier.diamond_armor.desc=modifier.diamond.desc
+modifier.emerald_armor.name=modifier.emerald.name
+modifier.emerald_armor.desc=modifier.emerald.desc
+modifier.fire_resistant.name=Fire Resistant
+modifier.fire_resistant.desc=§oImmolation is bad.§r\nAdditional protection against fire.
+modifier.parasitic.name=Parasitic
+modifier.parasitic.desc=§oTogether foreverrr...§r\nYour armor will feed off you to repair itself.
+modifier.projectile_resistant.name=Projectile Resistant
+modifier.projectile_resistant.desc=§oCome closer, you cowards!§r\nAdditional protection against projectile attacks.
+modifier.reinforced_armor.name=modifier.reinforced.name
+modifier.reinforced_armor.desc=modifier.reinforced.desc
+modifier.reinforced_armor.extra=Reinforced: %s
+modifier.resistant.name=Resistant
+modifier.resistant.desc=§oHarder, stronger!§r\nAdditional protection against all attacks.
+modifier.speedy.name=Speedy
+modifier.speedy.desc=§oGotta go fast!§r\nIncreases your overall movement speed.
+modifier.speedy.extra=Bonus-Speed: +%s
 
 stat.core.name=Core
 stat.core.durability.name=Durability

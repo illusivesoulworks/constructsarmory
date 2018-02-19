@@ -10,8 +10,6 @@ import java.util.Random;
 
 public class ModParasitic extends ArmorModifierTrait {
 
-    private static final Random rand = new Random();
-
     public ModParasitic() {
         super("parasitic", 0x5e0000);
     }
@@ -24,7 +22,7 @@ public class ModParasitic extends ArmorModifierTrait {
         }
 
         if (needsRepair(armor)) {
-            if (hasMoreHealthThanDurability(armor, player) && rand.nextFloat() < 0.1F) {
+            if (hasMoreHealthThanDurability(armor, player) && random.nextFloat() < 0.1F / 20) {
                 //Make sure we don't actually kill the player we're feeding off
                 if (player.getHealth() > 2.0F) {
                     ToolHelper.healTool(armor, getDurabilityPerHP(), player);
@@ -35,12 +33,14 @@ public class ModParasitic extends ArmorModifierTrait {
     }
 
     private int getDurabilityPerHP() {
-        return 10;
+        return 5;
     }
 
     //We only siphon health if the health percentage is higher than our durability percentage
     private boolean hasMoreHealthThanDurability(ItemStack stack, EntityPlayer player) {
-        return (stack.getMaxDamage() - stack.getItemDamage()) / stack.getMaxDamage() < player.getHealth() / player.getMaxHealth();
+        float durabilityPerc = ((float) ToolHelper.getCurrentDurability(stack)) / ((float) ToolHelper.getMaxDurability(stack));
+        float healthPerc = player.getHealth() / player.getMaxHealth();
+        return durabilityPerc < healthPerc;
     }
 
     private boolean needsRepair(ItemStack itemStack) {

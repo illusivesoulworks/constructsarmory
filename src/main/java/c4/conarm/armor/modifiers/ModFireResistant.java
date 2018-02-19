@@ -3,10 +3,10 @@ package c4.conarm.armor.modifiers;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Enchantments;
 
-public class ModFireResistance extends AbstractModResistance {
+public class ModFireResistant extends AbstractModResistant {
 
-    public ModFireResistance() {
-        super("fire_resistance", 0xea9e32, Enchantments.FIRE_PROTECTION);
+    public ModFireResistant() {
+        super("fire_resistant", 0xea9e32, Enchantments.FIRE_PROTECTION);
     }
 
     @Override

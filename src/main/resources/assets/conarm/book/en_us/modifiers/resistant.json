@@ -1,0 +1,26 @@
+{
+  "armormodifier": "resistant",
+  "text": [
+    {
+      "text": "You can strengthen your armor with a little bit of an obsidian coating. It's really tough stuff."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "This helps protect against all manner of attacks."
+    }
+  ],
+  "effects": [
+    "Adds Protection",
+    "Requires only 1 modifier",
+    "Not compatible with other resists",
+    "Multiple levels"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

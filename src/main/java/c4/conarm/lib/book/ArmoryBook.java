@@ -4,7 +4,9 @@ import c4.conarm.ConstructsArmory;
 import c4.conarm.lib.ConstructUtils;
 import c4.conarm.lib.book.content.ContentArmor;
 import c4.conarm.lib.book.content.ContentArmorMaterial;
+import c4.conarm.lib.book.content.ContentArmorModifier;
 import c4.conarm.lib.book.sectiontransformers.ArmorMaterialSectionTransformer;
+import c4.conarm.lib.book.sectiontransformers.ArmorModifierSectionTransformer;
 import c4.conarm.lib.book.sectiontransformers.ArmorSectionTransformer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -26,7 +28,7 @@ public class ArmoryBook extends BookData {
 
     public static void init() {
         BookLoader.registerPageType(ContentArmorMaterial.ID, ContentArmorMaterial.class);
-//        BookLoader.registerPageType(ContentModifier.ID, ContentModifier.class);
+        BookLoader.registerPageType(ContentArmorModifier.ID, ContentArmorModifier.class);
 //        BookLoader.registerPageType(ContentModifierFortify.ID, ContentModifierFortify.class);
         BookLoader.registerPageType(ContentArmor.ID, ContentArmor.class);
 //        BookLoader.registerPageType(ContentSingleStatMultMaterial.ID, ContentSingleStatMultMaterial.class);
@@ -34,7 +36,7 @@ public class ArmoryBook extends BookData {
         INSTANCE.addRepository(new FileRepository(ConstructUtils.getResource("book").toString()));
         INSTANCE.addTransformer(new ArmorSectionTransformer());
         INSTANCE.addTransformer(new ArmorMaterialSectionTransformer());
-//        INSTANCE.addTransformer(new ModifierSectionTransformer());
+        INSTANCE.addTransformer(new ArmorModifierSectionTransformer());
 //        INSTANCE.addTransformer(new BowMaterialSectionTransformer());
         INSTANCE.addTransformer(BookTransformer.IndexTranformer());
     }

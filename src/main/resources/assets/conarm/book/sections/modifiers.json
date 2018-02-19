@@ -1,0 +1,37 @@
+[{
+    "type": "armormodifier",
+    "data": "modifiers/speedy.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/resistant.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/blast_resistant.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/projectile_resistant.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/fire_resistant.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/diamond.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/emerald.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/parasitic.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/reinforced.json"
+  }
+]

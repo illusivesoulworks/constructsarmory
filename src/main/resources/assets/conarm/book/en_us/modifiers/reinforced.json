@@ -1,0 +1,19 @@
+{
+  "armormodifier": "reinforced_armor",
+  "text": [
+    {
+      "text": "Adding a reinforced plate to the armor seems to help with its durability, making it stronger."
+    }
+  ],
+  "effects": [
+    "Adds a chance to not consume durability",
+    "Stacks with previous levels of Reinforced",
+    "Multiple levels"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "armormodifier": "speedy",
+  "text": [
+    {
+      "text": "Adding redstone to an armor piece seems to increase your speed."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "The properties of redstone that give extra speed is still not well understood."
+    }
+  ],
+  "effects": [
+    "Each redstone dust increases movement speed by a small percentage",
+    "Stacks with other armor pieces and movement buffs"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

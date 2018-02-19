@@ -1,6 +1,5 @@
 package c4.conarm.armor.modifiers;
 
-import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemStack;
@@ -11,21 +10,21 @@ import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolBuilder;
 
-public abstract class AbstractModResistance extends ArmorModifierTrait {
+public abstract class AbstractModResistant extends ArmorModifierTrait {
 
-    protected static final int baseCount = 25;
-    protected static final int maxLevel = 3;
+    protected static final int baseCount = 15;
+    protected static final int maxLevel = 4;
 
     private final Enchantment enchantment;
-    private final AbstractModResistance.ResistanceAspect aspect;
+    private final AbstractModResistant.ResistanceAspect aspect;
 
-    public AbstractModResistance(String identifier, int color, Enchantment enchantment) {
+    public AbstractModResistant(String identifier, int color, Enchantment enchantment) {
         super(identifier, color, maxLevel, 0);
 
         this.enchantment = enchantment;
         aspects.clear();
-        aspect = new AbstractModResistance.ResistanceAspect(this);
-        addAspects(aspect, new ModifierAspect.CategoryAnyAspect(ArmoryRegistry.ARMOR));
+        aspect = new AbstractModResistant.ResistanceAspect(this);
+        addAspects(aspect);
     }
 
     public int getResistanceLevel(ItemStack itemStack) {

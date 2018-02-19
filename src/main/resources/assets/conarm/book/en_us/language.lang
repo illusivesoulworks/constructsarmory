@@ -3,3 +3,5 @@ welcome=Welcome
 materials=Armor Materials
 armory=Armory
 modifiers=Modifiers
+
+modifier.effect=Effects:

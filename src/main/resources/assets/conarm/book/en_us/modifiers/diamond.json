@@ -1,0 +1,20 @@
+{
+  "armormodifier": "diamond_armor",
+  "text": [
+    {
+      "text": "Adding a diamond coating to an armor makes it more resilient and increases its protective power."
+    }
+  ],
+  "effects": [
+    "Extra durability",
+    "Minor armor and toughness increase",
+    "Single use",
+    "Fabulous!"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

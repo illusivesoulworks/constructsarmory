@@ -1,0 +1,26 @@
+{
+  "armormodifier": "blast_resistant",
+  "text": [
+    {
+      "text": "Reinforcing your armor with some strong brick will surely allow you to resist explosions better."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "No cement necessary, probably."
+    }
+  ],
+  "effects": [
+    "Adds Blast Protection",
+    "Requires only 1 modifier",
+    "Not compatible with other resists",
+    "Multiple levels"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

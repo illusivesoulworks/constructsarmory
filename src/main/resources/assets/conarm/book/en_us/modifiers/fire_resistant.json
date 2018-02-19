@@ -1,0 +1,26 @@
+{
+  "armormodifier": "fire_resistant",
+  "text": [
+    {
+      "text": "Coating your armor in blaze powder will make it harder to burn you."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "It's just science."
+    }
+  ],
+  "effects": [
+    "Adds Fire Protection",
+    "Requires only 1 modifier",
+    "Not compatible with other resists",
+    "Multiple levels"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "armormodifier": "parasitic",
+  "text": [
+    {
+      "text": "Attaching the bone of a Wither Skeleton to your armor gives it parasitic abilities."
+    }
+  ],
+  "effects": [
+    "Steals life from you to repair itself",
+    "Won't kill you and will only take when necessary",
+    "Single use"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

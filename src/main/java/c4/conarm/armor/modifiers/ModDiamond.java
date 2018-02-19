@@ -18,10 +18,10 @@ public class ModDiamond extends ToolModifier {
     @Override
     public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag) {
         ArmorNBT data = ArmorTagUtil.getArmorStats(rootCompound);
-        data.durability += 500;
+        data.durability += 150;
 
-        data.armor += 1.0F;
-        data.toughness += 0.5F;
+        data.armor += 0.5F;
+        data.toughness += 1.0F;
 
         TagUtil.setToolTag(rootCompound, data.get());
     }
