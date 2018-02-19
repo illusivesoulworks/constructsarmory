@@ -26,22 +26,22 @@ import java.util.Map;
 
 public class ArmorModifiers {
 
-    public static Modifier modSilkstep = new ModSilkstep();
-    public static Modifier modSpeedy = new ModSpeedy();
-    public static Modifier modParasitic = new ModParasitic();
-    public static Modifier modEmerald = new ModEmerald();
-    public static Modifier modDiamond = new ModDiamond();
-    public static Modifier modSticky = new ModSticky();
-    public static Modifier modLowGravity = new ModLowGravity();
-    public static Modifier modMending = new ModMending();
-    public static Modifier modFireResist = new ModFireResistance();
-    public static Modifier modProjResist = new ModProjectileResistance();
-    public static Modifier modBlastResist = new ModBlastResistance();
-    public static Modifier modResist = new ModResistance();
-    public static Modifier modFrostStep = new ModFrostStep();
-    public static Modifier modMagmaStep = new ModMagmaStep();
-    public static Modifier modArthopodWard = new ModAntiMonsterResistance("arthopod_ward", 0x61ba49, 5, 24, EnumCreatureAttribute.ARTHROPOD);
-    public static Modifier modHolyWard = new ModAntiMonsterResistance("holy_ward", 0xe8d500, 5, 24, EnumCreatureAttribute.UNDEAD);
+//    public static Modifier modSilkstep = new ModSilkstep();
+//    public static Modifier modSpeedy = new ModSpeedy();
+//    public static Modifier modParasitic = new ModParasitic();
+//    public static Modifier modEmerald = new ModEmerald();
+//    public static Modifier modDiamond = new ModDiamond();
+//    public static Modifier modSticky = new ModSticky();
+//    public static Modifier modLowGravity = new ModLowGravity();
+//    public static Modifier modMending = new ModMending();
+//    public static Modifier modFireResist = new ModFireResistance();
+//    public static Modifier modProjResist = new ModProjectileResistance();
+//    public static Modifier modBlastResist = new ModBlastResistance();
+//    public static Modifier modResist = new ModResistance();
+//    public static Modifier modFrostStep = new ModFrostStep();
+//    public static Modifier modMagmaStep = new ModMagmaStep();
+//    public static Modifier modArthopodWard = new ModAntiMonsterResistance("arthopod_ward", 0x61ba49, 5, 24, EnumCreatureAttribute.ARTHROPOD);
+//    public static Modifier modHolyWard = new ModAntiMonsterResistance("holy_ward", 0xe8d500, 5, 24, EnumCreatureAttribute.UNDEAD);
 
     public static List<Modifier> extraTraitMods;
 
