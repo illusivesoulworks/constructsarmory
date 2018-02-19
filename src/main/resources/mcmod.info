@@ -1,0 +1,14 @@
+[{
+  "modid": "conarm",
+  "name": "Construct's Armory",
+  "description": "A Tinkers' Construct add-on for those looking to enter the world of armor",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["C4"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}]

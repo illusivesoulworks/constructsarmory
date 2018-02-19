@@ -1,0 +1,12 @@
+{
+  "title":"Welcome",
+  "text": [
+    {
+      "text": "Welcome to the armory addendum of Materials and You."
+    },
+    {
+      "text": "The current edition of this book is incomplete, but will be filled out as updates come along so be sure to check back for new information!",
+      "paragraph": true
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "armor": "chestplate",
+  "text": [
+    {
+      "text": "The Helmet, Chestplate, Leggings, and Boots are your basic protective armor pieces."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "These pieces will reduce damage dealt to you. Pretty straightforward."
+    }
+  ],
+  "properties": [
+    "Basic protective armor",
+    "There's one for each body part",
+    "Protects you from damage"
+  ]
+}

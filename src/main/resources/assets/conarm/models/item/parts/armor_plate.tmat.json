@@ -1,0 +1,6 @@
+{
+  "parent": "builtin/generated",
+  "textures": {
+    "layer0": "conarm:items/parts/armor_plate"
+  }
+}

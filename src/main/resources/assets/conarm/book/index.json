@@ -1,0 +1,39 @@
+[
+  {
+    "name": "welcome",
+    "data": "sections/welcome.json",
+    "icon": {
+      "item": {
+        "id": "conarm:armorforge",
+        "damage": 0
+      }
+    }
+  },
+  {
+    "name": "armory",
+    "data": "sections/armory.json",
+    "icon": {
+      "item": {
+        "id": "minecraft:iron_chestplate",
+        "damage": 0
+      }
+    }
+  },
+  {
+    "name": "materials",
+    "icon": {
+      "item": {
+        "id": "minecraft:iron_ingot"
+      }
+    }
+  },
+  {
+    "name": "modifiers",
+    "data": "sections/modifiers.json",
+    "icon": {
+      "item": {
+        "id": "minecraft:redstone"
+      }
+    }
+  }
+]
