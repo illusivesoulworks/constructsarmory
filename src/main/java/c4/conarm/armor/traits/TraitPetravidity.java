@@ -1,7 +1,9 @@
 package c4.conarm.armor.traits;
 
+import c4.conarm.armor.ArmorHelper;
 import c4.conarm.armor.ArmorModifications;
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -46,10 +48,10 @@ public class TraitPetravidity extends AbstractArmorTrait {
         if (toRepair > 0 && stack.getItem() == Item.getItemFromBlock(Blocks.STONE)) {
             int count = stack.getCount();
             if (toRepair >= count) {
-                ToolHelper.healTool(armor, count, evt.getEntityPlayer());
+                ArmorHelper.healArmor(armor, count, evt.getEntityPlayer(), EntityLiving.getSlotForItemStack(armor).getIndex());
                 item.setDead();
             } else {
-                ToolHelper.healTool(armor, toRepair, evt.getEntityPlayer());
+                ArmorHelper.healArmor(armor, toRepair, evt.getEntityPlayer(), EntityLiving.getSlotForItemStack(armor).getIndex());
                 item.getItem().shrink(toRepair);
             }
             evt.setCanceled(true);

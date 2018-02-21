@@ -10,13 +10,16 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.common.config.Config;
@@ -146,6 +149,25 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
 
     public String getIdentifier() {
         return getRegistryName().getResourcePath();
+    }
+
+    @Override
+    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+
+        super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
+
+        this.onUpdateTraits(stack, worldIn, entityIn, itemSlot, isSelected);
+    }
+
+    private void onUpdateTraits(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+
+        NBTTagList list = TagUtil.getTraitsTagList(stack);
+        for(int i = 0; i < list.tagCount(); i++) {
+            ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
+            if(trait != null) {
+                trait.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
+            }
+        }
     }
 
     @Nonnull

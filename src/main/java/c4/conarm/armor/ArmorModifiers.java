@@ -32,7 +32,7 @@ public class ArmorModifiers {
     public static Modifier modDiamond = new ModDiamond();
 //    public static Modifier modSticky = new ModSticky();
 //    public static Modifier modLowGravity = new ModLowGravity();
-//    public static Modifier modMending = new ModMending();
+    public static Modifier modMending = new ModMending();
     public static Modifier modFireResist = new ModFireResistant();
     public static Modifier modProjResist = new ModProjectileResistant();
     public static Modifier modBlastResist = new ModBlastResistant();
@@ -69,9 +69,9 @@ public class ArmorModifiers {
 //        ArmoryRegistry.registerModifier(modLowGravity);
 //        modLowGravity.addItem(Items.CHORUS_FRUIT_POPPED);
 //
-//        ArmoryRegistry.registerModifier(modMending);
-//        modMending.addItem(TinkerCommons.matMendingMoss, 1, 1);
-//
+        ArmoryRegistry.registerModifier(modMending);
+        modMending.addItem(TinkerCommons.matMendingMoss, 1, 1);
+
         ArmoryRegistry.registerModifier(modFireResist);
         modFireResist.addItem(Items.BLAZE_POWDER);
 

@@ -114,12 +114,7 @@ public class ContentArmorMaterial extends ContentMaterial {
         List<TextData> lineData = new ArrayList<>();
         for(int i = 0; i < stats.getLocalizedInfo().size(); i++) {
             TextData text = new TextData(stats.getLocalizedInfo().get(i));
-            String line;
-            if (stats instanceof CoreMaterialStats && i > 1) {
-                line = stats.getLocalizedDesc().get(1);
-            } else {
-                line = stats.getLocalizedDesc().get(i);
-            }
+            String line = stats.getLocalizedDesc().get(i);
             text.tooltip = LocUtils.convertNewlines(line).split("\n");
             lineData.add(text);
             lineData.add(new TextData("\n"));

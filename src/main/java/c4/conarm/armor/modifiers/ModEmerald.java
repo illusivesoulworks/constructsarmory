@@ -21,6 +21,7 @@ public class ModEmerald extends ToolModifier {
         ArmorNBT base = ArmorTagUtil.getOriginalArmorStats(rootCompound);
 
         data.durability += base.durability / 2;
+        data.armor = Math.max(2.0F, data.armor);
 
         TagUtil.setToolTag(rootCompound, data.get());
     }

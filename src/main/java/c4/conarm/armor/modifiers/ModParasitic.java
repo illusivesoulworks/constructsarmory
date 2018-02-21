@@ -1,6 +1,8 @@
 package c4.conarm.armor.modifiers;
 
+import c4.conarm.armor.ArmorHelper;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -25,7 +27,7 @@ public class ModParasitic extends ArmorModifierTrait {
             if (hasMoreHealthThanDurability(armor, player) && random.nextFloat() < 0.1F / 20) {
                 //Make sure we don't actually kill the player we're feeding off
                 if (player.getHealth() > 2.0F) {
-                    ToolHelper.healTool(armor, getDurabilityPerHP(), player);
+                    ArmorHelper.healArmor(armor, getDurabilityPerHP(), player, EntityLiving.getSlotForItemStack(armor).getIndex());
                     player.setHealth(player.getHealth() - 1.0F);
                 }
             }

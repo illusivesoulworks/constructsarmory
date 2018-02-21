@@ -33,5 +33,9 @@
   {
     "type": "armormodifier",
     "data": "modifiers/reinforced.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/mending_armor.json"
   }
 ]

@@ -24,10 +24,14 @@ public class CoreMaterialStats extends AbstractMaterialStats {
     public final float durability;
     public final float[] armor;
 
-    public CoreMaterialStats(float durability, float[] armor) {
+    public CoreMaterialStats(float durability, float feet, float legs, float chest, float head) {
         super(ArmorMaterialType.CORE);
         this.durability = durability;
-        this.armor = armor;
+        this.armor = new float[4];
+        this.armor[0] = feet;
+        this.armor[1] = legs;
+        this.armor[2] = chest;
+        this.armor[3] = head;
     }
 
     public List<String> getLocalizedInfo(EntityEquipmentSlot slotIn) {
@@ -72,6 +76,12 @@ public class CoreMaterialStats extends AbstractMaterialStats {
 
         info.add(Util.translate(LOC_DurabilityDesc));
         info.add(Util.translate(LOC_ArmorDesc));
+        for (EntityEquipmentSlot slot : EntityEquipmentSlot.values()) {
+            if (slot == EntityEquipmentSlot.OFFHAND || slot == EntityEquipmentSlot.MAINHAND) {
+                continue;
+            }
+            info.add(Util.translate(LOC_ArmorDesc));
+        }
 
         return info;
     }

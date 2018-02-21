@@ -14,16 +14,16 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 
 public class TraitEcological extends AbstractArmorTrait {
 
-    private static final int CHANCE = 80;
+    private static final int CHANCE = 120;
 
     public TraitEcological() {
         super("ecological_armor", TextFormatting.GREEN);
     }
 
     @Override
-    public void onArmorTick(ItemStack armor, World world, EntityPlayer player) {
-        if(!world.isRemote && random.nextInt(20 * CHANCE) == 0) {
-            ArmorHelper.healArmor(armor, 1, player, EntityLiving.getSlotForItemStack(armor).getIndex());
+    public void onUpdate(ItemStack armor, World world, Entity entity, int itemSlot, boolean isSelected) {
+        if(!world.isRemote && entity instanceof EntityPlayer && random.nextInt(20 * CHANCE) == 0) {
+            ArmorHelper.healArmor(armor, 1, (EntityPlayer) entity, EntityLiving.getSlotForItemStack(armor).getIndex());
         }
     }
 }

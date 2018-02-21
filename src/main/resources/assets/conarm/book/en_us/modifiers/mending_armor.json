@@ -1,0 +1,20 @@
+{
+  "armormodifier": "mending_armor",
+  "text": [
+    {
+      "text": "Some moss has grown on the worn out edges of your armor. Enchanting it with some XP causes it to fuse with the armor, restoring it gradually."
+    }
+  ],
+  "effects": [
+    "Stores collected XP",
+    "Slowly repairs the armor over time",
+    "Have to be not wearing the armor to repair",
+    "Multiple levels"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

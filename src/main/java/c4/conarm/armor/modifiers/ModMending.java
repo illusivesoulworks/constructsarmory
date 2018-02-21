@@ -1,7 +1,10 @@
 package c4.conarm.armor.modifiers;
 
+import c4.conarm.armor.ArmorHelper;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import com.google.common.collect.ImmutableList;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -21,19 +24,24 @@ import java.util.List;
 
 public class ModMending extends ArmorModifierTrait {
 
-    private static final int DELAY = 20 * 7 + 10; // every 7.5s
+    private static final int DELAY = 20 * 30; //Every 30s
 
     public ModMending() {
-        super("mending", 0x43ab32, 3, 0);
+        super("mending_armor", 0x43ab32, 3, 0);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     @Override
-    public void onArmorTick(ItemStack armor, World world, EntityPlayer player) {
+    public void onUpdate(ItemStack armor, World world, Entity entity, int itemSlot, boolean isSelected) {
 
-        if(!world.isRemote && needsRepair(armor) && useXp(armor, world)) {
-            ToolHelper.healTool(armor, getDurabilityPerXP(armor), player);
+        if(!world.isRemote && entity instanceof EntityPlayer){
+            EntityPlayer player = (EntityPlayer) entity;
+            if (!player.inventory.armorInventory.contains(armor)) {
+                if (needsRepair(armor) && useXp(armor, world)) {
+                    ArmorHelper.healArmor(armor, getDurabilityPerXP(armor), player, EntityLiving.getSlotForItemStack(armor).getIndex());
+                }
+            }
         }
     }
 
@@ -62,10 +70,9 @@ public class ModMending extends ArmorModifierTrait {
         return 2 + ModifierTagHolder.getModifier(itemStack, getModifierIdentifier()).getTagData(slimeknights.tconstruct.tools.modifiers.ModMendingMoss.Data.class).level;
     }
 
-    // 100 * 3^(level-1)
     private int getMaxXp(int level) {
         if(level <= 1) {
-            return 100;
+            return 30;
         }
 
         return getMaxXp(level - 1) * 3;
@@ -103,7 +110,7 @@ public class ModMending extends ArmorModifierTrait {
     }
 
     @Override
-    public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag) {
+    public List<String> getExtraInfo(ItemStack armor, NBTTagCompound modifierTag) {
         slimeknights.tconstruct.tools.modifiers.ModMendingMoss.Data data = ModifierNBT.readTag(modifierTag, slimeknights.tconstruct.tools.modifiers.ModMendingMoss.Data.class);
         assert data != null;
         String loc = String.format(LOC_Extra, getIdentifier());
