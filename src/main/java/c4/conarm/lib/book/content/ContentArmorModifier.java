@@ -63,7 +63,7 @@ public class ContentArmorModifier extends TinkerPage {
             modifierName = parent.name;
         }
         if(modifier == null) {
-            modifier = ArmoryRegistry.getArmorModifier(modifierName);
+            modifier = TinkerRegistry.getModifier(modifierName);
         }
         if(armor == null) {
             armor = Lists.newArrayList();

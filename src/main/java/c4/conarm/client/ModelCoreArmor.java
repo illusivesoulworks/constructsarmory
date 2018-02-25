@@ -8,9 +8,8 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import javax.annotation.Nullable;
 import javax.jws.WebParam;
 
-public class ModelCoreArmor extends ModelBiped {
+public class ModelCoreArmor extends ModelArmorBase {
 
-    public EntityEquipmentSlot slot;
     public String part;
 
     public ModelRenderer legLeftAnchor;
@@ -27,7 +26,8 @@ public class ModelCoreArmor extends ModelBiped {
 
     public ModelCoreArmor(EntityEquipmentSlot slot, String partIn, int textureWidth, int textureHeight, int offsetX, int offsetY) {
 
-        this.slot = slot;
+        super(slot);
+
         this.part = partIn;
 
         this.textureWidth = textureWidth;

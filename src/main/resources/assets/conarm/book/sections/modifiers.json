@@ -37,5 +37,9 @@
   {
     "type": "armormodifier",
     "data": "modifiers/mending_armor.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/soulbound_armor.json"
   }
 ]

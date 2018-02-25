@@ -50,6 +50,10 @@ public class ArmoryRegistry {
         registerModifierAlias(modifier, modifier.getIdentifier());
     }
 
+    public static void registerModifier(String identifier, IModifier modifier) {
+        registerModifierAlias(modifier, identifier);
+    }
+
     /** Registers an alternate name for a modifier. This is used for multi-level modifiers/traits where multiple exist, but one specific is needed for access */
     public static void registerModifierAlias(IModifier modifier, String alias) {
         if(armorModifiers.containsKey(alias)) {

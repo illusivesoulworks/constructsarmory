@@ -15,14 +15,14 @@ import slimeknights.tconstruct.TConstruct;
 @Mod(   modid = ConstructsArmory.MODID,
         name = ConstructsArmory.MODNAME,
         version = ConstructsArmory.MODVER,
-        dependencies = "required-after:forge@[14.23.2.2611,);required-after:mantle@[1.12-1.3.1,);required-after:tconstruct@[1.12-2.7.3,)",
+        dependencies = "required-after:forge@[14.23.2.2611,);required-after:mantle@[1.12-1.3.1,);required-after:tconstruct@[1.12.2-2.9.1,)",
         acceptedMinecraftVersions = "[1.12.2, 1.13)",
         certificateFingerprint = "5d5b8aee896a4f5ea3f3114784742662a67ad32f")
 public class ConstructsArmory {
 
     public static final String MODID = "conarm";
     public static final String MODNAME = "Construct's Armory";
-    public static final String MODVER = "0.0.4-a";
+    public static final String MODVER = "0.0.5-a";
 
     @SidedProxy(clientSide = "c4.conarm.proxy.ClientProxy", serverSide = "c4.conarm.proxy.CommonProxy")
     public static CommonProxy proxy;
