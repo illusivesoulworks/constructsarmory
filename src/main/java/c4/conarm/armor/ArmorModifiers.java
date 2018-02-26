@@ -3,13 +3,16 @@ package c4.conarm.armor;
 import c4.conarm.armor.modifiers.*;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.armor.ArmorCore;
+import c4.conarm.lib.materials.ArmorMaterialType;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import scala.reflect.internal.Trees;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
+import slimeknights.tconstruct.library.materials.MaterialTypes;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
 import slimeknights.tconstruct.library.tools.IToolPart;
@@ -17,6 +20,7 @@ import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.modifiers.ModExtraTrait;
+import slimeknights.tconstruct.tools.modifiers.ModFortify;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -39,10 +43,13 @@ public class ArmorModifiers {
     public static Modifier modResist = new ModResistant();
     public static Modifier modReinforced = new ModReinforced();
     public static Modifier modSoulbound = new ModSoulbound();
+    public static Modifier modPolished = new ModPolishedDisplay();
 //    public static Modifier modFrostStep = new ModFrostStep();
 //    public static Modifier modMagmaStep = new ModMagmaStep();
 //    public static Modifier modArthopodWard = new ModAntiMonsterResistance("arthopod_ward", 0x61ba49, 5, 24, EnumCreatureAttribute.ARTHROPOD);
 //    public static Modifier modHolyWard = new ModAntiMonsterResistance("holy_ward", 0xe8d500, 5, 24, EnumCreatureAttribute.UNDEAD);
+
+    static List<Modifier> polishedMods;
 
     public static List<Modifier> extraTraitMods;
 
@@ -95,6 +102,17 @@ public class ArmorModifiers {
 //        modHolyWard.addItem(TinkerCommons.consecratedSoil, 1, 1);
 
         ArmoryRegistry.registerModifier(TinkerModifiers.modSoulbound.getIdentifier(), ArmorModifiers.modSoulbound);
+
+        ArmoryRegistry.registerModifier(modPolished);
+    }
+
+    public static void registerPolishedModifiers() {
+        polishedMods = Lists.newArrayList();
+        for(Material mat : TinkerRegistry.getAllMaterialsWithStats(ArmorMaterialType.PLATES)) {
+            ModPolished mod = new ModPolished(mat);
+            polishedMods.add(mod);
+            ArmoryRegistry.registerModifier(mod);
+        }
     }
 
     private static Map<String, ModExtraArmorTrait> extraTraitLookup = new HashMap<>();

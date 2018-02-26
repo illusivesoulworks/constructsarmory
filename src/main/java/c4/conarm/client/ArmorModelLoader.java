@@ -44,12 +44,13 @@ public class ArmorModelLoader implements ICustomModelLoader {
     }
 
     @Override
-    public boolean accepts(ResourceLocation modelLocation) {
+    public boolean accepts(@Nonnull ResourceLocation modelLocation) {
         return modelLocation.getResourcePath().endsWith(EXTENSION);
     }
 
     @Override
-    public IModel loadModel(ResourceLocation modelLocation) {
+    @Nonnull
+    public IModel loadModel(@Nonnull ResourceLocation modelLocation) {
         try {
             Map<String, String> textures = ModelHelper.loadTexturesFromJson(modelLocation);
             ImmutableMap<ItemCameraTransforms.TransformType, TRSRTransformation> transforms = ModelHelper.loadTransformFromJson(modelLocation);

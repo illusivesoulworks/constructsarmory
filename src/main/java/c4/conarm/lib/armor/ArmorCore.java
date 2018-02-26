@@ -1,5 +1,6 @@
 package c4.conarm.lib.armor;
 
+import c4.conarm.armor.ConstructsArmor;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.lib.materials.CoreMaterialStats;
@@ -22,6 +23,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.common.config.Config;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.Util;
@@ -34,6 +36,7 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.library.utils.TooltipBuilder;
+import slimeknights.tconstruct.tools.TinkerTools;
 
 import javax.annotation.Nonnull;
 import java.util.*;
@@ -145,6 +148,28 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
                 tooltips.add("");
             }
         }
+    }
+
+    @Override
+    protected int repairCustom(Material material, NonNullList<ItemStack> repairItems) {
+        Optional<RecipeMatch.Match> matchOptional = RecipeMatch.of(ConstructsArmor.polishingKit).matches(repairItems);
+        if(!matchOptional.isPresent()) {
+            return 0;
+        }
+
+        RecipeMatch.Match match = matchOptional.get();
+        for(ItemStack stacks : match.stacks) {
+            // invalid material?
+            if(ConstructsArmor.polishingKit.getMaterial(stacks) != material) {
+                return 0;
+            }
+        }
+
+        RecipeMatch.removeMatch(repairItems, match);
+        CoreMaterialStats stats = material.getStats(ArmorMaterialType.CORE);
+        float durability = stats.durability * match.amount * ConstructsArmor.polishingKit.getCost();
+        durability /= Material.VALUE_Ingot;
+        return (int) (durability);
     }
 
     public String getIdentifier() {

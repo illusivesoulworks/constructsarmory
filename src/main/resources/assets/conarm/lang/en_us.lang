@@ -22,6 +22,9 @@ item.conarm.chestplate.desc=The Chestplate helps prevent wounds and injuries to 
 item.conarm.leggings.desc=The Leggings are perfect for keeping your legs safe and sound.
 item.conarm.boots.desc=The Boots make sure that you never have to worry about stubbed toes ever again.
 
+item.conarm.polishing_kit.name=Polishing Kit
+item.conarm.polishing_kit.tooltip=Combine with sand\nUpgrades your armor to the material's toughness level.
+
 #################
 #     Traits    #
 #################
@@ -120,6 +123,8 @@ modifier.mending_armor.desc=§oIt's alive!§r\nPicked up XP is stored in the arm
 modifier.mending_armor.extra=Stored XP: %d
 modifier.parasitic.name=Parasitic
 modifier.parasitic.desc=§oTogether foreverrr...§r\nYour armor will feed off you to repair itself.
+modifier.polished.name=Polished
+modifier.polished.desc=§oThe shinier, the better!§r\nToughness increased to the same level as %s.
 modifier.projectile_resistant.name=Projectile Resistant
 modifier.projectile_resistant.desc=§oCome closer, you cowards!§r\nAdditional protection against projectile attacks.
 modifier.reinforced_armor.name=modifier.reinforced.name
@@ -133,6 +138,9 @@ modifier.speedy.name=Speedy
 modifier.speedy.desc=§oGotta go fast!§r\nIncreases your overall movement speed.
 modifier.speedy.extra=Bonus-Speed: +%s
 
+#################
+#     Stats     #
+#################
 stat.core.name=Core
 stat.core.durability.name=Durability
 stat.core.durability.desc=The base multiplier value for durability calculations.\nUsually an integral part to the overall durability of an armor piece.

@@ -1,5 +1,6 @@
 package c4.conarm.proxy;
 
+import c4.conarm.armor.common.RepairRecipe;
 import c4.conarm.armor.traits.TraitAquaspeed;
 import c4.conarm.common.PlayerDataEvents;
 import c4.conarm.lib.ArmoryRegistry;
@@ -83,6 +84,7 @@ public class CommonProxy {
 
     public void postInit(FMLPostInitializationEvent evt) {
 //        ArmorModifiers.registerExtraTraitModifiers();
+        ArmorModifiers.registerPolishedModifiers();
     }
 
     @SubscribeEvent
@@ -126,6 +128,8 @@ public class CommonProxy {
                 registry.register(recipe);
             }
         }
+
+        registry.register(new RepairRecipe());
     }
 
     @SubscribeEvent

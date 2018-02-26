@@ -41,5 +41,9 @@
   {
     "type": "armormodifier",
     "data": "modifiers/soulbound_armor.json"
+  },
+  {
+    "type": "armormodifier_polished",
+    "data": "modifiers/polished.json"
   }
 ]

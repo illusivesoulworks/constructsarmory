@@ -116,7 +116,11 @@ public class ContentArmorModifier extends TinkerPage {
             }
         }
 
-        addTitle(list, CustomFontColor.encodeColor(color) + modifier.getLocalizedName(), true);
+        IModifier actualModifier = modifier;
+        if (ArmoryRegistry.getArmorModifier(modifierName) != null) {
+            actualModifier = ArmoryRegistry.getArmorModifier(modifierName);
+        }
+        addTitle(list, CustomFontColor.encodeColor(color) + actualModifier.getLocalizedName(), true);
 
         // description
         int h = GuiBook.PAGE_WIDTH / 3 - 10;

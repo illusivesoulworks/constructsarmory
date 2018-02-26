@@ -1,6 +1,7 @@
 package c4.conarm.armor;
 
 import c4.conarm.armor.common.items.ItemArmoryBook;
+import c4.conarm.armor.common.items.ItemPolishingKit;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.armor.armor.Boots;
 import c4.conarm.armor.armor.Chestplate;
@@ -14,6 +15,7 @@ import c4.conarm.lib.armor.ArmorCore;
 import com.google.common.collect.Lists;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.commons.lang3.tuple.Pair;
 import slimeknights.tconstruct.library.TinkerRegistry;
@@ -21,8 +23,10 @@ import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
 import slimeknights.tconstruct.library.tools.IPattern;
 import slimeknights.tconstruct.library.tools.IToolPart;
+import slimeknights.tconstruct.library.tools.Pattern;
 import slimeknights.tconstruct.library.tools.ToolPart;
 import slimeknights.tconstruct.tools.TinkerTools;
+import slimeknights.tconstruct.tools.common.item.SharpeningKit;
 
 import java.util.List;
 
@@ -51,6 +55,7 @@ public class ConstructsArmor {
 
     //Items
     public static ItemArmoryBook book;
+    public static ItemPolishingKit polishingKit;
 
     public static void registerArmorParts(IForgeRegistry<Item> registry) {
         helmetCore = registerArmorPart(registry, new ArmorPart(Material.VALUE_Ingot * 3, EntityEquipmentSlot.HEAD), "helmet_core");
@@ -70,6 +75,10 @@ public class ConstructsArmor {
 
     public static void registerItems(IForgeRegistry<Item> registry) {
         book = ConstructUtils.registerItem(registry, new ItemArmoryBook(), "book");
+        polishingKit = (ItemPolishingKit) registerArmorPart(registry, new ItemPolishingKit(), "polishing_kit");
+        polishingKit.setCreativeTab(TinkerRegistry.tabParts);
+        TinkerRegistry.registerToolPart(polishingKit);
+        TinkerRegistry.registerStencilTableCrafting(Pattern.setTagForPart(new ItemStack(TinkerTools.pattern), polishingKit));
     }
 
     private static <T extends ArmorCore> T registerArmorPiece(IForgeRegistry<Item> registry, T item, String name) {

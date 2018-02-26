@@ -8,7 +8,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
-import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.ModelRegisterUtil;
 
 import javax.annotation.Nonnull;
