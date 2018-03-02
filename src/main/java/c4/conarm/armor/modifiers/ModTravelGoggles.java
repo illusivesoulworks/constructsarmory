@@ -18,19 +18,6 @@ public class ModTravelGoggles extends AccessoryModifier {
 
     public ModTravelGoggles() {
         super("travel_goggles");
-        MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    @SubscribeEvent
-    public void onFOVUpdate(EntityViewRenderEvent.FOVModifier evt) {
-        if (evt.getEntity() instanceof EntityPlayer) {
-            ItemStack stack = ((EntityPlayer) evt.getEntity()).getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-            ModifierTagHolder modtag = ModifierTagHolder.getModifier(stack, getModifierIdentifier());
-            GogglesData data = modtag.getTagData(GogglesData.class);
-            if (data.goggles) {
-                evt.setFOV(evt.getFOV() * 0.1F);
-            }
-        }
     }
 
     @Override
@@ -52,7 +39,7 @@ public class ModTravelGoggles extends AccessoryModifier {
 
     public static class GogglesData extends ModifierNBT {
 
-        boolean goggles = false;
+        public boolean goggles = false;
 
         @Override
         public void read(NBTTagCompound tag) {

@@ -1,5 +1,6 @@
 package c4.conarm.proxy;
 
+import c4.conarm.armor.ClientArmorEvents;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.ArmoryRegistryClient;
 import c4.conarm.ConstructsArmory;
@@ -24,6 +25,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -37,6 +39,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import scala.collection.parallel.ParIterableLike;
 import slimeknights.tconstruct.common.ModelRegisterUtil;
 import slimeknights.tconstruct.library.book.TinkerBook;
 import slimeknights.tconstruct.library.client.CustomTextureCreator;
@@ -67,6 +70,7 @@ public class ClientProxy extends CommonProxy {
         super.init(evt);
         ArmoryRegistryClient.registerArmorBuildInfo();
         MinecraftForge.EVENT_BUS.register(new KeyInputEvent());
+        MinecraftForge.EVENT_BUS.register(new ClientArmorEvents());
     }
 
     @Override
