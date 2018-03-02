@@ -5,6 +5,7 @@ import c4.conarm.armor.ArmorHelper;
 import c4.conarm.lib.ConstructUtils;
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import c4.conarm.lib.traits.IArmorAbility;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +16,7 @@ import slimeknights.tconstruct.library.potion.TinkerPotion;
 
 import javax.annotation.Nonnull;
 
-public class TraitAquaspeed extends AbstractArmorTrait {
+public class TraitAquaspeed extends AbstractArmorTrait implements IArmorAbility {
 
     public static TinkerPotion aquaspeedPotion = new AquaspeedPotion();
 
@@ -30,7 +31,7 @@ public class TraitAquaspeed extends AbstractArmorTrait {
     @Override
     public void onAbilityTick(ArmorAbilityHandler.IArmorAbilities abilities, World world, EntityPlayer player) {
         if (!world.isRemote && (player.isInWater())) {
-            aquaspeedPotion.apply(player, 5, ArmorHelper.getArmorAbilityLevel(player, this.identifier));
+            aquaspeedPotion.apply(player, 5, (int) ArmorHelper.getArmorAbilityLevel(player, this.identifier));
         }
     }
 

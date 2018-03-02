@@ -43,7 +43,7 @@ public class TraitDramatic extends AbstractArmorTrait {
     public void onLivingHurt(LivingHurtEvent evt) {
         if (evt.getEntityLiving() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) evt.getEntityLiving();
-            int level = ArmorHelper.getArmorAbilityLevel(player, this.identifier);
+            int level = (int) ArmorHelper.getArmorAbilityLevel(player, this.identifier);
             if (level > 0) {
                 if (player.getHealth() <= 5.0F && random.nextFloat() < (player.getMaxHealth() - player.getHealth()) / player.getMaxHealth() * 0.1 * level) {
                     player.heal(level * 2);

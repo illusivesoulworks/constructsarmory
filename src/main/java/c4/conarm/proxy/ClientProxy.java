@@ -10,6 +10,7 @@ import c4.conarm.client.ArmorModelLoader;
 import c4.conarm.client.ArmorModelUtils;
 import c4.conarm.lib.ConstructUtils;
 import c4.conarm.lib.book.ArmoryBook;
+import c4.conarm.lib.client.KeyInputEvent;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import net.minecraft.client.Minecraft;
@@ -28,6 +29,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -52,22 +54,19 @@ public class ClientProxy extends CommonProxy {
     private static final String LOCATION_ArmorForge = "conarm:armorforge";
     private static final ModelResourceLocation locArmorForge = new ModelResourceLocation(LOCATION_ArmorForge, "normal");
 
-    public static Cache<CacheKey, ResourceLocation> dynamicTextureCache = CacheBuilder.newBuilder()
-            .maximumSize(1000)
-            .expireAfterWrite(5, TimeUnit.MINUTES)
-            .build();
-
     @Override
     public void preInit(FMLPreInitializationEvent evt) {
         super.preInit(evt);
         ModelLoaderRegistry.registerLoader(loader);
         ArmoryBook.init();
+        KeyInputEvent.init();
     }
 
     @Override
     public void init(FMLInitializationEvent evt) {
         super.init(evt);
         ArmoryRegistryClient.registerArmorBuildInfo();
+        MinecraftForge.EVENT_BUS.register(new KeyInputEvent());
     }
 
     @Override
@@ -84,6 +83,12 @@ public class ClientProxy extends CommonProxy {
 
         //Book
         ModelLoader.setCustomModelResourceLocation(ConstructsArmor.book, 0, new ModelResourceLocation(ConstructsArmor.book.getRegistryName(), "inventory"));
+
+        ModelLoader.setCustomModelResourceLocation(ConstructsArmor.travelBelt, 0, new ModelResourceLocation(ConstructsArmor.travelBelt.getRegistryName(), "inventory"));
+
+        ModelLoader.setCustomModelResourceLocation(ConstructsArmor.travelSack, 0, new ModelResourceLocation(ConstructsArmor.travelSack.getRegistryName(), "inventory"));
+
+        ModelLoader.setCustomModelResourceLocation(ConstructsArmor.travelGoggles, 0, new ModelResourceLocation(ConstructsArmor.travelGoggles.getRegistryName(), "inventory"));
 
         //Armor Parts
         for (ArmorPart armorPart : ArmoryRegistry.armorParts) {
@@ -106,34 +111,5 @@ public class ClientProxy extends CommonProxy {
     @SubscribeEvent (priority = EventPriority.LOW)
     public static void modelBake(ModelBakeEvent evt) {
         ToolClientEvents.replaceTableModel(locArmorForge, MODEL_ArmorForge, evt);
-    }
-
-    public static class CacheKey {
-
-        final NBTTagCompound data;
-
-        public CacheKey(ItemStack stack) {
-            this.data = TagUtil.getTagSafe(stack);
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if(this == o) {
-                return true;
-            }
-            if(o == null || getClass() != o.getClass()) {
-                return false;
-            }
-
-            CacheKey cacheKey = (CacheKey) o;
-
-            return data != null ? data.equals(cacheKey.data) : cacheKey.data == null;
-
-        }
-
-        @Override
-        public int hashCode() {
-            return data != null ? data.hashCode() : 0;
-        }
     }
 }

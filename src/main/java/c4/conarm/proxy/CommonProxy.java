@@ -2,6 +2,7 @@ package c4.conarm.proxy;
 
 import c4.conarm.armor.common.RepairRecipe;
 import c4.conarm.armor.traits.TraitAquaspeed;
+import c4.conarm.client.GuiHandler;
 import c4.conarm.common.PlayerDataEvents;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.ConstructsArmory;
@@ -37,6 +38,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreIngredient;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -80,6 +82,7 @@ public class CommonProxy {
         MinecraftForge.EVENT_BUS.register(new ArmorAbilityHandler());
         MinecraftForge.EVENT_BUS.register(new PlayerDataEvents());
         CapabilityManager.INSTANCE.register(ArmorAbilityHandler.IArmorAbilities.class, new ArmorAbilityHandler.Storage() , ArmorAbilityHandler.ArmorAbilities::new);
+        NetworkRegistry.INSTANCE.registerGuiHandler(ConstructsArmory.instance, new GuiHandler());
     }
 
     public void postInit(FMLPostInitializationEvent evt) {

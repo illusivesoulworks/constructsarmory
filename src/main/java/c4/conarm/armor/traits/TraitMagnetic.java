@@ -10,12 +10,12 @@ import net.minecraft.world.World;
 public class TraitMagnetic extends AbstractArmorTrait {
 
     public TraitMagnetic() {
-        super("magnetic_armor", 0xdddddd);
+        super("magnetic", 0xdddddd);
     }
 
     @Override
     public void onAbilityTick(ArmorAbilityHandler.IArmorAbilities abilities, World world, EntityPlayer player) {
 
-        slimeknights.tconstruct.tools.traits.TraitMagnetic.Magnetic.apply(player, 20, ArmorHelper.getArmorAbilityLevel(player, this.getIdentifier()));
+        slimeknights.tconstruct.tools.traits.TraitMagnetic.Magnetic.apply(player, 20, (int) ArmorHelper.getArmorAbilityLevel(player, this.getIdentifier()));
     }
 }

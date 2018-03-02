@@ -1,0 +1,28 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "sls",
+    "rcr",
+    "lll"
+  ],
+  "key": {
+    "l": {
+      "type": "forge:ore_dict",
+      "ore": "leather"
+    },
+    "r": {
+      "item": "minecraft:rabbit_hide"
+    },
+    "s": {
+      "type": "forge:ore_dict",
+      "ore": "string"
+    },
+    "c": {
+      "type": "forge:ore_dict",
+      "ore": "chestWood"
+    }
+  },
+  "result": {
+    "item": "conarm:travel_sack"
+  }
+}

@@ -4,6 +4,7 @@ import c4.conarm.ConstructsArmory;
 import c4.conarm.armor.ArmorHelper;
 import c4.conarm.armor.ArmorModifications;
 import c4.conarm.client.ModelConstructsArmor;
+import c4.conarm.lib.client.DynamicTextureHelper;
 import c4.conarm.lib.events.ArmoryEvent;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.materials.CoreMaterialStats;
@@ -147,122 +148,13 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type)
     {
-        ResourceLocation resourceLocation;
-        ClientProxy.CacheKey key = getCacheKey(stack);
+        ResourceLocation resourceLocation = DynamicTextureHelper.getCachedTexture(stack);
 
-        try {
-            resourceLocation = ClientProxy.dynamicTextureCache.get(key, () -> getCombinedTexture(stack));
-        } catch(ExecutionException e) {
+        if (resourceLocation != null) {
+            return resourceLocation.toString();
+        } else {
             return "";
         }
-
-        return resourceLocation.toString();
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Nullable
-    private ResourceLocation getCombinedTexture(ItemStack stack) {
-
-        List<BufferedImage> bufferedImages = Lists.newArrayList();
-        List<Material> materials = TinkerUtil.getMaterialsFromTagList(TagUtil.getBaseMaterialsTagList(stack));
-
-        for (int i = 0; i < materials.size(); i++) {
-
-            Material material = materials.get(i);
-            String identifier = material.getIdentifier();
-            String partIn;
-
-            switch (i) {
-                case 0: partIn = ArmorMaterialType.CORE; break;
-                case 1: partIn = ArmorMaterialType.PLATES; break;
-                case 2:
-                    if (materials.size() > 3) {
-                        partIn = ArmorMaterialType.PLATES;
-                    } else {
-                        partIn = ArmorMaterialType.TRIM;
-                    }
-                    break;
-                default: partIn = ArmorMaterialType.TRIM; break;
-            }
-
-            TextureMap map = Minecraft.getMinecraft().getTextureMapBlocks();
-            String loc = String.format("%s_%s","conarm:models/armor/armor",partIn);
-            TextureAtlasSprite sprite = map.getTextureExtry(String.format("%s_%s",loc,identifier));
-
-            if (sprite == null) {
-                sprite = map.getTextureExtry(loc);
-            }
-
-            if (sprite == null) {
-                continue;
-            }
-
-            int iconWidth = sprite.getIconWidth();
-            int iconHeight = sprite.getIconHeight();
-            int frameCount = sprite.getFrameCount();
-
-            if (iconWidth <= 0 || iconHeight <= 0 || frameCount <= 0) {
-                return null;
-            }
-
-            BufferedImage bufferedImage = new BufferedImage(iconWidth, iconHeight * frameCount, BufferedImage.TYPE_4BYTE_ABGR);
-
-            for (int j = 0; j < frameCount; j++) {
-                int[][] frameTextureData = sprite.getFrameTextureData(j);
-                int[] largestMipMapTextureData = frameTextureData[0];
-                bufferedImage.setRGB(0, j * iconHeight, iconWidth, iconHeight, largestMipMapTextureData, 0, iconWidth);
-            }
-
-            if (material.renderInfo.useVertexColoring()) {
-                int color = material.renderInfo.getVertexColor();
-                int a = (color >> 24);
-                if(a == 0) {
-                    a = 255;
-                }
-                int r = (color >> 16) & 0xFF;
-                int g = (color >> 8) & 0xFF;
-                int b = (color) & 0xFF;
-                float R = (float)r/255f;
-                float G = (float)g/255f;
-                float B = (float)b/255f;
-                float A = (float)a/255f;
-
-                for (int k = 0; k < bufferedImage.getWidth(); k++) {
-                    for (int l = 0; l < bufferedImage.getHeight(); l++) {
-                        int ax = bufferedImage.getColorModel().getAlpha(bufferedImage.getRaster().getDataElements(k, l, null));
-                        int rx = bufferedImage.getColorModel().getRed(bufferedImage.getRaster().getDataElements(k, l, null));
-                        int gx = bufferedImage.getColorModel().getGreen(bufferedImage.getRaster().getDataElements(k, l, null));
-                        int bx = bufferedImage.getColorModel().getBlue(bufferedImage.getRaster().getDataElements(k, l, null));
-                        rx *= R;
-                        gx *= G;
-                        bx *= B;
-                        ax *= A;
-                        bufferedImage.setRGB(k, l, (ax << 24) | (rx << 16) | (gx << 8) | (bx));
-                    }
-                }
-            }
-
-            bufferedImages.add(bufferedImage);
-        }
-
-        BufferedImage combined = new BufferedImage(64, 64, BufferedImage.TYPE_4BYTE_ABGR);
-        Graphics2D g = combined.createGraphics();
-
-        for (BufferedImage img : bufferedImages) {
-            g.drawImage(img, 0, 0, null);
-        }
-
-        g.dispose();
-//        try {
-//            ImageIO.write(combined, "png", new File("dump.png"));
-//        } catch (IOException e) {
-//            ConstructsArmory.logger.warn("Unable to write image!");
-//        }
-        return Minecraft.getMinecraft().getTextureManager().getDynamicTextureLocation("constructsarmor", new DynamicTexture(combined));
-    }
-
-    private ClientProxy.CacheKey getCacheKey(ItemStack stack) {
-        return new ClientProxy.CacheKey(stack);
     }
 
     @SideOnly(Side.CLIENT)

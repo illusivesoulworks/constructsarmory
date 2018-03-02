@@ -20,7 +20,7 @@ public class TraitMomentum extends AbstractArmorTrait {
     private static final double MAX_SPEED_PER_LEVEL = 0.2D;
 
     public TraitMomentum() {
-        super("momentum_armor", TextFormatting.BLUE);
+        super("momentum", TextFormatting.BLUE);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class TraitMomentum extends AbstractArmorTrait {
         if (player.moveForward == 0 && player.isPotionActive(momentumPotion)) {
             player.removePotionEffect(momentumPotion);
         } else if (player.moveForward > 0) {
-            momentumPotion.apply(player, 20, ArmorHelper.getArmorAbilityLevel(player, this.getIdentifier()));
+            momentumPotion.apply(player, 20, (int) ArmorHelper.getArmorAbilityLevel(player, this.getIdentifier()));
         }
     }
 

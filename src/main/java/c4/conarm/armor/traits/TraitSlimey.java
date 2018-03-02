@@ -23,7 +23,7 @@ public class TraitSlimey extends AbstractArmorTrait {
     protected final Class<? extends EntitySlime> slime;
 
     public TraitSlimey(String suffix, Class<? extends EntitySlime> slime) {
-        super("slimey_armor_" + suffix, TextFormatting.GREEN);
+        super("slimey_" + suffix, TextFormatting.GREEN);
         this.slime = slime;
     }
 

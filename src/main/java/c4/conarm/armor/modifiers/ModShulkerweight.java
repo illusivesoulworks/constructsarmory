@@ -8,10 +8,10 @@ import slimeknights.tconstruct.library.Util;
 
 import java.util.List;
 
-public class ModLowGravity extends ArmorModifierTrait {
+public class ModShulkerweight extends ArmorModifierTrait {
 
-    public ModLowGravity() {
-        super("low_gravity", 0xaaccff, 1, 50);
+    public ModShulkerweight() {
+        super("shulkerweight", 0xaaccff, 1, 25);
     }
 
     private int getAmplifier(ItemStack armor) {

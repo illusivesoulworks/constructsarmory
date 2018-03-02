@@ -23,7 +23,7 @@ public class TraitAlien extends TraitProgressiveArmorStats {
     protected static final float ARMOR_STEP = 0.007F;
 
     public TraitAlien() {
-        super("alien_armor", TextFormatting.YELLOW);
+        super("alien", TextFormatting.YELLOW);
     }
 
     @Override

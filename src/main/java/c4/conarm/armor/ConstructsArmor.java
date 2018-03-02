@@ -1,7 +1,6 @@
 package c4.conarm.armor;
 
-import c4.conarm.armor.common.items.ItemArmoryBook;
-import c4.conarm.armor.common.items.ItemPolishingKit;
+import c4.conarm.armor.common.items.*;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.armor.armor.Boots;
 import c4.conarm.armor.armor.Chestplate;
@@ -34,6 +33,11 @@ public class ConstructsArmor {
 
     //Helper
     public static List<Pair<Item, ArmorPart>> armorPartPatterns = Lists.newLinkedList();
+
+    //Augments
+    public static ItemTravelBelt travelBelt;
+    public static ItemTravelSack travelSack;
+    public static ItemTravelGoggles travelGoggles;
 
     //Blocks
     public static BlockArmorForge armorForge;
@@ -75,6 +79,9 @@ public class ConstructsArmor {
 
     public static void registerItems(IForgeRegistry<Item> registry) {
         book = ConstructUtils.registerItem(registry, new ItemArmoryBook(), "book");
+        travelBelt = ConstructUtils.registerItem(registry, new ItemTravelBelt(), "travel_belt");
+        travelSack = ConstructUtils.registerItem(registry, new ItemTravelSack(), "travel_sack");
+        travelGoggles = ConstructUtils.registerItem(registry, new ItemTravelGoggles(), "travel_goggles");
         polishingKit = (ItemPolishingKit) registerArmorPart(registry, new ItemPolishingKit(), "polishing_kit");
         polishingKit.setCreativeTab(TinkerRegistry.tabParts);
         TinkerRegistry.registerToolPart(polishingKit);

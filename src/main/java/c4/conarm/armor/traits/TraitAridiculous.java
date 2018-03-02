@@ -15,7 +15,7 @@ import net.minecraft.world.biome.Biome;
 public class TraitAridiculous extends AbstractArmorTrait {
 
     public TraitAridiculous() {
-        super("aridiculous_armor", TextFormatting.DARK_RED);
+        super("aridiculous", TextFormatting.DARK_RED);
     }
 
     @Override

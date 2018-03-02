@@ -19,7 +19,7 @@ public class TraitTasty extends AbstractArmorTrait {
     public static final int EAT_COST = 5;
 
     public TraitTasty() {
-        super("tasty_armor", TextFormatting.RED);
+        super("tasty", TextFormatting.RED);
     }
 
     @Override

@@ -11,7 +11,7 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 public class TraitDense extends AbstractArmorTrait {
 
     public TraitDense() {
-        super("dense_armor", 0xffffff);
+        super("dense", 0xffffff);
     }
 
     @Override

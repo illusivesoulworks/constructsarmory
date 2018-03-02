@@ -31,7 +31,7 @@ public class TraitAmbitious extends AbstractArmorTrait {
     public void onXPPickUp(PlayerPickupXpEvent evt) {
         int xpValue = evt.getOrb().getXpValue();
         if (xpValue > 0) {
-            int level = ArmorHelper.getArmorAbilityLevel(evt.getEntityPlayer(), this.identifier);
+            int level = (int) ArmorHelper.getArmorAbilityLevel(evt.getEntityPlayer(), this.identifier);
             int addXP = random.nextInt(level + 1);
             if (addXP > 0) {
                 evt.getEntityPlayer().addExperience(addXP);

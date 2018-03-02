@@ -20,7 +20,7 @@ public class TraitHeavy extends AbstractArmorTrait {
     private static final double KNOCKBACK_RESIST_PER_LEVEL = 0.25D;
 
     public TraitHeavy() {
-        super("heavy_armor", 0xffffff);
+        super("heavy", 0xffffff);
     }
 
     @Override

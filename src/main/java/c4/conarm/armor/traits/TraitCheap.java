@@ -10,7 +10,7 @@ import net.minecraft.util.text.TextFormatting;
 public class TraitCheap extends AbstractArmorTrait {
 
     public TraitCheap() {
-        super("cheap_armor", TextFormatting.DARK_GRAY);
+        super("cheap", TextFormatting.DARK_GRAY);
     }
 
     @Override

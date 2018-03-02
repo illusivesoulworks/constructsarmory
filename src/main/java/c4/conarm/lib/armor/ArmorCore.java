@@ -7,11 +7,14 @@ import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
 import c4.conarm.lib.utils.ArmorTooltipBuilder;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -260,7 +263,7 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
     }
 
     @Override
-    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
+    public void getSubItems(@Nonnull CreativeTabs tab, @Nonnull NonNullList<ItemStack> subItems) {
 
         if (this.isInCreativeTab(tab)) {
             addDefaultSubItems(subItems);
@@ -305,9 +308,9 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
             }
         }
 
-        if (multimap.isEmpty()) {
-            multimap.clear();
-        }
+        //We don't use these attributes anyways and keeping them activates an unnecessary tooltip
+        multimap.removeAll(SharedMonsterAttributes.ARMOR.getName());
+        multimap.removeAll(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName());
 
         return multimap;
     }

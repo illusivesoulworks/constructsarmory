@@ -35,7 +35,7 @@ public class TraitCombustible extends AbstractArmorTrait {
 
         if (evt.getEntityLiving() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) evt.getEntityLiving();
-            int level = ArmorHelper.getArmorAbilityLevel(player, this.identifier);
+            int level = (int) ArmorHelper.getArmorAbilityLevel(player, this.identifier);
             if (level > 0) {
                 double radius = 1.5D * level;
                 BlockPos pos = player.getPosition();

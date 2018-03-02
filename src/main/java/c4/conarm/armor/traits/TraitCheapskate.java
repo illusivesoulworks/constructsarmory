@@ -13,7 +13,7 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 public class TraitCheapskate extends AbstractArmorTrait {
 
     public TraitCheapskate() {
-        super("cheapskate_armor", TextFormatting.GRAY);
+        super("cheapskate", TextFormatting.GRAY);
         MinecraftForge.EVENT_BUS.register(this);
     }
 

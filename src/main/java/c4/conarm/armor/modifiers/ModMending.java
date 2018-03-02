@@ -27,7 +27,7 @@ public class ModMending extends ArmorModifierTrait {
     private static final int DELAY = 20 * 30; //Every 30s
 
     public ModMending() {
-        super("mending_armor", 0x43ab32, 3, 0);
+        super("mending", 0x43ab32, 3, 0);
 
         MinecraftForge.EVENT_BUS.register(this);
     }

@@ -32,7 +32,7 @@ public class TraitEnderport extends AbstractArmorTrait {
     @SubscribeEvent
     public void onLivingHurt(LivingHurtEvent evt) {
         if (evt.getEntityLiving() instanceof EntityPlayer && isStuck(evt.getSource())) {
-            int level = ArmorHelper.getArmorAbilityLevel((EntityPlayer) evt.getEntityLiving(), getModifierIdentifier());
+            int level = (int) ArmorHelper.getArmorAbilityLevel((EntityPlayer) evt.getEntityLiving(), getModifierIdentifier());
             if (level > 0 && random.nextFloat() < MODIFIER * level) {
                 for (int i = 0; i < 64; i++) {
                     if (teleportRandomly(evt.getEntityLiving())) {

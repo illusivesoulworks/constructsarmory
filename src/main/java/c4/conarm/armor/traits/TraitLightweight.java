@@ -24,7 +24,7 @@ public class TraitLightweight extends AbstractArmorTrait {
     private static final double SPEED_PER_LEVEL = 0.1D;
 
     public TraitLightweight() {
-        super("lightweight_armor", 0x00ff00);
+        super("lightweight", 0x00ff00);
     }
 
     @Override

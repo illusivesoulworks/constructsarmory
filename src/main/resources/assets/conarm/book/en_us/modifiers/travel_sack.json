@@ -1,0 +1,17 @@
+{
+  "armormodifier": "travel_sack_armor",
+  "text": [
+    {
+      "text": "No explorer is complete without some extra storage space by their side!"
+    }
+  ],
+  "effects": [
+    "Provides 27 slots of extra storage space",
+    "Opens knapsack on key press",
+    "Only 1 accessory per item",
+    "Requires 2 modifiers"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

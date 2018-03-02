@@ -22,7 +22,7 @@ public class TraitSuperhot extends AbstractArmorTrait {
     @Override
     public void onAbilityTick(ArmorAbilityHandler.IArmorAbilities abilities, World world, EntityPlayer player) {
         if (player.isBurning()) {
-            superhotPotion.apply(player, 25, ArmorHelper.getArmorAbilityLevel(player, this.getIdentifier()));
+            superhotPotion.apply(player, 25, (int) ArmorHelper.getArmorAbilityLevel(player, this.getIdentifier()));
         }
     }
 

@@ -17,7 +17,7 @@ public class TraitEcological extends AbstractArmorTrait {
     private static final int CHANCE = 120;
 
     public TraitEcological() {
-        super("ecological_armor", TextFormatting.GREEN);
+        super("ecological", TextFormatting.GREEN);
     }
 
     @Override

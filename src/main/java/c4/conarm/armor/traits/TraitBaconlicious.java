@@ -14,7 +14,7 @@ public class TraitBaconlicious extends AbstractArmorTrait {
     private static final float chance = 0.025F;
 
     public TraitBaconlicious() {
-        super("baconlicious_armor", 0xffaaaa);
+        super("baconlicious", 0xffaaaa);
     }
 
     @Override

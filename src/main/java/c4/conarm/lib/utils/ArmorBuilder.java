@@ -2,6 +2,7 @@ package c4.conarm.lib.utils;
 
 import c4.conarm.ConstructsArmory;
 import c4.conarm.lib.armor.ArmorCore;
+import c4.conarm.lib.modifiers.AccessoryModifier;
 import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.lib.events.ArmoryEvent;
 import c4.conarm.lib.ArmoryRegistry;
@@ -129,12 +130,24 @@ public class ArmorBuilder {
             }
 
             modifier.applyEffect(rootNBT, tag);
+
             if(!tag.hasNoTags()) {
+
                 int indexNew = TinkerUtil.getIndexInList(modifiersTag, modifier.getIdentifier());
-                if(indexNew >= 0) {
+
+                if (modifier instanceof AccessoryModifier && indexNew != 0) {
+                    NBTTagList newModifiersTag = new NBTTagList();
+                    newModifiersTag.appendTag(tag);
+                    for (int j = 0; j < modifiersTag.tagCount(); j++) {
+                        if (j != indexNew) {
+                            newModifiersTag.appendTag(modifiersTag.get(j));
+                        }
+                    }
+                    TagUtil.setModifiersTagList(rootNBT, newModifiersTag);
+                    modifiersTag = TagUtil.getModifiersTagList(rootNBT);
+                } else if(indexNew >= 0) {
                     modifiersTag.set(indexNew, tag);
-                }
-                else {
+                } else {
                     modifiersTag.appendTag(tag);
                 }
             }

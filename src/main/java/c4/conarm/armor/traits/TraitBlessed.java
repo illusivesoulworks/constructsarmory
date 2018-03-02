@@ -38,7 +38,7 @@ public class TraitBlessed extends AbstractArmorTrait {
             if (evt.getSource().getImmediateSource() instanceof EntityLivingBase) {
                 EntityLivingBase entity = (EntityLivingBase) evt.getSource().getImmediateSource();
                 if (entity.isEntityUndead()) {
-                    int level = ArmorHelper.getArmorAbilityLevel(player, getModifierIdentifier());
+                    int level = (int) ArmorHelper.getArmorAbilityLevel(player, getModifierIdentifier());
                     if (level > 0) {
                         entity.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 100 * level, level - 1));
                     }

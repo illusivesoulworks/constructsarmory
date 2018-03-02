@@ -4,23 +4,20 @@ import c4.conarm.armor.modifiers.*;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.materials.ArmorMaterialType;
+import c4.conarm.lib.modifiers.AccessoryModifier;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import scala.reflect.internal.Trees;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
-import slimeknights.tconstruct.library.materials.MaterialTypes;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
 import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.traits.ITrait;
-import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.modifiers.ModExtraTrait;
-import slimeknights.tconstruct.tools.modifiers.ModFortify;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -35,7 +32,7 @@ public class ArmorModifiers {
     public static Modifier modEmerald = new ModEmerald();
     public static Modifier modDiamond = new ModDiamond();
 //    public static Modifier modSticky = new ModSticky();
-//    public static Modifier modLowGravity = new ModLowGravity();
+    public static Modifier modShulkerweight = new ModShulkerweight();
     public static Modifier modMending = new ModMending();
     public static Modifier modFireResist = new ModFireResistant();
     public static Modifier modProjResist = new ModProjectileResistant();
@@ -44,6 +41,10 @@ public class ArmorModifiers {
     public static Modifier modReinforced = new ModReinforced();
     public static Modifier modSoulbound = new ModSoulbound();
     public static Modifier modPolished = new ModPolishedDisplay();
+
+    public static AccessoryModifier modTravelBelt = new ModTravelBelt();
+    public static AccessoryModifier modTravelSack = new ModTravelSack();
+    public static AccessoryModifier modTravelGoggles = new ModTravelGoggles();
 //    public static Modifier modFrostStep = new ModFrostStep();
 //    public static Modifier modMagmaStep = new ModMagmaStep();
 //    public static Modifier modArthopodWard = new ModAntiMonsterResistance("arthopod_ward", 0x61ba49, 5, 24, EnumCreatureAttribute.ARTHROPOD);
@@ -57,23 +58,19 @@ public class ArmorModifiers {
 
 //        ArmoryRegistry.registerModifier(modSilkstep);
 //        modSilkstep.addItem(TinkerCommons.matSilkyJewel, 2, 1);
-//
+
+        //Modifiers that use the same items as TCon need to be registered with their identifier instead
         ArmoryRegistry.registerModifier(TinkerModifiers.modHaste.getIdentifier(), modSpeedy);
-
         ArmoryRegistry.registerModifier(TinkerModifiers.modNecrotic.getIdentifier(), modParasitic);
-
         ArmoryRegistry.registerModifier(TinkerModifiers.modDiamond.getIdentifier(), ArmorModifiers.modDiamond);
-
         ArmoryRegistry.registerModifier(TinkerModifiers.modEmerald.getIdentifier(), ArmorModifiers.modEmerald);
-//        modEmerald.addItem("gemEmerald");
-//
+        ArmoryRegistry.registerModifier(TinkerModifiers.modReinforced.getIdentifier(), ArmorModifiers.modReinforced);
+        ArmoryRegistry.registerModifier(TinkerModifiers.modSoulbound.getIdentifier(), ArmorModifiers.modSoulbound);
+        ArmoryRegistry.registerModifier(TinkerModifiers.modShulking.getIdentifier(), modShulkerweight);
+        ArmoryRegistry.registerModifier(TinkerModifiers.modMendingMoss.getIdentifier(), modMending);
+
 //        ArmoryRegistry.registerModifier(modSticky);
 //        modSticky.addItem(Blocks.WEB, 1);
-//
-//        ArmoryRegistry.registerModifier(modLowGravity);
-//        modLowGravity.addItem(Items.CHORUS_FRUIT_POPPED);
-//
-        ArmoryRegistry.registerModifier(TinkerModifiers.modMendingMoss.getIdentifier(), modMending);
 
         ArmoryRegistry.registerModifier(modFireResist);
         modFireResist.addItem(Items.BLAZE_POWDER);
@@ -87,8 +84,15 @@ public class ArmorModifiers {
         ArmoryRegistry.registerModifier(modResist);
         modResist.addItem(Blocks.OBSIDIAN, 1);
 
-        ArmoryRegistry.registerModifier(TinkerModifiers.modReinforced.getIdentifier(), ArmorModifiers.modReinforced);
-//
+        ArmoryRegistry.registerModifier(modTravelBelt);
+        modTravelBelt.addItem(ConstructsArmor.travelBelt);
+
+        ArmoryRegistry.registerModifier(modTravelSack);
+        modTravelSack.addItem(ConstructsArmor.travelSack);
+
+        ArmoryRegistry.registerModifier(modTravelGoggles);
+        modTravelGoggles.addItem(ConstructsArmor.travelGoggles);
+
 //        ArmoryRegistry.registerModifier(modFrostStep);
 //        modFrostStep.addItem(Blocks.PACKED_ICE, 1);
 //
@@ -100,8 +104,6 @@ public class ArmorModifiers {
 //
 //        ArmoryRegistry.registerModifier(modHolyWard);
 //        modHolyWard.addItem(TinkerCommons.consecratedSoil, 1, 1);
-
-        ArmoryRegistry.registerModifier(TinkerModifiers.modSoulbound.getIdentifier(), ArmorModifiers.modSoulbound);
 
         ArmoryRegistry.registerModifier(modPolished);
     }
@@ -134,6 +136,7 @@ public class ArmorModifiers {
         partMaterialType.getPossibleParts().forEach(part -> registerExtraTraitModifiers(material, armor, partMaterialType, part));
     }
 
+    @SuppressWarnings("unchecked")
     private static <T extends Item & IToolPart> void registerExtraTraitModifiers(Material material, ArmorCore armor, PartMaterialType partMaterialType, IToolPart armorPart) {
         if(armorPart instanceof Item) {
             Collection<ITrait> traits = partMaterialType.getApplicableTraitsForMaterial(material);

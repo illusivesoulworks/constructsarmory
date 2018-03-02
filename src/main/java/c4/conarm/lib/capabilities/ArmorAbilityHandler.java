@@ -15,6 +15,7 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import javax.annotation.Nonnull;
 import java.util.Map;
 
 public class ArmorAbilityHandler {
@@ -60,14 +61,14 @@ public class ArmorAbilityHandler {
             this.abilityMap = abilityMap;
         }
 
-        public void addAbility(String identifier) {
-            abilityMap.merge(identifier, 1, (a, b) -> Math.min(4, a + b));
+        public void addAbility(String identifier, int amount) {
+            abilityMap.merge(identifier, amount, (a, b) -> a + b);
         }
 
-        public void removeAbility(String identifier) {
+        public void removeAbility(String identifier, int amount) {
             if (abilityMap.get(identifier) != null) {
 
-                int level = abilityMap.get(identifier) - 1;
+                int level = abilityMap.get(identifier) - amount;
 
                 if (level <= 0) {
                     abilityMap.remove(identifier);
@@ -92,9 +93,9 @@ public class ArmorAbilityHandler {
 
         void setAbilityMap(Map<String, Integer> abilityMap);
 
-        void addAbility(String identifier);
+        void addAbility(String identifier, int amount);
 
-        void removeAbility(String identifier);
+        void removeAbility(String identifier, int amount);
 
         int getAbilityLevel(String identifier);
     }
@@ -104,12 +105,12 @@ public class ArmorAbilityHandler {
         private IArmorAbilities instance = ARMOR_AB_CAP.getDefaultInstance();
 
         @Override
-        public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
+        public boolean hasCapability(@Nonnull Capability<?> capability, EnumFacing facing) {
             return capability == ARMOR_AB_CAP;
         }
 
         @Override
-        public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+        public <T> T getCapability(@Nonnull Capability<T> capability, EnumFacing facing) {
             return capability == ARMOR_AB_CAP ? ARMOR_AB_CAP.<T> cast(this.instance) : null;
         }
 

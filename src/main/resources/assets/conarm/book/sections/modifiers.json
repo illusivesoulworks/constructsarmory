@@ -45,5 +45,17 @@
   {
     "type": "armormodifier_polished",
     "data": "modifiers/polished.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/travel_goggles.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/travel_sack.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/travel_belt.json"
   }
 ]

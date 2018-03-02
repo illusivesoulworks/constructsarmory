@@ -22,7 +22,7 @@ public class ModReinforced extends ArmorModifierTrait {
     private static final float chancePerLevel = 0.20F;
 
     public ModReinforced() {
-        super("reinforced_armor", 0x502e83, 5, 0);
+        super("reinforced", 0x502e83, 5, 0);
     }
 
     private float getReinforcedChance(NBTTagCompound modifierTag) {

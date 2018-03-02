@@ -5,12 +5,14 @@ import c4.conarm.armor.traits.TraitCalcic;
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import c4.conarm.lib.events.ArmoryEvent;
 import c4.conarm.lib.tinkering.TinkersArmor;
+import c4.conarm.lib.traits.IArmorAbility;
 import c4.conarm.lib.traits.IArmorTrait;
 import com.google.common.collect.Maps;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
@@ -21,8 +23,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.traits.ITrait;
+import slimeknights.tconstruct.library.utils.ModifierTagHolder;
 import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 import java.util.Map;
@@ -68,8 +73,14 @@ public class ArmorEvents {
                 NBTTagList list = TagUtil.getTraitsTagList(from);
                 for (int i = 0; i < list.tagCount(); i++) {
                     ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
-                    if (trait != null) {
-                        ArmorHelper.removeArmorAbility(player, trait.getIdentifier());
+                    if (trait != null && trait instanceof IArmorAbility) {
+                        NBTTagCompound modifierTag = new NBTTagCompound();
+                        NBTTagList tagList = TagUtil.getModifiersTagList(TagUtil.getTagSafe(from));
+                        int index = TinkerUtil.getIndexInList(tagList, trait.getIdentifier());
+                        if(index >= 0) {
+                            modifierTag = tagList.getCompoundTagAt(index);
+                        }
+                        ArmorHelper.removeArmorAbility(player, trait.getIdentifier(), ((IArmorAbility) trait).getAbilityLevel(modifierTag));
                     }
                 }
             }
@@ -80,8 +91,14 @@ public class ArmorEvents {
                 NBTTagList list = TagUtil.getTraitsTagList(to);
                 for (int i = 0; i < list.tagCount(); i++) {
                     ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
-                    if (trait != null) {
-                        ArmorHelper.addArmorAbility(player, trait.getIdentifier());
+                    if (trait != null && trait instanceof IArmorAbility) {
+                        NBTTagCompound modifierTag = new NBTTagCompound();
+                        NBTTagList tagList = TagUtil.getModifiersTagList(TagUtil.getTagSafe(from));
+                        int index = TinkerUtil.getIndexInList(tagList, trait.getIdentifier());
+                        if(index >= 0) {
+                            modifierTag = tagList.getCompoundTagAt(index);
+                        }
+                        ArmorHelper.addArmorAbility(player, trait.getIdentifier(), ((IArmorAbility) trait).getAbilityLevel(modifierTag));
                     }
                 }
             }

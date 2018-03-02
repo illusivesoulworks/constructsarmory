@@ -37,7 +37,13 @@ public class ArmorModifierTrait extends AbstractArmorTrait implements IModifierD
             if(maxLevel > 0) {
                 addAspects(new ModifierAspect.LevelAspect(this, maxLevel));
             }
-            addAspects(new ModifierAspect.DataAspect(this, color), ModifierAspect.freeModifier);
+            addAspects(new ModifierAspect.DataAspect(this, color));
+
+            if (this instanceof AccessoryModifier) {
+                addAspects(new ModifierAspect.FreeModifierAspect(2));
+            } else {
+                addAspects(ModifierAspect.freeModifier);
+            }
         }
     }
 

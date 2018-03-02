@@ -1,0 +1,17 @@
+{
+  "armormodifier": "travel_goggles_armor",
+  "text": [
+    {
+      "text": "While wearing these goggles, you can see distant things as if they were much closer."
+    }
+  ],
+  "effects": [
+    "Allows zooming in on distant sights",
+    "Toggles zoom on key press",
+    "Only 1 accessory per item",
+    "Requires 2 modifiers"
+  ],
+  "demoArmor": [
+    "conarm:helmet"
+  ]
+}

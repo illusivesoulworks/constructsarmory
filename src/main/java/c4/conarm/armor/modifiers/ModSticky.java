@@ -22,7 +22,7 @@ public class ModSticky extends ArmorModifierTrait {
             EntityLivingBase entityIn = (EntityLivingBase) evt.getSource().getImmediateSource();
             if (!entityIn.isPotionActive(MobEffects.SLOWNESS)) {
                 if (evt.getEntity() instanceof EntityPlayer) {
-                    int level = ArmorHelper.getArmorAbilityLevel((EntityPlayer) evt.getEntity(), this.identifier);
+                    int level = (int) ArmorHelper.getArmorAbilityLevel((EntityPlayer) evt.getEntity(), this.identifier);
                     entityIn.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * level, Math.max(1, level / 2)));
                 }
             }

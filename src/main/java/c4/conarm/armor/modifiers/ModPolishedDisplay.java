@@ -19,7 +19,7 @@ import java.util.List;
 public class ModPolishedDisplay extends Modifier implements IModifierDisplay {
 
   public ModPolishedDisplay() {
-    super("polished");
+    super("polished_armor");
   }
 
   @Override

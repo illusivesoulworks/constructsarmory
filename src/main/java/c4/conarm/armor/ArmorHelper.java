@@ -2,6 +2,7 @@ package c4.conarm.armor;
 
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import c4.conarm.lib.events.ArmoryEvent;
+import c4.conarm.lib.traits.IArmorAbility;
 import c4.conarm.lib.traits.IArmorTrait;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,6 +17,7 @@ import net.minecraftforge.common.ISpecialArmor;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.tools.modifiers.ModReinforced;
 
@@ -56,7 +58,7 @@ public class ArmorHelper {
         return tag.getFloat(key);
     }
 
-    public static int getArmorAbilityLevel(EntityPlayer entityplayer, String identifier) {
+    public static double getArmorAbilityLevel(EntityPlayer entityplayer, String identifier) {
         ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData(entityplayer);
         if (armorAbilities != null) {
             return armorAbilities.getAbilityLevel(identifier);
@@ -64,17 +66,17 @@ public class ArmorHelper {
         return 0;
     }
 
-    public static void addArmorAbility(EntityPlayer entityplayer, String identifier) {
+    public static void addArmorAbility(EntityPlayer entityplayer, String identifier, int amount) {
         ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData(entityplayer);
         if (armorAbilities != null) {
-            armorAbilities.addAbility(identifier);
+            armorAbilities.addAbility(identifier, amount);
         }
     }
 
-    public static void removeArmorAbility(EntityPlayer entityplayer, String identifier) {
+    public static void removeArmorAbility(EntityPlayer entityplayer, String identifier, int amount) {
         ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData(entityplayer);
         if (armorAbilities != null) {
-            armorAbilities.removeAbility(identifier);
+            armorAbilities.removeAbility(identifier, amount);
         }
     }
 
@@ -107,7 +109,16 @@ public class ArmorHelper {
         if(ToolHelper.getCurrentDurability(stack) == 0) {
             ToolHelper.breakTool(stack, player);
             for (int i = 0; i < list.tagCount(); i++) {
-                ArmorHelper.removeArmorAbility(player, list.getStringTagAt(i));
+                ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
+                if (trait != null && trait instanceof IArmorAbility) {
+                    NBTTagCompound modifierTag = new NBTTagCompound();
+                    NBTTagList tagList = TagUtil.getModifiersTagList(TagUtil.getTagSafe(stack));
+                    int index = TinkerUtil.getIndexInList(tagList, trait.getIdentifier());
+                    if(index >= 0) {
+                        modifierTag = tagList.getCompoundTagAt(index);
+                    }
+                    ArmorHelper.removeArmorAbility(player, trait.getIdentifier(), ((IArmorAbility) trait).getAbilityLevel(modifierTag));
+                }
             }
         }
     }
@@ -127,32 +138,4 @@ public class ArmorHelper {
 
         healArmor(stack, amount, player, EntityLiving.getSlotForItemStack(stack).getIndex());
     }
-
-//    public static void applyPotionsWithLevels(EntityPlayer player, String identifier, TinkerPotion potionIn) {
-//        int level = getArmorModifierLevel(player, identifier);
-//        int potionLevel = potionIn.getLevel(player);
-//        if (level > 0) {
-//            if (potionLevel == 0) {
-//                potionIn.apply(player, 20, level);
-//            } else if (potionLevel != level) {
-//                player.removePotionEffect(potionIn);
-//                potionIn.apply(player, 20, level);
-//            }
-//        }
-//    }
-
-//    public static int getArmorModifierLevel(EntityLivingBase player, String identifier) {
-//
-//        int level = 0;
-//
-//        for (ItemStack armor : player.getArmorInventoryList()) {
-//            if (armor.getItem() instanceof ArmorCore) {
-//                if (TinkerUtil.hasTrait(TagUtil.getTagSafe(armor), identifier)) {
-//                    level++;
-//                }
-//            }
-//        }
-//
-//        return level;
-//    }
 }

@@ -7,5 +7,6 @@ public class ConstructsNetwork {
     public static void init() {
         TinkerNetwork.instance.registerPacket(ArmorForgeSelectionPacket.class);
         TinkerNetwork.instance.registerPacket(ArmorForgeTextPacket.class);
+        TinkerNetwork.instance.registerPacketServer(AccessoryTogglePacket.class);
     }
 }

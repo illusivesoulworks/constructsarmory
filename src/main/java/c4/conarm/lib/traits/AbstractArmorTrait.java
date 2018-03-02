@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -18,14 +19,14 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 import javax.annotation.Nonnull;
 
-public class AbstractArmorTrait extends AbstractTrait implements IArmorTrait {
+public class AbstractArmorTrait extends AbstractTrait implements IArmorTrait, IArmorAbility {
 
     public AbstractArmorTrait(String identifier, TextFormatting color) {
-        super(identifier, color);
+        super(identifier + "_armor", color);
     }
 
     public AbstractArmorTrait(String identifier, int color) {
-        super(identifier, color);
+        super(identifier + "_armor", color);
     }
 
     @Override
@@ -71,5 +72,10 @@ public class AbstractArmorTrait extends AbstractTrait implements IArmorTrait {
     @Override
     public int onArmorHeal(ItemStack armor, DamageSource source, int amount, int newAmount, EntityPlayer player, int slot) {
         return newAmount;
+    }
+
+    @Override
+    public int getAbilityLevel(NBTTagCompound modifierTag) {
+        return 1;
     }
 }

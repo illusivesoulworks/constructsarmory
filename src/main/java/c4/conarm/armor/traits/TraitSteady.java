@@ -32,7 +32,7 @@ public class TraitSteady extends AbstractArmorTrait {
         if (evt.getEntityLiving() instanceof EntityPlayer) {
             if (evt.getAttacker() instanceof  EntityLivingBase) {
                 EntityPlayer player = (EntityPlayer) evt.getEntityLiving();
-                int level = ArmorHelper.getArmorAbilityLevel(player, this.identifier);
+                int level = (int) ArmorHelper.getArmorAbilityLevel(player, this.identifier);
                 if (level > 0) {
                     evt.setStrength(evt.getStrength() / level);
                 }
@@ -46,7 +46,7 @@ public class TraitSteady extends AbstractArmorTrait {
             if (evt.getSource().getImmediateSource() instanceof EntityLivingBase) {
                 EntityPlayer player = (EntityPlayer) evt.getEntityLiving();
                 EntityLivingBase entity = (EntityLivingBase) evt.getSource().getImmediateSource();
-                int level = ArmorHelper.getArmorAbilityLevel(player, this.identifier);
+                int level = (int) ArmorHelper.getArmorAbilityLevel(player, this.identifier);
                 if (level > 0) {
                     entity.knockBack(entity, level * 0.15F, (double) MathHelper.sin(player.rotationYaw * 0.017453292F), (double)(-MathHelper.cos(player.rotationYaw * 0.017453292F)));
                 }
