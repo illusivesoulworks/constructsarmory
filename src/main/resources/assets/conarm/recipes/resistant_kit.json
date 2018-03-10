@@ -1,0 +1,20 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "ooo",
+    "oko",
+    "ooo"
+  ],
+  "key": {
+    "o": {
+      "type": "forge:ore_dict",
+      "ore": "obsidian"
+    },
+    "k": {
+      "item": "conarm:armor_kit"
+    }
+  },
+  "result": {
+    "item": "conarm:resistant_kit"
+  }
+}

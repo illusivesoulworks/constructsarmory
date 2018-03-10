@@ -37,7 +37,7 @@ public class ContentArmorModifierPolished extends ContentArmorModifier {
         for(int i = 0; i < inputItems[0].length; i++) {
             if(inputItems[0][i].getItem() == ConstructsArmor.polishingKit) {
                 Material material = ConstructsArmor.polishingKit.getMaterial(inputItems[0][i]);
-                IModifier modifier = ArmoryRegistry.getArmorModifier("polished" + material.getIdentifier());
+                IModifier modifier = ArmoryRegistry.getArmorModifier("polished" + material.getIdentifier() + "_armor");
                 if(modifier != null) {
                     ItemStack stack = demo.get(i % demo.size()).copy();
                     modifier.apply(stack);

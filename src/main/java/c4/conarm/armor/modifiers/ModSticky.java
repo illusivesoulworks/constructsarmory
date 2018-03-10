@@ -27,6 +27,6 @@ public class ModSticky extends ArmorModifierTrait {
                 }
             }
         }
-        return onDamaged(armor, player, source, damage, newDamage, evt);
+        return super.onDamaged(armor, player, source, damage, newDamage, evt);
     }
 }

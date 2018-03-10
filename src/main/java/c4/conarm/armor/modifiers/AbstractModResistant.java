@@ -12,7 +12,7 @@ import slimeknights.tconstruct.library.utils.ToolBuilder;
 
 public abstract class AbstractModResistant extends ArmorModifierTrait {
 
-    protected static final int baseCount = 15;
+    protected static final int baseCount = 1;
     protected static final int maxLevel = 4;
 
     private final Enchantment enchantment;

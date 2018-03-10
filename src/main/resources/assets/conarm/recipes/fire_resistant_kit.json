@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bbb",
+    "bkb",
+    "bbb"
+  ],
+  "key": {
+    "b": {
+      "item": "minecraft:blaze_powder"
+    },
+    "k": {
+      "item": "conarm:armor_kit"
+    }
+  },
+  "result": {
+    "item": "conarm:fire_resistant_kit"
+  }
+}

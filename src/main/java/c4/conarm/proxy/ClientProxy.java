@@ -12,20 +12,9 @@ import c4.conarm.client.ArmorModelUtils;
 import c4.conarm.lib.ConstructUtils;
 import c4.conarm.lib.book.ArmoryBook;
 import c4.conarm.lib.client.KeyInputEvent;
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderLivingBase;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.RenderPlayer;
-import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -39,15 +28,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import scala.collection.parallel.ParIterableLike;
 import slimeknights.tconstruct.common.ModelRegisterUtil;
 import slimeknights.tconstruct.library.book.TinkerBook;
 import slimeknights.tconstruct.library.client.CustomTextureCreator;
-import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.tools.ToolClientEvents;
-
-import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -85,15 +69,6 @@ public class ClientProxy extends CommonProxy {
         //Armor Forge
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ConstructsArmor.armorForge), 0, locArmorForge);
 
-        //Book
-        ModelLoader.setCustomModelResourceLocation(ConstructsArmor.book, 0, new ModelResourceLocation(ConstructsArmor.book.getRegistryName(), "inventory"));
-
-        ModelLoader.setCustomModelResourceLocation(ConstructsArmor.travelBelt, 0, new ModelResourceLocation(ConstructsArmor.travelBelt.getRegistryName(), "inventory"));
-
-        ModelLoader.setCustomModelResourceLocation(ConstructsArmor.travelSack, 0, new ModelResourceLocation(ConstructsArmor.travelSack.getRegistryName(), "inventory"));
-
-        ModelLoader.setCustomModelResourceLocation(ConstructsArmor.travelGoggles, 0, new ModelResourceLocation(ConstructsArmor.travelGoggles.getRegistryName(), "inventory"));
-
         //Armor Parts
         for (ArmorPart armorPart : ArmoryRegistry.armorParts) {
             ModelRegisterUtil.registerPartModel(armorPart);
@@ -103,6 +78,9 @@ public class ClientProxy extends CommonProxy {
         for (ArmorCore armor : ArmoryRegistry.armor) {
             ArmorModelUtils.registerArmorModel(armor);
         }
+
+        //All other items
+        ConstructsArmor.initModels();
     }
 
     @SubscribeEvent

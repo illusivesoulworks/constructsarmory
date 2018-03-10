@@ -7,6 +7,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 
@@ -55,6 +56,13 @@ public class DebugCommand extends CommandBase {
             for (String identifier : armorAbilities.getAbilityMap().keySet()) {
                 info.add(String.format("\n%s: level %s", identifier, armorAbilities.getAbilityLevel(identifier)));
             }
+        }
+
+        ItemStack stack = ((EntityPlayer) sender).getHeldItemMainhand().copy();
+        ItemStack stack2 = ((EntityPlayer) sender).getHeldItemOffhand().copy();
+
+        if (ItemStack.areItemStacksEqual(stack, stack2)) {
+            info.add("Yes");
         }
 
         ConstructsArmory.logger.info(info);

@@ -1,8 +1,0 @@
-{
-  "textures": {
-    "layer0": "conarm:models/armor/model_core",
-    "layer1": "conarm:models/armor/model_plate",
-    "layer2": "conarm:models/armor/model_trim",
-    "broken0": "conarm:models/armor/model_core"
-  }
-}

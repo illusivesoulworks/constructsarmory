@@ -12,7 +12,7 @@ import slimeknights.tconstruct.library.Util;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class AccessoryBase extends Item {
+public class AccessoryBase extends ItemBase {
 
     private final EntityEquipmentSlot slot;
 

@@ -35,7 +35,7 @@ public class ModSpeedy extends ArmorModifierTrait {
             UUID.fromString("ac16532f-d0b0-4b23-a89a-85ecaa3b5d7d") };
 
     public ModSpeedy() {
-        super("speedy", 0x910000, 1, 50);
+        super("speedy", 0x910000, 1, 10);
     }
 
     @Override

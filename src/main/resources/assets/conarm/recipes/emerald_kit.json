@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "type":"forge:ore_dict",
+      "ore": "gemEmerald"
+    },
+    {
+      "item": "conarm:armor_kit"
+    }
+  ],
+  "result": {
+    "item": "conarm:emerald_kit"
+  }
+}

@@ -6,7 +6,7 @@ import net.minecraft.init.Enchantments;
 public class ModBlastResistant extends AbstractModResistant {
 
     public ModBlastResistant() {
-        super("blast_resistant", 0xffaa23, Enchantments.BLAST_PROTECTION);
+        super("blast_resistant", 0x862d2d, Enchantments.BLAST_PROTECTION);
     }
 
     @Override

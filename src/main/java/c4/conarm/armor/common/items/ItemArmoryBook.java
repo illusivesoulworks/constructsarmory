@@ -19,7 +19,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemArmoryBook extends Item {
+public class ItemArmoryBook extends ItemBase {
 
     public ItemArmoryBook() {
         this.setCreativeTab(TinkerRegistry.tabGeneral);

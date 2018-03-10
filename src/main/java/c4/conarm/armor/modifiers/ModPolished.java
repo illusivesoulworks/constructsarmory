@@ -5,6 +5,7 @@ import c4.conarm.armor.ConstructsArmor;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.materials.PlatesMaterialStats;
+import c4.conarm.lib.modifiers.ArmorModifier;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -23,7 +24,7 @@ import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.tools.TinkerTools;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
-public class ModPolished extends ToolModifier {
+public class ModPolished extends ArmorModifier {
 
     public final Material material;
 

@@ -34,6 +34,18 @@ item.conarm.travel_belt.name=Traveller's Belt
 item.conarm.travel_sack.name=Traveller's Knapsack
 item.conarm.travel_goggles.name=Traveller's Goggles
 
+item.conarm.armor_kit.name=Armor Kit
+item.conarm.speedy_kit.name=Speedy Armor Kit
+item.conarm.diamond_kit.name=Diamond Armor Kit
+item.conarm.emerald_kit.name=Emerald Armor Kit
+item.conarm.soulbound_kit.name=Soulbound Armor Kit
+item.conarm.mending_moss_kit.name=Mending Moss Armor Kit
+item.conarm.reinforcement_kit.name=Reinforced Armor Kit
+item.conarm.resistant_kit.name=Resistant Armor Kit
+item.conarm.fire_resistant_kit.name=Fire Resistant Armor Kit
+item.conarm.blast_resistant_kit.name=Blast Resistant Armor Kit
+item.conarm.projectile_resistant_kit.name=Projectile Resistant Armor Kit
+
 key.conarm.category=Construct's Armory Accessories
 key.conarm.toggle_boots.desc=Boots
 key.conarm.toggle_chest.desc=Chestplate

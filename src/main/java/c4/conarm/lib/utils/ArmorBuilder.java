@@ -178,19 +178,13 @@ public class ArmorBuilder {
         NonNullList<ItemStack> usedStacks = Util.deepCopyFixedNonNullList(input);
 
         Set<IModifier> appliedModifiers = Sets.newHashSet();
-        for(IModifier modifier : TinkerRegistry.getAllModifiers()) {
+        for(IModifier modifier : ArmoryRegistry.getAllArmorModifiers()) {
             Optional<RecipeMatch.Match> matchOptional;
             do {
                 matchOptional = modifier.matches(stacks);
                 ItemStack backup = copy.copy();
 
                 if(matchOptional.isPresent()) {
-                    IModifier actualModifier = ArmoryRegistry.getArmorModifier(modifier.getIdentifier());
-                    if (actualModifier == null) {
-                        break;
-                    } else {
-                        modifier = actualModifier;
-                    }
                     RecipeMatch.Match match = matchOptional.get();
                     while(match.amount > 0) {
                         TinkerGuiException caughtException = null;

@@ -1,0 +1,20 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "fff",
+    "fkf",
+    "fff"
+  ],
+  "key": {
+    "f": {
+      "type": "forge:ore_dict",
+      "ore": "feather"
+    },
+    "k": {
+      "item": "conarm:armor_kit"
+    }
+  },
+  "result": {
+    "item": "conarm:projectile_resistant_kit"
+  }
+}

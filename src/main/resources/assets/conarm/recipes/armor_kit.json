@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " c ",
+    "cpc",
+    " c "
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:clay_ball"
+    },
+    "p": {
+      "item": "tconstruct:pattern",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "conarm:armor_kit"
+  }
+}

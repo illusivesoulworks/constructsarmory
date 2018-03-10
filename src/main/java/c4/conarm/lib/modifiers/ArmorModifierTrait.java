@@ -1,5 +1,6 @@
 package c4.conarm.lib.modifiers;
 
+import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
@@ -49,8 +50,10 @@ public class ArmorModifierTrait extends AbstractArmorTrait implements IModifierD
 
     @Override
     public boolean canApplyCustom(ItemStack stack) {
-        // not present yet, ok
-        if(super.canApplyCustom(stack)) {
+        if (!(stack.getItem() instanceof TinkersArmor)) {
+            return false;
+        }
+        else if(super.canApplyCustom(stack)) {
             return true;
         }
         // no max level

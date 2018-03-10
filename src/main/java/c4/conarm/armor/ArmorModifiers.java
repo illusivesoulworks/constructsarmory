@@ -10,6 +10,8 @@ import com.google.common.collect.Lists;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.Modifier;
@@ -59,30 +61,41 @@ public class ArmorModifiers {
 //        ArmoryRegistry.registerModifier(modSilkstep);
 //        modSilkstep.addItem(TinkerCommons.matSilkyJewel, 2, 1);
 
-        //Modifiers that use the same items as TCon need to be registered with their identifier instead
-        ArmoryRegistry.registerModifier(TinkerModifiers.modHaste.getIdentifier(), modSpeedy);
-        ArmoryRegistry.registerModifier(TinkerModifiers.modNecrotic.getIdentifier(), modParasitic);
-        ArmoryRegistry.registerModifier(TinkerModifiers.modDiamond.getIdentifier(), ArmorModifiers.modDiamond);
-        ArmoryRegistry.registerModifier(TinkerModifiers.modEmerald.getIdentifier(), ArmorModifiers.modEmerald);
-        ArmoryRegistry.registerModifier(TinkerModifiers.modReinforced.getIdentifier(), ArmorModifiers.modReinforced);
-        ArmoryRegistry.registerModifier(TinkerModifiers.modSoulbound.getIdentifier(), ArmorModifiers.modSoulbound);
-        ArmoryRegistry.registerModifier(TinkerModifiers.modShulking.getIdentifier(), modShulkerweight);
-        ArmoryRegistry.registerModifier(TinkerModifiers.modMendingMoss.getIdentifier(), modMending);
-
 //        ArmoryRegistry.registerModifier(modSticky);
 //        modSticky.addItem(Blocks.WEB, 1);
 
+        ArmoryRegistry.registerModifier(modSpeedy);
+        modSpeedy.addItem(ConstructsArmor.speedyKit);
+
+        ArmoryRegistry.registerModifier(modParasitic);
+        modParasitic.addItem(ConstructsArmor.parasiticKit);
+
+        ArmoryRegistry.registerModifier(modDiamond);
+        modDiamond.addItem(ConstructsArmor.diamondKit);
+
+        ArmoryRegistry.registerModifier(modEmerald);
+        modEmerald.addItem(ConstructsArmor.emeraldKit);
+
+        ArmoryRegistry.registerModifier(modSoulbound);
+        modSoulbound.addItem(ConstructsArmor.soulboundKit);
+
+        ArmoryRegistry.registerModifier(modMending);
+        modMending.addItem(ConstructsArmor.mendingMossKit);
+
+        ArmoryRegistry.registerModifier(modReinforced);
+        modReinforced.addItem(ConstructsArmor.reinforcementKit);
+
         ArmoryRegistry.registerModifier(modFireResist);
-        modFireResist.addItem(Items.BLAZE_POWDER);
+        modFireResist.addItem(ConstructsArmor.fireResistKit);
 
         ArmoryRegistry.registerModifier(modBlastResist);
-        modBlastResist.addItem(Items.BRICK);
+        modBlastResist.addItem(ConstructsArmor.blastResistKit);
 
         ArmoryRegistry.registerModifier(modProjResist);
-        modProjResist.addItem(Items.FEATHER);
+        modProjResist.addItem(ConstructsArmor.projResistKit);
 
         ArmoryRegistry.registerModifier(modResist);
-        modResist.addItem(Blocks.OBSIDIAN, 1);
+        modResist.addItem(ConstructsArmor.resistKit);
 
         ArmoryRegistry.registerModifier(modTravelBelt);
         modTravelBelt.addItem(ConstructsArmor.travelBelt);
@@ -106,6 +119,7 @@ public class ArmorModifiers {
 //        modHolyWard.addItem(TinkerCommons.consecratedSoil, 1, 1);
 
         ArmoryRegistry.registerModifier(modPolished);
+        ArmoryRegistry.registerModifier(TinkerModifiers.modCreative.getIdentifier(), TinkerModifiers.modCreative);
     }
 
     public static void registerPolishedModifiers() {

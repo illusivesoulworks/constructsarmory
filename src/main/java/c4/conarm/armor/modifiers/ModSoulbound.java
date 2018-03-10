@@ -1,5 +1,6 @@
 package c4.conarm.armor.modifiers;
 
+import c4.conarm.lib.modifiers.ArmorModifier;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -16,10 +17,10 @@ import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 import java.util.ListIterator;
 
 //This is just a copy of the soulbound modifier from Tinkers' Construct with a different identifier
-public class ModSoulbound extends ToolModifier {
+public class ModSoulbound extends ArmorModifier {
 
     public ModSoulbound() {
-        super("soulbound_armor", 0xf5fbac);
+        super("soulbound", 0xf5fbac);
 
         addAspects(new ModifierAspect.DataAspect(this), new ModifierAspect.SingleAspect(this));
 
