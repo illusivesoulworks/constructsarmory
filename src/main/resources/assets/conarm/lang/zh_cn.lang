@@ -1,11 +1,11 @@
-tile.conarm.armorforge.name=Armor Forge
+tile.conarm.armorforge.name=护甲装配台
 
-gui.armorforge.name=Armor Forge
+gui.armorforge.name=护甲装配台
 
-accessory.head.tooltip=Helmet Accessory
-accessory.chest.tooltip=Chestplate Accessory
-accessory.legs.tooltip=Leggings Accessory
-accessory.feet.tooltip=Boots Accessory
+accessory.head.tooltip=用于强化头盔的部件
+accessory.chest.tooltip=用于强化胸甲的部件
+accessory.legs.tooltip=用于强化护腿的部件
+accessory.feet.tooltip=用于强化靴子的部件
 
 item.conarm.helmet.name=头盔
 item.conarm.chestplate.name=胸甲
@@ -13,10 +13,10 @@ item.conarm.leggings.name=护腿
 item.conarm.boots.name=靴子
 
 item.conarm.armor_trim.name=Armor Trim
-item.conarm.helmet_core.name=Helmet Core
-item.conarm.chest_core.name=Chestplate Core
-item.conarm.leggings_core.name=Leggings Core
-item.conarm.boots_core.name=Boots Core
+item.conarm.helmet_core.name=头盔Core
+item.conarm.chest_core.name=胸甲Core
+item.conarm.leggings_core.name=护腿Core
+item.conarm.boots_core.name=靴子Core
 item.conarm.armor_plate.name=护甲板
 
 item.conarm.book.name=护甲锻造手册
@@ -47,20 +47,20 @@ item.conarm.blast_resistant_kit.name=Blast Resistant Armor Kit
 item.conarm.projectile_resistant_kit.name=Projectile Resistant Armor Kit
 
 key.conarm.category=Construct's Armory Accessories
-key.conarm.toggle_boots.desc=Boots
-key.conarm.toggle_chest.desc=Chestplate
-key.conarm.toggle_helm.desc=Helmet
-key.conarm.toggle_leg.desc=Leggings
+key.conarm.toggle_boots.desc=靴子
+key.conarm.toggle_chest.desc=胸甲
+key.conarm.toggle_helm.desc=头盔
+key.conarm.toggle_leg.desc=护腿
 
 #################
 #     Traits    #
 #################
-modifier.absorbent_armor.name=Absorbent
-modifier.absorbent_armor.desc=§oMore absorbent than other brands.§r\nYour armor gets stronger in water and rain.
+modifier.absorbent_armor.name=吸水
+modifier.absorbent_armor.desc=§oMore absorbent than other brands.§r\n你的护甲将在雨天或者水中得到强化。
 modifier.alien_armor.name=modifier.alien.name
 modifier.alien_armor.desc=modifier.alien.desc
-modifier.ambitious_armor.name=Ambitious
-modifier.ambitious_armor.desc=§oOn your way to glory!§r\nYou gain additional XP.
+modifier.ambitious_armor.name=雄心
+modifier.ambitious_armor.desc=§o通往荣耀的殿堂！§r\n你将获得额外的经验。
 modifier.aridiculous_armor.name=modifier.aridiculous.name
 modifier.aridiculous_armor.desc=§oTurn up the heat!§r\nThe armor works better in hotter environments.
 modifier.aquaspeed_armor.name=Aquaspeed
@@ -131,8 +131,8 @@ modifier.tasty_armor.name=modifier.tasty.name
 modifier.tasty_armor.desc=§oOm Nom Nom§r\nSmells so good...You'd rather eat your armor than starve.
 modifier.vengeful_armor.name=Vengeful
 modifier.vengeful_armor.desc=§oThey'll pay for this!§r\nYour attackers might not feel great after hitting you.
-modifier.voltaic_armor.name=Voltaic
-modifier.voltaic_armor.desc=§oBiribiri!§r\nGetting hit charges your armor. Once fully charged, get hit again to discharge and deal damage to all surrounding creatures.
+modifier.voltaic_armor.name=光伏
+modifier.voltaic_armor.desc=§oBiribiri！§r\nGetting hit charges your armor. Once fully charged, get hit again to discharge and deal damage to all surrounding creatures.
 
 #################
 #   Modifiers   #
@@ -168,9 +168,9 @@ modifier.speedy_armor.extra=Bonus-Speed: +%s
 #################
 #  Accessories  #
 #################
-modifier.travel_belt_armor.name=Traveller's Belt
-modifier.travel_sack_armor.name=Traveller's Knapsack
-modifier.travel_goggles_armor.name=Traveller's Goggles
+modifier.travel_belt_armor.name=旅行者腰带
+modifier.travel_sack_armor.name=旅行者背包
+modifier.travel_goggles_armor.name=旅行者护目镜
 
 #################
 #     Stats     #
