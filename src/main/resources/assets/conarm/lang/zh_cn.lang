@@ -12,35 +12,35 @@ item.conarm.chestplate.name=胸甲
 item.conarm.leggings.name=护腿
 item.conarm.boots.name=靴子
 
-item.conarm.armor_trim.name=Armor Trim
-item.conarm.helmet_core.name=头盔Core
-item.conarm.chest_core.name=胸甲Core
-item.conarm.leggings_core.name=护腿Core
-item.conarm.boots_core.name=靴子Core
+item.conarm.armor_trim.name=护甲夹板
+item.conarm.helmet_core.name=头盔基底
+item.conarm.chest_core.name=胸甲基底
+item.conarm.leggings_core.name=护腿基底
+item.conarm.boots_core.name=靴子基底
 item.conarm.armor_plate.name=护甲板
 
 item.conarm.book.name=护甲锻造手册
 item.conarm.book.tooltip=每个铁匠都需要它\nby C4
 
-item.conarm.helmet.desc=头盔可以保护你头部的安全。\nImproved vision sold separately.
-item.conarm.chestplate.desc=The Chestplate helps prevent wounds and injuries to your chest.
-item.conarm.leggings.desc=The Leggings are perfect for keeping your legs safe and sound.
-item.conarm.boots.desc=The Boots make sure that you never have to worry about stubbed toes ever again.
+item.conarm.helmet.desc=头盔有助于减少头部的损伤。\n通过部件的增强它还能提高你的视距。
+item.conarm.chestplate.desc=胸甲有助于减少胸部的损伤。
+item.conarm.leggings.desc=护腿有助于减少腿部的损伤。
+item.conarm.boots.desc=靴子有助于减少脚部的损伤。
 
-item.conarm.polishing_kit.name=Polishing Kit
-item.conarm.polishing_kit.tooltip=Combine with sand\nUpgrades your armor to the material's toughness level.
+item.conarm.polishing_kit.name=抛光工具
+item.conarm.polishing_kit.tooltip=需要同沙子一起使用\n护甲将会继承其各部分的属性以及参数。
 
-item.conarm.travel_belt.name=Traveller's Belt
-item.conarm.travel_sack.name=Traveller's Knapsack
-item.conarm.travel_goggles.name=Traveller's Goggles
+item.conarm.travel_belt.name=旅行者腰带
+item.conarm.travel_sack.name=旅行者背包
+item.conarm.travel_goggles.name=旅行者护目镜
 
-item.conarm.armor_kit.name=Armor Kit
-item.conarm.speedy_kit.name=Speedy Armor Kit
-item.conarm.diamond_kit.name=Diamond Armor Kit
-item.conarm.emerald_kit.name=Emerald Armor Kit
-item.conarm.soulbound_kit.name=Soulbound Armor Kit
-item.conarm.mending_moss_kit.name=Mending Moss Armor Kit
-item.conarm.reinforcement_kit.name=Reinforced Armor Kit
+item.conarm.armor_kit.name=护甲镶饰
+item.conarm.speedy_kit.name=速度护甲镶饰
+item.conarm.diamond_kit.name=钻石护甲镶饰
+item.conarm.emerald_kit.name=绿宝石护甲镶饰
+item.conarm.soulbound_kit.name=灵魂绑定护甲镶饰
+item.conarm.mending_moss_kit.name=修复苔藓护甲镶饰
+item.conarm.reinforcement_kit.name=耐久护甲镶饰
 item.conarm.resistant_kit.name=Resistant Armor Kit
 item.conarm.fire_resistant_kit.name=Fire Resistant Armor Kit
 item.conarm.blast_resistant_kit.name=Blast Resistant Armor Kit
@@ -56,25 +56,25 @@ key.conarm.toggle_leg.desc=护腿
 #     Traits    #
 #################
 modifier.absorbent_armor.name=吸水
-modifier.absorbent_armor.desc=§oMore absorbent than other brands.§r\n你的护甲将在雨天或者水中得到强化。
+modifier.absorbent_armor.desc=§o比海绵更好。§r\n你的护甲将在雨天或者水中得到增强。
 modifier.alien_armor.name=modifier.alien.name
 modifier.alien_armor.desc=modifier.alien.desc
 modifier.ambitious_armor.name=雄心
 modifier.ambitious_armor.desc=§o通往荣耀的殿堂！§r\n你将获得额外的经验。
 modifier.aridiculous_armor.name=modifier.aridiculous.name
-modifier.aridiculous_armor.desc=§oTurn up the heat!§r\nThe armor works better in hotter environments.
-modifier.aquaspeed_armor.name=Aquaspeed
-modifier.aquaspeed_armor.desc=§oIt's getting wet in here!§r\nThe armor is unhindered by water and loves rainy evenings.
-modifier.autoforge_armor.name=Autoforge
-modifier.autoforge_armor.desc=§oSo hot, it fixes itself!§r\nThe armor repairs itself in fire.
+modifier.aridiculous_armor.desc=§o让温度来得更高些吧！§r\n护甲将抵御高温。
+modifier.aquaspeed_armor.name=亲水
+modifier.aquaspeed_armor.desc=§o它开始渗透了！§r\n护甲将在雨天或者水中无阻前行。
+modifier.autoforge_armor.name=锻造
+modifier.autoforge_armor.desc=§o难以置信，它正在被修复！§r\n护甲将在熔岩中修复耐久。
 modifier.baconlicious_armor.name=modifier.baconlicious.name
-modifier.baconlicious_armor.desc=§oBACON!§r\nGetting hit sometimes gives bacon.
-modifier.blessed_armor.name=Blessed
-modifier.blessed_armor.desc=§oUndead, beware.§r\nWeakens undead on contact.
-modifier.calcic_armor.name=Calcic
-modifier.calcic_armor.desc=§oFor stronger bones.§r\nMilk rejuvenates both you and your armor.
+modifier.baconlicious_armor.desc=§o培根！§r\n受到伤害时有概率获得培根。
+modifier.blessed_armor.name=神圣
+modifier.blessed_armor.desc=§o小心亡灵§r\n减低亡灵生物的能力。
+modifier.calcic_armor.name=高钙
+modifier.calcic_armor.desc=§o强身健体§r\n饮用牛奶能让你与你的护甲重新恢复活力。
 modifier.cheap_armor.name=modifier.cheap.name
-modifier.cheap_armor.desc=§oMore bang for your buck!§r\nIncreases durability gained when repairing the armor.
+modifier.cheap_armor.desc=§o人肉碉堡！§r\nIncreases durability gained when repairing the armor.
 modifier.cheapskate_armor.name=modifier.cheapskate.name
 modifier.cheapskate_armor.desc=§oMight be a knockoff!§r\nStone is bad. Your armor has less durability.
 modifier.combustible_armor.name=Combustible
@@ -175,24 +175,24 @@ modifier.travel_goggles_armor.name=旅行者护目镜
 #################
 #     Stats     #
 #################
-stat.core.name=Core
-stat.core.durability.name=Durability
+stat.core.name=基底
+stat.core.durability.name=耐久
 stat.core.durability.desc=The base multiplier value for durability calculations.\nUsually an integral part to the overall durability of an armor piece.
-stat.core.armor.name=Armor
+stat.core.armor.name=护甲
 stat.core.armor.desc=How many defense points an armor piece has.\nChanges based on the body part of the armor slot.
-stat.core.armor.feet=Feet
-stat.core.armor.legs=Legs
-stat.core.armor.chest=Chest
-stat.core.armor.head=Head
+stat.core.armor.feet=靴子
+stat.core.armor.legs=护腿
+stat.core.armor.chest=胸甲
+stat.core.armor.head=头盔
 
-stat.plates.name=Plates
-stat.plates.modifier.name=Modifier
+stat.plates.name=护甲板
+stat.plates.modifier.name=强化次数
 stat.plates.modifier.desc=How suitable the armor material is as armor plating.\nThe total durability of the armor will be multiplied by this.
 stat.plates.durability.name=stat.core.durability.name
 stat.plates.durability.desc=How well the material can be worn.\nArmor durability multiplier will be changed by this amount.
-stat.plates.toughness.name=Toughness
+stat.plates.toughness.name=韧性
 stat.plates.toughness.desc=How many toughness points an armor piece has.
 
-stat.trim.name=Trim
+stat.trim.name=夹板
 stat.trim.durability.name=stat.core.durability.name
 stat.trim.durability.desc=How much the trim changes the armor durability multiplier.
