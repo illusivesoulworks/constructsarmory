@@ -1,0 +1,18 @@
+{
+  "armormodifier": "travel_belt_armor",
+  "text": [
+    {
+      "text": "戴着这个腰带，你可以随时切换你需要的物品，多么方便！"
+    }
+  ],
+  "effects": [
+    "Stores a second hotbar that you can swap to",
+    "Swaps hotbar on key press",
+    "Cannot access storage directly",
+    "只能强化一次",
+    "需要两个强化槽"
+  ],
+  "demoArmor": [
+    "conarm:leggings"
+  ]
+}
