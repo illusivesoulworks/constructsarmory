@@ -177,22 +177,22 @@ modifier.travel_goggles_armor.name=旅行者护目镜
 #################
 stat.core.name=基底
 stat.core.durability.name=耐久
-stat.core.durability.desc=The base multiplier value for durability calculations.\nUsually an integral part to the overall durability of an armor piece.
+stat.core.durability.desc=耐久计算的基准值。\n通常一个护甲的总耐久是各个部件的耐久值之和。
 stat.core.armor.name=护甲
-stat.core.armor.desc=How many defense points an armor piece has.\nChanges based on the body part of the armor slot.
+stat.core.armor.desc=护甲值的基础数值。\n基于各部位部件提供的护甲值之和。
 stat.core.armor.feet=靴子
 stat.core.armor.legs=护腿
 stat.core.armor.chest=胸甲
 stat.core.armor.head=头盔
 
 stat.plates.name=护甲板
-stat.plates.modifier.name=强化次数
-stat.plates.modifier.desc=How suitable the armor material is as armor plating.\nThe total durability of the armor will be multiplied by this.
+stat.plates.modifier.name=强化
+stat.plates.modifier.desc=这个系数决定了护甲的特性。\n护甲的总耐久度将会被乘以这个系数。
 stat.plates.durability.name=stat.core.durability.name
-stat.plates.durability.desc=How well the material can be worn.\nArmor durability multiplier will be changed by this amount.
+stat.plates.durability.desc=数值代表这种材料是否适合制作成护甲。\n护甲的总耐久度将会被乘以这个系数。
 stat.plates.toughness.name=韧性
-stat.plates.toughness.desc=How many toughness points an armor piece has.
+stat.plates.toughness.desc=护甲韧性的基础数值。
 
 stat.trim.name=夹板
 stat.trim.durability.name=stat.core.durability.name
-stat.trim.durability.desc=How much the trim changes the armor durability multiplier.
+stat.trim.durability.desc=护甲的总耐久度将会被乘以这个系数。
