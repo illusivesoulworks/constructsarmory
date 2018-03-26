@@ -3,6 +3,7 @@ package c4.conarm.lib.tinkering;
 import c4.conarm.ConstructsArmory;
 import c4.conarm.armor.ArmorHelper;
 import c4.conarm.armor.ArmorModifications;
+import c4.conarm.armor.ConstructsArmor;
 import c4.conarm.client.ModelConstructsArmor;
 import c4.conarm.lib.client.DynamicTextureHelper;
 import c4.conarm.lib.events.ArmoryEvent;
@@ -41,6 +42,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Level;
@@ -78,6 +80,7 @@ import java.util.stream.IntStream;
 public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IArmorModifyable, IRepairable, ISpecialArmor {
 
     protected final PartMaterialType[] requiredComponents;
+    protected ModelBiped model;
     private static final ItemArmor.ArmorMaterial emptyMaterial = EnumHelper.addArmorMaterial("armory", "empty", 0, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 
     public TinkersArmor(EntityEquipmentSlot slotIn, PartMaterialType... requiredComponents) {
@@ -154,8 +157,16 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
         if (resourceLocation != null) {
             return resourceLocation.toString();
         } else {
-            return "";
+            return null;
         }
+    }
+
+    public abstract String getAppearanceName();
+
+    @SideOnly(Side.CLIENT)
+    public String getArmorModelTexture(String type)
+    {
+        return String.format("%s_%s", "conarm:models/armor/armor", type);
     }
 
     @SideOnly(Side.CLIENT)
@@ -163,7 +174,10 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
     @Override
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, net.minecraft.client.model.ModelBiped _default)
     {
-        return new ModelConstructsArmor(armorSlot);
+        if (model == null) {
+            model = new ModelConstructsArmor(armorSlot);
+        }
+        return model;
     }
 
     /* Armor Information */

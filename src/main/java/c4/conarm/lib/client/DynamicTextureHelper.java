@@ -1,6 +1,8 @@
 package c4.conarm.lib.client;
 
+import c4.conarm.lib.ConstructUtils;
 import c4.conarm.lib.materials.ArmorMaterialType;
+import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.proxy.ClientProxy;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
@@ -16,6 +18,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.materials.Material;
+import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
@@ -34,18 +37,21 @@ public class DynamicTextureHelper {
     public static ResourceLocation getCachedTexture(ItemStack stack) {
         CacheKey key = getCacheKey(stack);
         ResourceLocation rl = null;
-        try {
-            rl = dynamicTextureCache.get(key, () -> getCombinedTexture(stack));
-        } catch (ExecutionException e) {
-            //NO-OP
+        if (stack.getItem() instanceof TinkersArmor) {
+            try {
+                rl = dynamicTextureCache.get(key, () -> getCombinedTexture(stack, ((TinkersArmor) stack.getItem())));
+            } catch (ExecutionException e) {
+                //NO-OP
+            }
         }
         return rl;
     }
 
-    private static ResourceLocation getCombinedTexture(ItemStack stack) {
+    private static ResourceLocation getCombinedTexture(ItemStack stack, TinkersArmor armor) {
 
         List<BufferedImage> bufferedImages = Lists.newArrayList();
         List<Material> materials = TinkerUtil.getMaterialsFromTagList(TagUtil.getBaseMaterialsTagList(stack));
+        List<IModifier> modifiers = TinkerUtil.getModifiers(stack);
 
         for (int i = 0; i < materials.size(); i++) {
 
@@ -67,7 +73,7 @@ public class DynamicTextureHelper {
             }
 
             TextureMap map = Minecraft.getMinecraft().getTextureMapBlocks();
-            String loc = String.format("%s_%s","conarm:models/armor/armor",partIn);
+            String loc = armor.getArmorModelTexture(partIn);
             TextureAtlasSprite sprite = map.getTextureExtry(String.format("%s_%s",loc,identifier));
 
             if (sprite == null) {
@@ -121,6 +127,34 @@ public class DynamicTextureHelper {
                         bufferedImage.setRGB(k, l, (ax << 24) | (rx << 16) | (gx << 8) | (bx));
                     }
                 }
+            }
+
+            bufferedImages.add(bufferedImage);
+        }
+
+        for (IModifier modifier : modifiers) {
+            TextureMap map = Minecraft.getMinecraft().getTextureMapBlocks();
+            String loc = String.format("%s_%s","conarm:models/armor/armor_mod", modifier.getIdentifier());
+            TextureAtlasSprite sprite = map.getAtlasSprite(loc);
+
+            if (sprite == map.getMissingSprite()) {
+                continue;
+            }
+
+            int iconWidth = sprite.getIconWidth();
+            int iconHeight = sprite.getIconHeight();
+            int frameCount = sprite.getFrameCount();
+
+            if (iconWidth <= 0 || iconHeight <= 0 || frameCount <= 0) {
+                return null;
+            }
+
+            BufferedImage bufferedImage = new BufferedImage(iconWidth, iconHeight * frameCount, BufferedImage.TYPE_4BYTE_ABGR);
+
+            for (int k = 0; k < frameCount; k++) {
+                int[][] frameTextureData = sprite.getFrameTextureData(k);
+                int[] largestMipMapTextureData = frameTextureData[0];
+                bufferedImage.setRGB(0, k * iconHeight, iconWidth, iconHeight, largestMipMapTextureData, 0, iconWidth);
             }
 
             bufferedImages.add(bufferedImage);

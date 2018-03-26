@@ -12,6 +12,8 @@ import c4.conarm.client.ArmorModelUtils;
 import c4.conarm.lib.ConstructUtils;
 import c4.conarm.lib.book.ArmoryBook;
 import c4.conarm.lib.client.KeyInputEvent;
+import com.google.common.collect.Maps;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -31,7 +33,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import slimeknights.tconstruct.common.ModelRegisterUtil;
 import slimeknights.tconstruct.library.book.TinkerBook;
 import slimeknights.tconstruct.library.client.CustomTextureCreator;
+import slimeknights.tconstruct.library.client.model.ModelHelper;
+import slimeknights.tconstruct.library.client.model.ModifierModelLoader;
+import slimeknights.tconstruct.library.modifiers.IModifier;
+import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.ToolClientEvents;
+
+import java.io.IOException;
+import java.util.Map;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -40,6 +49,7 @@ public class ClientProxy extends CommonProxy {
     private static final ArmorModelLoader loader = new ArmorModelLoader();
     private static final String LOCATION_ArmorForge = "conarm:armorforge";
     private static final ModelResourceLocation locArmorForge = new ModelResourceLocation(LOCATION_ArmorForge, "normal");
+    public static final Map<String, String> modifierCache = Maps.newHashMap();
 
     @Override
     public void preInit(FMLPreInitializationEvent evt) {
@@ -79,6 +89,14 @@ public class ClientProxy extends CommonProxy {
             ArmorModelUtils.registerArmorModel(armor);
         }
 
+        for (IModifier modifier : ArmoryRegistry.getAllArmorModifiers()) {
+            if (modifier == TinkerModifiers.modCreative) {
+                continue;
+            }
+
+            ModelRegisterUtil.registerModifierModel(modifier, ConstructUtils.getResource("models/item/modifiers/" + modifier.getIdentifier()));
+        }
+
         //All other items
         ConstructsArmor.initModels();
     }
@@ -88,6 +106,15 @@ public class ClientProxy extends CommonProxy {
         CustomTextureCreator.registerTexture(ConstructUtils.getResource("models/armor/armor_core"));
         CustomTextureCreator.registerTexture(ConstructUtils.getResource("models/armor/armor_plates"));
         CustomTextureCreator.registerTexture(ConstructUtils.getResource("models/armor/armor_trim"));
+        try {
+            Map<String, String> textureEntries = ModelHelper.loadTexturesFromJson(ConstructUtils.getResource("models/model_modifiers"));
+            for (String s : textureEntries.values()) {
+                Minecraft.getMinecraft().getTextureMapBlocks().registerSprite(ConstructUtils.getResource(s));
+            }
+            modifierCache.putAll(textureEntries);
+        } catch (IOException e) {
+            ConstructsArmory.logger.error("Could not load model modifiers {}", "models/model_modifiers");
+        }
     }
 
     @SubscribeEvent (priority = EventPriority.LOW)

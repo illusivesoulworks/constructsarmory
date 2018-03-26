@@ -8,10 +8,13 @@ import c4.conarm.lib.events.ArmoryEvent;
 import c4.conarm.lib.ArmoryRegistry;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Sets;
+import gnu.trove.map.TIntIntMap;
+import gnu.trove.map.hash.TIntIntHashMap;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.translation.I18n;
 import org.apache.logging.log4j.Level;
@@ -19,10 +22,13 @@ import slimeknights.mantle.util.ItemStackList;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.Util;
+import slimeknights.tconstruct.library.events.TinkerEvent;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.modifiers.TinkerGuiException;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
+import slimeknights.tconstruct.library.tinkering.TinkersItem;
+import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
@@ -250,5 +256,106 @@ public class ArmorBuilder {
         }
 
         return ItemStack.EMPTY;
+    }
+
+    /**
+     * Takes an armor and its parts and replaces the parts inside the armor with the given ones.
+     * Armor parts have to be applicable to the armor. Armor parts must not be duplicates of currently used parts.
+     *
+     * @param armorStack   The armor to replace the parts in
+     * @param partsIn The armor parts.
+     * @param removeItems If true the applied items will be removed from the array
+     * @return The armor with the replaced parts or null if the conditions have not been met.
+     */
+    @Nonnull
+    public static ItemStack tryReplaceArmorParts(ItemStack armorStack, final NonNullList<ItemStack> partsIn, final boolean removeItems)
+            throws TinkerGuiException {
+        if(armorStack == null || !(armorStack.getItem() instanceof TinkersArmor)) {
+            return ItemStack.EMPTY;
+        }
+
+        NonNullList<ItemStack> inputItems = ItemStackList.of(Util.deepCopyFixedNonNullList(partsIn));
+        if(!TinkerEvent.OnToolPartReplacement.fireEvent(inputItems, armorStack)) {
+            return ItemStack.EMPTY;
+        }
+
+        final NonNullList<ItemStack> armorParts = Util.deepCopyFixedNonNullList(inputItems);
+
+        TIntIntMap assigned = new TIntIntHashMap();
+        TinkersArmor armor = (TinkersArmor) armorStack.getItem();
+
+        final NBTTagList materialList = TagUtil.getBaseMaterialsTagList(armorStack).copy();
+
+        for(int i = 0; i < armorParts.size(); i++) {
+            ItemStack part = armorParts.get(i);
+            if(part.isEmpty()) {
+                continue;
+            }
+            if(!(part.getItem() instanceof IToolPart)) {
+                return ItemStack.EMPTY;
+            }
+
+            int candidate = -1;
+
+            List<PartMaterialType> pms = armor.getRequiredComponents();
+            for(int j = 0; j < pms.size(); j++) {
+                PartMaterialType pmt = pms.get(j);
+                String partMat = ((IToolPart) part.getItem()).getMaterial(part).getIdentifier();
+                String currentMat = materialList.getStringTagAt(j);
+                if(pmt.isValid(part) && !partMat.equals(currentMat)) {
+                    if(!assigned.valueCollection().contains(j)) {
+                        candidate = j;
+                        if(i <= j) {
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if(candidate < 0) {
+                return ItemStack.EMPTY;
+            }
+            assigned.put(i, candidate);
+        }
+
+        if(assigned.isEmpty()) {
+            return ItemStack.EMPTY;
+        }
+
+        assigned.forEachEntry((i, j) -> {
+            String mat = ((IToolPart) armorParts.get(i).getItem()).getMaterial(armorParts.get(i)).getIdentifier();
+            materialList.set(j, new NBTTagString(mat));
+            if(removeItems) {
+                if(i < partsIn.size() && !partsIn.get(i).isEmpty()) {
+                    partsIn.get(i).shrink(1);
+                }
+            }
+            return true;
+        });
+
+        TinkersArmor tinkersArmor = (TinkersArmor) armorStack.getItem();
+        ItemStack copyToCheck = tinkersArmor.buildItem(TinkerUtil.getMaterialsFromTagList(materialList));
+        NBTTagList modifiers = TagUtil.getBaseModifiersTagList(armorStack);
+        for(int i = 0; i < modifiers.tagCount(); i++) {
+            String id = modifiers.getStringTagAt(i);
+            IModifier mod = TinkerRegistry.getModifier(id);
+
+            if(mod != null && !mod.canApply(copyToCheck, copyToCheck)) {
+                throw new TinkerGuiException();
+            }
+        }
+
+        ItemStack output = armorStack.copy();
+        TagUtil.setBaseMaterialsTagList(output, materialList);
+        NBTTagCompound tag = TagUtil.getTagSafe(output);
+        rebuildArmor(tag, (TinkersArmor) output.getItem());
+        output.setTagCompound(tag);
+
+        if(output.getItemDamage() > output.getMaxDamage()) {
+            String error = I18n.translateToLocalFormatted("gui.error.not_enough_durability", output.getItemDamage() - output.getMaxDamage());
+            throw new TinkerGuiException(error);
+        }
+
+        return output;
     }
 }

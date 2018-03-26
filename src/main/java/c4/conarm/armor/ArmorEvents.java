@@ -53,7 +53,7 @@ public class ArmorEvents {
     public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent evt) {
         ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData(evt.player);
         if (armorAbilities != null) {
-            armorAbilities.setAbilityMap(Maps.newHashMap());
+            armorAbilities.clearAllAbilities();
         }
     }
 
@@ -64,36 +64,24 @@ public class ArmorEvents {
             return;
         }
 
-        ItemStack from = evt.getFrom();
-        ItemStack to = evt.getTo();
         EntityPlayer player = (EntityPlayer) evt.getEntityLiving();
 
-        if (from.getItem() instanceof TinkersArmor) {
-            if (!ToolHelper.isBroken(from)) {
-                NBTTagList list = TagUtil.getTraitsTagList(from);
-                for (int i = 0; i < list.tagCount(); i++) {
-                    ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
-                    if (trait != null && trait instanceof IArmorAbility) {
-                        NBTTagCompound modifierTag = new NBTTagCompound();
-                        NBTTagList tagList = TagUtil.getModifiersTagList(TagUtil.getTagSafe(from));
-                        int index = TinkerUtil.getIndexInList(tagList, trait.getIdentifier());
-                        if(index >= 0) {
-                            modifierTag = tagList.getCompoundTagAt(index);
-                        }
-                        ArmorHelper.removeArmorAbility(player, trait.getIdentifier(), ((IArmorAbility) trait).getAbilityLevel(modifierTag));
-                    }
-                }
-            }
+        ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData(player);
+
+        if (armorAbilities == null) {
+            return;
         }
 
-        if (to.getItem() instanceof TinkersArmor) {
-            if (!ToolHelper.isBroken(to)) {
-                NBTTagList list = TagUtil.getTraitsTagList(to);
+        armorAbilities.clearAllAbilities();
+
+        for (ItemStack stack : player.getArmorInventoryList()) {
+            if (stack.getItem() instanceof TinkersArmor && !ToolHelper.isBroken(stack)) {
+                NBTTagList list = TagUtil.getTraitsTagList(stack);
                 for (int i = 0; i < list.tagCount(); i++) {
                     ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
                     if (trait != null && trait instanceof IArmorAbility) {
                         NBTTagCompound modifierTag = new NBTTagCompound();
-                        NBTTagList tagList = TagUtil.getModifiersTagList(TagUtil.getTagSafe(from));
+                        NBTTagList tagList = TagUtil.getModifiersTagList(TagUtil.getTagSafe(stack));
                         int index = TinkerUtil.getIndexInList(tagList, trait.getIdentifier());
                         if(index >= 0) {
                             modifierTag = tagList.getCompoundTagAt(index);

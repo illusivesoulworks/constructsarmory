@@ -30,7 +30,7 @@ public class ArmorHelper {
 
     public static ISpecialArmor.ArmorProperties getPropertiesAfterAbsorb(ItemStack armor, double damage, float totalArmor, float totalToughness, EntityEquipmentSlot slot) {
 
-        float defenseReduction = (float) damage * 4 / (totalToughness + 8) * 0.01F;
+        float defenseReduction = (float) damage * 4 / (totalToughness / 4 + 2) * 0.01F;
         float absorbRatio = MathHelper.clamp(totalArmor / 25F - defenseReduction, totalArmor / 125F, ARMOR_PROTECTION_CAPS[slot.getIndex()]);
 
         return new ISpecialArmor.ArmorProperties(0, absorbRatio, (int) Math.ceil(Math.max(damage, (armor.getMaxDamage() - armor.getItemDamage()) * 4)));

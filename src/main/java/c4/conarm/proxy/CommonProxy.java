@@ -78,7 +78,6 @@ public class CommonProxy {
 
         ArmoryRegistry.registerAllArmorForging();
         ArmorMaterials.setupArmorMaterials();
-        ArmorModifiers.setupModifiers();
         MinecraftForge.EVENT_BUS.register(new ArmorEvents());
         MinecraftForge.EVENT_BUS.register(new ArmorAbilityHandler());
         MinecraftForge.EVENT_BUS.register(new PlayerDataEvents());
@@ -87,7 +86,7 @@ public class CommonProxy {
     }
 
     public void postInit(FMLPostInitializationEvent evt) {
-//        ArmorModifiers.registerExtraTraitModifiers();
+        ArmorModifiers.registerExtraTraitModifiers();
         ArmorModifiers.registerPolishedModifiers();
     }
 
@@ -108,6 +107,7 @@ public class CommonProxy {
         ConstructsArmor.registerArmorParts(registry);
         ConstructsArmor.registerArmorPieces(registry);
         ConstructsArmor.registerItems(registry);
+        ArmorModifiers.setupModifiers();
         ConstructsArmor.armorForge = ConstructUtils.registerItemBlock(registry, new ItemBlockTable(ConstructsArmor.armorForge));
 
         for(Pair<Item, ArmorPart> armorPartPattern : ConstructsArmor.armorPartPatterns) {

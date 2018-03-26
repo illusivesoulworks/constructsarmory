@@ -11,15 +11,7 @@ import java.util.List;
 
 public class Leggings extends ArmorCore {
 
-    public Leggings() {
-        super(EntityEquipmentSlot.LEGS,
-                ArmorMaterialType.core(ConstructsArmor.leggingsCore),
-                ArmorMaterialType.plating(ConstructsArmor.armorPlate),
-                ArmorMaterialType.trim(ConstructsArmor.armorTrim));
-    }
-
-    @Override
-    protected ArmorNBT buildTagData(List<Material> materials) {
-        return buildDefaultTag(materials, 1);
+    public Leggings(String appearanceName) {
+        super(EntityEquipmentSlot.LEGS, appearanceName, ArmorMaterialType.core(ConstructsArmor.leggingsCore));
     }
 }

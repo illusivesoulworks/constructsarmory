@@ -53,8 +53,7 @@ public class ArmorModifiers {
 //    public static Modifier modHolyWard = new ModAntiMonsterResistance("holy_ward", 0xe8d500, 5, 24, EnumCreatureAttribute.UNDEAD);
 
     static List<Modifier> polishedMods;
-
-    public static List<Modifier> extraTraitMods;
+    static List<Modifier> extraTraitMods;
 
     public static void setupModifiers() {
 
@@ -136,6 +135,7 @@ public class ArmorModifiers {
     public static void registerExtraTraitModifiers() {
         TinkerRegistry.getAllMaterials().forEach(ArmorModifiers::registerExtraTraitModifiers);
         extraTraitMods = Lists.newArrayList(extraTraitLookup.values());
+        extraTraitMods.forEach(ArmoryRegistry::registerModifier);
     }
 
     private static void registerExtraTraitModifiers(Material material) {

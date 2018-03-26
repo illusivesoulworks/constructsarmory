@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "speedy_armor": "models/armor/armor_mod_speedy_armor",
+    "diamond_armor": "models/armor/armor_mod_diamond_armor",
+    "emerald_armor": "models/armor/armor_mod_emerald_armor"
+  }
+}

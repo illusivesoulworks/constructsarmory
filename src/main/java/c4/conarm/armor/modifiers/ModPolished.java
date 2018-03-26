@@ -45,12 +45,12 @@ public class ModPolished extends ArmorModifier {
 
     @Override
     public String getLocalizedName() {
-        return Util.translate(LOC_Name, "polished") + " (" + material.getLocalizedName() + ")";
+        return Util.translate(LOC_Name, "polished_armor") + " (" + material.getLocalizedName() + ")";
     }
 
     @Override
     public String getLocalizedDesc() {
-        return Util.translateFormatted(String.format(LOC_Desc, "polished"), material.getLocalizedName());
+        return Util.translateFormatted(String.format(LOC_Desc, "polished_armor"), material.getLocalizedName());
     }
 
     @Override
@@ -68,7 +68,7 @@ public class ModPolished extends ArmorModifier {
                 break;
             }
 
-            if(data.identifier.startsWith("polished")) {
+            if(data.identifier.startsWith("polished_armor")) {
                 tagList.removeTag(i);
                 i--;
             }

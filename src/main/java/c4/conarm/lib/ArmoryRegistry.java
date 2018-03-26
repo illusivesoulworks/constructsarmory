@@ -5,26 +5,26 @@ import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.armor.ArmorPart;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import gnu.trove.map.hash.THashMap;
 import gnu.trove.set.hash.TLinkedHashSet;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import slimeknights.tconstruct.library.TinkerAPIException;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.events.TinkerRegisterEvent;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.tinkering.Category;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class ArmoryRegistry {
 
-    public static final Category ARMOR = new Category("armor");
     public static final Set<ArmorCore> armor = new TLinkedHashSet<>();
     public static final Set<ArmorPart> armorParts = new TLinkedHashSet<>();
     private static final Map<String, IModifier> armorModifiers = new THashMap<>();
     public static final Set<ArmorCore> armorForgeCrafting = Sets.newLinkedHashSet();
+    private static final EnumMap<EntityEquipmentSlot, Map<String, ArmorCore>> armorAppearances = Maps.newEnumMap(EntityEquipmentSlot.class);
 
     private ArmoryRegistry() {}
 
@@ -67,11 +67,25 @@ public class ArmoryRegistry {
         }
     }
 
+    public static void addArmor(ArmorCore item, EntityEquipmentSlot slotIn) {
+        armor.add(item);
+        Map<String, ArmorCore> appearances = armorAppearances.computeIfAbsent(slotIn, s -> Maps.newHashMap());
+        String identifier = item.getAppearanceName();
+        if (appearances.containsKey(identifier)) {
+            throw new ConArmAPIException("Trying to register an armor appearance with the name " + identifier + " in slot " + slotIn.getName() + " but it is already registered");
+        }
+        appearances.put(identifier, item);
+    }
+
     public static IModifier getArmorModifier(String identifier) {
         return armorModifiers.get(identifier);
     }
 
     public static Collection<IModifier> getAllArmorModifiers() {
         return ImmutableList.copyOf(armorModifiers.values());
+    }
+
+    public static List<String> getAppearancesForSlot(EntityEquipmentSlot slotIn) {
+        return ImmutableList.copyOf(armorAppearances.get(slotIn).keySet());
     }
 }

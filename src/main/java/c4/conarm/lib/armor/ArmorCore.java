@@ -1,6 +1,7 @@
 package c4.conarm.lib.armor;
 
 import c4.conarm.armor.ConstructsArmor;
+import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.lib.materials.CoreMaterialStats;
@@ -52,12 +53,16 @@ Find the source here: https://github.com/SlimeKnights/TinkersConstruct
 public abstract class ArmorCore extends TinkersArmor implements IToolStationDisplay {
 
     public final static int DEFAULT_MODIFIERS = 3;
+    private final String appearanceName;
 
-    public ArmorCore(EntityEquipmentSlot slotIn, PartMaterialType... requiredComponents) {
-        super(slotIn, requiredComponents);
+    public ArmorCore(EntityEquipmentSlot slotIn, String appearanceName, PartMaterialType core) {
+        super(slotIn, core, ArmorMaterialType.plating(ConstructsArmor.armorPlate), ArmorMaterialType.trim(ConstructsArmor.armorTrim));
 
         this.setCreativeTab(TinkerRegistry.tabTools);
         this.setNoRepair();
+        this.appearanceName = appearanceName;
+
+        ArmoryRegistry.addArmor(this, slotIn);
     }
 
     @Override
@@ -73,6 +78,15 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
     @Override
     public boolean showDurabilityBar(ItemStack stack) {
         return super.showDurabilityBar(stack) && !ToolHelper.isBroken(stack);
+    }
+
+    @Override
+    public String getAppearanceName() {
+        return this.appearanceName;
+    }
+
+    public String getLocalizedAppearanceName() {
+        return Util.translate("appearance." + this.getAppearanceName() + ".name");
     }
 
     @Override
@@ -255,7 +269,10 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
         return buildTagData(materials).get();
     }
 
-    protected abstract ArmorNBT buildTagData(List<Material> materials);
+    protected ArmorNBT buildTagData(List<Material> materials) {
+
+        return buildDefaultTag(materials, armorType.getIndex());
+    }
 
     @Override
     public void getTooltipDetailed(ItemStack stack, List<String> tooltips) {

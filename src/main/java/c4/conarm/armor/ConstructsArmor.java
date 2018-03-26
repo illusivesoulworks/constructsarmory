@@ -100,10 +100,10 @@ public class ConstructsArmor {
     }
 
     public static void registerArmorPieces(IForgeRegistry<Item> registry) {
-        helmet = registerArmorPiece(registry, new Helmet(), "helmet");
-        chestplate = registerArmorPiece(registry, new Chestplate(), "chestplate");
-        leggings = registerArmorPiece(registry, new Leggings(), "leggings");
-        boots = registerArmorPiece(registry, new Boots(), "boots");
+        helmet = registerArmorPiece(registry, new Helmet("classic"), "helmet");
+        chestplate = registerArmorPiece(registry, new Chestplate("classic"), "chestplate");
+        leggings = registerArmorPiece(registry, new Leggings("classic"), "leggings");
+        boots = registerArmorPiece(registry, new Boots("classic"), "boots");
     }
 
     public static void registerItems(IForgeRegistry<Item> registry) {
@@ -130,7 +130,6 @@ public class ConstructsArmor {
     }
 
     private static <T extends ArmorCore> T registerArmorPiece(IForgeRegistry<Item> registry, T item, String name) {
-        ArmoryRegistry.armor.add(item);
         for(PartMaterialType pmt : item.getRequiredComponents()) {
             for (IToolPart ap : pmt.getPossibleParts()) {
                 TinkerRegistry.registerToolPart(ap);

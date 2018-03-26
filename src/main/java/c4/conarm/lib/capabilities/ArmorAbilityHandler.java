@@ -53,6 +53,10 @@ public class ArmorAbilityHandler {
 
         public ArmorAbilities() {}
 
+        public void clearAllAbilities() {
+            abilityMap.clear();
+        }
+
         public Map<String, Integer> getAbilityMap() {
             return this.abilityMap;
         }
@@ -90,6 +94,8 @@ public class ArmorAbilityHandler {
     public interface IArmorAbilities {
 
         Map<String, Integer> getAbilityMap();
+
+        void clearAllAbilities();
 
         void setAbilityMap(Map<String, Integer> abilityMap);
 

@@ -203,12 +203,12 @@ public class ContainerArmorForge extends ContainerTinkerStation<TileArmorForge>{
     }
 
     private ItemStack replaceArmorParts(final boolean remove) throws TinkerGuiException {
-        final ItemStack tool = this.inventorySlots.get(0).getStack();
-        if (tool.isEmpty() || !(tool.getItem() instanceof TinkersArmor)) {
+        final ItemStack armor = this.inventorySlots.get(0).getStack();
+        if (armor.isEmpty() || !(armor.getItem() instanceof TinkersArmor)) {
             return ItemStack.EMPTY;
         }
         final NonNullList<ItemStack> inputs = this.getInputs();
-        final ItemStack result = ToolBuilder.tryReplaceToolParts(tool, inputs, remove);
+        final ItemStack result = ArmorBuilder.tryReplaceArmorParts(armor, inputs, remove);
         if (!result.isEmpty()) {
             TinkerCraftingEvent.ToolPartReplaceEvent.fireEvent(result, this.player, inputs);
         }

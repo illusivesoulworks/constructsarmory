@@ -13,22 +13,29 @@ import c4.conarm.armor.common.network.ArmorForgeSelectionPacket;
 import c4.conarm.armor.common.network.ArmorForgeTextPacket;
 import c4.conarm.armor.common.tileentities.TileArmorForge;
 import com.google.common.collect.Lists;
+import io.netty.buffer.Unpooled;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiMerchant;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.ContainerMerchant;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.network.play.client.CPacketCustomPayload;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
+import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
@@ -54,8 +61,10 @@ import slimeknights.tconstruct.tools.common.client.GuiTinkerStation;
 import slimeknights.tconstruct.tools.common.client.module.GuiInfoPanel;
 import slimeknights.tconstruct.tools.common.inventory.ContainerTinkerStation;
 
+import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -104,7 +113,13 @@ public class GuiArmorForge extends GuiTinkerStation
     protected GuiInfoPanel armorInfo;
     protected GuiInfoPanel traitInfo;
 
+//    protected AppearanceButton nextButton;
+//    protected AppearanceButton previousButton;
+
     public ArmorBuildGuiInfo currentInfo = GuiButtonArmorRepair.info;
+
+//    public List<String> appearances;
+//    public int appearanceSlot = 0;
 
     private static final Field GUI_TOP = ReflectionHelper.findField(GuiContainer.class, "guiTop", "field_147009_r");
     private static final Field BUTTON_LIST = ReflectionHelper.findField(GuiScreen.class, "buttonList", "field_146292_n");
@@ -154,6 +169,11 @@ public class GuiArmorForge extends GuiTinkerStation
             }
         }
 
+//        this.nextButton = this.addButton(new AppearanceButton(1, cornerX + 154, cornerY + 60, true));
+//        this.previousButton = this.addButton(new AppearanceButton(2, cornerX + 97, cornerY + 60, false));
+//        this.nextButton.enabled = false;
+//        this.previousButton.enabled = false;
+
         updateGUI();
     }
 
@@ -195,6 +215,41 @@ public class GuiArmorForge extends GuiTinkerStation
         updateGUI();
     }
 
+//    protected void actionPerformed(GuiButton button) throws IOException
+//    {
+//        boolean flag = false;
+//
+//        if (button == this.nextButton)
+//        {
+//            this.appearanceSlot++;
+//
+//            if (appearances != null && this.appearanceSlot >= appearances.size())
+//            {
+//                this.appearanceSlot = appearances.size() - 1;
+//            }
+//
+//            flag = true;
+//        }
+//        else if (button == this.previousButton)
+//        {
+//            this.appearanceSlot--;
+//
+//            if (this.appearanceSlot < 0)
+//            {
+//                this.appearanceSlot = 0;
+//            }
+//
+//            flag = true;
+//        }
+//
+////        if (flag)
+////        {
+////            PacketBuffer packetbuffer = new PacketBuffer(Unpooled.buffer());
+////            packetbuffer.writeInt(this.selectedMerchantRecipe);
+////            this.mc.getConnection().sendPacket(new CPacketCustomPayload("MC|TrSel", packetbuffer));
+////        }
+//    }
+
     public void updateGUI() {
         int i;
         for(i = 0; i < activeSlots; i++) {
@@ -230,6 +285,15 @@ public class GuiArmorForge extends GuiTinkerStation
         if(armorStack.isEmpty()) {
             armorStack = inventorySlots.getSlot(0).getStack();
         }
+//        if (armorStack.getItem() instanceof ArmorCore) {
+//            appearances = ArmoryRegistry.getAppearancesForSlot(((ArmorCore) (armorStack.getItem())).armorType);
+//            if (this.nextButton != null && this.previousButton != null) {
+//                this.nextButton.enabled = this.appearanceSlot < appearances.size() - 1;
+//                this.previousButton.enabled = this.appearanceSlot > 0;
+//            }
+//        } else {
+//            appearances = null;
+//        }
 
         if(armorStack.getItem() instanceof IArmorModifyable) {
             if(armorStack.getItem() instanceof IToolStationDisplay) {
@@ -475,10 +539,18 @@ public class GuiArmorForge extends GuiTinkerStation
         panelDecorationL.draw(traitInfo.getGuiLeft() + 5, traitInfo.getGuiTop() - panelDecorationL.h);
         panelDecorationR.draw(traitInfo.guiRight() - 5 - panelDecorationR.w, traitInfo.getGuiTop() - panelDecorationR.h);
 
+//        drawAppearanceMenu();
+
         GlStateManager.enableDepth();
 
         super.drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY);
     }
+
+//    protected void drawAppearanceMenu() {
+//        if (appearances != null) {
+//            fontRenderer.drawString(Util.translate("appearance." + appearances.get(appearanceSlot) + ".name"), cornerX + 115, cornerY + 65, 4210752);
+//        }
+//    }
 
     protected void drawRepairSlotIcons() {
         for(int i = 0; i < activeSlots; i++) {
@@ -554,5 +626,48 @@ public class GuiArmorForge extends GuiTinkerStation
         armorInfo.setText(message);
         traitInfo.setCaption(null);
         traitInfo.setText();
+    }
+
+    @SideOnly(Side.CLIENT)
+    static class AppearanceButton extends GuiButton
+    {
+        private final boolean forward;
+
+        public AppearanceButton(int buttonID, int x, int y, boolean forward)
+        {
+            super(buttonID, x, y, 12, 19, "");
+            this.forward = forward;
+        }
+
+        /**
+         * Draws this button to the screen.
+         */
+        public void drawButton(@Nonnull Minecraft mc, int mouseX, int mouseY, float partialTicks)
+        {
+            if (this.visible)
+            {
+                mc.getTextureManager().bindTexture(BACKGROUND);
+                GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+                boolean flag = mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width && mouseY < this.y + this.height;
+                int i = 82;
+                int j = 176;
+
+                if (!this.enabled)
+                {
+                    j += this.width * 2;
+                }
+                else if (flag)
+                {
+                    j += this.width;
+                }
+
+                if (!this.forward)
+                {
+                    i += this.height;
+                }
+
+                this.drawTexturedModalRect(this.x, this.y, j, i, this.width, this.height);
+            }
+        }
     }
 }

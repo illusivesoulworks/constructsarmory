@@ -58,13 +58,6 @@ public class DebugCommand extends CommandBase {
             }
         }
 
-        ItemStack stack = ((EntityPlayer) sender).getHeldItemMainhand().copy();
-        ItemStack stack2 = ((EntityPlayer) sender).getHeldItemOffhand().copy();
-
-        if (ItemStack.areItemStacksEqual(stack, stack2)) {
-            info.add("Yes");
-        }
-
         ConstructsArmory.logger.info(info);
     }
 

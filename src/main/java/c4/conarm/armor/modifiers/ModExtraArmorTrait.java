@@ -1,6 +1,7 @@
 package c4.conarm.armor.modifiers;
 
 import c4.conarm.lib.armor.ArmorCore;
+import c4.conarm.lib.modifiers.ArmorModifier;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -19,15 +20,14 @@ import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.ToolBuilder;
 import slimeknights.tconstruct.shared.TinkerCommons;
+import slimeknights.tconstruct.tools.modifiers.ModExtraTrait;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ModExtraArmorTrait extends ToolModifier {
+public class ModExtraArmorTrait extends ArmorModifier {
 
-    public static final List<ItemStack> EMBOSSMENT_ITEMS = getEmbossmentItems();
-    public static final String EXTRA_TRAIT_IDENTIFIER = "extra_armor_trait";
     private final Material material;
     public final Set<ArmorCore> armorCores;
     private final Collection<ITrait> traits;
@@ -38,7 +38,7 @@ public class ModExtraArmorTrait extends ToolModifier {
     }
 
     public ModExtraArmorTrait(Material material, Collection<ITrait> traits, String customIdentifier) {
-        super(EXTRA_TRAIT_IDENTIFIER + customIdentifier, material.materialTextColor);
+        super(ModExtraTrait.EXTRA_TRAIT_IDENTIFIER + customIdentifier, material.materialTextColor);
 
         this.material = material;
         this.armorCores = new HashSet<>();
@@ -51,7 +51,7 @@ public class ModExtraArmorTrait extends ToolModifier {
         ItemStack toolPartItem = toolPart.getItemstackWithMaterial(material);
         List<ItemStack> stacks = new ArrayList<>();
         stacks.add(toolPartItem);
-        stacks.addAll(EMBOSSMENT_ITEMS);
+        stacks.addAll(ModExtraTrait.EMBOSSMENT_ITEMS);
         addRecipeMatch(new RecipeMatch.ItemCombination(1, stacks.toArray(new ItemStack[stacks.size()])));
     }
 
@@ -61,18 +61,18 @@ public class ModExtraArmorTrait extends ToolModifier {
     }
 
     @Override
-    public boolean canApplyCustom(ItemStack stack) throws TinkerGuiException {
+    public boolean canApplyCustom(ItemStack stack) {
         return stack.getItem() instanceof ArmorCore && armorCores.contains(stack.getItem());
     }
 
     @Override
     public String getLocalizedName() {
-        return Util.translate(LOC_Name, EXTRA_TRAIT_IDENTIFIER) + " (" + material.getLocalizedName() + ")";
+        return Util.translate(LOC_Name, ModExtraTrait.EXTRA_TRAIT_IDENTIFIER) + " (" + material.getLocalizedName() + ")";
     }
 
     @Override
     public String getLocalizedDesc() {
-        return Util.translateFormatted(String.format(LOC_Desc, EXTRA_TRAIT_IDENTIFIER), material.getLocalizedName());
+        return Util.translateFormatted(String.format(LOC_Desc, ModExtraTrait.EXTRA_TRAIT_IDENTIFIER), material.getLocalizedName());
     }
 
     @Override
@@ -93,7 +93,7 @@ public class ModExtraArmorTrait extends ToolModifier {
             for(int i = 0; i < modifierList.tagCount(); i++) {
                 NBTTagCompound tag = modifierList.getCompoundTagAt(i);
                 ModifierNBT data = ModifierNBT.readTag(tag);
-                if(data.identifier.startsWith(EXTRA_TRAIT_IDENTIFIER)) {
+                if(data.identifier.startsWith(ModExtraTrait.EXTRA_TRAIT_IDENTIFIER)) {
                     throw new TinkerGuiException(Util.translate("gui.error.already_has_extratrait"));
                 }
             }
@@ -104,25 +104,5 @@ public class ModExtraArmorTrait extends ToolModifier {
         public void updateNBT(NBTTagCompound root, NBTTagCompound modifierTag) {
             //NO-OP
         }
-    }
-
-    private static List<ItemStack> getEmbossmentItems() {
-
-        ItemStack green = TinkerCommons.matSlimeCrystalGreen;
-        ItemStack blue = TinkerCommons.matSlimeCrystalBlue;
-        ItemStack red = TinkerCommons.matSlimeCrystalMagma;
-        ItemStack expensive = new ItemStack(Blocks.GOLD_BLOCK);
-
-        if(green == null) {
-            green = new ItemStack(Items.SLIME_BALL);
-        }
-        if(blue == null) {
-            blue = new ItemStack(Items.SLIME_BALL);
-        }
-        if(red == null) {
-            red = new ItemStack(Items.SLIME_BALL);
-        }
-
-        return ImmutableList.of(green, blue, red, expensive);
     }
 }

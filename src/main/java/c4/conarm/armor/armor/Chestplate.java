@@ -11,15 +11,8 @@ import java.util.List;
 
 public class Chestplate extends ArmorCore {
 
-    public Chestplate() {
-        super(EntityEquipmentSlot.CHEST,
-                ArmorMaterialType.core(ConstructsArmor.chestCore),
-                ArmorMaterialType.plating(ConstructsArmor.armorPlate),
-                ArmorMaterialType.trim(ConstructsArmor.armorTrim));
+    public Chestplate(String appearanceName) {
+        super(EntityEquipmentSlot.CHEST, appearanceName, ArmorMaterialType.core(ConstructsArmor.chestCore));
     }
 
-    @Override
-    protected ArmorNBT buildTagData(List<Material> materials) {
-        return buildDefaultTag(materials, 2);
-    }
 }

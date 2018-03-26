@@ -137,7 +137,7 @@ public class ArmorModelLoader implements ICustomModelLoader {
             IModel mods;
             ModifierModel modifiers = null;
             try {
-                mods = ModelLoaderRegistry.getModel(ModifierModelLoader.getLocationForToolModifiers(toolName));
+                mods = ModelLoaderRegistry.getModel(ModifierModelLoader.getLocationForToolModifiers(modelLocation.getResourceDomain(), toolName));
 
                 if(mods == null || !(mods instanceof ModifierModel)) {
                     ConstructsArmory.logger.trace(
@@ -150,7 +150,7 @@ public class ArmorModelLoader implements ICustomModelLoader {
                     for(ToolModelOverride toolModelOverride : overrides) {
                         if(toolModelOverride.modifierSuffix != null) {
                             String modifierName = toolName + toolModelOverride.modifierSuffix;
-                            IModel extraModel = ModelLoaderRegistry.getModel(ModifierModelLoader.getLocationForToolModifiers(modifierName));
+                            IModel extraModel = ModelLoaderRegistry.getModel(ModifierModelLoader.getLocationForToolModifiers(modelLocation.getResourceDomain(), modifierName));
                             if(extraModel instanceof ModifierModel) {
                                 ModifierModel overriddenModifierModel = new ModifierModel();
                                 for(Map.Entry<String, String> entry : modifiers.getModels().entrySet()) {

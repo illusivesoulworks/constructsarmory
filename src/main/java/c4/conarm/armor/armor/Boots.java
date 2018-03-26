@@ -11,15 +11,7 @@ import java.util.List;
 
 public class Boots extends ArmorCore {
 
-    public Boots() {
-        super(EntityEquipmentSlot.FEET,
-                ArmorMaterialType.core(ConstructsArmor.bootsCore),
-                ArmorMaterialType.plating(ConstructsArmor.armorPlate),
-                ArmorMaterialType.trim(ConstructsArmor.armorTrim));
-    }
-
-    @Override
-    protected ArmorNBT buildTagData(List<Material> materials) {
-        return buildDefaultTag(materials, 0);
+    public Boots(String appearanceName) {
+        super(EntityEquipmentSlot.FEET, appearanceName, ArmorMaterialType.core(ConstructsArmor.bootsCore));
     }
 }

@@ -11,15 +11,8 @@ import java.util.List;
 
 public class Helmet extends ArmorCore {
 
-    public Helmet() {
-        super(EntityEquipmentSlot.HEAD,
-                ArmorMaterialType.core(ConstructsArmor.helmetCore),
-                ArmorMaterialType.plating(ConstructsArmor.armorPlate),
-                ArmorMaterialType.trim(ConstructsArmor.armorTrim));
+    public Helmet(String appearanceName) {
+        super(EntityEquipmentSlot.HEAD, appearanceName, ArmorMaterialType.core(ConstructsArmor.helmetCore));
     }
 
-    @Override
-    protected ArmorNBT buildTagData(List<Material> materials) {
-        return buildDefaultTag(materials, 3);
-    }
 }
