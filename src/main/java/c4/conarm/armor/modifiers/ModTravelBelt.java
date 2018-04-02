@@ -27,8 +27,12 @@ public class ModTravelBelt extends AccessoryModifier {
     public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag) {
 
         super.applyEffect(rootCompound, modifierTag);
-        modifierTag.setTag(TAG_HOTBAR, ((new ItemStackHandler(9)).serializeNBT()));
-
+        NBTTagCompound oldBelt = modifierTag.getCompoundTag(TAG_HOTBAR);
+        if (oldBelt.hasNoTags()) {
+            modifierTag.setTag(TAG_HOTBAR, (new ItemStackHandler(9)).serializeNBT());
+        } else {
+            modifierTag.setTag(TAG_HOTBAR, oldBelt);
+        }
     }
 
     private void swapHotbars(ItemStack stack, EntityPlayer player) {

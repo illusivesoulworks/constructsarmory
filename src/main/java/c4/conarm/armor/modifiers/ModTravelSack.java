@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.items.ItemStackHandler;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
@@ -25,8 +26,12 @@ public class ModTravelSack extends AccessoryModifier {
     public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag) {
 
         super.applyEffect(rootCompound, modifierTag);
-        modifierTag.setTag(TAG_KNAPSACK, ((new ItemStackHandler(SACK_SIZE)).serializeNBT()));
-
+        NBTTagCompound oldSack = modifierTag.getCompoundTag(TAG_KNAPSACK);
+        if (oldSack.hasNoTags()) {
+            modifierTag.setTag(TAG_KNAPSACK, (new ItemStackHandler(SACK_SIZE)).serializeNBT());
+        } else {
+            modifierTag.setTag(TAG_KNAPSACK, oldSack);
+        }
     }
 
     @Override

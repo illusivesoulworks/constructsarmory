@@ -22,7 +22,7 @@ public class ConstructsArmory {
 
     public static final String MODID = "conarm";
     public static final String MODNAME = "Construct's Armory";
-    public static final String MODVER = "0.0.9-a";
+    public static final String MODVER = "0.0.10-a";
 
     @SidedProxy(clientSide = "c4.conarm.proxy.ClientProxy", serverSide = "c4.conarm.proxy.CommonProxy")
     public static CommonProxy proxy;
@@ -53,8 +53,8 @@ public class ConstructsArmory {
         FMLLog.log.log(Level.ERROR, "Invalid fingerprint detected! The file " + evt.getSource().getName() + " may have been tampered with. This version will NOT be supported by the author!");
     }
 
-//    @Mod.EventHandler
-//    public void serverLoad(FMLServerStartingEvent evt) {
-//        evt.registerServerCommand(new DebugCommand());
-//    }
+    @Mod.EventHandler
+    public void serverLoad(FMLServerStartingEvent evt) {
+        evt.registerServerCommand(new DebugCommand());
+    }
 }

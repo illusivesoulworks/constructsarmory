@@ -16,7 +16,7 @@ import slimeknights.tconstruct.library.potion.TinkerPotion;
 
 import javax.annotation.Nonnull;
 
-public class TraitAquaspeed extends AbstractArmorTrait implements IArmorAbility {
+public class TraitAquaspeed extends AbstractArmorTrait {
 
     public static TinkerPotion aquaspeedPotion = new AquaspeedPotion();
 

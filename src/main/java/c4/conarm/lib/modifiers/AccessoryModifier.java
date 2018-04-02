@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
+import net.minecraftforge.items.ItemStackHandler;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.traits.ITrait;
@@ -18,7 +19,9 @@ public abstract class AccessoryModifier extends ArmorModifierTrait {
         addAspects(new ModifierAspect.SingleAspect(this));
     }
 
-    public abstract void onKeybinding(ItemStack armor, EntityPlayer player);
+    public void onKeybinding(ItemStack armor, EntityPlayer player) {
+        //NO-OP
+    }
 
     @Override
     public boolean canApplyCustom(ItemStack stack) {
