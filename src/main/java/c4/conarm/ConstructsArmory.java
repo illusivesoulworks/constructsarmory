@@ -53,8 +53,8 @@ public class ConstructsArmory {
         FMLLog.log.log(Level.ERROR, "Invalid fingerprint detected! The file " + evt.getSource().getName() + " may have been tampered with. This version will NOT be supported by the author!");
     }
 
-    @Mod.EventHandler
-    public void serverLoad(FMLServerStartingEvent evt) {
-        evt.registerServerCommand(new DebugCommand());
-    }
+//    @Mod.EventHandler
+//    public void serverLoad(FMLServerStartingEvent evt) {
+//        evt.registerServerCommand(new DebugCommand());
+//    }
 }
