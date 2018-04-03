@@ -11,10 +11,8 @@ import gnu.trove.map.hash.THashMap;
 import gnu.trove.set.hash.TLinkedHashSet;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import slimeknights.tconstruct.library.TinkerAPIException;
-import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.events.TinkerRegisterEvent;
 import slimeknights.tconstruct.library.modifiers.IModifier;
-import slimeknights.tconstruct.library.tinkering.Category;
 
 import java.util.*;
 
@@ -23,7 +21,7 @@ public class ArmoryRegistry {
     public static final Set<ArmorCore> armor = new TLinkedHashSet<>();
     public static final Set<ArmorPart> armorParts = new TLinkedHashSet<>();
     private static final Map<String, IModifier> armorModifiers = new THashMap<>();
-    public static final Set<ArmorCore> armorForgeCrafting = Sets.newLinkedHashSet();
+    public static final Set<ArmorCore> armorCrafting = Sets.newLinkedHashSet();
     private static final EnumMap<EntityEquipmentSlot, Map<String, ArmorCore>> armorAppearances = Maps.newEnumMap(EntityEquipmentSlot.class);
 
     private ArmoryRegistry() {}
@@ -39,11 +37,11 @@ public class ArmoryRegistry {
     }
 
     public static void registerArmorForging(ArmorCore armor) {
-        armorForgeCrafting.add(armor);
+        armorCrafting.add(armor);
     }
 
-    public static Set<ArmorCore> getArmorForgeCrafting() {
-        return ImmutableSet.copyOf(armorForgeCrafting);
+    public static Set<ArmorCore> getArmorCrafting() {
+        return ImmutableSet.copyOf(armorCrafting);
     }
 
     public static void registerModifier(IModifier modifier) {

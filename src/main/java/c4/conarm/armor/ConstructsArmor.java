@@ -1,5 +1,6 @@
 package c4.conarm.armor;
 
+import c4.conarm.armor.common.blocks.BlockArmorForge;
 import c4.conarm.armor.common.items.*;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.armor.armor.Boots;
@@ -7,7 +8,7 @@ import c4.conarm.armor.armor.Chestplate;
 import c4.conarm.armor.armor.Helmet;
 import c4.conarm.armor.armor.Leggings;
 import c4.conarm.lib.armor.ArmorPart;
-import c4.conarm.armor.common.blocks.BlockArmorForge;
+import c4.conarm.armor.common.blocks.BlockArmorStation;
 import c4.conarm.armor.common.blocks.BlockSoftMagma;
 import c4.conarm.lib.ConstructUtils;
 import c4.conarm.lib.armor.ArmorCore;
@@ -39,6 +40,7 @@ public class ConstructsArmor {
 
     //Blocks
     public static BlockArmorForge armorForge;
+    public static BlockArmorStation armorStation;
     public static BlockSoftMagma softMagma;
 
     //Armor Parts

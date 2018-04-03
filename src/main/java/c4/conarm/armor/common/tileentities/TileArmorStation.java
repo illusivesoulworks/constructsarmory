@@ -1,8 +1,6 @@
 package c4.conarm.armor.common.tileentities;
 
-import c4.conarm.armor.common.inventory.ContainerArmorForge;
 import c4.conarm.armor.common.inventory.ContainerArmorStation;
-import c4.conarm.client.GuiArmorForge;
 import c4.conarm.client.GuiArmorStation;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -13,20 +11,20 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.tools.common.tileentity.TileToolStation;
 
-public class TileArmorForge extends TileArmorStation {
+public class TileArmorStation extends TileToolStation {
 
-    public TileArmorForge() {
-        inventoryTitle = "gui.armorforge.name";
+    public TileArmorStation() {
+        inventoryTitle = "gui.armorstation.name";
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public GuiContainer createGui(InventoryPlayer inventoryPlayer, World world, BlockPos pos) {
-        return new GuiArmorForge(inventoryPlayer, world, pos, this);
+        return new GuiArmorStation(inventoryPlayer, world, pos, this);
     }
 
     @Override
     public Container createContainer(InventoryPlayer inventoryPlayer, World world, BlockPos pos) {
-        return new ContainerArmorForge(inventoryPlayer, this);
+        return new ContainerArmorStation(inventoryPlayer, this);
     }
 }

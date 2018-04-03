@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " P ",
+    "PWP",
+    " P "
+  ],
+  "key": {
+    "A": {
+      "item": "tconstruct:pattern",
+      "count": 1,
+      "data": 0
+    },
+    "B": {
+      "type": "forge:ore_dict",
+      "ore": "workbench"
+    }
+  },
+  "result": {
+    "item": "conarm:armorstation"
+  }
+}

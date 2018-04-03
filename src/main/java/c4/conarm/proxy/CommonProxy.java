@@ -1,6 +1,8 @@
 package c4.conarm.proxy;
 
 import c4.conarm.armor.common.RepairRecipe;
+import c4.conarm.armor.common.blocks.BlockArmorForge;
+import c4.conarm.armor.common.tileentities.TileArmorForge;
 import c4.conarm.armor.traits.TraitAquaspeed;
 import c4.conarm.client.GuiHandler;
 import c4.conarm.common.PlayerDataEvents;
@@ -15,19 +17,14 @@ import c4.conarm.lib.materials.ArmorMaterials;
 import c4.conarm.armor.ArmorModifiers;
 import c4.conarm.armor.common.network.ConstructsNetwork;
 import c4.conarm.armor.traits.TraitSuperhot;
-import c4.conarm.armor.common.blocks.BlockArmorForge;
-import c4.conarm.armor.common.blocks.BlockSoftMagma;
-import c4.conarm.armor.common.tileentities.TileArmorForge;
+import c4.conarm.armor.common.blocks.BlockArmorStation;
+import c4.conarm.armor.common.tileentities.TileArmorStation;
 import c4.conarm.lib.ConstructUtils;
-import c4.conarm.lib.tinkering.TinkersArmor;
-import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -45,24 +42,14 @@ import net.minecraftforge.oredict.OreIngredient;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.commons.lang3.tuple.Pair;
 import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.events.TinkerCraftingEvent;
-import slimeknights.tconstruct.library.modifiers.IModifier;
-import slimeknights.tconstruct.library.modifiers.Modifier;
-import slimeknights.tconstruct.library.modifiers.TinkerGuiException;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
 import slimeknights.tconstruct.library.tools.Pattern;
-import slimeknights.tconstruct.library.tools.ToolCore;
-import slimeknights.tconstruct.library.tools.ToolPart;
-import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
-import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.TinkerTools;
 import slimeknights.tconstruct.tools.common.TableRecipeFactory;
 import slimeknights.tconstruct.tools.common.block.BlockToolTable;
 import slimeknights.tconstruct.tools.common.item.ItemBlockTable;
 
-import java.util.List;
 import java.util.Locale;
 
 @Mod.EventBusSubscriber
@@ -95,8 +82,10 @@ public class CommonProxy {
         IForgeRegistry<Block> registry = evt.getRegistry();
 
         ConstructsArmor.armorForge = ConstructUtils.registerBlock(registry, new BlockArmorForge(), "armorforge");
+        ConstructsArmor.armorStation = ConstructUtils.registerBlock(registry, new BlockArmorStation(), "armorstation");
 //        ConstructsArmor.softMagma = ConstructUtils.registerBlock(registry, new BlockSoftMagma(), "soft_magma");
 
+        GameRegistry.registerTileEntity(TileArmorStation.class, "armorstation");
         GameRegistry.registerTileEntity(TileArmorForge.class, "armorforge");
     }
 
@@ -109,6 +98,7 @@ public class CommonProxy {
         ConstructsArmor.registerItems(registry);
         ArmorModifiers.setupModifiers();
         ConstructsArmor.armorForge = ConstructUtils.registerItemBlock(registry, new ItemBlockTable(ConstructsArmor.armorForge));
+        ConstructsArmor.armorStation = ConstructUtils.registerItemBlock(registry, new ItemBlockTable(ConstructsArmor.armorStation));
 
         for(Pair<Item, ArmorPart> armorPartPattern : ConstructsArmor.armorPartPatterns) {
             registerStencil(armorPartPattern.getLeft(), armorPartPattern.getRight());
@@ -127,7 +117,15 @@ public class CommonProxy {
                     brick = Blocks.STONEBRICK;
                 }
 
-                TableRecipeFactory.TableRecipe recipe = new TableRecipeFactory.TableRecipe(new ResourceLocation(ConstructsArmory.MODID, "armorforge"), new OreIngredient(oredict), new ItemStack(ConstructsArmor.armorForge), CraftingHelper.parseShaped(new Object[]{"BBB", "MTM", "MMM", Character.valueOf('B'), brick, Character.valueOf('M'), oredict, Character.valueOf('T'), new ItemStack(TinkerTools.toolTables, 1, BlockToolTable.TableTypes.ToolStation.meta)}));
+                TableRecipeFactory.TableRecipe recipe =
+                        new TableRecipeFactory.TableRecipe(
+                                new ResourceLocation(ConstructsArmory.MODID, "armorforge"),
+                                new OreIngredient(oredict),
+                                new ItemStack(ConstructsArmor.armorForge),
+                                CraftingHelper.parseShaped("BBB", "MTM", "M M",
+                                        'B', brick,
+                                        'M', oredict,
+                                        'T', ConstructsArmor.armorStation));
                 recipe.setRegistryName("armorforge_" + oredict.toLowerCase(Locale.US));
                 registry.register(recipe);
             }

@@ -1,8 +1,8 @@
 package c4.conarm.armor.common.network;
 
+import c4.conarm.armor.common.inventory.ContainerArmorStation;
+import c4.conarm.client.GuiArmorStation;
 import c4.conarm.lib.armor.ArmorCore;
-import c4.conarm.armor.common.inventory.ContainerArmorForge;
-import c4.conarm.client.GuiArmorForge;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetHandlerPlayClient;
@@ -21,42 +21,42 @@ ToolStationSelectionPacket class from Tinkers' Construct
 Tinkers' Construct is licensed under the MIT License
 Find the source here: https://github.com/SlimeKnights/TinkersConstruct
  */
-public class ArmorForgeSelectionPacket extends AbstractPacketThreadsafe {
+public class ArmorStationSelectionPacket extends AbstractPacketThreadsafe {
 
     public ArmorCore armor;
     public int activeSlots;
 
-    public ArmorForgeSelectionPacket() {
+    public ArmorStationSelectionPacket() {
     }
 
-    public ArmorForgeSelectionPacket(final ArmorCore armor, final int activeSlots) {
+    public ArmorStationSelectionPacket(final ArmorCore armor, final int activeSlots) {
         this.armor = armor;
         this.activeSlots = activeSlots;
     }
 
     public void handleClientSafe(final NetHandlerPlayClient netHandler) {
         final Container container = Minecraft.getMinecraft().player.openContainer;
-        if (container instanceof ContainerArmorForge) {
-            ((ContainerArmorForge)container).setArmorSelection(this.armor, this.activeSlots);
-            if (Minecraft.getMinecraft().currentScreen instanceof GuiArmorForge) {
-                ((GuiArmorForge)Minecraft.getMinecraft().currentScreen).onArmorSelectionPacket(this);
+        if (container instanceof ContainerArmorStation) {
+            ((ContainerArmorStation)container).setArmorSelection(this.armor, this.activeSlots);
+            if (Minecraft.getMinecraft().currentScreen instanceof GuiArmorStation) {
+                ((GuiArmorStation)Minecraft.getMinecraft().currentScreen).onArmorSelectionPacket(this);
             }
         }
     }
 
     public void handleServerSafe(final NetHandlerPlayServer netHandler) {
         final Container container = netHandler.player.openContainer;
-        if (container instanceof ContainerArmorForge) {
-            ((ContainerArmorForge)container).setArmorSelection(this.armor, this.activeSlots);
+        if (container instanceof ContainerArmorStation) {
+            ((ContainerArmorStation)container).setArmorSelection(this.armor, this.activeSlots);
             final WorldServer server = netHandler.player.getServerWorld();
             for (final EntityPlayer player : server.playerEntities) {
                 if (player == netHandler.player) {
                     continue;
                 }
-                if (!(player.openContainer instanceof ContainerArmorForge) || !((BaseContainer)container).sameGui((BaseContainer)player.openContainer)) {
+                if (!(player.openContainer instanceof ContainerArmorStation) || !((BaseContainer)container).sameGui((BaseContainer)player.openContainer)) {
                     continue;
                 }
-                ((ContainerArmorForge)player.openContainer).setArmorSelection(this.armor, this.activeSlots);
+                ((ContainerArmorStation)player.openContainer).setArmorSelection(this.armor, this.activeSlots);
                 TinkerNetwork.sendTo(this, (EntityPlayerMP)player);
             }
         }

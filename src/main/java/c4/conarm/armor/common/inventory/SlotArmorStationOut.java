@@ -1,7 +1,6 @@
 package c4.conarm.armor.common.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCraftResult;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -14,11 +13,11 @@ SlotToolStationOut class from Tinkers' Construct
 Tinkers' Construct is licensed under the MIT License
 Find the source here: https://github.com/SlimeKnights/TinkersConstruct
  */
-public class SlotArmorForgeOut extends Slot
+public class SlotArmorStationOut extends Slot
 {
-    public ContainerArmorForge parent;
+    public ContainerArmorStation parent;
 
-    public SlotArmorForgeOut(final int index, final int xPosition, final int yPosition, final ContainerArmorForge container) {
+    public SlotArmorStationOut(final int index, final int xPosition, final int yPosition, final ContainerArmorStation container) {
         super(new InventoryCraftResult(), index, xPosition, yPosition);
         this.parent = container;
     }

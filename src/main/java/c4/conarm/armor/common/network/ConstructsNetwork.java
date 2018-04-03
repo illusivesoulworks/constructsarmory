@@ -5,8 +5,8 @@ import slimeknights.tconstruct.common.TinkerNetwork;
 public class ConstructsNetwork {
 
     public static void init() {
-        TinkerNetwork.instance.registerPacket(ArmorForgeSelectionPacket.class);
-        TinkerNetwork.instance.registerPacket(ArmorForgeTextPacket.class);
+        TinkerNetwork.instance.registerPacket(ArmorStationSelectionPacket.class);
+        TinkerNetwork.instance.registerPacket(ArmorStationTextPacket.class);
         TinkerNetwork.instance.registerPacketServer(AccessoryTogglePacket.class);
     }
 }

@@ -7,6 +7,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import slimeknights.tconstruct.library.client.Icons;
+import slimeknights.tconstruct.library.client.ToolBuildGuiInfo;
 import slimeknights.tconstruct.tools.common.client.GuiButtonItem;
 import slimeknights.tconstruct.tools.common.client.module.GuiSideButtons;
 
@@ -17,12 +18,12 @@ GuiButtonsToolStation class from Tinkers' Construct
 Tinkers' Construct is licensed under the MIT License
 Find the source here: https://github.com/SlimeKnights/TinkersConstruct
  */
-public class GuiButtonsArmorForge extends GuiSideButtons {
+public class GuiButtonsArmorStation extends GuiSideButtons {
 
-    protected final GuiArmorForge parent;
+    protected final GuiArmorStation parent;
 
-    public GuiButtonsArmorForge(GuiArmorForge parent, Container container) {
-        super(parent, container, GuiArmorForge.Column_Count);
+    public GuiButtonsArmorStation(GuiArmorStation parent, Container container) {
+        super(parent, container, GuiArmorStation.Column_Count);
 
         this.parent = parent;
     }
@@ -87,6 +88,15 @@ public class GuiButtonsArmorForge extends GuiSideButtons {
 
             parent.onArmorSelection(((GuiButtonItem<ArmorBuildGuiInfo>) button).data);
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    public void wood() {
+        for(Object o : buttonList) {
+            shiftButton((GuiButtonItem<ArmorBuildGuiInfo>) o, 0, -36);
+        }
+
+        style = 2;
     }
 
     @SuppressWarnings("unchecked")

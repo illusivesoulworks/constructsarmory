@@ -16,14 +16,14 @@ SlotToolStationIn class from Tinkers' Construct
 Tinkers' Construct is licensed under the MIT License
 Find the source here: https://github.com/SlimeKnights/TinkersConstruct
  */
-public class SlotArmorForgeIn extends Slot
+public class SlotArmorStationIn extends Slot
 {
     public boolean dormant;
     public PartMaterialType restriction;
     public ItemStack icon;
     public Container parent;
 
-    public SlotArmorForgeIn(final IInventory inventoryIn, final int index, final int xPosition, final int yPosition, final Container parent) {
+    public SlotArmorStationIn(final IInventory inventoryIn, final int index, final int xPosition, final int yPosition, final Container parent) {
         super(inventoryIn, index, xPosition, yPosition);
         this.parent = parent;
     }
