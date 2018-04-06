@@ -49,6 +49,7 @@ item.conarm.resistant_kit.name=Resistant Armor Kit
 item.conarm.fire_resistant_kit.name=Fire Resistant Armor Kit
 item.conarm.blast_resistant_kit.name=Blast Resistant Armor Kit
 item.conarm.projectile_resistant_kit.name=Projectile Resistant Armor Kit
+item.conarm.parasitic_kit.name=Parasitic Kit
 
 key.conarm.category=Construct's Armory Accessories
 key.conarm.toggle_boots.desc=Boots
