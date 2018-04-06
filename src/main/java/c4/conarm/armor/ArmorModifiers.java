@@ -42,7 +42,6 @@ public class ArmorModifiers {
     public static Modifier modResist = new ModResistant();
     public static Modifier modReinforced = new ModReinforced();
     public static Modifier modSoulbound = new ModSoulbound();
-    public static Modifier modPolished = new ModPolishedDisplay();
 
     public static AccessoryModifier modTravelBelt = new ModTravelBelt();
     public static AccessoryModifier modTravelSack = new ModTravelSack();
@@ -52,7 +51,6 @@ public class ArmorModifiers {
 //    public static Modifier modArthopodWard = new ModAntiMonsterResistance("arthopod_ward", 0x61ba49, 5, 24, EnumCreatureAttribute.ARTHROPOD);
 //    public static Modifier modHolyWard = new ModAntiMonsterResistance("holy_ward", 0xe8d500, 5, 24, EnumCreatureAttribute.UNDEAD);
 
-    static List<Modifier> polishedMods;
     static List<Modifier> extraTraitMods;
 
     public static void setupModifiers() {
@@ -117,17 +115,7 @@ public class ArmorModifiers {
 //        ArmoryRegistry.registerModifier(modHolyWard);
 //        modHolyWard.addItem(TinkerCommons.consecratedSoil, 1, 1);
 
-        ArmoryRegistry.registerModifier(modPolished);
         ArmoryRegistry.registerModifier(TinkerModifiers.modCreative.getIdentifier(), TinkerModifiers.modCreative);
-    }
-
-    public static void registerPolishedModifiers() {
-        polishedMods = Lists.newArrayList();
-        for(Material mat : TinkerRegistry.getAllMaterialsWithStats(ArmorMaterialType.PLATES)) {
-            ModPolished mod = new ModPolished(mat);
-            polishedMods.add(mod);
-            ArmoryRegistry.registerModifier(mod);
-        }
     }
 
     private static Map<String, ModExtraArmorTrait> extraTraitLookup = new HashMap<>();
