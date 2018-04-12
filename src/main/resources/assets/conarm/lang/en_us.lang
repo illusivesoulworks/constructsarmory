@@ -185,12 +185,8 @@ modifier.travel_goggles_armor.name=Traveller's Goggles
 stat.core.name=Core
 stat.core.durability.name=Durability
 stat.core.durability.desc=The base multiplier value for durability calculations.\nUsually an integral part to the overall durability of an armor piece.
-stat.core.armor.name=Armor
-stat.core.armor.desc=How many defense points an armor piece has.\nChanges based on the body part of the armor slot.
-stat.core.armor.feet=Feet
-stat.core.armor.legs=Legs
-stat.core.armor.chest=Chest
-stat.core.armor.head=Head
+stat.core.defense.name=Defense
+stat.core.defense.desc=How much defense a material has.\nArmor depends on both defense value and armor slot.
 
 stat.plates.name=Plates
 stat.plates.modifier.name=Modifier

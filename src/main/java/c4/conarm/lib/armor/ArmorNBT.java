@@ -15,18 +15,14 @@ Find the source here: https://github.com/SlimeKnights/TinkersConstruct
  */
 public class ArmorNBT {
 
-    public int durability;
-    public float armor;
-    public float toughness;
-    public int modifiers;
+    public int durability = 0;
+    public float defense = 0;
+    public float toughness = 0;
+    public int modifiers = ArmorCore.DEFAULT_MODIFIERS;
 
     private final NBTTagCompound parent;
 
     public ArmorNBT() {
-        durability = 0;
-        armor = 0;
-        toughness = 0;
-        modifiers = ArmorCore.DEFAULT_MODIFIERS;
         parent = new NBTTagCompound();
     }
 
@@ -36,31 +32,28 @@ public class ArmorNBT {
     }
 
     public ArmorNBT core(int slotIn, CoreMaterialStats... cores) {
-        durability = 0;
-        armor = 0;
 
         for(CoreMaterialStats core : cores) {
             if(core != null) {
-                durability += core.durability * ArmorHelper.durabilityMultipliers[slotIn];
-                armor += core.armor[slotIn];
+                durability += Math.round(core.durability * ArmorHelper.durabilityMultipliers[slotIn]);
+                defense += core.defense;
             }
         }
 
-        durability = Math.max(1, durability / cores.length);
-        armor /= (float) cores.length;
-        toughness /= (float) cores.length;
+        this.durability = Math.max(1, this.durability);
 
         return this;
     }
 
     public ArmorNBT trim(int slotIn, TrimMaterialStats... trims) {
-        int dur = 0;
+
         for(TrimMaterialStats trim : trims) {
             if(trim != null) {
-                dur += trim.extraDurability * ArmorHelper.durabilityMultipliers[slotIn];
+                this.durability += Math.round(trim.extraDurability * ArmorHelper.durabilityMultipliers[slotIn]);
             }
         }
-        this.durability += Math.round((float) dur / (float) trims.length);
+
+        this.durability = Math.max(1, this.durability);
 
         return this;
     }
@@ -69,21 +62,19 @@ public class ArmorNBT {
         //(Average Core Durability + Average Trim Durability) * Average Plating Modifier + Average Plating Durability
 
         int dur = 0;
-        float modifier = 0f;
-        toughness = 0;
+        float mod = 0;
         for(PlatesMaterialStats plating : plates) {
             if(plating != null) {
-                dur += plating.durability * ArmorHelper.durabilityMultipliers[slotIn];
-                modifier += plating.modifier;
-                toughness += plating.toughness;
+                dur += Math.round(plating.durability * ArmorHelper.durabilityMultipliers[slotIn]);
+                mod += plating.modifier;
+                this.toughness += plating.toughness;
             }
         }
 
-        modifier /= (float) plates.length;
-        this.durability = Math.round((float) this.durability * modifier);
+        this.durability = Math.round((float) this.durability * mod);
 
         //Add plating durability
-        this.durability += Math.round((float) dur / (float) plates.length);
+        this.durability += dur;
 
         this.durability = Math.max(1, this.durability);
 
@@ -92,14 +83,14 @@ public class ArmorNBT {
 
     public void read(NBTTagCompound tag) {
         durability = tag.getInteger(Tags.DURABILITY);
-        armor = tag.getFloat(ArmorTagUtil.ARMOR);
+        defense = tag.getFloat(ArmorTagUtil.DEFENSE);
         toughness = tag.getFloat(ArmorTagUtil.TOUGHNESS);
         modifiers = tag.getInteger(Tags.FREE_MODIFIERS);
     }
 
     public void write(NBTTagCompound tag) {
         tag.setInteger(Tags.DURABILITY, durability);
-        tag.setFloat(ArmorTagUtil.ARMOR, armor);
+        tag.setFloat(ArmorTagUtil.DEFENSE, defense);
         tag.setFloat(ArmorTagUtil.TOUGHNESS, toughness);
         tag.setInteger(Tags.FREE_MODIFIERS, modifiers);
     }
@@ -125,7 +116,7 @@ public class ArmorNBT {
         if(durability != armorNBT.durability) {
             return false;
         }
-        if(Float.compare(armorNBT.armor, armor) != 0) {
+        if(Float.compare(armorNBT.defense, defense) != 0) {
             return false;
         }
         if(Float.compare(armorNBT.toughness, toughness) != 0) {
@@ -138,7 +129,7 @@ public class ArmorNBT {
     @Override
     public int hashCode() {
         int result = durability;
-        result = 31 * result + (armor != +0.0f ? Float.floatToIntBits(armor) : 0);
+        result = 31 * result + (defense != +0.0f ? Float.floatToIntBits(defense) : 0);
         result = 31 * result + (toughness != +0.0f ? Float.floatToIntBits(toughness) : 0);
         result = 31 * result + modifiers;
         return result;

@@ -24,7 +24,7 @@ public class SetDurabilityAction implements IAction {
         IMaterialStats oldStats = material.getStats(stat);
         if (oldStats instanceof CoreMaterialStats) {
             CoreMaterialStats coreStats = (CoreMaterialStats) oldStats;
-            CoreMaterialStats newCore = new CoreMaterialStats(durability, coreStats.armor[0], coreStats.armor[1], coreStats.armor[2], coreStats.armor[3]);
+            CoreMaterialStats newCore = new CoreMaterialStats(durability, coreStats.defense);
             material.addStats(newCore);
         } else if (oldStats instanceof PlatesMaterialStats) {
             PlatesMaterialStats plateStats = (PlatesMaterialStats) oldStats;

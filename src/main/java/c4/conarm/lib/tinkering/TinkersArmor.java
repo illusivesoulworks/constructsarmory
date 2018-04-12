@@ -110,7 +110,7 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
         if (!ToolHelper.isBroken(armor) && !source.isUnblockable() && entity instanceof EntityPlayer) {
 
             EntityPlayer player = (EntityPlayer) entity;
-            ArmorModifications mods = new ArmorModifications(ArmorHelper.getActualArmor(armor), ArmorHelper.getActualToughness(armor));
+            ArmorModifications mods = new ArmorModifications(ArmorHelper.getArmor(armor, slot), ArmorHelper.getToughness(armor));
             NBTTagList list = TagUtil.getTraitsTagList(armor);
 
             for (int i = 0; i < list.tagCount(); i++) {
@@ -124,7 +124,13 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
             float totalToughness = mods.toughness * mods.toughnessMod * mods.effective;
             float totalArmor = mods.armor * mods.armorMod * mods.effective;
 
-            return ArmorHelper.getPropertiesAfterAbsorb(armor, damage, totalArmor, totalToughness, armorType);
+            ArmorProperties prop = ArmorHelper.getPropertiesAfterAbsorb(armor, damage, totalArmor, totalToughness, armorType);
+
+            //Subtract armor and toughness so that ISpecialArmor does not calculate it twice
+            prop.Armor -= ArmorHelper.getArmor(armor, slot);
+            prop.Toughness -= ArmorHelper.getToughness(armor);
+
+            return prop;
         }
 
         return new ArmorProperties(0, 0, 0);
@@ -133,11 +139,8 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
     @Override
     public int getArmorDisplay(EntityPlayer player, @Nonnull ItemStack armor, int slot) {
 
-        if (!ToolHelper.isBroken(armor)) {
-            return Math.round(ArmorHelper.getActualArmor(armor));
-        } else {
-            return 0;
-        }
+        //We use the entity attributes to display armor instead
+        return 0;
     }
 
     @Override
@@ -551,15 +554,6 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
         }
         else if (Config.extraTooltips && ctrl) {
             getTooltipComponents(stack, tooltip);
-        }
-
-        //We don't use attributes for armor/toughness so we have to manually insert them into the tooltip
-        if (ArmorHelper.getActualArmor(stack) > 0) {
-            tooltip.add(TextFormatting.BLUE + " " + Util.translateFormatted("attribute.modifier.plus.0", ItemStack.DECIMALFORMAT.format(ArmorHelper.getActualArmor(stack)), Util.translate("attribute.name.generic.armor")));
-        }
-
-        if (ArmorHelper.getActualToughness(stack) > 0) {
-            tooltip.add(TextFormatting.BLUE + " " + Util.translateFormatted("attribute.modifier.plus.0", ItemStack.DECIMALFORMAT.format(ArmorHelper.getActualToughness(stack)), Util.translate("attribute.name.generic.armorToughness")));
         }
     }
 

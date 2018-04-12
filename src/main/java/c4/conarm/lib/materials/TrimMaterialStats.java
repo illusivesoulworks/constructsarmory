@@ -12,7 +12,7 @@ public class TrimMaterialStats extends AbstractMaterialStats {
     public final static String LOC_DurabilityDesc = "stat.trim.durability.desc";
     public final static String COLOR_Durability = CoreMaterialStats.COLOR_Durability;
 
-    public final float extraDurability; // usually between 0 and 500
+    public final float extraDurability;
 
     public TrimMaterialStats(float extraDurability) {
         super(ArmorMaterialType.TRIM);

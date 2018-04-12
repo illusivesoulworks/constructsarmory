@@ -30,7 +30,7 @@ public class SetModifierAction implements IAction {
 
     @Override
     public String describe() {
-        return "Setting Modifier of " + material.getName() + " to " + newValue;
+        return "Setting modifier of " + material.getName() + " to " + newValue;
     }
 
 }

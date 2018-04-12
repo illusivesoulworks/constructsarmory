@@ -1,6 +1,6 @@
 package c4.conarm.integrations.crafttweaker.materials;
 
-import c4.conarm.integrations.crafttweaker.actions.SetArmorAction;
+import c4.conarm.integrations.crafttweaker.actions.SetDefenseAction;
 import c4.conarm.integrations.crafttweaker.actions.SetDurabilityAction;
 import c4.conarm.integrations.crafttweaker.actions.SetModifierAction;
 import c4.conarm.lib.materials.ArmorMaterialType;
@@ -69,13 +69,13 @@ public class ConArmMaterial implements IConArmMaterial {
     }
 
     @Override
-    public void setArmor(float[] armor) {
-        CraftTweakerAPI.apply(new SetArmorAction(this, armor));
+    public void setDefense(float defense) {
+        CraftTweakerAPI.apply(new SetDefenseAction(this, defense));
     }
 
     @Override
-    public float[] getArmor() {
-        return ((CoreMaterialStats) material.getStats(ArmorMaterialType.CORE)).armor;
+    public float getDefense() {
+        return ((CoreMaterialStats) material.getStats(ArmorMaterialType.CORE)).defense;
     }
 
     @Override

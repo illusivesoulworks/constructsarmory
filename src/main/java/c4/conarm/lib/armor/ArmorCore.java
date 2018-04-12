@@ -1,5 +1,6 @@
 package c4.conarm.lib.armor;
 
+import c4.conarm.armor.ArmorHelper;
 import c4.conarm.armor.ConstructsArmor;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.materials.ArmorMaterialType;
@@ -9,7 +10,6 @@ import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
 import c4.conarm.lib.utils.ArmorTooltipBuilder;
 import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import net.minecraft.client.gui.FontRenderer;
@@ -17,7 +17,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -40,7 +39,6 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.library.utils.TooltipBuilder;
-import slimeknights.tconstruct.tools.TinkerTools;
 
 import javax.annotation.Nonnull;
 import java.util.*;
@@ -53,6 +51,7 @@ Find the source here: https://github.com/SlimeKnights/TinkersConstruct
 public abstract class ArmorCore extends TinkersArmor implements IToolStationDisplay {
 
     public final static int DEFAULT_MODIFIERS = 3;
+    private static final UUID[] ARMOR_MODIFIERS = new UUID[] {UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
     private final String appearanceName;
 
     public ArmorCore(EntityEquipmentSlot slotIn, String appearanceName, PartMaterialType core) {
@@ -108,7 +107,7 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
         TooltipBuilder info = new TooltipBuilder(stack);
 
         info.addDurability(!detailed);
-        ArmorTooltipBuilder.addArmor(info, stack);
+        ArmorTooltipBuilder.addDefense(info, stack);
         ArmorTooltipBuilder.addToughness(info, stack);
 
         if (ToolHelper.getFreeModifiers(stack) > 0) {
@@ -149,11 +148,7 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
                 Set<ITrait> usedTraits = Sets.newHashSet();
                 for(IMaterialStats stats : material.getAllStats()) {
                     if(pmt.usesStat(stats.getIdentifier())) {
-                        if (stats instanceof CoreMaterialStats) {
-                            tooltips.addAll(((CoreMaterialStats) stats).getLocalizedInfo(armorType));
-                        } else {
-                            tooltips.addAll(stats.getLocalizedInfo());
-                        }
+                        tooltips.addAll(stats.getLocalizedInfo());
                         for(ITrait trait : pmt.getApplicableTraitsForMaterial(material)) {
                             if(!usedTraits.contains(trait)) {
                                 tooltips.add(material.getTextColor() + trait.getLocalizedName());
@@ -315,7 +310,13 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
     @Override
     public Multimap<String, AttributeModifier> getAttributeModifiers(@Nonnull EntityEquipmentSlot slot, ItemStack armor) {
 
-        Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(slot, armor);
+        Multimap<String, AttributeModifier> multimap = HashMultimap.create();
+
+        if(slot == this.armorType && !ToolHelper.isBroken(armor)) {
+            multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor modifier",  ArmorHelper.getArmor(armor, slot.getIndex()), 0));
+            multimap.put(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(), new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor toughness", ArmorHelper.getToughness(armor), 0));
+        }
+
         NBTTagList traitsList = TagUtil.getTraitsTagList(armor);
 
         for(int i = 0; i < traitsList.tagCount(); i++) {
@@ -324,10 +325,6 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
                 trait.getAttributeModifiers(slot, armor, multimap);
             }
         }
-
-        //We don't use these attributes anyways and keeping them activates an unnecessary tooltip
-        multimap.removeAll(SharedMonsterAttributes.ARMOR.getName());
-        multimap.removeAll(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName());
 
         return multimap;
     }

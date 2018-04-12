@@ -22,7 +22,7 @@ public class ModEmerald extends ArmorModifier {
         ArmorNBT base = ArmorTagUtil.getOriginalArmorStats(rootCompound);
 
         data.durability += base.durability / 2;
-        data.armor = Math.max(2.0F, data.armor);
+        data.toughness = Math.max(2, data.toughness);
 
         TagUtil.setToolTag(rootCompound, data.get());
     }

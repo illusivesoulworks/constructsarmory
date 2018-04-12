@@ -19,8 +19,8 @@ public class TraitAlien extends TraitProgressiveArmorStats {
     protected static final int TICK_PER_STAT = 72;
 
     protected static final int DURABILITY_STEP = 1;
-    protected static final float TOUGHNESS_STEP = 0.005F;
-    protected static final float ARMOR_STEP = 0.007F;
+    protected static final float TOUGHNESS_STEP = 0.01F;
+    protected static final float DEFENSE_STEP = 0.02F;
 
     public TraitAlien() {
         super("alien", TextFormatting.YELLOW);
@@ -35,7 +35,7 @@ public class TraitAlien extends TraitProgressiveArmorStats {
 
             int statPoints = 800;
             for (; statPoints > 0; statPoints--) {
-                switch (random.nextInt(3)) {
+                switch (random.nextInt(4)) {
                     case 0:
                         data.durability += DURABILITY_STEP;
                         break;
@@ -43,7 +43,7 @@ public class TraitAlien extends TraitProgressiveArmorStats {
                         data.toughness += TOUGHNESS_STEP;
                         break;
                     case 2:
-                        data.armor += ARMOR_STEP;
+                        data.defense += DEFENSE_STEP;
                         break;
                 }
             }
@@ -70,11 +70,11 @@ public class TraitAlien extends TraitProgressiveArmorStats {
         StatNBT distributed = getBonus(root);
         ArmorNBT data = ArmorTagUtil.getArmorStats(armor);
 
-        //Armor
+        //Defense
         if (player.ticksExisted % (TICK_PER_STAT * 3) == 0) {
-            if (distributed.armor < pool.armor) {
-                data.armor += ARMOR_STEP;
-                distributed.armor += ARMOR_STEP;
+            if (distributed.defense < pool.defense) {
+                data.defense += DEFENSE_STEP;
+                distributed.defense += DEFENSE_STEP;
             }
         }
 
@@ -102,7 +102,7 @@ public class TraitAlien extends TraitProgressiveArmorStats {
         StatNBT pool = getBonus(TagUtil.getTagSafe(tool));
 
         return ImmutableList.of(CoreMaterialStats.formatDurability(pool.durability),
-                CoreMaterialStats.formatArmor(pool.armor),
+                CoreMaterialStats.formatDefense(pool.defense),
                 PlatesMaterialStats.formatToughness(pool.toughness));
     }
 }

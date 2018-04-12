@@ -42,6 +42,7 @@ public class ArmorModifiers {
     public static Modifier modResist = new ModResistant();
     public static Modifier modReinforced = new ModReinforced();
     public static Modifier modSoulbound = new ModSoulbound();
+    public static Modifier modPolished = new ModPolishedDisplay();
 
     public static AccessoryModifier modTravelBelt = new ModTravelBelt();
     public static AccessoryModifier modTravelSack = new ModTravelSack();
@@ -115,6 +116,7 @@ public class ArmorModifiers {
 //        ArmoryRegistry.registerModifier(modHolyWard);
 //        modHolyWard.addItem(TinkerCommons.consecratedSoil, 1, 1);
 
+        ArmoryRegistry.registerModifier(modPolished);
         ArmoryRegistry.registerModifier(TinkerModifiers.modCreative.getIdentifier(), TinkerModifiers.modCreative);
     }
 

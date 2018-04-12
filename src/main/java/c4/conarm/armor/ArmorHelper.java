@@ -2,10 +2,10 @@ package c4.conarm.armor;
 
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import c4.conarm.lib.events.ArmoryEvent;
+import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.lib.traits.IArmorAbility;
 import c4.conarm.lib.traits.IArmorTrait;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -26,7 +26,12 @@ import static slimeknights.tconstruct.library.utils.ToolHelper.*;
 public class ArmorHelper {
 
     public static final int[] durabilityMultipliers = new int[]{13, 15, 16, 11};
+    public static final float[] defenseMultipliers = new float[]{0.14F, 0.3F, 0.4F, 0.16F};
     protected static final float[] ARMOR_PROTECTION_CAPS = {0.12F, 0.24F, 0.32F, 0.12F};
+
+    public static boolean isUnbrokenTinkersArmor(ItemStack stack) {
+        return stack.getItem() instanceof TinkersArmor && !ToolHelper.isBroken(stack);
+    }
 
     public static ISpecialArmor.ArmorProperties getPropertiesAfterAbsorb(ItemStack armor, double damage, float totalArmor, float totalToughness, EntityEquipmentSlot slot) {
 
@@ -36,23 +41,19 @@ public class ArmorHelper {
         return new ISpecialArmor.ArmorProperties(0, absorbRatio, (int) Math.ceil(Math.max(damage, (armor.getMaxDamage() - armor.getItemDamage()) * 4)));
     }
 
-    public static float getActualArmor(ItemStack stack) {
-        return getArmorStat(stack);
+    public static float getArmor(ItemStack stack, int slot) {
+        return getDefense(stack) * defenseMultipliers[slot];
     }
 
-    public static float getActualToughness(ItemStack stack) {
-        return getToughnessStat(stack);
+    public static float getDefense(ItemStack stack) {
+        return getFloatTag(stack, ArmorTagUtil.DEFENSE);
     }
 
-    public static float getArmorStat(ItemStack stack) {
-        return getFloatTag(stack, ArmorTagUtil.ARMOR);
-    }
-
-    public static float getToughnessStat(ItemStack stack) {
+    public static float getToughness(ItemStack stack) {
         return getFloatTag(stack, ArmorTagUtil.TOUGHNESS);
     }
 
-    static float getFloatTag(ItemStack stack, String key) {
+    private static float getFloatTag(ItemStack stack, String key) {
         NBTTagCompound tag = TagUtil.getToolTag(stack);
 
         return tag.getFloat(key);

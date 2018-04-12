@@ -37,10 +37,10 @@ public class ModSilkstep extends ArmorModifierTrait {
 
         super.applyEffect(rootCompound, modifierTag);
 
-        ArmorNBT data = ArmorTagUtil.getArmorStats(rootCompound);
-        data.armor = Math.max(0f, data.armor - 2f);
-        data.toughness = Math.max(0f, data.toughness - 1f);
-
-        TagUtil.setToolTag(rootCompound, data.get());
+//        ArmorNBT data = ArmorTagUtil.getArmorStats(rootCompound);
+//        data.armor = Math.max(0f, data.armor - 2f);
+//        data.toughness = Math.max(0f, data.toughness - 1f);
+//
+//        TagUtil.setToolTag(rootCompound, data.get());
     }
 }

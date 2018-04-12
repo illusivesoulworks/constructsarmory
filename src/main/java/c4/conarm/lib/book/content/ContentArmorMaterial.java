@@ -63,8 +63,8 @@ public class ContentArmorMaterial extends ContentMaterial {
         addStatsDisplay(x, y, w, list, allTraits, ArmorMaterialType.CORE);
         addStatsDisplay(x + w, y, w - 10, list, allTraits, ArmorMaterialType.PLATES);
 
-        y += 75 + 10 * material.getAllTraitsForStats(ArmorMaterialType.PLATES).size();
-        addStatsDisplay(x + w, y, w - 10, list, allTraits, ArmorMaterialType.TRIM);
+        y += 55 + 10 * material.getAllTraitsForStats(ArmorMaterialType.CORE).size();
+        addStatsDisplay(x, y, w - 10, list, allTraits, ArmorMaterialType.TRIM);
 
         String flavour = parent.parent.parent.strings.get(String.format("%s.flavour", material.getIdentifier()));
 

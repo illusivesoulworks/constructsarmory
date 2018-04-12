@@ -173,12 +173,7 @@ public class ArmorPart extends MaterialItem implements IToolPart
 
         for(IMaterialStats stat : material.getAllStats()) {
             if(hasUseForStat(stat.getIdentifier())) {
-                List<String> text;
-                if (slot != null && stat instanceof CoreMaterialStats) {
-                    text = ((CoreMaterialStats) stat).getLocalizedInfo(slot);
-                } else {
-                    text = stat.getLocalizedInfo();
-                }
+                List<String> text = stat.getLocalizedInfo();
                 if(!text.isEmpty()) {
                     builder.add("");
                     builder.add(TextFormatting.WHITE.toString() + TextFormatting.UNDERLINE + stat.getLocalizedName());

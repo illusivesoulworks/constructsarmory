@@ -39,11 +39,11 @@ public interface IConArmMaterial {
     @ZenGetter("durabilityTrim")
     float getDurabilityTrim();
 
-    @ZenSetter("armor")
-    void setArmor(float[] armor);
+    @ZenSetter("defense")
+    void setDefense(float defense);
 
-    @ZenGetter("armor")
-    float[] getArmor();
+    @ZenGetter("defense")
+    float getDefense();
 
     @ZenSetter("modifier")
     void setModifier(float modifier);

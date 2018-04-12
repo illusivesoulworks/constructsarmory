@@ -21,8 +21,8 @@ public class ModDiamond extends ArmorModifier {
         ArmorNBT data = ArmorTagUtil.getArmorStats(rootCompound);
         data.durability += 150;
 
-        data.armor += 0.5F;
-        data.toughness += 1.0F;
+        data.defense += 4;
+        data.toughness += 2;
 
         TagUtil.setToolTag(rootCompound, data.get());
     }

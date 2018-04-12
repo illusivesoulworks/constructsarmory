@@ -8,10 +8,8 @@ import slimeknights.tconstruct.library.utils.Tags;
 
 public class ArmorTagUtil {
 
-    public static final String ARMOR = "Armor";
+    public static final String DEFENSE = "Defense";
     public static final String TOUGHNESS = "Toughness";
-
-
 
     public static ArmorNBT getArmorStats(ItemStack stack) {
         return getArmorStats(TagUtil.getTagSafe(stack));

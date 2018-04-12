@@ -30,7 +30,7 @@ public class SetToughnessAction implements IAction {
 
     @Override
     public String describe() {
-        return "Setting Modifier of " + material.getName() + " to " + newValue;
+        return "Setting toughness of " + material.getName() + " to " + newValue;
     }
 
 }

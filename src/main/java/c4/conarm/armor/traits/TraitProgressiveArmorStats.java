@@ -34,7 +34,7 @@ public abstract class TraitProgressiveArmorStats extends AbstractArmorTrait {
         StatNBT bonus = getBonus(rootCompound);
 
         data.durability += bonus.durability;
-        data.armor += bonus.armor;
+        data.defense += bonus.defense;
         data.toughness += bonus.toughness;
 
         TagUtil.setToolTag(rootCompound, data.get());
@@ -75,14 +75,14 @@ public abstract class TraitProgressiveArmorStats extends AbstractArmorTrait {
     public static class StatNBT extends ModifierNBT {
 
         public int durability;
-        public float armor;
+        public float defense;
         public float toughness;
 
         @Override
         public void read(NBTTagCompound tag) {
             super.read(tag);
             durability = tag.getInteger("durability");
-            armor = tag.getFloat("armor");
+            defense = tag.getFloat("defense");
             toughness = tag.getFloat("toughness");
         }
 
@@ -90,7 +90,7 @@ public abstract class TraitProgressiveArmorStats extends AbstractArmorTrait {
         public void write(NBTTagCompound tag) {
             super.write(tag);
             tag.setInteger("durability", durability);
-            tag.setFloat("armor", armor);
+            tag.setFloat("defense", defense);
             tag.setFloat("toughness", toughness);
         }
     }

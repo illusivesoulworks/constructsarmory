@@ -2,7 +2,6 @@ package c4.conarm.armor.common.items;
 
 import c4.conarm.lib.armor.ArmorPart;
 import c4.conarm.lib.materials.ArmorMaterialType;
-import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,10 +12,7 @@ import slimeknights.mantle.util.LocUtils;
 import slimeknights.tconstruct.common.config.Config;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.Util;
-import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 import slimeknights.tconstruct.library.materials.Material;
-import slimeknights.tconstruct.library.materials.MaterialTypes;
-import slimeknights.tconstruct.library.tools.ToolPart;
 
 import javax.annotation.Nullable;
 import java.util.List;
