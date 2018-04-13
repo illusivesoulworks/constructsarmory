@@ -77,7 +77,11 @@ public class DynamicTextureHelper {
             TextureAtlasSprite sprite = map.getTextureExtry(String.format("%s_%s",loc,identifier));
 
             if (sprite == null) {
-                sprite = map.getTextureExtry(loc);
+                if (material.renderInfo.getTextureSuffix() != null) {
+                    sprite = map.getTextureExtry(String.format("%s_%s",loc,material.renderInfo.getTextureSuffix()));
+                } else {
+                    sprite = map.getTextureExtry(loc);
+                }
             }
 
             if (sprite == null) {
