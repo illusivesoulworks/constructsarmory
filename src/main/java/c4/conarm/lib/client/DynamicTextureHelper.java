@@ -17,6 +17,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import slimeknights.tconstruct.library.client.CustomTextureCreator;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.utils.TagUtil;
@@ -104,7 +105,7 @@ public class DynamicTextureHelper {
                 bufferedImage.setRGB(0, j * iconHeight, iconWidth, iconHeight, largestMipMapTextureData, 0, iconWidth);
             }
 
-            if (material.renderInfo.useVertexColoring()) {
+            if (material.renderInfo.useVertexColoring() && !CustomTextureCreator.exists(loc + "_" + material.identifier)) {
                 int color = material.renderInfo.getVertexColor();
                 int a = (color >> 24);
                 if(a == 0) {
