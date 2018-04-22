@@ -6,6 +6,7 @@ import com.google.common.collect.Lists;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
@@ -50,13 +51,16 @@ public class DebugCommand extends CommandBase {
         }
 
         List<String> info = Lists.newArrayList();
-        ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData((EntityPlayer) sender);
 
-        if (armorAbilities != null) {
-            for (String identifier : armorAbilities.getAbilityMap().keySet()) {
-                info.add(String.format("\n%s: level %s", identifier, armorAbilities.getAbilityLevel(identifier)));
-            }
-        }
+//        ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData((EntityPlayer) sender);
+//
+//        if (armorAbilities != null) {
+//            for (String identifier : armorAbilities.getAbilityMap().keySet()) {
+//                info.add(String.format("\n%s: level %s", identifier, armorAbilities.getAbilityLevel(identifier)));
+//            }
+//        }
+
+        info.add("" + ((EntityPlayer) sender).getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue());
 
         ConstructsArmory.logger.info(info);
     }

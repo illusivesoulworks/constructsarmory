@@ -74,7 +74,7 @@ public class ArmorMaterials {
 
         //Durability ranges from 1-40 since this number is multiplied later on
         //Ref: 5 for leather, 15 for chain/iron, 7 for gold, 33 for diamond
-        //Defense ranges from 0-23
+        //Defense ranges from 0-20
         //Toughness ranges from 0-5
 
         //Natural

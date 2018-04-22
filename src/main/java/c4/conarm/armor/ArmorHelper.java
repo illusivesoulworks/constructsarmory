@@ -42,7 +42,7 @@ public class ArmorHelper {
     }
 
     public static float getArmor(ItemStack stack, int slot) {
-        return getDefense(stack) * defenseMultipliers[slot];
+        return ((int) (getDefense(stack) * defenseMultipliers[slot] * 100 + 0.5)) / 100.0F;
     }
 
     public static float getDefense(ItemStack stack) {

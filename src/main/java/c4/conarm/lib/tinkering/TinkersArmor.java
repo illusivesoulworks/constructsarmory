@@ -4,6 +4,7 @@ import c4.conarm.ConstructsArmory;
 import c4.conarm.armor.ArmorHelper;
 import c4.conarm.armor.ArmorModifications;
 import c4.conarm.armor.ConstructsArmor;
+import c4.conarm.client.ModelBrokenArmor;
 import c4.conarm.client.ModelConstructsArmor;
 import c4.conarm.lib.client.DynamicTextureHelper;
 import c4.conarm.lib.events.ArmoryEvent;
@@ -25,6 +26,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -81,6 +83,7 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
 
     protected final PartMaterialType[] requiredComponents;
     protected ModelBiped model;
+    protected ModelBiped brokenModel = new ModelBrokenArmor();
     private static final ItemArmor.ArmorMaterial emptyMaterial = EnumHelper.addArmorMaterial("armory", "empty", 0, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 
     public TinkersArmor(EntityEquipmentSlot slotIn, PartMaterialType... requiredComponents) {
@@ -127,13 +130,20 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
             ArmorProperties prop = ArmorHelper.getPropertiesAfterAbsorb(armor, damage, totalArmor, totalToughness, armorType);
 
             //Subtract armor and toughness so that ISpecialArmor does not calculate it twice
-            prop.Armor -= ArmorHelper.getArmor(armor, slot);
+            prop.Armor -= getArmorDifference(ArmorHelper.getArmor(armor, slot), entity);
             prop.Toughness -= ArmorHelper.getToughness(armor);
 
             return prop;
         }
 
         return new ArmorProperties(0, 0, 0);
+    }
+
+    //Fractional armor values don't get calculated properly so we call this method to compensate
+    protected double getArmorDifference(float armor, EntityLivingBase entity) {
+        double actualTotalArmor = entity.getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue();
+        double totalArmor = entity.getTotalArmorValue();
+        return armor - ((actualTotalArmor - armor) - (totalArmor - armor));
     }
 
     @Override
@@ -179,6 +189,9 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
     {
         if (model == null) {
             model = new ModelConstructsArmor(armorSlot);
+        }
+        if (ToolHelper.isBroken(itemStack)) {
+            return brokenModel;
         }
         return model;
     }

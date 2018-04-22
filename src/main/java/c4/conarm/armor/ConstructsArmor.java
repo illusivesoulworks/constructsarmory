@@ -74,12 +74,12 @@ public class ConstructsArmor {
     public static ItemBase parasiticKit;
 
     public static void registerArmorParts(IForgeRegistry<Item> registry) {
-        helmetCore = registerArmorPart(registry, new ArmorPart(Material.VALUE_Ingot * 3, EntityEquipmentSlot.HEAD), "helmet_core");
+        helmetCore = registerArmorPart(registry, new ArmorPart(Material.VALUE_Ingot * 4, EntityEquipmentSlot.HEAD), "helmet_core");
         armorTrim = registerArmorPart(registry, new ArmorPart(Material.VALUE_Ingot), "armor_trim");
-        armorPlate = registerArmorPart(registry, new ArmorPart(Material.VALUE_Ingot * 10), "armor_plate");
+        armorPlate = registerArmorPart(registry, new ArmorPart(Material.VALUE_Ingot * 3), "armor_plate");
         chestCore = registerArmorPart(registry, new ArmorPart(Material.VALUE_Ingot * 6, EntityEquipmentSlot.CHEST), "chest_core");
         leggingsCore = registerArmorPart(registry, new ArmorPart(Material.VALUE_Ingot * 5, EntityEquipmentSlot.LEGS), "leggings_core");
-        bootsCore = registerArmorPart(registry, new ArmorPart(Material.VALUE_Ingot * 3, EntityEquipmentSlot.FEET), "boots_core");
+        bootsCore = registerArmorPart(registry, new ArmorPart(Material.VALUE_Ingot * 4, EntityEquipmentSlot.FEET), "boots_core");
     }
 
     public static void initModels() {

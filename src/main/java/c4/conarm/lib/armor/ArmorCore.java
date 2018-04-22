@@ -312,17 +312,19 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
 
         Multimap<String, AttributeModifier> multimap = HashMultimap.create();
 
-        if(slot == this.armorType && !ToolHelper.isBroken(armor)) {
-            multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor modifier",  ArmorHelper.getArmor(armor, slot.getIndex()), 0));
-            multimap.put(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(), new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor toughness", ArmorHelper.getToughness(armor), 0));
-        }
+        if (!ToolHelper.isBroken(armor)) {
+            if (slot == this.armorType) {
+                multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor modifier", ArmorHelper.getArmor(armor, slot.getIndex()), 0));
+                multimap.put(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(), new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor toughness", ArmorHelper.getToughness(armor), 0));
+            }
 
-        NBTTagList traitsList = TagUtil.getTraitsTagList(armor);
+            NBTTagList traitsList = TagUtil.getTraitsTagList(armor);
 
-        for(int i = 0; i < traitsList.tagCount(); i++) {
-            ITrait trait = TinkerRegistry.getTrait(traitsList.getStringTagAt(i));
-            if(trait != null) {
-                trait.getAttributeModifiers(slot, armor, multimap);
+            for (int i = 0; i < traitsList.tagCount(); i++) {
+                ITrait trait = TinkerRegistry.getTrait(traitsList.getStringTagAt(i));
+                if (trait != null) {
+                    trait.getAttributeModifiers(slot, armor, multimap);
+                }
             }
         }
 
