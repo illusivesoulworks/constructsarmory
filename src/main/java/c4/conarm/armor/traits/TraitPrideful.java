@@ -19,6 +19,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.potion.TinkerPotion;
 
 import javax.annotation.Nonnull;
+import java.util.Iterator;
 
 public class TraitPrideful extends AbstractArmorTrait {
 
@@ -44,9 +45,7 @@ public class TraitPrideful extends AbstractArmorTrait {
     @Override
     public void onAbilityTick(ArmorAbilityHandler.IArmorAbilities abilities, World world, EntityPlayer player) {
         if (!world.isRemote && player.ticksExisted % (20 * 20 / ArmorHelper.getArmorAbilityLevel(player, this.identifier)) == 0) {
-            for (Potion potion : player.getActivePotionMap().keySet()) {
-                player.removePotionEffect(potion);
-            }
+            player.clearActivePotions();
         }
     }
 
