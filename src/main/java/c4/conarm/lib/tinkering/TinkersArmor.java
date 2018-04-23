@@ -84,7 +84,7 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
 
     protected final PartMaterialType[] requiredComponents;
     protected ModelBiped model;
-    protected ModelBiped brokenModel = new ModelBrokenArmor();
+    protected ModelBiped brokenModel;
     private static final ItemArmor.ArmorMaterial emptyMaterial = EnumHelper.addArmorMaterial("armory", "empty", 0, new int[]{0,0,0,0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 
     public TinkersArmor(EntityEquipmentSlot slotIn, PartMaterialType... requiredComponents) {
@@ -190,6 +190,9 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
     {
         if (model == null) {
             model = new ModelConstructsArmor(armorSlot);
+        }
+        if (brokenModel == null) {
+            brokenModel = new ModelBrokenArmor();
         }
         if (ToolHelper.isBroken(itemStack)) {
             return brokenModel;
