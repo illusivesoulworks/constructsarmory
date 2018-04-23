@@ -141,20 +141,24 @@ public class ArmorBuilder {
 
                 int indexNew = TinkerUtil.getIndexInList(modifiersTag, modifier.getIdentifier());
 
-                if (modifier instanceof AccessoryModifier && indexNew != 0) {
-                    NBTTagList newModifiersTag = new NBTTagList();
-                    newModifiersTag.appendTag(tag);
-                    for (int j = 0; j < modifiersTag.tagCount(); j++) {
-                        if (j != indexNew) {
-                            newModifiersTag.appendTag(modifiersTag.get(j));
-                        }
-                    }
-                    TagUtil.setModifiersTagList(rootNBT, newModifiersTag);
-                    modifiersTag = TagUtil.getModifiersTagList(rootNBT);
-                } else if(indexNew >= 0) {
+                if(indexNew >= 0) {
                     modifiersTag.set(indexNew, tag);
                 } else {
                     modifiersTag.appendTag(tag);
+                }
+            }
+
+            if (modifier instanceof AccessoryModifier) {
+                int indexAcc = TinkerUtil.getIndexInList(modifiers, modifier.getIdentifier());
+                if (indexAcc >= 0) {
+                    NBTTagList newList = new NBTTagList();
+                    for (int s = 0; s < modifiers.tagCount(); s++) {
+                        if (s != indexAcc) {
+                            newList.appendTag(modifiers.get(s));
+                        }
+                    }
+                    newList.appendTag(modifiers.get(indexAcc));
+                    TagUtil.setBaseModifiersTagList(rootNBT, newList);
                 }
             }
         }

@@ -13,6 +13,7 @@ import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.modifiers.IArmorModifyable;
 import c4.conarm.lib.traits.IArmorTrait;
 import c4.conarm.lib.utils.ArmorBuilder;
+import c4.conarm.lib.utils.ArmorTooltipBuilder;
 import c4.conarm.proxy.ClientProxy;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -572,7 +573,7 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
 
     @Override
     public void getTooltip(ItemStack stack, List<String> tooltips) {
-        TooltipBuilder.addModifierTooltips(stack, tooltips);
+        ArmorTooltipBuilder.addModifierTooltips(stack, tooltips);
     }
 
     @Nonnull

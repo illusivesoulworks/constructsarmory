@@ -1,6 +1,7 @@
 package c4.conarm.proxy;
 
 import c4.conarm.armor.ClientArmorEvents;
+import c4.conarm.client.LayerAccessories;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.ArmoryRegistryClient;
 import c4.conarm.ConstructsArmory;
@@ -15,6 +16,8 @@ import c4.conarm.lib.client.KeyInputEvent;
 import com.google.common.collect.Maps;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
@@ -73,6 +76,12 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void postInit(FMLPostInitializationEvent evt) {
         super.postInit(evt);
+        Minecraft mc = Minecraft.getMinecraft();
+        RenderManager manager = mc.getRenderManager();
+        Map<String, RenderPlayer> renderPlayerMap = manager.getSkinMap();
+        for(RenderPlayer render : renderPlayerMap.values()) {
+            render.addLayer(new LayerAccessories<>(render));
+        }
         ArmoryBook.INSTANCE.fontRenderer = TinkerBook.INSTANCE.fontRenderer;
     }
 

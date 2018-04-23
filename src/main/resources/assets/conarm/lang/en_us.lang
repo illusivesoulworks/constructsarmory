@@ -6,6 +6,7 @@ gui.armorstation.name=Armor Station
 
 gui.error.station_material_mismatch=Materials do not match.
 
+accessory.tooltip=Accessory: %s
 accessory.head.tooltip=Helmet Accessory
 accessory.chest.tooltip=Chestplate Accessory
 accessory.legs.tooltip=Leggings Accessory

@@ -2,6 +2,7 @@ package c4.conarm.client;
 
 import c4.conarm.ConstructsArmory;
 import c4.conarm.lib.armor.ArmorCore;
+import c4.conarm.lib.modifiers.AccessoryModifier;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
@@ -25,6 +26,7 @@ import slimeknights.tconstruct.library.tools.IToolPart;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
