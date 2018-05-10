@@ -34,11 +34,14 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import slimeknights.tconstruct.common.ModelRegisterUtil;
+import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.book.TinkerBook;
 import slimeknights.tconstruct.library.client.CustomTextureCreator;
 import slimeknights.tconstruct.library.client.model.ModelHelper;
 import slimeknights.tconstruct.library.client.model.ModifierModelLoader;
+import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
+import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.ToolClientEvents;
 
@@ -121,8 +124,13 @@ public class ClientProxy extends CommonProxy {
         CustomTextureCreator.registerTexture(ConstructUtils.getResource("models/armor/armor_trim"));
         try {
             Map<String, String> textureEntries = ModelHelper.loadTexturesFromJson(ConstructUtils.getResource("models/model_modifiers"));
-            for (String s : textureEntries.values()) {
-                Minecraft.getMinecraft().getTextureMapBlocks().registerSprite(ConstructUtils.getResource(s));
+            for (String s : textureEntries.keySet()) {
+                IModifier mod = TinkerRegistry.getModifier(s);
+                if (mod != null && mod.hasTexturePerMaterial()) {
+                    CustomTextureCreator.registerTexture(ConstructUtils.getResource(textureEntries.get(s)));
+                } else {
+                    Minecraft.getMinecraft().getTextureMapBlocks().registerSprite(ConstructUtils.getResource(textureEntries.get(s)));
+                }
             }
             modifierCache.putAll(textureEntries);
         } catch (IOException e) {

@@ -73,6 +73,7 @@ public class CommonProxy {
     }
 
     public void postInit(FMLPostInitializationEvent evt) {
+        ArmorModifiers.registerPolishedModifiers();
         ArmorModifiers.registerExtraTraitModifiers();
     }
 

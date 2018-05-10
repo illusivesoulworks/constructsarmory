@@ -52,6 +52,7 @@ public class ArmorModifiers {
 //    public static Modifier modArthopodWard = new ModAntiMonsterResistance("arthopod_ward", 0x61ba49, 5, 24, EnumCreatureAttribute.ARTHROPOD);
 //    public static Modifier modHolyWard = new ModAntiMonsterResistance("holy_ward", 0xe8d500, 5, 24, EnumCreatureAttribute.UNDEAD);
 
+    static List<Modifier> polishedMods;
     static List<Modifier> extraTraitMods;
 
     public static void setupModifiers() {
@@ -121,6 +122,15 @@ public class ArmorModifiers {
     }
 
     private static Map<String, ModExtraArmorTrait> extraTraitLookup = new HashMap<>();
+
+    public static void registerPolishedModifiers() {
+        polishedMods = Lists.newArrayList();
+        for (Material mat : TinkerRegistry.getAllMaterialsWithStats(ArmorMaterialType.PLATES)) {
+            ModPolished mod = new ModPolished(mat);
+            polishedMods.add(mod);
+            ArmoryRegistry.registerModifier(mod);
+        }
+    }
 
     public static void registerExtraTraitModifiers() {
         TinkerRegistry.getAllMaterials().forEach(ArmorModifiers::registerExtraTraitModifiers);

@@ -1,5 +1,8 @@
 {
   "textures": {
-
+    "helmet": "conarm:items/helmet/mod_soulbound_armor",
+    "chestplate": "conarm:items/chestplate/mod_soulbound_armor",
+    "leggings": "conarm:items/leggings/mod_soulbound_armor",
+    "boots": "conarm:items/boots/mod_soulbound_armor"
   }
 }

@@ -139,7 +139,12 @@ public class DynamicTextureHelper {
 
         for (IModifier modifier : modifiers) {
             TextureMap map = Minecraft.getMinecraft().getTextureMapBlocks();
-            String loc = String.format("%s_%s","conarm:models/armor/armor_mod", modifier.getIdentifier());
+            String loc;
+            if (modifier instanceof IArmorMaterialTexture) {
+                loc = ((IArmorMaterialTexture) modifier).getBaseTexture();
+            } else {
+                loc = String.format("%s_%s",armor.getArmorModifierLocation(), modifier.getIdentifier());
+            }
             TextureAtlasSprite sprite = map.getAtlasSprite(loc);
 
             if (sprite == map.getMissingSprite()) {

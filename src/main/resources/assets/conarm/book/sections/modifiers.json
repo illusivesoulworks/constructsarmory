@@ -43,6 +43,10 @@
     "data": "modifiers/soulbound_armor.json"
   },
   {
+    "type": "armormodifier_polished",
+    "data": "modifiers/polished_armor.json"
+  },
+  {
     "type": "armormodifier",
     "data": "modifiers/travel_goggles.json"
   },

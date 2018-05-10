@@ -3,9 +3,12 @@ package c4.conarm.armor.modifiers;
 import c4.conarm.armor.ArmorTagUtil;
 import c4.conarm.armor.ConstructsArmor;
 import c4.conarm.lib.ArmoryRegistry;
+import c4.conarm.lib.ConstructUtils;
+import c4.conarm.lib.client.IArmorMaterialTexture;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.modifiers.ArmorModifier;
+import c4.conarm.lib.tinkering.TinkersArmor;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -24,12 +27,14 @@ import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.tools.TinkerTools;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
-public class ModPolished extends ArmorModifier {
+import javax.tools.Tool;
+
+public class ModPolished extends ToolModifier implements IArmorMaterialTexture {
 
     public final Material material;
 
     public ModPolished(Material material) {
-        super("polished" + material.getIdentifier(), material.materialTextColor);
+        super("polished_armor" + material.getIdentifier(), material.materialTextColor);
 
         if(!material.hasStats(ArmorMaterialType.PLATES)) {
             throw new TinkerAPIException(String.format("Trying to add a polished-modifier for a material without armor stats: %s", material.getIdentifier()));
@@ -41,6 +46,11 @@ public class ModPolished extends ArmorModifier {
         ItemStack kit = ConstructsArmor.polishingKit.getItemstackWithMaterial(material);
         ItemStack sand = new ItemStack(Blocks.SAND);
         addRecipeMatch(new RecipeMatch.ItemCombination(1, kit, sand));
+    }
+
+    @Override
+    public String getBaseTexture() {
+        return "conarm:models/modifiers/mod_polished_armor_" + material.getIdentifier();
     }
 
     @Override
@@ -75,6 +85,12 @@ public class ModPolished extends ArmorModifier {
         }
 
         TagUtil.setModifiersTagList(rootCompound, tagList);
+    }
+
+    @Override
+    public boolean canApplyCustom(ItemStack stack) {
+
+        return stack.getItem() instanceof TinkersArmor;
     }
 
     @Override
