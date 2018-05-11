@@ -25,7 +25,6 @@ public class ArmorTraits {
     public static final AbstractArmorTrait ambitious = new TraitAmbitious();
     public static final AbstractArmorTrait blessed = new TraitBlessed();
     public static final AbstractArmorTrait spiny = new TraitSpiny();
-    public static final AbstractArmorTrait conservative = new TraitConservative();
     public static final AbstractArmorTrait mundane = new TraitMundane();
     public static final AbstractArmorTrait aridiculous = new TraitAridiculous();
     public static final AbstractArmorTrait petravidity = new TraitPetravidity();

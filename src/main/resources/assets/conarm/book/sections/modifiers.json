@@ -48,6 +48,10 @@
   },
   {
     "type": "armormodifier",
+    "data": "modifiers/extratrait_armor.json"
+  },
+  {
+    "type": "armormodifier",
     "data": "modifiers/travel_goggles.json"
   },
   {

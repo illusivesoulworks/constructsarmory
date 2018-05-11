@@ -136,8 +136,7 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void registerPotions(RegistryEvent.Register<Potion> evt) {
-        evt.getRegistry().register(TraitSuperhot.superhotPotion);
-        evt.getRegistry().register(TraitAquaspeed.aquaspeedPotion);
+        evt.getRegistry().registerAll(TraitSuperhot.superhotPotion, TraitAquaspeed.aquaspeedPotion);
     }
 
     private static void registerStencil(Item pattern, ArmorPart armorPart) {

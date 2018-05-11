@@ -34,13 +34,16 @@ public class ArmorEvents {
     @SubscribeEvent
     public void onPlayerTick(TickEvent.PlayerTickEvent evt) {
 
-        ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData(evt.player);
+        if (evt.phase == TickEvent.Phase.END) {
 
-        if (armorAbilities != null) {
-            for (String identifier : armorAbilities.getAbilityMap().keySet()) {
-                ITrait trait = TinkerRegistry.getTrait(identifier);
-                if (trait != null && trait instanceof IArmorTrait) {
-                    ((IArmorTrait) trait).onAbilityTick(armorAbilities.getAbilityLevel(identifier), evt.player.world, evt.player);
+            ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData(evt.player);
+
+            if (armorAbilities != null) {
+                for (String identifier : armorAbilities.getAbilityMap().keySet()) {
+                    ITrait trait = TinkerRegistry.getTrait(identifier);
+                    if (trait != null && trait instanceof IArmorTrait) {
+                        ((IArmorTrait) trait).onAbilityTick(armorAbilities.getAbilityLevel(identifier), evt.player.world, evt.player);
+                    }
                 }
             }
         }

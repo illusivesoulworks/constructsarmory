@@ -1,6 +1,7 @@
 package c4.conarm.proxy;
 
 import c4.conarm.armor.ClientArmorEvents;
+import c4.conarm.armor.modifiers.ModExtraArmorTraitDisplay;
 import c4.conarm.client.LayerAccessories;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.ArmoryRegistryClient;

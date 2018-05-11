@@ -1,0 +1,17 @@
+{
+  "armormodifier": "extratrait_armor",
+  "text": [
+    {
+      "text": "Take an armor part and emboss it right onto your armor! The armor takes on the trait(s) of the armor part, but not the stats."
+    }
+  ],
+  "effects": [
+    "Adds traits of another part",
+    "Traits are equal to swapping the part",
+    "The embossment is final and can't be changed",
+    "Requires no modifier"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

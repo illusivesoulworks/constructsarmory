@@ -10,46 +10,54 @@ import slimeknights.tconstruct.tools.TinkerTraits;
 public class ArmorMaterials {
 
     public static void setupArmorMaterials() {
-        addArmorTrait(TinkerMaterials.prismarine, ArmorTraits.aquaspeed);
-        addSpecificArmorTrait(TinkerMaterials.prismarine, ArmorTraits.rough, ArmorMaterialType.CORE);
+
+        //Natural
         addArmorTrait(TinkerMaterials.wood, ArmorTraits.ecological);
-        addArmorTrait(TinkerMaterials.obsidian, ArmorTraits.duritae);
-        addArmorTrait(TinkerMaterials.copper, ArmorTraits.ambitious);
-        addArmorTrait(TinkerMaterials.sponge, ArmorTraits.absorbent);
-        addSpecificArmorTrait(TinkerMaterials.netherrack, ArmorTraits.aridiculous, ArmorMaterialType.CORE);
-        addArmorTrait(TinkerMaterials.netherrack, ArmorTraits.infernal);
-        addArmorTraits(TinkerMaterials.bone, ArmorTraits.calcic, ArmorTraits.skeletal);
-        addArmorTrait(TinkerMaterials.firewood, ArmorTraits.combustible);
-        addArmorTraits(TinkerMaterials.stone, ArmorTraits.cheapskate, ArmorTraits.cheap);
-        addArmorTrait(TinkerMaterials.silver, ArmorTraits.blessed);
-        addSpecificArmorTrait(TinkerMaterials.pigiron, ArmorTraits.baconlicious, ArmorMaterialType.CORE);
-        addArmorTrait(TinkerMaterials.pigiron, ArmorTraits.tasty);
-        addSpecificArmorTrait(TinkerMaterials.paper, TinkerTraits.writable2, ArmorMaterialType.CORE);
-        addArmorTrait(TinkerMaterials.iron, ArmorTraits.magnetic);
+        addArmorTrait(TinkerMaterials.stone, ArmorTraits.cheapskate, ArmorTraits.cheap);
         addArmorTrait(TinkerMaterials.flint, ArmorTraits.mundane);
-        addArmorTrait(TinkerMaterials.cobalt, ArmorTraits.lightweight);
-        addArmorTraits(TinkerMaterials.magmaslime, ArmorTraits.autoforge, ArmorTraits.superhot);
-        addArmorTraits(TinkerMaterials.manyullyn, ArmorTraits.prideful, ArmorTraits.vengeful);
-        addArmorTrait(TinkerMaterials.slime, ArmorTraits.slimeyGreen);
-        addSpecificArmorTrait(TinkerMaterials.slime, ArmorTraits.bouncy, ArmorMaterialType.CORE);
-        addArmorTrait(TinkerMaterials.blueslime, ArmorTraits.slimeyBlue);
-        addSpecificArmorTrait(TinkerMaterials.blueslime, ArmorTraits.bouncy, ArmorMaterialType.CORE);
-        addArmorTrait(TinkerMaterials.lead, ArmorTraits.heavy);
-        addArmorTrait(TinkerMaterials.lead, ArmorTraits.shielding);
-        addArmorTraits(TinkerMaterials.endstone, ArmorTraits.alien, ArmorTraits.enderport);
-        addArmorTraits(TinkerMaterials.ardite, ArmorTraits.subterranean, ArmorTraits.petravidity);
-        addArmorTraits(TinkerMaterials.steel, ArmorTraits.steady, ArmorTraits.indomitable);
-        addArmorTrait(TinkerMaterials.bronze, ArmorTraits.dense);
+        addArmorTrait(TinkerMaterials.obsidian, ArmorTraits.duritae);
         addArmorTrait(TinkerMaterials.cactus, ArmorTraits.spiny);
-        addArmorTraits(TinkerMaterials.knightslime, ArmorTraits.dramatic, ArmorTraits.invigorating);
+        addArmorTrait(TinkerMaterials.prismarine, ArmorTraits.aquaspeed);
+        addArmorTrait(TinkerMaterials.prismarine, ArmorTraits.rough, ArmorMaterialType.CORE);
+        addArmorTrait(TinkerMaterials.netherrack, ArmorTraits.aridiculous, ArmorMaterialType.CORE);
+        addArmorTrait(TinkerMaterials.netherrack, ArmorTraits.infernal);
+        addArmorTrait(TinkerMaterials.endstone, ArmorTraits.alien, ArmorTraits.enderport);
+
+        //Item/Special Resources
+        addArmorTrait(TinkerMaterials.bone, ArmorTraits.calcic, ArmorTraits.skeletal);
+        addArmorTrait(TinkerMaterials.paper, TinkerTraits.writable2, ArmorMaterialType.CORE);
+        addArmorTrait(TinkerMaterials.sponge, ArmorTraits.absorbent);
+        addArmorTrait(TinkerMaterials.firewood, ArmorTraits.combustible);
+        addArmorTrait(TinkerMaterials.slime, ArmorTraits.slimeyGreen);
+        addArmorTrait(TinkerMaterials.slime, ArmorTraits.bouncy, ArmorMaterialType.CORE);
+        addArmorTrait(TinkerMaterials.blueslime, ArmorTraits.slimeyBlue);
+        addArmorTrait(TinkerMaterials.blueslime, ArmorTraits.bouncy, ArmorMaterialType.CORE);
+        addArmorTrait(TinkerMaterials.knightslime, ArmorTraits.dramatic, ArmorTraits.invigorating);
+        addArmorTrait(TinkerMaterials.magmaslime, ArmorTraits.autoforge, ArmorTraits.superhot);
+
+        //Metals
+        addArmorTrait(TinkerMaterials.iron, ArmorTraits.magnetic);
+        addArmorTrait(TinkerMaterials.pigiron, ArmorTraits.baconlicious, ArmorMaterialType.CORE);
+        addArmorTrait(TinkerMaterials.pigiron, ArmorTraits.tasty);
+        addArmorTrait(TinkerMaterials.cobalt, ArmorTraits.lightweight);
+        addArmorTrait(TinkerMaterials.ardite, ArmorTraits.subterranean, ArmorTraits.petravidity);
+        addArmorTrait(TinkerMaterials.manyullyn, ArmorTraits.vengeful, ArmorTraits.prideful);
+
+        //Mod Integrations
+        addArmorTrait(TinkerMaterials.copper, ArmorTraits.ambitious);
+        addArmorTrait(TinkerMaterials.bronze, ArmorTraits.dense);
+        addArmorTrait(TinkerMaterials.lead, ArmorTraits.heavy);
+        addArmorTrait(TinkerMaterials.lead, ArmorTraits.shielding, ArmorMaterialType.CORE);
+        addArmorTrait(TinkerMaterials.silver, ArmorTraits.blessed);
         addArmorTrait(TinkerMaterials.electrum, ArmorTraits.voltaic);
+        addArmorTrait(TinkerMaterials.steel, ArmorTraits.steady, ArmorTraits.indomitable);
     }
 
     private static void addArmorTrait(Material material, ITrait trait) {
-        addArmorTraits(material, trait, null);
+        addArmorTrait(material, trait, (ITrait) null);
     }
 
-    private static void addArmorTraits(Material material, ITrait trait, ITrait secondTrait) {
+    private static void addArmorTrait(Material material, ITrait trait, ITrait secondTrait) {
         material.addTrait(trait, ArmorMaterialType.CORE);
         if (secondTrait != null) {
             material.addTrait(secondTrait, ArmorMaterialType.PLATES);
@@ -60,7 +68,7 @@ public class ArmorMaterials {
         }
     }
 
-    private static void addSpecificArmorTrait(Material material, ITrait trait, String type) {
+    private static void addArmorTrait(Material material, ITrait trait, String type) {
         material.addTrait(trait, type);
     }
 
