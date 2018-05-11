@@ -46,20 +46,4 @@ public class TraitBlessed extends AbstractArmorTrait {
             }
         }
     }
-
-//    @Override
-//    public ArmorModifications getModifications(EntityPlayer player, ArmorModifications mods, ItemStack armor, DamageSource source, double damage, int slot) {
-//        if (source.getTrueSource() instanceof EntityLivingBase) {
-//            if (((EntityLivingBase) source.getTrueSource()).isEntityUndead()) {
-//                mods.addEffectiveness(MODIFIER);
-//            }
-//        }
-//        return super.getModifications(player, mods, armor, source, damage, slot);
-//    }
-//
-//    @Override
-//    public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag) {
-//        String loc = Util.translate(LOC_Extra, getIdentifier());
-//        return ImmutableList.of(Util.translateFormatted(loc, Util.df.format(MODIFIER)));
-//    }
 }

@@ -14,10 +14,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
@@ -43,7 +40,7 @@ public class ArmorEvents {
             for (String identifier : armorAbilities.getAbilityMap().keySet()) {
                 ITrait trait = TinkerRegistry.getTrait(identifier);
                 if (trait != null && trait instanceof IArmorTrait) {
-                    ((IArmorTrait) trait).onAbilityTick(armorAbilities, evt.player.world, evt.player);
+                    ((IArmorTrait) trait).onAbilityTick(armorAbilities.getAbilityLevel(identifier), evt.player.world, evt.player);
                 }
             }
         }
@@ -158,6 +155,50 @@ public class ArmorEvents {
             }
 
             evt.setAmount(Math.max(0, newDamage));
+        }
+    }
+
+    @SubscribeEvent
+    public void playerKnockback(LivingKnockBackEvent evt) {
+
+        if (evt.getEntity() instanceof EntityPlayer) {
+
+            EntityPlayer player = (EntityPlayer) evt.getEntity();
+            for (ItemStack stack : player.getArmorInventoryList()) {
+                if (stack.getItem() instanceof TinkersArmor) {
+                    if (!ToolHelper.isBroken(stack)) {
+                        NBTTagList list = TagUtil.getTraitsTagList(stack);
+                        for (int i = 0; i < list.tagCount(); i++) {
+                            ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
+                            if (trait != null && trait instanceof IArmorTrait) {
+                                ((IArmorTrait) trait).onKnockback(stack, player, evt);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public void playerFall(LivingFallEvent evt) {
+
+        if (evt.getEntity() instanceof EntityPlayer) {
+
+            EntityPlayer player = (EntityPlayer) evt.getEntity();
+            for (ItemStack stack : player.getArmorInventoryList()) {
+                if (stack.getItem() instanceof TinkersArmor) {
+                    if (!ToolHelper.isBroken(stack)) {
+                        NBTTagList list = TagUtil.getTraitsTagList(stack);
+                        for (int i = 0; i < list.tagCount(); i++) {
+                            ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
+                            if (trait != null && trait instanceof IArmorTrait) {
+                                ((IArmorTrait) trait).onFalling(stack, player, evt);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

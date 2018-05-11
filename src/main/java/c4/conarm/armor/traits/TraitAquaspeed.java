@@ -18,10 +18,7 @@ import javax.annotation.Nonnull;
 
 public class TraitAquaspeed extends AbstractArmorTrait {
 
-    public static TinkerPotion aquaspeedPotion = new AquaspeedPotion();
-
     private static final double SPEED_MOD = 0.05D;
-    private static final double MAX_SPEED_PER_LEVEL = 0.09D;
 
     public TraitAquaspeed() {
         super("aquaspeed", TextFormatting.AQUA);
@@ -29,51 +26,24 @@ public class TraitAquaspeed extends AbstractArmorTrait {
 
     /*Code derived from Vazkii's Botania Water Ring*/
     @Override
-    public void onAbilityTick(ArmorAbilityHandler.IArmorAbilities abilities, World world, EntityPlayer player) {
+    public void onAbilityTick(int level, World world, EntityPlayer player) {
         if (!world.isRemote && (player.isInWater())) {
-            aquaspeedPotion.apply(player, 5, (int) ArmorHelper.getArmorAbilityLevel(player, this.identifier));
-        }
-    }
+            double motionX = player.motionX * (1 + SPEED_MOD * level);
+            double motionY = player.motionY * (1 + SPEED_MOD * level);
+            double motionZ = player.motionZ * (1 + SPEED_MOD * level);
 
-    private static class AquaspeedPotion extends TinkerPotion {
+            boolean isFlying = player.capabilities.isFlying;
+            double maxSpeed = 1.1D + level / 15D;
 
-        public AquaspeedPotion() {
-            super(ConstructUtils.getResource("aquaspeedPotion"), false, false);
-        }
-
-        @Override
-        public boolean isReady(int duration, int strength) {
-            return true;
-        }
-
-        @Override
-        public void performEffect(@Nonnull EntityLivingBase entity, int level) {
-
-            if (entity.isInWater()) {
-                double motionX = entity.motionX * (1 + SPEED_MOD * level);
-                double motionY = entity.motionY * (1 + SPEED_MOD * level);
-                double motionZ = entity.motionZ * (1 + SPEED_MOD * level);
-
-                boolean isFlying = entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isFlying;
-                double maxSpeed;
-                switch (level) {
-                    case 1: maxSpeed = 1.2D; break;
-                    case 2: maxSpeed = 1.3D; break;
-                    case 3: maxSpeed = 1.35D; break;
-                    case 4: maxSpeed = 1.375D; break;
-                    default: maxSpeed = 1.0D; break;
+            if (!isFlying) {
+                if (Math.abs(motionX) < maxSpeed) {
+                    player.motionX = motionX;
                 }
-
-                if (!isFlying) {
-                    if (Math.abs(motionX) < maxSpeed) {
-                        entity.motionX = motionX;
-                    }
-                    if (Math.abs(motionY) < maxSpeed) {
-                        entity.motionY = motionY;
-                    }
-                    if (Math.abs(motionZ) < maxSpeed) {
-                        entity.motionZ = motionZ;
-                    }
+                if (Math.abs(motionY) < maxSpeed) {
+                    player.motionY = motionY;
+                }
+                if (Math.abs(motionZ) < maxSpeed) {
+                    player.motionZ = motionZ;
                 }
             }
         }

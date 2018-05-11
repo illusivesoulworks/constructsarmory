@@ -31,7 +31,9 @@ public class ArmorMaterials {
         addArmorTraits(TinkerMaterials.magmaslime, ArmorTraits.autoforge, ArmorTraits.superhot);
         addArmorTraits(TinkerMaterials.manyullyn, ArmorTraits.prideful, ArmorTraits.vengeful);
         addArmorTrait(TinkerMaterials.slime, ArmorTraits.slimeyGreen);
+        addSpecificArmorTrait(TinkerMaterials.slime, ArmorTraits.bouncy, ArmorMaterialType.CORE);
         addArmorTrait(TinkerMaterials.blueslime, ArmorTraits.slimeyBlue);
+        addSpecificArmorTrait(TinkerMaterials.blueslime, ArmorTraits.bouncy, ArmorMaterialType.CORE);
         addArmorTrait(TinkerMaterials.lead, ArmorTraits.heavy);
         addArmorTrait(TinkerMaterials.lead, ArmorTraits.shielding);
         addArmorTraits(TinkerMaterials.endstone, ArmorTraits.alien, ArmorTraits.enderport);

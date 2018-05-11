@@ -31,11 +31,4 @@ public class TraitSkeletal extends AbstractArmorTrait {
 
         TagUtil.setToolTag(rootCompound, data.get());
     }
-
-//    @Override
-//    public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag) {
-//        String loc = String.format(LOC_Extra, getModifierIdentifier());
-//
-//        return ImmutableList.of(Util.translateFormatted(loc, Util.dfPercent.format(MULTIPLIER)));
-//    }
 }

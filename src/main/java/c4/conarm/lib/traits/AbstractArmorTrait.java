@@ -10,10 +10,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
@@ -50,6 +47,11 @@ public class AbstractArmorTrait extends AbstractTrait implements IArmorTrait, IA
     }
 
     @Override
+    public void onKnockback(ItemStack armor, EntityPlayer player, LivingKnockBackEvent evt) {
+        //NO-OP;
+    }
+
+    @Override
     public void onFalling(ItemStack armor, EntityPlayer player, LivingFallEvent evt) {
         //NO-OP
     }
@@ -60,7 +62,7 @@ public class AbstractArmorTrait extends AbstractTrait implements IArmorTrait, IA
     }
 
     @Override
-    public void onAbilityTick(ArmorAbilityHandler.IArmorAbilities abilities, World world, EntityPlayer player) {
+    public void onAbilityTick(int level, World world, EntityPlayer player) {
         //NO-OP
     }
 

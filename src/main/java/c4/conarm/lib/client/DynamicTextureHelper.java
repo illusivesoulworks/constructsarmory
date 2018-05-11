@@ -80,6 +80,9 @@ public class DynamicTextureHelper {
             if (sprite == null) {
                 if (material.renderInfo.getTextureSuffix() != null) {
                     sprite = map.getTextureExtry(String.format("%s_%s",loc,material.renderInfo.getTextureSuffix()));
+                    if (sprite == null) {
+                        sprite = map.getTextureExtry(loc);
+                    }
                 } else {
                     sprite = map.getTextureExtry(loc);
                 }

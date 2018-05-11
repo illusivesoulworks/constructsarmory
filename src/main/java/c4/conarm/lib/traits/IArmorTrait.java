@@ -11,10 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import slimeknights.tconstruct.library.traits.ITrait;
@@ -31,11 +28,13 @@ public interface IArmorTrait extends ITrait {
 
     float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent evt);
 
+    void onKnockback(ItemStack armor, EntityPlayer player, LivingKnockBackEvent evt);
+
     void onFalling(ItemStack armor, EntityPlayer player, LivingFallEvent evt);
 
     void onJumping(ItemStack armor, EntityPlayer player, LivingEvent.LivingJumpEvent evt);
 
-    void onAbilityTick(ArmorAbilityHandler.IArmorAbilities abilities, World world, EntityPlayer player);
+    void onAbilityTick(int level, World world, EntityPlayer player);
 
     int onArmorDamage(ItemStack armor, DamageSource source, int damage, int newDamage, EntityPlayer player, int slot);
 

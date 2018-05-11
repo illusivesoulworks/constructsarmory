@@ -10,22 +10,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class TraitAmbitious extends AbstractArmorTrait {
 
-    private static final double XP_MOD_PER_LEVEL = 0.025D;
-
     public TraitAmbitious() {
         super("ambitious", 0xffffff);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
-
-//    @SubscribeEvent
-//    public void onXPDrop(LivingExperienceDropEvent evt) {
-//        int xpValue = evt.getDroppedExperience();
-//        if(xpValue > 0) {
-//            int level = ArmorHelper.getArmorAbilityLevel(evt.getAttackingPlayer(), this.identifier);
-//            evt.setDroppedExperience((int) (xpValue * (1 + XP_MOD_PER_LEVEL * level)));
-//        }
-//    }
 
     @SubscribeEvent
     public void onXPPickUp(PlayerPickupXpEvent evt) {

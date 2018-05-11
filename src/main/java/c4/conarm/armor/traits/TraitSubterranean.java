@@ -13,8 +13,6 @@ import net.minecraft.world.World;
 
 public class TraitSubterranean extends AbstractArmorTrait {
 
-    private static final float MODIFIER = 0.2F;
-
     public TraitSubterranean() {
         super("subterranean", TextFormatting.DARK_GRAY);
     }

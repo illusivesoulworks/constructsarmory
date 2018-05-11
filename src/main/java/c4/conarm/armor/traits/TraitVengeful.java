@@ -22,16 +22,6 @@ public class TraitVengeful extends AbstractArmorTrait {
         super("vengeful", 0xff0000);
     }
 
-//    @Override
-//    public ArmorModifications getModifications(EntityPlayer player, ArmorModifications mods, ItemStack armor, DamageSource source, double damage, int slot) {
-//        if (source.getTrueSource() instanceof EntityLivingBase) {
-//            if (((EntityLivingBase) source.getTrueSource()).getHealth() > player.getHealth()) {
-//                mods.addEffectiveness(MODIFIER);
-//            }
-//        }
-//        return super.getModifications(player, mods, armor, source, damage, slot);
-//    }
-
     @Override
     public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
         if (source.getTrueSource() instanceof EntityLivingBase) {
@@ -60,16 +50,4 @@ public class TraitVengeful extends AbstractArmorTrait {
         }
         return super.onHurt(armor, player, source, damage, newDamage, evt);
     }
-
-//    @Override
-//    public int onArmorDamage(ItemStack armor, DamageSource source, int damage, int newDamage, EntityPlayer player, int slot) {
-//        if (source.getImmediateSource() instanceof EntityLivingBase) {
-//            EntityLivingBase entity = (EntityLivingBase) source.getImmediateSource();
-//            if (!entity.getHeldItemMainhand().isEmpty()) {
-//                entity.getHeldItemMainhand().damageItem(1000, player);
-//                return newDamage + damage;
-//            }
-//        }
-//        return newDamage;
-//    }
 }

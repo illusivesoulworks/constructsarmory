@@ -34,16 +34,8 @@ public class TraitIndomitable extends AbstractArmorTrait {
             ArmorNBT original = ArmorTagUtil.getOriginalArmorStats(rootCompound);
             data.defense += original.defense * MULTIPLIER;
             data.toughness += original.toughness * MULTIPLIER;
-            data.defense = Math.min(20, data.defense);
             TagUtil.setToolTag(rootCompound, data.get());
         }
         super.applyEffect(rootCompound, modifierTag);
     }
-
-//    @Override
-//    public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag) {
-//        String loc = String.format(LOC_Extra, getModifierIdentifier());
-//
-//        return ImmutableList.of(Util.translateFormatted(loc, Util.dfPercent.format(MULTIPLIER)));
-//    }
 }

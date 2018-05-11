@@ -46,4 +46,5 @@ public class ArmorTraits {
     public static final AbstractArmorTrait duritae = new TraitDuritosRanch();
     public static final AbstractArmorTrait dense = new TraitDense();
     public static final AbstractArmorTrait voltaic = new TraitVoltaic();
+    public static final AbstractArmorTrait bouncy = new TraitBouncy();
 }

@@ -32,16 +32,6 @@ public class TraitInvigorating extends AbstractArmorTrait {
         super("invigorating", TextFormatting.LIGHT_PURPLE);
     }
 
-//    @Override
-//    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
-//        if (source.isUnblockable()) {
-//            newDamage -= damage * ABSORB_PER_LEVEL;
-//            ToolHelper.damageTool(armor, DURABILITY_BREAK, player);
-//        }
-//
-//        return newDamage;
-//    }
-
     @Override
     public void getAttributeModifiers(@Nonnull EntityEquipmentSlot slot, ItemStack stack, Multimap<String, AttributeModifier> attributeMap) {
         if (slot == EntityLiving.getSlotForItemStack(stack)) {
