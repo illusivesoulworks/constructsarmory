@@ -1,7 +1,7 @@
 package c4.conarm.proxy;
 
+import c4.conarm.armor.ArmorModifiers;
 import c4.conarm.armor.ClientArmorEvents;
-import c4.conarm.armor.modifiers.ModExtraArmorTraitDisplay;
 import c4.conarm.client.LayerAccessories;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.ArmoryRegistryClient;
@@ -11,9 +11,9 @@ import c4.conarm.armor.ConstructsArmor;
 import c4.conarm.lib.armor.ArmorPart;
 import c4.conarm.client.ArmorModelLoader;
 import c4.conarm.client.ArmorModelUtils;
-import c4.conarm.lib.ConstructUtils;
+import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.book.ArmoryBook;
-import c4.conarm.lib.client.KeyInputEvent;
+import c4.conarm.client.KeyInputEvent;
 import com.google.common.collect.Maps;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -39,10 +39,7 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.book.TinkerBook;
 import slimeknights.tconstruct.library.client.CustomTextureCreator;
 import slimeknights.tconstruct.library.client.model.ModelHelper;
-import slimeknights.tconstruct.library.client.model.ModifierModelLoader;
-import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
-import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.ToolClientEvents;
 
@@ -107,7 +104,7 @@ public class ClientProxy extends CommonProxy {
         }
 
         for (IModifier modifier : ArmoryRegistry.getAllArmorModifiers()) {
-            if (modifier == TinkerModifiers.modCreative) {
+            if (modifier == TinkerModifiers.modCreative || modifier == ArmorModifiers.modExtraTrait) {
                 continue;
             }
 
