@@ -1,6 +1,6 @@
 package c4.conarm.lib.materials;
 
-import c4.conarm.armor.ArmorTraits;
+import c4.conarm.common.armor.traits.ArmorTraits;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.traits.ITrait;
@@ -53,11 +53,11 @@ public class ArmorMaterials {
         addArmorTrait(TinkerMaterials.steel, ArmorTraits.steady, ArmorTraits.indomitable);
     }
 
-    private static void addArmorTrait(Material material, ITrait trait) {
+    public static void addArmorTrait(Material material, ITrait trait) {
         addArmorTrait(material, trait, (ITrait) null);
     }
 
-    private static void addArmorTrait(Material material, ITrait trait, ITrait secondTrait) {
+    public static void addArmorTrait(Material material, ITrait trait, ITrait secondTrait) {
         material.addTrait(trait, ArmorMaterialType.CORE);
         if (secondTrait != null) {
             material.addTrait(secondTrait, ArmorMaterialType.PLATES);
@@ -68,7 +68,7 @@ public class ArmorMaterials {
         }
     }
 
-    private static void addArmorTrait(Material material, ITrait trait, String type) {
+    public static void addArmorTrait(Material material, ITrait trait, String type) {
         material.addTrait(trait, type);
     }
 

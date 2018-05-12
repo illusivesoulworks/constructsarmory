@@ -1,22 +1,14 @@
 package c4.conarm.lib.traits;
 
-import c4.conarm.armor.ArmorModifications;
-import c4.conarm.lib.capabilities.ArmorAbilityHandler;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
+import c4.conarm.lib.armor.ArmorModifications;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import slimeknights.tconstruct.library.traits.ITrait;
-
-import javax.annotation.Nonnull;
 
 public interface IArmorTrait extends ITrait {
 

@@ -1,7 +1,7 @@
 package c4.conarm.lib.book;
 
 import c4.conarm.ConstructsArmory;
-import c4.conarm.lib.ConstructUtils;
+import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.book.content.ContentArmor;
 import c4.conarm.lib.book.content.ContentArmorMaterial;
 import c4.conarm.lib.book.content.ContentArmorModifier;
@@ -15,12 +15,6 @@ import slimeknights.mantle.client.book.BookLoader;
 import slimeknights.mantle.client.book.BookTransformer;
 import slimeknights.mantle.client.book.data.BookData;
 import slimeknights.mantle.client.book.repository.FileRepository;
-import slimeknights.tconstruct.library.Util;
-import slimeknights.tconstruct.library.book.content.*;
-import slimeknights.tconstruct.library.book.sectiontransformer.BowMaterialSectionTransformer;
-import slimeknights.tconstruct.library.book.sectiontransformer.MaterialSectionTransformer;
-import slimeknights.tconstruct.library.book.sectiontransformer.ModifierSectionTransformer;
-import slimeknights.tconstruct.library.book.sectiontransformer.ToolSectionTransformer;
 
 @SideOnly(Side.CLIENT)
 public class ArmoryBook extends BookData {

@@ -1,19 +1,18 @@
 package c4.conarm.proxy;
 
-import c4.conarm.armor.ArmorModifiers;
-import c4.conarm.armor.ClientArmorEvents;
-import c4.conarm.client.LayerAccessories;
+import c4.conarm.common.ConstructsRegistry;
+import c4.conarm.common.armor.modifiers.ArmorModifiers;
+import c4.conarm.client.layers.LayerAccessories;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.ArmoryRegistryClient;
 import c4.conarm.ConstructsArmory;
 import c4.conarm.lib.armor.ArmorCore;
-import c4.conarm.armor.ConstructsArmor;
 import c4.conarm.lib.armor.ArmorPart;
-import c4.conarm.client.ArmorModelLoader;
-import c4.conarm.client.ArmorModelUtils;
+import c4.conarm.client.utils.ArmorModelLoader;
+import c4.conarm.client.utils.ArmorModelUtils;
 import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.book.ArmoryBook;
-import c4.conarm.client.KeyInputEvent;
+import c4.conarm.client.events.ClientArmorEvents;
 import com.google.common.collect.Maps;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -63,14 +62,14 @@ public class ClientProxy extends CommonProxy {
         super.preInit(evt);
         ModelLoaderRegistry.registerLoader(loader);
         ArmoryBook.init();
-        KeyInputEvent.init();
+        ClientArmorEvents.init();
     }
 
     @Override
     public void init(FMLInitializationEvent evt) {
         super.init(evt);
         ArmoryRegistryClient.registerArmorBuildInfo();
-        MinecraftForge.EVENT_BUS.register(new KeyInputEvent());
+        MinecraftForge.EVENT_BUS.register(new ClientArmorEvents());
         MinecraftForge.EVENT_BUS.register(new ClientArmorEvents());
     }
 
@@ -90,8 +89,8 @@ public class ClientProxy extends CommonProxy {
     public static void registerModels(ModelRegistryEvent evt) {
 
         //Armor Forge
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ConstructsArmor.armorForge), 0, locArmorForge);
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ConstructsArmor.armorStation), 0, locArmorStation);
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ConstructsRegistry.armorForge), 0, locArmorForge);
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ConstructsRegistry.armorStation), 0, locArmorStation);
 
         //Armor Parts
         for (ArmorPart armorPart : ArmoryRegistry.armorParts) {
@@ -112,7 +111,7 @@ public class ClientProxy extends CommonProxy {
         }
 
         //All other items
-        ConstructsArmor.initModels();
+        ConstructsRegistry.initModels();
     }
 
     @SubscribeEvent

@@ -1,7 +1,6 @@
 package c4.conarm.lib.book.content;
 
-import c4.conarm.lib.ArmoryRegistry;
-import c4.conarm.lib.ConstructUtils;
+import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.armor.ArmorCore;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -19,15 +18,12 @@ import slimeknights.mantle.client.gui.book.element.ElementImage;
 import slimeknights.mantle.client.gui.book.element.ElementText;
 import slimeknights.mantle.util.ItemStackList;
 import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.book.TinkerPage;
-import slimeknights.tconstruct.library.book.content.ContentModifier;
 import slimeknights.tconstruct.library.book.elements.ElementTinkerItem;
 import slimeknights.tconstruct.library.client.CustomFontColor;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.modifiers.IModifierDisplay;
-import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.tools.TinkerMaterials;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 

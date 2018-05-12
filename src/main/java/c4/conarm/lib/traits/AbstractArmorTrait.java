@@ -1,8 +1,6 @@
 package c4.conarm.lib.traits;
 
-import c4.conarm.armor.ArmorModifications;
-import c4.conarm.lib.capabilities.ArmorAbilityHandler;
-import net.minecraft.entity.EntityLivingBase;
+import c4.conarm.lib.armor.ArmorModifications;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -13,8 +11,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
-
-import javax.annotation.Nonnull;
 
 public class AbstractArmorTrait extends AbstractTrait implements IArmorTrait, IArmorAbility {
 

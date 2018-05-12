@@ -1,10 +1,9 @@
 package c4.conarm.lib.book.content;
 
-import c4.conarm.armor.ConstructsArmor;
+import c4.conarm.common.ConstructsRegistry;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.materials.ArmorMaterialType;
-import c4.conarm.lib.materials.CoreMaterialStats;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import net.minecraft.item.ItemStack;
@@ -147,7 +146,7 @@ public class ContentArmorMaterial extends ContentMaterial {
             displayArmor.add(elementItem);
         }
 
-        ArmorCore[] armory = new ArmorCore[]{ConstructsArmor.helmet, ConstructsArmor.chestplate, ConstructsArmor.leggings, ConstructsArmor.boots};
+        ArmorCore[] armory = new ArmorCore[]{ConstructsRegistry.helmet, ConstructsRegistry.chestplate, ConstructsRegistry.leggings, ConstructsRegistry.boots};
 
         for (ArmorCore armor : armory) {
             if (armor == null) {

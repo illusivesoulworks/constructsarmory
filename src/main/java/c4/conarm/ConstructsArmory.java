@@ -1,7 +1,5 @@
 package c4.conarm;
 
-import c4.conarm.armor.ConstructsArmor;
-import c4.conarm.debug.DebugCommand;
 import c4.conarm.proxy.CommonProxy;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
@@ -9,8 +7,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
-import slimeknights.mantle.pulsar.control.PulseManager;
-import slimeknights.tconstruct.TConstruct;
 
 @Mod(   modid = ConstructsArmory.MODID,
         name = ConstructsArmory.MODNAME,

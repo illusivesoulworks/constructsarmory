@@ -1,7 +1,7 @@
 package c4.conarm.lib.armor;
 
-import c4.conarm.armor.ArmorHelper;
-import c4.conarm.armor.ArmorTagUtil;
+import c4.conarm.common.armor.utils.ArmorHelper;
+import c4.conarm.common.armor.utils.ArmorTagUtil;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
@@ -31,13 +31,11 @@ public class ArmorNBT {
         parent = tag;
     }
 
-    public ArmorNBT core(int slotIn, CoreMaterialStats... cores) {
+    public ArmorNBT core(int slotIn, CoreMaterialStats core) {
 
-        for(CoreMaterialStats core : cores) {
-            if(core != null) {
-                durability += Math.round(core.durability * ArmorHelper.durabilityMultipliers[slotIn]);
-                defense += core.defense;
-            }
+        if(core != null) {
+            durability += Math.round(core.durability * ArmorHelper.durabilityMultipliers[slotIn]);
+            defense += core.defense;
         }
 
         this.durability = Math.max(1, this.durability);
@@ -45,12 +43,10 @@ public class ArmorNBT {
         return this;
     }
 
-    public ArmorNBT trim(int slotIn, TrimMaterialStats... trims) {
+    public ArmorNBT trim(int slotIn, TrimMaterialStats trim) {
 
-        for(TrimMaterialStats trim : trims) {
-            if(trim != null) {
-                this.durability += Math.round(trim.extraDurability * ArmorHelper.durabilityMultipliers[slotIn]);
-            }
+        if(trim != null) {
+            this.durability += Math.round(trim.extraDurability * ArmorHelper.durabilityMultipliers[slotIn]);
         }
 
         this.durability = Math.max(1, this.durability);
@@ -58,17 +54,15 @@ public class ArmorNBT {
         return this;
     }
 
-    public ArmorNBT plating(int slotIn, PlatesMaterialStats... plates) {
+    public void plating(int slotIn, PlatesMaterialStats plating) {
         //(Average Core Durability + Average Trim Durability) * Average Plating Modifier + Average Plating Durability
 
         int dur = 0;
         float mod = 0;
-        for(PlatesMaterialStats plating : plates) {
-            if(plating != null) {
-                dur += Math.round(plating.durability * ArmorHelper.durabilityMultipliers[slotIn]);
-                mod += plating.modifier;
-                this.toughness += plating.toughness;
-            }
+        if(plating != null) {
+            dur += Math.round(plating.durability * ArmorHelper.durabilityMultipliers[slotIn]);
+            mod += plating.modifier;
+            this.toughness += plating.toughness;
         }
 
         this.durability = Math.round((float) this.durability * mod);
@@ -78,7 +72,6 @@ public class ArmorNBT {
 
         this.durability = Math.max(1, this.durability);
 
-        return this;
     }
 
     public void read(NBTTagCompound tag) {

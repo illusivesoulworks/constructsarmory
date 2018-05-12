@@ -1,6 +1,6 @@
 package c4.conarm.lib;
 
-import c4.conarm.armor.ConstructsArmor;
+import c4.conarm.common.ConstructsRegistry;
 import c4.conarm.lib.client.ArmorBuildGuiInfo;
 import com.google.common.collect.Maps;
 import net.minecraft.item.Item;
@@ -15,31 +15,11 @@ public class ArmoryRegistryClient {
     private static final Map<Item, ArmorBuildGuiInfo> armorBuildInfo = Maps.newLinkedHashMap();
 
     public static void registerArmorBuildInfo() {
-        ArmorBuildGuiInfo info;
 
-        info = new ArmorBuildGuiInfo(ConstructsArmor.helmet);
-        info.addSlotPosition(29, 42 + 10);
-        info.addSlotPosition(29 - 20, 42 - 10);
-        info.addSlotPosition(29 + 20, 42 - 10);
-        addArmorBuilding(info);
-
-        info = new ArmorBuildGuiInfo(ConstructsArmor.chestplate);
-        info.addSlotPosition(29, 42 + 10);
-        info.addSlotPosition(29 - 20, 42 - 10);
-        info.addSlotPosition(29 + 20, 42 - 10);
-        addArmorBuilding(info);
-
-        info = new ArmorBuildGuiInfo(ConstructsArmor.leggings);
-        info.addSlotPosition(29, 42 + 10);
-        info.addSlotPosition(29 - 20, 42 - 10);
-        info.addSlotPosition(29 + 20, 42 - 10);
-        addArmorBuilding(info);
-
-        info = new ArmorBuildGuiInfo(ConstructsArmor.boots);
-        info.addSlotPosition(29, 42 + 10);
-        info.addSlotPosition(29 - 20, 42 - 10);
-        info.addSlotPosition(29 + 20, 42 - 10);
-        addArmorBuilding(info);
+        addArmorBuilding(ArmorBuildGuiInfo.default3Part(ConstructsRegistry.helmet));
+        addArmorBuilding(ArmorBuildGuiInfo.default3Part(ConstructsRegistry.chestplate));
+        addArmorBuilding(ArmorBuildGuiInfo.default3Part(ConstructsRegistry.leggings));
+        addArmorBuilding(ArmorBuildGuiInfo.default3Part(ConstructsRegistry.boots));
     }
 
     public static void addArmorBuilding(ArmorBuildGuiInfo info) {

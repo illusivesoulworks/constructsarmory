@@ -1,9 +1,7 @@
 package c4.conarm.lib.client;
 
-import c4.conarm.lib.ConstructUtils;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.tinkering.TinkersArmor;
-import c4.conarm.proxy.ClientProxy;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.Lists;
@@ -13,22 +11,17 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.client.CustomTextureCreator;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
-import javax.annotation.Nullable;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 
 public class DynamicTextureHelper {
 
@@ -181,11 +174,6 @@ public class DynamicTextureHelper {
         }
 
         g.dispose();
-//        try {
-//            ImageIO.write(combined, "png", new File("dump.png"));
-//        } catch (IOException e) {
-//            ConstructsArmory.logger.warn("Unable to write image!");
-//        }
         return Minecraft.getMinecraft().getTextureManager().getDynamicTextureLocation("constructsarmor", new DynamicTexture(combined));
     }
 

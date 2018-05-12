@@ -26,24 +26,6 @@ public abstract class AccessoryModifier extends ArmorModifierTrait {
         //NO-OP
     }
 
-//    //Re-arrange the list so that accessories are listed last
-//    @Override
-//    public void apply(NBTTagCompound root) {
-//        super.apply(root);
-//        NBTTagList list = TagUtil.getBaseModifiersTagList(root);
-//        int index = TinkerUtil.getIndexInList(list, identifier);
-//        if (index >= 0) {
-//            NBTTagList newList = new NBTTagList();
-//            for (int i = 0; i < list.tagCount(); i++) {
-//                if (i != index) {
-//                    newList.appendTag(list.get(i));
-//                }
-//            }
-//            newList.appendTag(list.get(index));
-//            TagUtil.setBaseModifiersTagList(root, newList);
-//        }
-//    }
-
     @Override
     public boolean canApplyCustom(ItemStack stack) {
         //Can only have one accessory per item

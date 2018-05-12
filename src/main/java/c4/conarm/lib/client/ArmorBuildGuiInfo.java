@@ -29,9 +29,9 @@ public class ArmorBuildGuiInfo {
 
     public static ArmorBuildGuiInfo default3Part(@Nonnull TinkersArmor armor) {
         ArmorBuildGuiInfo info = new ArmorBuildGuiInfo(armor);
-        info.addSlotPosition(33 - 20, 42 + 20);
-        info.addSlotPosition(33 + 20, 42 - 20);
-        info.addSlotPosition(33, 42);
+        info.addSlotPosition(29, 42 + 10);
+        info.addSlotPosition(29 - 20, 42 - 10);
+        info.addSlotPosition(29 + 20, 42 - 10);
         return info;
     }
 

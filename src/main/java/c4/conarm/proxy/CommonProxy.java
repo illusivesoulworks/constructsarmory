@@ -1,25 +1,25 @@
 package c4.conarm.proxy;
 
-import c4.conarm.armor.common.RepairRecipe;
-import c4.conarm.armor.common.blocks.BlockArmorForge;
-import c4.conarm.armor.common.tileentities.TileArmorForge;
-import c4.conarm.armor.traits.TraitAquaspeed;
-import c4.conarm.client.GuiHandler;
-import c4.conarm.common.PlayerDataEvents;
+import c4.conarm.common.ConstructsRegistry;
+import c4.conarm.common.RepairRecipe;
+import c4.conarm.common.blocks.BlockArmorForge;
+import c4.conarm.common.tileentities.TileArmorForge;
+import c4.conarm.common.armor.traits.TraitAquaspeed;
+import c4.conarm.client.utils.GuiHandler;
+import c4.conarm.common.events.PlayerDataEvents;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.ConstructsArmory;
-import c4.conarm.armor.ConstructsArmor;
-import c4.conarm.armor.ArmorEvents;
+import c4.conarm.common.events.ArmorEvents;
 import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.armor.ArmorPart;
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import c4.conarm.lib.materials.ArmorMaterials;
-import c4.conarm.armor.ArmorModifiers;
-import c4.conarm.armor.common.network.ConstructsNetwork;
-import c4.conarm.armor.traits.TraitSuperhot;
-import c4.conarm.armor.common.blocks.BlockArmorStation;
-import c4.conarm.armor.common.tileentities.TileArmorStation;
-import c4.conarm.lib.ConstructUtils;
+import c4.conarm.common.armor.modifiers.ArmorModifiers;
+import c4.conarm.common.network.ConstructsNetwork;
+import c4.conarm.common.armor.traits.TraitSuperhot;
+import c4.conarm.common.blocks.BlockArmorStation;
+import c4.conarm.common.tileentities.TileArmorStation;
+import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -47,7 +47,6 @@ import slimeknights.tconstruct.library.tools.Pattern;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.TinkerTools;
 import slimeknights.tconstruct.tools.common.TableRecipeFactory;
-import slimeknights.tconstruct.tools.common.block.BlockToolTable;
 import slimeknights.tconstruct.tools.common.item.ItemBlockTable;
 
 import java.util.Locale;
@@ -81,9 +80,9 @@ public class CommonProxy {
     public static void registerBlocks(RegistryEvent.Register<Block> evt) {
         IForgeRegistry<Block> registry = evt.getRegistry();
 
-        ConstructsArmor.armorForge = ConstructUtils.registerBlock(registry, new BlockArmorForge(), "armorforge");
-        ConstructsArmor.armorStation = ConstructUtils.registerBlock(registry, new BlockArmorStation(), "armorstation");
-//        ConstructsArmor.softMagma = ConstructUtils.registerBlock(registry, new BlockSoftMagma(), "soft_magma");
+        ConstructsRegistry.armorForge = ConstructUtils.registerBlock(registry, new BlockArmorForge(), "armorforge");
+        ConstructsRegistry.armorStation = ConstructUtils.registerBlock(registry, new BlockArmorStation(), "armorstation");
+//        ConstructsRegistry.softMagma = ConstructUtils.registerBlock(registry, new BlockSoftMagma(), "soft_magma");
 
         GameRegistry.registerTileEntity(TileArmorStation.class, "armorstation");
         GameRegistry.registerTileEntity(TileArmorForge.class, "armorforge");
@@ -93,14 +92,14 @@ public class CommonProxy {
     public static void registerItems(RegistryEvent.Register<Item> evt) {
         IForgeRegistry<Item> registry = evt.getRegistry();
 
-        ConstructsArmor.registerArmorParts(registry);
-        ConstructsArmor.registerArmorPieces(registry);
-        ConstructsArmor.registerItems(registry);
+        ConstructsRegistry.registerArmorParts(registry);
+        ConstructsRegistry.registerArmorPieces(registry);
+        ConstructsRegistry.registerItems(registry);
         ArmorModifiers.setupModifiers();
-        ConstructsArmor.armorForge = ConstructUtils.registerItemBlock(registry, new ItemBlockTable(ConstructsArmor.armorForge));
-        ConstructsArmor.armorStation = ConstructUtils.registerItemBlock(registry, new ItemBlockTable(ConstructsArmor.armorStation));
+        ConstructsRegistry.armorForge = ConstructUtils.registerItemBlock(registry, new ItemBlockTable(ConstructsRegistry.armorForge));
+        ConstructsRegistry.armorStation = ConstructUtils.registerItemBlock(registry, new ItemBlockTable(ConstructsRegistry.armorStation));
 
-        for(Pair<Item, ArmorPart> armorPartPattern : ConstructsArmor.armorPartPatterns) {
+        for(Pair<Item, ArmorPart> armorPartPattern : ConstructsRegistry.armorPartPatterns) {
             registerStencil(armorPartPattern.getLeft(), armorPartPattern.getRight());
         }
     }
@@ -109,9 +108,9 @@ public class CommonProxy {
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
         IForgeRegistry<IRecipe> registry = event.getRegistry();
 
-        if (ConstructsArmor.armorForge != null) {
-            ConstructsArmor.armorForge.baseBlocks.addAll(TinkerTools.toolForge.baseBlocks);
-            for (String oredict : ConstructsArmor.armorForge.baseBlocks) {
+        if (ConstructsRegistry.armorForge != null) {
+            ConstructsRegistry.armorForge.baseBlocks.addAll(TinkerTools.toolForge.baseBlocks);
+            for (String oredict : ConstructsRegistry.armorForge.baseBlocks) {
                 Block brick = TinkerSmeltery.searedBlock;
                 if(brick == null) {
                     brick = Blocks.STONEBRICK;
@@ -121,11 +120,11 @@ public class CommonProxy {
                         new TableRecipeFactory.TableRecipe(
                                 new ResourceLocation(ConstructsArmory.MODID, "armorforge"),
                                 new OreIngredient(oredict),
-                                new ItemStack(ConstructsArmor.armorForge),
+                                new ItemStack(ConstructsRegistry.armorForge),
                                 CraftingHelper.parseShaped("BBB", "MTM", "M M",
                                         'B', brick,
                                         'M', oredict,
-                                        'T', ConstructsArmor.armorStation));
+                                        'T', ConstructsRegistry.armorStation));
                 recipe.setRegistryName("armorforge_" + oredict.toLowerCase(Locale.US));
                 registry.register(recipe);
             }

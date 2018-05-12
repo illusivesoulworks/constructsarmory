@@ -41,13 +41,6 @@ public class CoreMaterialStats extends AbstractMaterialStats {
         return formatNumber(LOC_Durability, COLOR_Durability, durability);
     }
 
-//    public static String formatDurability(int durability, int ref) {
-//        return String.format("%s: %s",
-//                Util.translate(LOC_Durability),
-//                CustomFontColor.formatPartialAmount(durability, ref))
-//                + TextFormatting.RESET;
-//    }
-
     public static String formatDefense(float defense) {
         return formatNumber(LOC_Defense, COLOR_Defense, defense);
     }

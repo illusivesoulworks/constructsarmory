@@ -1,14 +1,14 @@
 package c4.conarm.lib.armor;
 
-import c4.conarm.armor.ArmorHelper;
-import c4.conarm.armor.ConstructsArmor;
+import c4.conarm.common.ConstructsRegistry;
+import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
-import c4.conarm.lib.utils.ArmorTooltipBuilder;
+import c4.conarm.lib.tinkering.ArmorTooltipBuilder;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
@@ -55,7 +55,7 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
     private final String appearanceName;
 
     public ArmorCore(EntityEquipmentSlot slotIn, String appearanceName, PartMaterialType core) {
-        super(slotIn, core, ArmorMaterialType.plating(ConstructsArmor.armorPlate), ArmorMaterialType.trim(ConstructsArmor.armorTrim));
+        super(slotIn, core, ArmorMaterialType.plating(ConstructsRegistry.armorPlate), ArmorMaterialType.trim(ConstructsRegistry.armorTrim));
 
         this.setCreativeTab(TinkerRegistry.tabTools);
         this.setNoRepair();
@@ -164,7 +164,7 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
 
     @Override
     protected int repairCustom(Material material, NonNullList<ItemStack> repairItems) {
-        Optional<RecipeMatch.Match> matchOptional = RecipeMatch.of(ConstructsArmor.polishingKit).matches(repairItems);
+        Optional<RecipeMatch.Match> matchOptional = RecipeMatch.of(ConstructsRegistry.polishingKit).matches(repairItems);
         if(!matchOptional.isPresent()) {
             return 0;
         }
@@ -172,14 +172,14 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
         RecipeMatch.Match match = matchOptional.get();
         for(ItemStack stacks : match.stacks) {
             // invalid material?
-            if(ConstructsArmor.polishingKit.getMaterial(stacks) != material) {
+            if(ConstructsRegistry.polishingKit.getMaterial(stacks) != material) {
                 return 0;
             }
         }
 
         RecipeMatch.removeMatch(repairItems, match);
         CoreMaterialStats stats = material.getStats(ArmorMaterialType.CORE);
-        float durability = stats.durability * match.amount * ConstructsArmor.polishingKit.getCost();
+        float durability = stats.durability * match.amount * ConstructsRegistry.polishingKit.getCost();
         durability /= Material.VALUE_Ingot;
         return (int) (durability);
     }
