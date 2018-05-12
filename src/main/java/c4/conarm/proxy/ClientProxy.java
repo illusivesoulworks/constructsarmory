@@ -1,5 +1,6 @@
 package c4.conarm.proxy;
 
+import c4.conarm.client.gui.PreviewPlayer;
 import c4.conarm.common.ConstructsRegistry;
 import c4.conarm.common.armor.modifiers.ArmorModifiers;
 import c4.conarm.client.layers.LayerAccessories;
@@ -78,6 +79,7 @@ public class ClientProxy extends CommonProxy {
         super.postInit(evt);
         Minecraft mc = Minecraft.getMinecraft();
         RenderManager manager = mc.getRenderManager();
+        manager.entityRenderMap.put(PreviewPlayer.class, new RenderPlayer(manager));
         Map<String, RenderPlayer> renderPlayerMap = manager.getSkinMap();
         for(RenderPlayer render : renderPlayerMap.values()) {
             render.addLayer(new LayerAccessories<>(render));

@@ -1,28 +1,42 @@
 package c4.conarm.client.gui;
 
+import c4.conarm.common.inventory.ContainerArmorForge;
 import c4.conarm.common.inventory.ContainerArmorStation;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.ArmoryRegistryClient;
 import c4.conarm.ConstructsArmory;
 import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.client.ArmorBuildGuiInfo;
+import c4.conarm.lib.client.DynamicTextureHelper;
 import c4.conarm.lib.modifiers.IArmorModifyable;
 import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.common.inventory.SlotArmorStationIn;
 import c4.conarm.common.network.ArmorStationSelectionPacket;
 import c4.conarm.common.network.ArmorStationTextPacket;
 import c4.conarm.common.tileentities.TileArmorStation;
+import c4.conarm.lib.utils.ConstructUtils;
 import com.google.common.collect.Lists;
+import com.mojang.authlib.GameProfile;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.resources.DefaultPlayerSkin;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -30,6 +44,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.FakePlayer;
+import net.minecraftforge.common.util.FakePlayerFactory;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -58,6 +75,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 /*This class is a re-implementation of the
 GuiToolStation class from Tinkers' Construct
@@ -103,11 +121,19 @@ public class GuiArmorStation extends GuiTinkerStation
 
     protected GuiInfoPanel armorInfo;
     protected GuiInfoPanel traitInfo;
+    protected GuiPreviewPanel armorPreview;
 
 //    protected AppearanceButton nextButton;
 //    protected AppearanceButton previousButton;
 
     public ArmorBuildGuiInfo currentInfo = GuiButtonArmorRepair.info;
+
+    /** The old x position of the mouse pointer */
+    private float oldMouseX;
+    /** The old y position of the mouse pointer */
+    private float oldMouseY;
+
+    private AbstractClientPlayer playerPreview = null;
 
 //    public List<String> appearances;
 //    public int appearanceSlot = 0;
@@ -124,9 +150,16 @@ public class GuiArmorStation extends GuiTinkerStation
         this.addModule(armorInfo);
         traitInfo = new GuiInfoPanel(this, inventorySlots);
         this.addModule(traitInfo);
+        armorPreview = new GuiPreviewPanel(this, inventorySlots, 106, this.ySize - 16);
+        this.addModule(armorPreview);
 
         armorInfo.yOffset = 5;
         traitInfo.yOffset = armorInfo.getYSize() + 9;
+        armorPreview.yOffset = 5;
+        armorPreview.setCaption(Util.translate("gui.armorstation.preview"));
+        armorPreview.setText();
+
+        playerPreview = new PreviewPlayer(FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(world.provider.getDimension()));
 
         this.ySize = 174;
 
@@ -151,6 +184,8 @@ public class GuiArmorStation extends GuiTinkerStation
         armorInfo.yOffset = beamC.h + panelDecorationL.h;
         traitInfo.xOffset = armorInfo.xOffset;
         traitInfo.yOffset = armorInfo.yOffset + armorInfo.getYSize() + 4;
+        armorPreview.yOffset = beamC.h + buttonDecorationTop.h * 3 + buttons.getYSize();
+        armorPreview.xOffset = -284;
 
         for(GuiModule module : modules) {
             try {
@@ -172,6 +207,13 @@ public class GuiArmorStation extends GuiTinkerStation
     public void onGuiClosed() {
         super.onGuiClosed();
         Keyboard.enableRepeatEvents(false);
+    }
+
+    @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+        super.drawScreen(mouseX, mouseY, partialTicks);
+        this.oldMouseX = (float)mouseX;
+        this.oldMouseY = (float)mouseY;
     }
 
     public Set<ArmorCore> getBuildableItems() {
@@ -518,11 +560,9 @@ public class GuiArmorStation extends GuiTinkerStation
         }
         for(Object o : buttonList) {
             GuiButton button = (GuiButton) o;
-
             buttonDecorationTop.draw(button.x, button.y - buttonDecorationTop.h);
-            if(button.id < buttonList.size() - Column_Count) {
-                buttonDecorationBot.draw(button.x, button.y + button.height);
-            }
+            buttonDecorationBot.draw(button.x, button.y + button.height);
+            buttonDecorationTop.draw(button.x, button.y + button.height + buttonDecorationTop.h);
         }
 
         panelDecorationL.draw(armorInfo.getGuiLeft() + 5, armorInfo.getGuiTop() - panelDecorationL.h);
@@ -534,7 +574,34 @@ public class GuiArmorStation extends GuiTinkerStation
 
         GlStateManager.enableDepth();
 
+        int shiftX = -55;
+        int shiftY = 170;
+        int i = this.guiLeft + shiftX;
+        int j = this.guiTop + shiftY;
+        ItemStack previewStack;
+        ContainerArmorStation container = (ContainerArmorStation) this.inventorySlots;
+        if(currentInfo == GuiButtonArmorRepair.info) {
+            if (!container.getResult().isEmpty()) {
+                previewStack = container.getResult();
+            } else {
+                previewStack = this.inventorySlots.getSlot(0).getStack();
+            }
+        } else {
+            previewStack = ((ContainerArmorStation) this.inventorySlots).getResult();
+        }
+
+        if (!previewStack.isEmpty()) {
+            playerPreview.setItemStackToSlot(EntityLiving.getSlotForItemStack(previewStack), previewStack.copy());
+        } else {
+            resetPreview(playerPreview);
+        }
+        drawEntityOnScreen(i, j, 60, (float)(i) - this.oldMouseX, (float)(j - 90) - this.oldMouseY, this.playerPreview, previewStack);
+
         super.drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY);
+    }
+
+    protected void resetPreview(AbstractClientPlayer player) {
+        player.inventory.clear();
     }
 
 //    protected void drawAppearanceMenu() {
@@ -590,6 +657,7 @@ public class GuiArmorStation extends GuiTinkerStation
     protected void metal() {
         armorInfo.metal();
         traitInfo.metal();
+        armorPreview.metal();
 
         buttonDecorationTop = SlotSpaceTop.shift(SlotSpaceTop.w * 2, 0);
         buttonDecorationBot = SlotSpaceBottom.shift(SlotSpaceBottom.w * 2, 0);
@@ -606,6 +674,7 @@ public class GuiArmorStation extends GuiTinkerStation
     protected void wood() {
         armorInfo.wood();
         traitInfo.wood();
+        armorPreview.wood();
 
         buttonDecorationTop = SlotSpaceTop.shift(SlotSpaceTop.w, 0);
         buttonDecorationBot = SlotSpaceBottom.shift(SlotSpaceBottom.w, 0);
@@ -633,6 +702,46 @@ public class GuiArmorStation extends GuiTinkerStation
         armorInfo.setText(message);
         traitInfo.setCaption(null);
         traitInfo.setText();
+    }
+
+    public static void drawEntityOnScreen(int posX, int posY, int scale, float mouseX, float mouseY, EntityLivingBase ent, ItemStack armor)
+    {
+        GlStateManager.enableColorMaterial();
+        GlStateManager.pushMatrix();
+        GlStateManager.translate((float)posX, (float)posY, 50.0F);
+        GlStateManager.scale((float)(-scale), (float)scale, (float)scale);
+        GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F);
+        float f = ent.renderYawOffset;
+        float f1 = ent.rotationYaw;
+        float f2 = ent.rotationPitch;
+        float f3 = ent.prevRotationYawHead;
+        float f4 = ent.rotationYawHead;
+        GlStateManager.rotate(135.0F, 0.0F, 1.0F, 0.0F);
+        RenderHelper.enableStandardItemLighting();
+        GlStateManager.rotate(-135.0F, 0.0F, 1.0F, 0.0F);
+        GlStateManager.rotate(-((float)Math.atan((double)(mouseY / 40.0F))) * 20.0F, 1.0F, 0.0F, 0.0F);
+        ent.renderYawOffset = (float)Math.atan((double)(mouseX / 40.0F)) * 20.0F;
+        ent.rotationYaw = (float)Math.atan((double)(mouseX / 40.0F)) * 40.0F;
+        ent.rotationPitch = -((float)Math.atan((double)(mouseY / 40.0F))) * 20.0F;
+        ent.rotationYawHead = ent.rotationYaw;
+        ent.prevRotationYawHead = ent.rotationYaw;
+        GlStateManager.translate(0.0F, 0.0F, 0.0F);
+        RenderManager rendermanager = Minecraft.getMinecraft().getRenderManager();
+        rendermanager.setPlayerViewY(180.0F);
+        rendermanager.setRenderShadow(false);
+        rendermanager.renderEntity(ent, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, false);
+        rendermanager.setRenderShadow(true);
+        ent.renderYawOffset = f;
+        ent.rotationYaw = f1;
+        ent.rotationPitch = f2;
+        ent.prevRotationYawHead = f3;
+        ent.rotationYawHead = f4;
+        GlStateManager.popMatrix();
+        RenderHelper.disableStandardItemLighting();
+        GlStateManager.disableRescaleNormal();
+        GlStateManager.setActiveTexture(OpenGlHelper.lightmapTexUnit);
+        GlStateManager.disableTexture2D();
+        GlStateManager.setActiveTexture(OpenGlHelper.defaultTexUnit);
     }
 
     @SideOnly(Side.CLIENT)

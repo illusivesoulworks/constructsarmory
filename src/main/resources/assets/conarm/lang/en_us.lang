@@ -3,6 +3,7 @@ tile.conarm.armorstation.name=Armor Station
 
 gui.armorforge.name=Armor Forge
 gui.armorstation.name=Armor Station
+gui.armorstation.preview=Preview
 
 gui.error.station_material_mismatch=Materials do not match.
 

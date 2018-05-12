@@ -1,5 +1,6 @@
 package c4.conarm.client.events;
 
+import c4.conarm.client.gui.PreviewPlayer;
 import c4.conarm.common.armor.modifiers.ArmorModifiers;
 import c4.conarm.common.armor.modifiers.ModTravelGoggles;
 import c4.conarm.common.network.AccessoryTogglePacket;
@@ -8,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
+import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
@@ -45,6 +47,13 @@ public class ClientArmorEvents {
             TinkerNetwork.sendToServer(new AccessoryTogglePacket(EntityEquipmentSlot.LEGS.getIndex()));
         } else if (toggleBoots.isPressed()) {
             TinkerNetwork.sendToServer(new AccessoryTogglePacket(EntityEquipmentSlot.FEET.getIndex()));
+        }
+    }
+
+    @SubscribeEvent
+    public void onArmorPreview(RenderLivingEvent.Specials.Pre evt) {
+        if (evt.getEntity() instanceof PreviewPlayer) {
+            evt.setCanceled(true);
         }
     }
 
