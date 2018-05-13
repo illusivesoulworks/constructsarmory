@@ -8,7 +8,6 @@ import c4.conarm.lib.book.content.ContentArmorModifier;
 import c4.conarm.lib.book.content.ContentArmorModifierPolished;
 import c4.conarm.lib.book.sectiontransformers.ArmorMaterialSectionTransformer;
 import c4.conarm.lib.book.sectiontransformers.ArmorModifierSectionTransformer;
-import c4.conarm.lib.book.sectiontransformers.ArmorSectionTransformer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.mantle.client.book.BookLoader;
@@ -27,7 +26,6 @@ public class ArmoryBook extends BookData {
         BookLoader.registerPageType(ContentArmorModifierPolished.ID, ContentArmorModifierPolished.class);
         BookLoader.registerPageType(ContentArmor.ID, ContentArmor.class);
         INSTANCE.addRepository(new FileRepository(ConstructUtils.getResource("book").toString()));
-        INSTANCE.addTransformer(new ArmorSectionTransformer());
         INSTANCE.addTransformer(new ArmorMaterialSectionTransformer());
         INSTANCE.addTransformer(new ArmorModifierSectionTransformer());
         INSTANCE.addTransformer(BookTransformer.IndexTranformer());

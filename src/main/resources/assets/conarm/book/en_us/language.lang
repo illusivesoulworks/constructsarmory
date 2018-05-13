@@ -5,4 +5,10 @@ armory=Armory
 modifiers=Modifiers
 accessories=Accessories
 
+armor.title=Armor
+armor.properties=Properties:
+
+material.craft_partbuilder=Can be crafted in the Part Builder
+material.craft_casting=Can be cast from %s
+
 modifier.effect=Effects:
