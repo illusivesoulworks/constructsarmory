@@ -31,9 +31,9 @@ public class PreviewPlayer extends AbstractClientPlayer {
 
     private static final GameProfile previewProfile = new GameProfile(UUID.fromString("79240efc-40f7-45a5-b8f9-4dc3e5cfc34a"), ConstructUtils.getPrefixedName("armor_preview"));
 
-    public PreviewPlayer(WorldServer world)
+    public PreviewPlayer(World world)
     {
-        super(FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(world.provider.getDimension()), previewProfile);
+        super(world, previewProfile);
     }
 
     @Override

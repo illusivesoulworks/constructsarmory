@@ -159,7 +159,7 @@ public class GuiArmorStation extends GuiTinkerStation
         armorPreview.setCaption(Util.translate("gui.armorstation.preview"));
         armorPreview.setText();
 
-        playerPreview = new PreviewPlayer(FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(world.provider.getDimension()));
+        playerPreview = new PreviewPlayer(world);
 
         this.ySize = 174;
 
