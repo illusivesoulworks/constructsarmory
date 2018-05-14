@@ -67,8 +67,8 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    deobfCompile "slimeknights.mantle:Mantle:1.12-1.3.2.25"
-    deobfCompile "slimeknights:TConstruct:1.12.2-2.10.0.78"
+    deobfCompile "slimeknights.mantle:Mantle:1.12-1.3.2.24"
+    deobfCompile "slimeknights:TConstruct:1.12.2-2.10.0.79"
 
     deobfProvided "mezz.jei:jei_1.12.2:4.8.5.159:api"
     runtime "mezz.jei:jei_1.12.2:4.8.5.159"

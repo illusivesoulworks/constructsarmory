@@ -13,6 +13,7 @@ import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 import slimeknights.tconstruct.common.TinkerNetwork;
 import slimeknights.tconstruct.library.utils.ModifierTagHolder;
@@ -37,7 +38,9 @@ public class ClientArmorEvents {
     }
 
     @SubscribeEvent
-    public void onKeyInput(InputEvent.KeyInputEvent evt) {
+    public void onKeyInput(TickEvent.ClientTickEvent evt) {
+
+        if (evt.phase != TickEvent.Phase.END) { return; }
 
         if (toggleHelmet.isPressed()) {
             TinkerNetwork.sendToServer(new AccessoryTogglePacket(EntityEquipmentSlot.HEAD.getIndex()));
@@ -50,6 +53,7 @@ public class ClientArmorEvents {
         }
     }
 
+    //Cancel rendering the name of the fake player in the armor preview
     @SubscribeEvent
     public void onArmorPreview(RenderLivingEvent.Specials.Pre evt) {
         if (evt.getEntity() instanceof PreviewPlayer) {

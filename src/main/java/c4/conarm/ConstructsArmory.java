@@ -1,5 +1,6 @@
 package c4.conarm;
 
+import c4.conarm.debug.DebugCommand;
 import c4.conarm.proxy.CommonProxy;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;

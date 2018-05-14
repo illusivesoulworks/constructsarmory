@@ -52,15 +52,13 @@ public class DebugCommand extends CommandBase {
 
         List<String> info = Lists.newArrayList();
 
-//        ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData((EntityPlayer) sender);
-//
-//        if (armorAbilities != null) {
-//            for (String identifier : armorAbilities.getAbilityMap().keySet()) {
-//                info.add(String.format("\n%s: level %s", identifier, armorAbilities.getAbilityLevel(identifier)));
-//            }
-//        }
+        ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData((EntityPlayer) sender);
 
-        info.add("" + ((EntityPlayer) sender).getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue());
+        if (armorAbilities != null) {
+            for (String identifier : armorAbilities.getAbilityMap().keySet()) {
+                info.add(String.format("\n%s: level %s", identifier, armorAbilities.getAbilityLevel(identifier)));
+            }
+        }
 
         ConstructsArmory.logger.info(info);
     }

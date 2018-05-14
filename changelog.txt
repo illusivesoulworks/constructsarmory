@@ -1,0 +1,192 @@
+0.0.15-alpha
+----------------------
+
+    Changes
+        Miscellaneous code cleanup
+        Separated accessories and modifiers in the in-game book
+    Additions
+        Added armor preview to the GUI for Armor Forge and Armor Station
+    Fixed
+        Fixed error related to the Embossment model loader
+        Fixed armor page in the in-game book
+
+0.0.14-alpha
+
+----------------------
+
+    Changes
+        Dramatic trait now behaves as such: 10% chance to nullify damage and heal you a little bit per armor piece when taking fatal damage
+        Indomitable trait no longer caps Defense to 20
+        Magnetic trait no longer affects items recently dropped by players
+        Prideful trait now behaves as such: If a player has been attacked in the last 2 seconds, increase armor effectiveness by 10% per armor piece at the cost of durability.
+        Prideful trait and Vengeful trait have switched armor pieces (Prideful is on Plates and Trim, Vengeful is on Core)
+        Changed Steady trait calculations, knockback on attackers is increased
+        Shielding trait for Lead is now only on the Core piece
+    Additions
+        Added textures for all modifiers, for both the item and the armor models
+        Added Bouncy trait to Slime and Blue Slime, increases knockback on the wearer and acts as Slime Boots for boots
+        Added Embossment modifier to the in-game book
+    Fixes
+        Fixed polished modifier not working
+
+0.0.13-alpha
+
+----------------------
+
+    Fixes
+        Fixed crash on dedicated server boot
+
+0.0.12-alpha
+
+------------------------
+
+    Changes
+        Tweaked cost of armor parts, armor plates are much less costly while helmet cores and boots cores cost a little more
+        Broken armor no longer renders when worn by players
+        Tooltip now says "Accessory: ___" to indicate accessory attachments on armor
+    Additions
+        Paper and cactus armor textures for items and models, this should complete all of the material armor textures
+        Traveller's Gear now have textures on the armor items
+        Traveller's Gear now renders on the player when wearing an armor attached with them
+        Note: Traveller's Gear updates may require you to remake your armor to correctly appear
+    Fixes
+        Scaled armor up a little bit to prevent clipping some player's skins (hopefully it's scaled up enough to prevent most cases)
+        Fixed crashing when using Manyullyn armor's Prideful trait
+        Fixed armor applying defense values and traits even when the armor is broken
+        Fixed fractional armor values not displaying and calculating correctly
+
+0.0.11-alpha
+
+---------------------
+
+    Changes (Important!)
+        Armor values for materials have been flattened into a single "defense" stat. This stat represents the combined total armor value of a suit of armor made out of that material. For instance, iron level armor would have a defense value of 15. This change was made to make it easier for both me and players to compare material stats at a glance.
+        Rebalanced all of the armor stats once again. Armor defense values do not go above Diamond, and toughness values do not go above 5. Also made sure that toughness values do not appear too high on early to mid-game materials.
+        Refactored armor and toughness to use attributes again, this should also fix problems with certain GUI mods not catching the toughness levels of the armor.
+    Additions
+        Flint and obsidian textures for both the armor items and models
+
+0.0.10-alpha
+
+--------------------------
+
+    Changes
+        Armor Forge recipe has been changed to accommodate the addition of the armor station
+        Armor Forge texture has been updated
+    Additions
+        Armor Station - an early-game version of the Armor Forge. It can create the same armor types as the Armor Forge, the limitation is that all of the materials have to match each other (and thus armor part swapping cannot be done either). It can still perform all the modifications that the Armor Forge can.
+        Chinese localization courtesy of DYColdWind
+    Fixes
+        Fixed Traveller's Knapsack and Traveller's Belt deleting their inventories upon modifying the armor they're attached to
+
+0.0.9-alpha
+
+-----------------------------
+
+    Changes
+        Adjusted armor toughness calculations to more closely mimic vanilla mechanics
+     Additions
+        Armor part swapping - works the same way as tools, just place the armor part you want to swap with into the Armor Forge alongside the armor piece
+        Armor embossment - works the same way as tools, use the Slime Crystals and a Gold Block in addition to the armor part you want to emboss. Not in the book yet, but it should work all the same.
+        Modifier models - Speedy, Diamond, and Emerald modifiers now have graphical changes to the item and armor models. These textures are subject to change, I just needed them to test the functionality.
+    Fixes
+        Fixed potential issues with armor abilities staying on the player after removing armor
+
+0.0.8-alpha
+
+-------------------------
+
+    Changes
+        Modifiers mostly no longer use raw materials, instead they use special "Armor Kits" that are crafted. This change was made for a few reasons, but mainly to avoid conflict with using the same materials as other TCon modifiers.
+        Following the previous change, changes have been made to the maximum values for the Speedy and Resistant(s) modifiers. Everything considered, they are fairly more expensive now. Also, this could cause some funky behavior for your already modified armor so just remake it if that happens.
+        Updated some textures.
+    Additions
+        Creative modifier - Works the same as the TCon creative modifier, even uses the same material
+    Fixes
+        Fixed certain TCon modifiers being unavailable due to material conflicts
+        Fixed End armor being listed multiple times in JEI
+
+0.0.7.1-alpha
+
+-------------------------------
+
+    Fixes
+        Fixed server crash due to client-side coding
+
+0.0.7-alpha (The "You Should Remake All Your Armor" Update)
+
+-----------------------------
+
+    Changes (Important!)
+        The tl;dr of these changes is that you should probably remake all of your armor.
+        Changed almost all of armor and toughness material stats. This was done to help balance the armor alongside vanilla values.
+            Armor values are now more average. The weaker armor have been made stronger and the stronger armor have been made weaker.
+            Toughness is less common on materials, but materials that do have it generally have more toughness than before.
+        Changed a lot of the internal names for modifiers/traits. This was done to fix current compatibility issues with other mods that add modifiers/traits with the same name, and to prevent future issues from occurring. This will cause all current armor to lose most of their traits/modifiers.
+    Additions
+        Added Traveller's Gear! (well, some of them, and kinda)
+            These are part of a new sub-category of modifiers called "accessories". Accessories are exclusive to a certain body part, each armor piece can only hold one accessory, they have abilities that are tied to a keybinding, and they take up 2 modifiers.
+            Traveller's Belt - Can swap your hotbar with a secondary hotbar stored inside the belt
+            Traveller's Goggles - Can zoom into faraway places
+            Traveller's Knapsack - Can store an extra 27 slots of items
+        Added CraftTweaker support for changing material stats (documentation forthcoming)
+    Fixes
+        Fixed a small memory leak issue with the dynamic textures
+
+0.0.6-alpha
+
+-------------------------
+
+    Changes
+        Complete rendering refactor, minimal to no FPS drops now when rendering the armor. This also fixes some small, weird graphical glitches that happen with the armor sometimes.
+    Additions
+        Polished modifier - Sand + Polishing Kit - works like the TCon Fortify/Sharpening Kit (instead of increasing mining level, it increases toughness)
+    Fixes
+        Fixed armor modifiers being called the original TCon modifier name in the in-game book
+
+0.0.5-alpha
+
+------------------------------
+
+    Changes
+        Updated Tinkers' Construct dependency to 2.9.1 and up
+     Additions
+        Soulbound modifier - Nether Star - works like the original TCon one
+    Fixes
+        Fixed tool modifiers being replaced by their armor modifier equivalent (applies to Parasitic/Necrotic, Emerald, Mending Moss, maybe more. Best idea is to just remake your tools if you're using this mod.)
+        Fixed armor models rendering oddly on armor stands
+
+0.0.4-alpha
+
+----------------------------
+
+    Changes
+        Emerald modifier now also raises an armor piece's defense points to 2 if it is lower than that
+        Ecological trait now works even if you're not wearing the armor, but received a slight nerf to its recovery speed in exchange
+    Additions
+        Mending modifier - Mending Moss - works like the original TCon one, requires you to not be wearing the armor to repair itself
+    Fixes
+        Fixed crashing when loaded with FTBUtilities
+        Miscellaneous code cleanup
+
+0.0.3-alpha
+
+----------------------------
+
+    Added modifiers, you can find them in the in-game book as well
+        Speedy - Redstone dust - Adds movement speed
+        Resistant - Obsidian - Adds Protection
+        Fire Resistant - Blaze Powder - Adds Fire Protection
+        Blast Resistant - Brick - Adds Blast Protection
+        Projectile Resistant - Feather - Adds Projectile Protection
+        Parasitic - Necrotic Bone - Steals your life to repair itself (doesn't kill you)
+        Reinforced - Same as regular Reinforced from Tinkers'
+        Diamond - Adds durability and stats
+        Emerald - Adds durability
+    Fixed core and plate material stats being switched when crafting the armor (you'll need to remake any for the proper stats)
+
+0.0.2-alpha
+
+-------------------------------
+
+    Fixed potential crashes with the unused modifier code

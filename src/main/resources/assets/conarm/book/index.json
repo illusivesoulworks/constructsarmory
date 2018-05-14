@@ -35,5 +35,14 @@
         "id": "minecraft:redstone"
       }
     }
+  },
+  {
+    "name": "accessories",
+    "data": "sections/accessories.json",
+    "icon": {
+      "item": {
+        "id": "conarm:travel_goggles"
+      }
+    }
   }
 ]

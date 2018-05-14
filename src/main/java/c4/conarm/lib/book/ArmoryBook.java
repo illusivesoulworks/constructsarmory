@@ -1,6 +1,7 @@
 package c4.conarm.lib.book;
 
 import c4.conarm.ConstructsArmory;
+import c4.conarm.lib.book.sectiontransformers.ArmorAccessorySectionTransformer;
 import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.book.content.ContentArmor;
 import c4.conarm.lib.book.content.ContentArmorMaterial;
@@ -28,6 +29,7 @@ public class ArmoryBook extends BookData {
         INSTANCE.addRepository(new FileRepository(ConstructUtils.getResource("book").toString()));
         INSTANCE.addTransformer(new ArmorMaterialSectionTransformer());
         INSTANCE.addTransformer(new ArmorModifierSectionTransformer());
+        INSTANCE.addTransformer(new ArmorAccessorySectionTransformer());
         INSTANCE.addTransformer(BookTransformer.IndexTranformer());
     }
 }
