@@ -11,8 +11,7 @@
       "ore": "obsidian"
     },
     "b": {
-      "type": "forge:ore_dict",
-      "ore": "blockBrick"
+      "item": "minecraft:brick_block"
     },
     "k": {
       "item": "#REINFORCEMENT_CENTER"

@@ -11,8 +11,7 @@
       "ore": "obsidian"
     },
     "f": {
-      "type": "forge:ore_dict",
-      "ore": "arrow"
+      "item": "minecraft:arrow"
     },
     "k": {
       "item": "#REINFORCEMENT_CENTER"

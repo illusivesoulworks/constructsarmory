@@ -13,7 +13,8 @@
   ],
   "effects": [
     "Each redstone dust increases movement speed by a small percentage",
-    "Stacks with other armor pieces and movement buffs"
+    "Stacks with other armor pieces and movement buffs",
+    "Multiple levels"
   ],
   "demoArmor": [
     "conarm:helmet",
