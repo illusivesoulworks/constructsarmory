@@ -2,7 +2,7 @@
   "armormodifier": "resistant_armor",
   "text": [
     {
-      "text": "You can strengthen your armor with a little bit of an obsidian coating. It's really tough stuff."
+      "text": "You can strengthen your armor with a little bit of extra plating. It's really tough stuff."
     },
     {
       "text": "\n"
@@ -12,7 +12,7 @@
     }
   ],
   "effects": [
-    "Adds Protection",
+    "Reduces damage from all attacks",
     "Requires only 1 modifier",
     "Not compatible with other resists",
     "Multiple levels"

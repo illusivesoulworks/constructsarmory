@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "conarm:items/modifiers/blast_resistant_kit"
-  }
-}

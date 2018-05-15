@@ -2,7 +2,7 @@
   "armormodifier": "blast_resistant_armor",
   "text": [
     {
-      "text": "Reinforcing your armor with some strong brick will surely allow you to resist explosions better."
+      "text": "Reinforcing your armor with some blast resistant plating will surely allow you to resist explosions better."
     },
     {
       "text": "\n"
@@ -12,7 +12,7 @@
     }
   ],
   "effects": [
-    "Adds Blast Protection",
+    "Reduces damage from explosions",
     "Requires only 1 modifier",
     "Not compatible with other resists",
     "Multiple levels"

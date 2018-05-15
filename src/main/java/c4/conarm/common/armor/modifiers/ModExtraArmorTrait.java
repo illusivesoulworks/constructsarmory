@@ -10,6 +10,7 @@ package c4.conarm.common.armor.modifiers;
 
 import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.modifiers.ArmorModifier;
+import c4.conarm.lib.utils.RecipeMatchHolder;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -60,7 +61,7 @@ public class ModExtraArmorTrait extends ArmorModifier {
         List<ItemStack> stacks = new ArrayList<>();
         stacks.add(toolPartItem);
         stacks.addAll(ModExtraTrait.EMBOSSMENT_ITEMS);
-        addRecipeMatch(new RecipeMatch.ItemCombination(1, stacks.toArray(new ItemStack[stacks.size()])));
+        RecipeMatchHolder.addRecipeMatch(this, new RecipeMatch.ItemCombination(1, stacks.toArray(new ItemStack[stacks.size()])));
     }
 
     public static String generateIdentifier(Material material, Collection<ITrait> traits) {

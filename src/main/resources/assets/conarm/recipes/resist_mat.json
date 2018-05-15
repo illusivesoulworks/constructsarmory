@@ -1,20 +1,24 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "ooo",
-    "oko",
-    "ooo"
+    "obo",
+    "bkb",
+    "obo"
   ],
   "key": {
     "o": {
       "type": "forge:ore_dict",
       "ore": "obsidian"
     },
+    "b": {
+      "type": "forge:ore_dict",
+      "ore": "blockIron"
+    },
     "k": {
-      "item": "conarm:armor_kit"
+      "item": "#REINFORCEMENT_CENTER"
     }
   },
   "result": {
-    "item": "conarm:resistant_kit"
+    "item": "conarm:resist_mat"
   }
 }

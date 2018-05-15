@@ -24,6 +24,7 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.Util;
+import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
@@ -42,65 +43,11 @@ public class ModSpeedy extends ArmorModifierTrait {
             UUID.fromString("54e47051-19ac-4e59-9e54-4f256484408a"),
             UUID.fromString("ac16532f-d0b0-4b23-a89a-85ecaa3b5d7d") };
 
-    public ModSpeedy() {
-        super("speedy", 0x910000, 1, 20);
-    }
+    protected int max;
 
-    @Override
-    public void onArmorTick(ItemStack armor, World world, EntityPlayer player) {
-
-        //Check to see if the player is moving/running (Y-motion doesn't matter here)
-//        if (player.motionX != 0 || player.motionZ != 0) {
-//            this.spawnParticles(world, player.getPosition());
-//        }
-    }
-
-    private void spawnParticles(World worldIn, BlockPos pos)
-    {
-        Random random = worldIn.rand;
-        double d0 = 0.0625D;
-
-        for (int i = 0; i < 6; ++i)
-        {
-            double d1 = (double)((float)pos.getX() + random.nextFloat());
-            double d2 = (double)((float)pos.getY() + random.nextFloat());
-            double d3 = (double)((float)pos.getZ() + random.nextFloat());
-
-            if (i == 0 && !worldIn.getBlockState(pos.up()).isOpaqueCube())
-            {
-                d2 = (double)pos.getY() + d0 + 1.0D;
-            }
-
-            if (i == 1 && !worldIn.getBlockState(pos.down()).isOpaqueCube())
-            {
-                d2 = (double)pos.getY() - d0;
-            }
-
-            if (i == 2 && !worldIn.getBlockState(pos.south()).isOpaqueCube())
-            {
-                d3 = (double)pos.getZ() + d0 + 1.0D;
-            }
-
-            if (i == 3 && !worldIn.getBlockState(pos.north()).isOpaqueCube())
-            {
-                d3 = (double)pos.getZ() - d0;
-            }
-
-            if (i == 4 && !worldIn.getBlockState(pos.east()).isOpaqueCube())
-            {
-                d1 = (double)pos.getX() + d0 + 1.0D;
-            }
-
-            if (i == 5 && !worldIn.getBlockState(pos.west()).isOpaqueCube())
-            {
-                d1 = (double)pos.getX() - d0;
-            }
-
-            if (d1 < (double)pos.getX() || d1 > (double)(pos.getX() + 1) || d2 < 0.0D || d2 > (double)(pos.getY() + 1) || d3 < (double)pos.getZ() || d3 > (double)(pos.getZ() + 1))
-            {
-                worldIn.spawnParticle(EnumParticleTypes.REDSTONE, d1, d2, d3, 0.0D, 0.0D, 0.0D);
-            }
-        }
+    public ModSpeedy(int count) {
+        super("speedy", 0x910000, 3, count);
+        this.max = count;
     }
 
     @Override
@@ -122,7 +69,7 @@ public class ModSpeedy extends ArmorModifierTrait {
     }
 
     protected float getSpeedBonus(ModifierNBT.IntegerNBT modData) {
-        return 0.1F * modData.current / modData.max;
+        return 0.05F * modData.current / this.max;
     }
 
     @Override

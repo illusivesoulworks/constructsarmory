@@ -1,0 +1,24 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "ofo",
+    "fkf",
+    "ofo"
+  ],
+  "key": {
+    "o": {
+      "type": "forge:ore_dict",
+      "ore": "obsidian"
+    },
+    "f": {
+      "type": "forge:ore_dict",
+      "ore": "arrow"
+    },
+    "k": {
+      "item": "#REINFORCEMENT_CENTER"
+    }
+  },
+  "result": {
+    "item": "conarm:resist_mat_proj"
+  }
+}

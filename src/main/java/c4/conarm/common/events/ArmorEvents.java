@@ -230,7 +230,7 @@ public class ArmorEvents {
                 }
             }
 
-            evt.setAmount(Math.max(0, newDamage));
+            evt.setAmount(Math.max(newDamage, damage * 0.2F));
         }
     }
 

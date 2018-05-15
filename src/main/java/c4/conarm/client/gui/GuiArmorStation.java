@@ -598,7 +598,7 @@ public class GuiArmorStation extends GuiTinkerStation
             previewStack = ((ContainerArmorStation) this.inventorySlots).getResult();
         }
 
-        if (!previewStack.isEmpty()) {
+        if (!previewStack.isEmpty() && previewStack.getItem() instanceof TinkersArmor) {
             playerPreview.setItemStackToSlot(EntityLiving.getSlotForItemStack(previewStack), previewStack.copy());
         } else {
             resetPreview(playerPreview);

@@ -14,6 +14,7 @@ import c4.conarm.lib.modifiers.AccessoryModifier;
 import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.lib.events.ArmoryEvent;
 import c4.conarm.lib.ArmoryRegistry;
+import c4.conarm.lib.utils.RecipeMatchHolder;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Sets;
 import gnu.trove.map.TIntIntMap;
@@ -194,7 +195,7 @@ public class ArmorBuilder {
         for(IModifier modifier : ArmoryRegistry.getAllArmorModifiers()) {
             Optional<RecipeMatch.Match> matchOptional;
             do {
-                matchOptional = modifier.matches(stacks);
+                matchOptional = RecipeMatchHolder.matches(modifier, stacks);
                 ItemStack backup = copy.copy();
 
                 if(matchOptional.isPresent()) {

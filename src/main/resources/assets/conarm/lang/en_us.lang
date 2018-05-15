@@ -40,18 +40,14 @@ item.conarm.travel_belt.name=Traveller's Belt
 item.conarm.travel_sack.name=Traveller's Knapsack
 item.conarm.travel_goggles.name=Traveller's Goggles
 
-item.conarm.armor_kit.name=Armor Kit
-item.conarm.speedy_kit.name=Speedy Armor Kit
-item.conarm.diamond_kit.name=Diamond Armor Kit
-item.conarm.emerald_kit.name=Emerald Armor Kit
-item.conarm.soulbound_kit.name=Soulbound Armor Kit
-item.conarm.mending_moss_kit.name=Mending Moss Armor Kit
-item.conarm.reinforcement_kit.name=Reinforced Armor Kit
-item.conarm.resistant_kit.name=Resistant Armor Kit
-item.conarm.fire_resistant_kit.name=Fire Resistant Armor Kit
-item.conarm.blast_resistant_kit.name=Blast Resistant Armor Kit
-item.conarm.projectile_resistant_kit.name=Projectile Resistant Armor Kit
-item.conarm.parasitic_kit.name=Parasitic Kit
+item.conarm.resist_mat.name=Resistance
+item.conarm.resist_mat.tooltip=Resistant Modifier
+item.conarm.resist_mat_fire.name=Fire Resistance
+item.conarm.resist_mat_fire.tooltip=Fire Resistant Modifier
+item.conarm.resist_mat_blast.name=Blast Resistance
+item.conarm.resist_mat_blast.tooltip=Blast Resistant Modifier
+item.conarm.resist_mat_proj.name=Projectile Resistance
+item.conarm.resist_mat_proj.tooltip=Projectile Resistant Modifier
 
 key.conarm.category=Construct's Armory Accessories
 key.conarm.toggle_boots.desc=Boots
@@ -177,6 +173,8 @@ modifier.resistant_armor.desc=§oHarder, stronger!§r\nAdditional protection aga
 modifier.soulbound_armor.name=modifier.soulbound.name
 modifier.soulbound_armor.desc=§oA merry couple!§r\nYou love your armor. Not even death can part you.
 modifier.speedy_armor.name=Speedy
+modifier.speedy_armor.name2=Speedier
+modifier.speedy_armor.name3=Speediest
 modifier.speedy_armor.desc=§oGotta go fast!§r\nIncreases your overall movement speed.
 modifier.speedy_armor.extra=Bonus-Speed: +%s
 

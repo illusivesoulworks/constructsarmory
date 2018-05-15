@@ -1,19 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "bbb",
+    "obo",
     "bkb",
-    "bbb"
+    "obo"
   ],
   "key": {
+    "o": {
+      "type": "forge:ore_dict",
+      "ore": "obsidian"
+    },
     "b": {
       "item": "minecraft:blaze_powder"
     },
     "k": {
-      "item": "conarm:armor_kit"
+      "item": "#REINFORCEMENT_CENTER"
     }
   },
   "result": {
-    "item": "conarm:fire_resistant_kit"
+    "item": "conarm:resist_mat_fire"
   }
 }

@@ -68,18 +68,10 @@ public class ConstructsRegistry {
     //Items
     public static ItemArmoryBook book;
     public static ItemPolishingKit polishingKit;
-    public static ItemBase armorKit;
-    public static ItemBase speedyKit;
-    public static ItemBase diamondKit;
-    public static ItemBase emeraldKit;
-    public static ItemBase soulboundKit;
-    public static ItemBase reinforcementKit;
-    public static ItemBase mendingMossKit;
-    public static ItemBase resistKit;
-    public static ItemBase projResistKit;
-    public static ItemBase fireResistKit;
-    public static ItemBase blastResistKit;
-    public static ItemBase parasiticKit;
+    public static ItemBase resistMat;
+    public static ItemBase fireResistMat;
+    public static ItemBase projResistMat;
+    public static ItemBase blastResistMat;
 
     public static void registerArmorParts(IForgeRegistry<Item> registry) {
         helmetCore = registerArmorPart(registry, new ArmorPart(Material.VALUE_Ingot * 4, EntityEquipmentSlot.HEAD), "helmet_core");
@@ -95,18 +87,10 @@ public class ConstructsRegistry {
         travelSack.initModel();
         travelGoggles.initModel();
         book.initModel();
-        armorKit.initModel();
-        speedyKit.initModel();
-        diamondKit.initModel();
-        emeraldKit.initModel();
-        soulboundKit.initModel();
-        reinforcementKit.initModel();
-        mendingMossKit.initModel();
-        resistKit.initModel();
-        blastResistKit.initModel();
-        fireResistKit.initModel();
-        projResistKit.initModel();
-        parasiticKit.initModel();
+        resistMat.initModel();
+        fireResistMat.initModel();
+        projResistMat.initModel();
+        blastResistMat.initModel();
     }
 
     public static void registerArmorPieces(IForgeRegistry<Item> registry) {
@@ -118,18 +102,10 @@ public class ConstructsRegistry {
 
     public static void registerItems(IForgeRegistry<Item> registry) {
         book = ConstructUtils.registerItem(registry, new ItemArmoryBook(), "book");
-        armorKit = ConstructUtils.registerItem(registry, new ArmorKitBase(), "armor_kit");
-        speedyKit = ConstructUtils.registerItem(registry, new ArmorKitBase(), "speedy_kit");
-        diamondKit = ConstructUtils.registerItem(registry, new ArmorKitBase(), "diamond_kit");
-        emeraldKit = ConstructUtils.registerItem(registry, new ArmorKitBase(), "emerald_kit");
-        soulboundKit = ConstructUtils.registerItem(registry, new ArmorKitBase(), "soulbound_kit");
-        reinforcementKit = ConstructUtils.registerItem(registry, new ArmorKitBase(), "reinforcement_kit");
-        mendingMossKit = ConstructUtils.registerItem(registry, new ArmorKitBase(), "mending_moss_kit");
-        resistKit = ConstructUtils.registerItem(registry, new ArmorKitBase(), "resistant_kit");
-        projResistKit = ConstructUtils.registerItem(registry, new ArmorKitBase(), "projectile_resistant_kit");
-        fireResistKit = ConstructUtils.registerItem(registry, new ArmorKitBase(), "fire_resistant_kit");
-        blastResistKit = ConstructUtils.registerItem(registry, new ArmorKitBase(), "blast_resistant_kit");
-        parasiticKit = ConstructUtils.registerItem(registry, new ArmorKitBase(), "parasitic_kit");
+        resistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat");
+        fireResistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat_fire");
+        projResistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat_proj");
+        blastResistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat_blast");
         travelBelt = ConstructUtils.registerItem(registry, new ItemTravelBelt(), "travel_belt");
         travelSack = ConstructUtils.registerItem(registry, new ItemTravelSack(), "travel_sack");
         travelGoggles = ConstructUtils.registerItem(registry, new ItemTravelGoggles(), "travel_goggles");

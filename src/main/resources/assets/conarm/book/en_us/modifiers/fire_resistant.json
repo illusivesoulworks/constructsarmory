@@ -2,7 +2,7 @@
   "armormodifier": "fire_resistant_armor",
   "text": [
     {
-      "text": "Coating your armor in blaze powder will make it harder to burn you."
+      "text": "Coating your armor in fire resistant material will make it harder to burn you."
     },
     {
       "text": "\n"
@@ -12,7 +12,7 @@
     }
   ],
   "effects": [
-    "Adds Fire Protection",
+    "Reduces damage from fire and lava",
     "Requires only 1 modifier",
     "Not compatible with other resists",
     "Multiple levels"

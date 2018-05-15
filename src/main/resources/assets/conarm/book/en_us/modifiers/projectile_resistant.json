@@ -2,7 +2,7 @@
   "armormodifier": "projectile_resistant_armor",
   "text": [
     {
-      "text": "Attaching feathers to your armor will make you more aerodynamic and protect you from projectiles."
+      "text": "Attaching some more aerodynamic plating to your armor should allow you to reduce projectile damage."
     },
     {
       "text": "\n"
@@ -12,7 +12,7 @@
     }
   ],
   "effects": [
-    "Adds Projectile Protection",
+    "Reduces damage from projectiles",
     "Requires only 1 modifier",
     "Not compatible with other resists",
     "Multiple levels"

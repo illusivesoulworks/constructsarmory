@@ -14,6 +14,7 @@ import c4.conarm.lib.client.IArmorMaterialTexture;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.tinkering.TinkersArmor;
+import c4.conarm.lib.utils.RecipeMatchHolder;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -43,7 +44,7 @@ public class ModPolished extends ToolModifier implements IArmorMaterialTexture {
 
         ItemStack kit = ConstructsRegistry.polishingKit.getItemstackWithMaterial(material);
         ItemStack sand = new ItemStack(Blocks.SAND);
-        addRecipeMatch(new RecipeMatch.ItemCombination(1, kit, sand));
+        RecipeMatchHolder.addRecipeMatch(this, new RecipeMatch.ItemCombination(1, kit, sand));
     }
 
     @Override

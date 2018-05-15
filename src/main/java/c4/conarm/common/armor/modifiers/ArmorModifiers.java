@@ -13,15 +13,25 @@ import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.modifiers.AccessoryModifier;
+import c4.conarm.lib.utils.RecipeMatchHolder;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
+import net.minecraft.enchantment.EnchantmentProtection;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Enchantments;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
+import net.minecraftforge.oredict.OreDictionary;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
 import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.traits.ITrait;
+import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.modifiers.ModExtraTrait;
 
@@ -33,17 +43,17 @@ import java.util.Map;
 public class ArmorModifiers {
 
 //    public static Modifier modSilkstep = new ModSilkstep();
-    public static Modifier modSpeedy = new ModSpeedy();
+    public static Modifier modSpeedy = new ModSpeedy(50);
     public static Modifier modParasitic = new ModParasitic();
     public static Modifier modEmerald = new ModEmerald();
     public static Modifier modDiamond = new ModDiamond();
 //    public static Modifier modSticky = new ModSticky();
     public static Modifier modShulkerweight = new ModShulkerweight();
     public static Modifier modMending = new ModMending();
-    public static Modifier modFireResist = new ModFireResistant();
-    public static Modifier modProjResist = new ModProjectileResistant();
-    public static Modifier modBlastResist = new ModBlastResistant();
-    public static Modifier modResist = new ModResistant();
+    public static Modifier modFireResist = new ModResistantType("fire_resistant", 0xea9e32, EnchantmentProtection.Type.FIRE);
+    public static Modifier modProjResist = new ModResistantType("projectile_resistant", 0x10574b, EnchantmentProtection.Type.PROJECTILE);
+    public static Modifier modBlastResist = new ModResistantType("blast_resistant", 0x862d2d, EnchantmentProtection.Type.EXPLOSION);
+    public static Modifier modResist = new ModResistantType("resistant", 0xfff6f6, EnchantmentProtection.Type.ALL);
     public static Modifier modReinforced = new ModReinforced();
     public static Modifier modSoulbound = new ModSoulbound();
     public static Modifier modPolished = new ModPolishedDisplay();
@@ -54,8 +64,6 @@ public class ArmorModifiers {
     public static AccessoryModifier modTravelGoggles = new ModTravelGoggles();
 //    public static Modifier modFrostStep = new ModFrostStep();
 //    public static Modifier modMagmaStep = new ModMagmaStep();
-//    public static Modifier modArthopodWard = new ModAntiMonsterResistance("arthopod_ward", 0x61ba49, 5, 24, EnumCreatureAttribute.ARTHROPOD);
-//    public static Modifier modHolyWard = new ModAntiMonsterResistance("holy_ward", 0xe8d500, 5, 24, EnumCreatureAttribute.UNDEAD);
 
     static List<Modifier> polishedMods;
     static List<Modifier> extraTraitMods;
@@ -69,46 +77,47 @@ public class ArmorModifiers {
 //        modSticky.addItem(Blocks.WEB, 1);
 
         ArmoryRegistry.registerModifier(modSpeedy);
-        modSpeedy.addItem(ConstructsRegistry.speedyKit);
+        RecipeMatchHolder.addItem(modSpeedy, "dustRedstone");
+        RecipeMatchHolder.addItem(modSpeedy, "blockRedstone", 1, 9);
 
         ArmoryRegistry.registerModifier(modParasitic);
-        modParasitic.addItem(ConstructsRegistry.parasiticKit);
+        RecipeMatchHolder.addItem(modParasitic, "boneWithered");
 
         ArmoryRegistry.registerModifier(modDiamond);
-        modDiamond.addItem(ConstructsRegistry.diamondKit);
+        RecipeMatchHolder.addItem(modDiamond, "gemDiamond");
 
         ArmoryRegistry.registerModifier(modEmerald);
-        modEmerald.addItem(ConstructsRegistry.emeraldKit);
+        RecipeMatchHolder.addItem(modEmerald, "gemEmerald");
 
         ArmoryRegistry.registerModifier(modSoulbound);
-        modSoulbound.addItem(ConstructsRegistry.soulboundKit);
+        RecipeMatchHolder.addItem(modSoulbound, Items.NETHER_STAR);
 
         ArmoryRegistry.registerModifier(modMending);
-        modMending.addItem(ConstructsRegistry.mendingMossKit);
+        RecipeMatchHolder.addItem(modMending, TinkerCommons.matMendingMoss, 1, 1);
 
         ArmoryRegistry.registerModifier(modReinforced);
-        modReinforced.addItem(ConstructsRegistry.reinforcementKit);
+        RecipeMatchHolder.addItem(modReinforced, TinkerCommons.matReinforcement, 1, 1);
 
         ArmoryRegistry.registerModifier(modFireResist);
-        modFireResist.addItem(ConstructsRegistry.fireResistKit);
+        RecipeMatchHolder.addItem(modFireResist, ConstructsRegistry.fireResistMat);
 
         ArmoryRegistry.registerModifier(modBlastResist);
-        modBlastResist.addItem(ConstructsRegistry.blastResistKit);
+        RecipeMatchHolder.addItem(modBlastResist, ConstructsRegistry.blastResistMat);
 
         ArmoryRegistry.registerModifier(modProjResist);
-        modProjResist.addItem(ConstructsRegistry.projResistKit);
+        RecipeMatchHolder.addItem(modProjResist, ConstructsRegistry.projResistMat);
 
         ArmoryRegistry.registerModifier(modResist);
-        modResist.addItem(ConstructsRegistry.resistKit);
+        RecipeMatchHolder.addItem(modResist, ConstructsRegistry.resistMat);
 
         ArmoryRegistry.registerModifier(modTravelBelt);
-        modTravelBelt.addItem(ConstructsRegistry.travelBelt);
+        RecipeMatchHolder.addItem(modTravelBelt, ConstructsRegistry.travelBelt);
 
         ArmoryRegistry.registerModifier(modTravelSack);
-        modTravelSack.addItem(ConstructsRegistry.travelSack);
+        RecipeMatchHolder.addItem(modTravelSack, ConstructsRegistry.travelSack);
 
         ArmoryRegistry.registerModifier(modTravelGoggles);
-        modTravelGoggles.addItem(ConstructsRegistry.travelGoggles);
+        RecipeMatchHolder.addItem(modTravelGoggles, ConstructsRegistry.travelGoggles);
 
 //        ArmoryRegistry.registerModifier(modFrostStep);
 //        modFrostStep.addItem(Blocks.PACKED_ICE, 1);

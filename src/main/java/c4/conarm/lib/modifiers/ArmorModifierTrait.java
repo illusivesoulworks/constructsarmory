@@ -10,6 +10,7 @@ package c4.conarm.lib.modifiers;
 
 import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import c4.conarm.lib.utils.RecipeMatchHolder;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -21,6 +22,8 @@ import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.PriorityQueue;
 
 public class ArmorModifierTrait extends AbstractArmorTrait implements IModifierDisplay {
 
@@ -92,11 +95,14 @@ public class ArmorModifierTrait extends AbstractArmorTrait implements IModifierD
     @Override
     public List<List<ItemStack>> getItems() {
         ImmutableList.Builder<List<ItemStack>> builder = ImmutableList.builder();
-
-        for(RecipeMatch rm : items) {
-            List<ItemStack> in = rm.getInputs();
-            if(!in.isEmpty()) {
-                builder.add(in);
+        Optional<PriorityQueue<RecipeMatch>> recipes = RecipeMatchHolder.getRecipes(this);
+        if (recipes.isPresent()) {
+            PriorityQueue<RecipeMatch> recipeMatches = recipes.get();
+            for (RecipeMatch rm : recipeMatches) {
+                List<ItemStack> in = rm.getInputs();
+                if (!in.isEmpty()) {
+                    builder.add(in);
+                }
             }
         }
 

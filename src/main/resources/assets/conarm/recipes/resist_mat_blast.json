@@ -1,0 +1,24 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "obo",
+    "bkb",
+    "obo"
+  ],
+  "key": {
+    "o": {
+      "type": "forge:ore_dict",
+      "ore": "obsidian"
+    },
+    "b": {
+      "type": "forge:ore_dict",
+      "ore": "blockBrick"
+    },
+    "k": {
+      "item": "#REINFORCEMENT_CENTER"
+    }
+  },
+  "result": {
+    "item": "conarm:resist_mat_blast"
+  }
+}
