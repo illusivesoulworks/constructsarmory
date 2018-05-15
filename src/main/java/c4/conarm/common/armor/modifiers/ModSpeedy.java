@@ -1,6 +1,15 @@
+/*
+ * Copyright (c) 2018 <C4>
+ *
+ * This Java class is distributed as a part of the Construct's Armory mod.
+ * Construct's Armory is open source and distributed under the GNU General Public License v3.
+ * View the source code and license file on github: https://github.com/TheIllusiveC4/ConstructsArmory
+ */
+
 package c4.conarm.common.armor.modifiers;
 
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
+import c4.conarm.lib.utils.ConstructUtils;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.EntityLiving;
@@ -20,6 +29,7 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 import javax.annotation.Nonnull;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -127,7 +137,7 @@ public class ModSpeedy extends ArmorModifierTrait {
         ImmutableList.Builder<String> builder = ImmutableList.builder();
 
         float bonus = getSpeedBonus(ModifierNBT.readInteger(modifierTag));
-        builder.add(Util.translateFormatted(loc, Util.dfPercent.format(bonus)));
+        builder.add(Util.translateFormatted(loc, ConstructUtils.dfPercentSpec.format(bonus)));
         return builder.build();
     }
 }

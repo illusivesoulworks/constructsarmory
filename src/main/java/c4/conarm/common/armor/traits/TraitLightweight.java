@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2018 <C4>
+ *
+ * This Java class is distributed as a part of the Construct's Armory mod.
+ * Construct's Armory is open source and distributed under the GNU General Public License v3.
+ * View the source code and license file on github: https://github.com/TheIllusiveC4/ConstructsArmory
+ */
+
 package c4.conarm.common.armor.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
@@ -21,7 +29,7 @@ public class TraitLightweight extends AbstractArmorTrait {
                                                                 UUID.fromString("69c21f84-449d-4e18-89c1-b9f7b5ca98f0"),
                                                                 UUID.fromString("37f79f7c-5cca-426b-824b-9ba2ced92337"),
                                                                 UUID.fromString("1316663f-febe-430f-8714-94bf21118ab6") };
-    private static final double SPEED_PER_LEVEL = 0.1D;
+    private static final double SPEED_PER_LEVEL = 0.05D;
 
     public TraitLightweight() {
         super("lightweight", 0x00ff00);

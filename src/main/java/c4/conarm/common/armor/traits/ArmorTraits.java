@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2018 <C4>
+ *
+ * This Java class is distributed as a part of the Construct's Armory mod.
+ * Construct's Armory is open source and distributed under the GNU General Public License v3.
+ * View the source code and license file on github: https://github.com/TheIllusiveC4/ConstructsArmory
+ */
+
 package c4.conarm.common.armor.traits;
 
 import c4.conarm.common.armor.traits.*;
@@ -46,4 +54,5 @@ public class ArmorTraits {
     public static final AbstractArmorTrait dense = new TraitDense();
     public static final AbstractArmorTrait voltaic = new TraitVoltaic();
     public static final AbstractArmorTrait bouncy = new TraitBouncy();
+    public static final AbstractArmorTrait featherweight = new TraitFeatherweight();
 }

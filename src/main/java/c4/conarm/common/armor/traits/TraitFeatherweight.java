@@ -12,23 +12,21 @@ import c4.conarm.lib.traits.AbstractArmorTrait;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 
-public class TraitShielding extends AbstractArmorTrait {
+public class TraitFeatherweight extends AbstractArmorTrait {
 
     private static final float MODIFIER = 0.1F;
 
-    public TraitShielding() {
-        super("shielding", 0xffffff);
+    public TraitFeatherweight() {
+        super("featherweight", 0x66ffff);
     }
 
     @Override
-    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
-        if (source == DamageSource.WITHER || source == DamageSource.MAGIC) {
+    public float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent evt) {
+        if (source == DamageSource.FALL) {
             newDamage -= damage * MODIFIER;
         }
-
         return newDamage;
     }
-
 }

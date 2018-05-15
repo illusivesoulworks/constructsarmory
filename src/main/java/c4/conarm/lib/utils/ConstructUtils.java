@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2018 <C4>
+ *
+ * This Java class is distributed as a part of the Construct's Armory mod.
+ * Construct's Armory is open source and distributed under the GNU General Public License v3.
+ * View the source code and license file on github: https://github.com/TheIllusiveC4/ConstructsArmory
+ */
+
 package c4.conarm.lib.utils;
 
 import c4.conarm.ConstructsArmory;
@@ -9,9 +17,12 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import slimeknights.tconstruct.library.Util;
 
+import java.text.DecimalFormat;
 import java.util.Locale;
 
 public class ConstructUtils {
+
+    public static final DecimalFormat dfPercentSpec = new DecimalFormat("#.#%");
 
     public static String getPrefixedName(String name) {
         if (!name.equals(name.toLowerCase(Locale.US))) {
