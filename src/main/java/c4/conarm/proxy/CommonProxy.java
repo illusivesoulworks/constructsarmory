@@ -11,6 +11,7 @@ package c4.conarm.proxy;
 import c4.conarm.common.ConstructsRegistry;
 import c4.conarm.common.RepairRecipe;
 import c4.conarm.common.blocks.BlockArmorForge;
+import c4.conarm.common.blocks.BlockSoftObsidian;
 import c4.conarm.common.tileentities.TileArmorForge;
 import c4.conarm.common.armor.traits.TraitAquaspeed;
 import c4.conarm.client.utils.GuiHandler;
@@ -31,6 +32,7 @@ import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.potion.Potion;
@@ -90,7 +92,7 @@ public class CommonProxy {
 
         ConstructsRegistry.armorForge = ConstructUtils.registerBlock(registry, new BlockArmorForge(), "armorforge");
         ConstructsRegistry.armorStation = ConstructUtils.registerBlock(registry, new BlockArmorStation(), "armorstation");
-//        ConstructsRegistry.softMagma = ConstructUtils.registerBlock(registry, new BlockSoftMagma(), "soft_magma");
+        ConstructsRegistry.softObsidian = ConstructUtils.registerBlock(registry, new BlockSoftObsidian(), "soft_obsidian");
 
         GameRegistry.registerTileEntity(TileArmorStation.class, "armorstation");
         GameRegistry.registerTileEntity(TileArmorForge.class, "armorforge");

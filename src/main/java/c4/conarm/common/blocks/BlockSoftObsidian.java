@@ -11,23 +11,28 @@ package c4.conarm.common.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockMagma;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
 import java.util.Random;
 
-public class BlockSoftMagma extends BlockMagma
+public class BlockSoftObsidian extends BlockMagma
 {
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);
 
-    public BlockSoftMagma()
+    public BlockSoftObsidian()
     {
         this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, 0));
         this.setHardness(0.5F);
@@ -39,10 +44,11 @@ public class BlockSoftMagma extends BlockMagma
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return (state.getValue(AGE));
+        return state.getValue(AGE);
     }
 
     @Override
+    @Nonnull
     public IBlockState getStateFromMeta(int meta)
     {
         return this.getDefaultState().withProperty(AGE, MathHelper.clamp(meta, 0, 3));
@@ -51,7 +57,7 @@ public class BlockSoftMagma extends BlockMagma
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
-        if ((rand.nextInt(3) == 0 || this.countNeighbors(worldIn, pos) < 4))
+        if ((rand.nextInt(2) == 0 || this.countNeighbors(worldIn, pos) < 4))
         {
             this.slightlyMelt(worldIn, pos, state, rand, true);
         }
@@ -125,13 +131,15 @@ public class BlockSoftMagma extends BlockMagma
     }
 
     @Override
+    @Nonnull
     protected BlockStateContainer createBlockState()
     {
         return new BlockStateContainer(this, AGE);
     }
 
     @Override
-    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
+    @Nonnull
+    public ItemStack getPickBlock(@Nonnull IBlockState state, RayTraceResult target, @Nonnull World world, @Nonnull BlockPos pos, EntityPlayer player)
     {
         return ItemStack.EMPTY;
     }

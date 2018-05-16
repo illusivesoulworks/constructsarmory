@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "conarm:blocks/soft_obsidian_2"
+  }
+}

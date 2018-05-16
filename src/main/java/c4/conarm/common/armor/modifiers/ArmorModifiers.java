@@ -18,12 +18,9 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import net.minecraft.enchantment.EnchantmentProtection;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
-import net.minecraftforge.oredict.OreDictionary;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
@@ -47,6 +44,8 @@ public class ArmorModifiers {
     public static Modifier modParasitic = new ModParasitic();
     public static Modifier modEmerald = new ModEmerald();
     public static Modifier modDiamond = new ModDiamond();
+    public static Modifier modAmphibious = new ModAmphibious();
+    public static Modifier modWaterwalk = new ModFrostWalker();
 //    public static Modifier modSticky = new ModSticky();
     public static Modifier modShulkerweight = new ModShulkerweight();
     public static Modifier modMending = new ModMending();
@@ -109,6 +108,12 @@ public class ArmorModifiers {
 
         ArmoryRegistry.registerModifier(modResist);
         RecipeMatchHolder.addItem(modResist, ConstructsRegistry.resistMat);
+
+        ArmoryRegistry.registerModifier(modAmphibious);
+        RecipeMatchHolder.addRecipeMatch(modAmphibious, new RecipeMatch.ItemCombination(1, new ItemStack(Blocks.GLASS), new ItemStack(Items.PRISMARINE_CRYSTALS), new ItemStack(Blocks.GLASS)));
+
+        ArmoryRegistry.registerModifier(modWaterwalk);
+        RecipeMatchHolder.addRecipeMatch(modWaterwalk, new RecipeMatch.ItemCombination(1, new ItemStack(Blocks.WATERLILY), new ItemStack(Blocks.PACKED_ICE), new ItemStack(Blocks.WATERLILY), new ItemStack(Blocks.PACKED_ICE)));
 
         ArmoryRegistry.registerModifier(modTravelBelt);
         RecipeMatchHolder.addItem(modTravelBelt, ConstructsRegistry.travelBelt);

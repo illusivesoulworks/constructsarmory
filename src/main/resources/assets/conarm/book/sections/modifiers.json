@@ -40,6 +40,14 @@
   },
   {
     "type": "armormodifier",
+    "data": "modifiers/amphibious_armor.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/frostwalker_armor.json"
+  },
+  {
+    "type": "armormodifier",
     "data": "modifiers/soulbound_armor.json"
   },
   {

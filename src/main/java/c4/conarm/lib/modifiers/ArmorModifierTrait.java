@@ -50,12 +50,7 @@ public class ArmorModifierTrait extends AbstractArmorTrait implements IModifierD
                 addAspects(new ModifierAspect.LevelAspect(this, maxLevel));
             }
             addAspects(new ModifierAspect.DataAspect(this, color));
-
-            if (this instanceof AccessoryModifier) {
-                addAspects(new ModifierAspect.FreeModifierAspect(2));
-            } else {
-                addAspects(ModifierAspect.freeModifier);
-            }
+            addAspects(ModifierAspect.freeModifier);
         }
     }
 
@@ -108,10 +103,4 @@ public class ArmorModifierTrait extends AbstractArmorTrait implements IModifierD
 
         return builder.build();
     }
-
-    public ModifierNBT.IntegerNBT getData(ItemStack tool) {
-        NBTTagCompound tag = TinkerUtil.getModifierTag(tool, getModifierIdentifier());
-        return ModifierNBT.readInteger(tag);
-    }
-
 }

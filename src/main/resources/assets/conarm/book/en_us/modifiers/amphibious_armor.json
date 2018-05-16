@@ -1,0 +1,17 @@
+{
+  "armormodifier": "amphibious_armor",
+  "text": [
+    {
+      "text": "Combining some prismarine crystals and glass should create some type of portable air pocket on your helmet that you can use to breathe underwater."
+    }
+  ],
+  "effects": [
+    "Stores oxygen over time when equipped",
+    "Uses stored oxygen when underwater",
+    "Can only be applied to helmets",
+    "Single use"
+  ],
+  "demoArmor": [
+    "conarm:helmet"
+  ]
+}

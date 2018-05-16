@@ -22,9 +22,9 @@ public class ModShulkerweight extends ArmorModifierTrait {
         super("shulkerweight", 0xaaccff, 1, 25);
     }
 
-    private int getAmplifier(ItemStack armor) {
-        return getData(armor).current;
-    }
+//    private int getAmplifier(ItemStack armor) {
+//        return getData(armor).current;
+//    }
 
 //    @Override
 //    public void onArmorTick(ItemStack armor, World world, EntityPlayer player) {
@@ -35,13 +35,4 @@ public class ModShulkerweight extends ArmorModifierTrait {
 //            player.setNoGravity(false);
 //        }
 //    }
-
-    @Override
-    public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag) {
-        String loc = String.format(LOC_Extra, getIdentifier());
-        float amplifier = getAmplifier(tool);
-        amplifier /= 100f;
-
-        return ImmutableList.of(Util.translateFormatted(loc, Util.df.format(amplifier)));
-    }
 }

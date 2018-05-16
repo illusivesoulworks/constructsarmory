@@ -11,6 +11,8 @@
     "parasitic_armor": "models/modifiers/mod_parasitic_armor",
     "mending_armor": "models/modifiers/mod_mending_armor",
     "polished_armor": "models/modifiers/mod_polished_armor",
-    "reinforced_armor": "models/modifiers/mod_reinforced_armor"
+    "reinforced_armor": "models/modifiers/mod_reinforced_armor",
+    "amphibious_armor": "models/modifiers/mod_amphibious_armor",
+    "frostwalker_armor": "models/modifiers/mod_frostwalker_armor"
   }
 }

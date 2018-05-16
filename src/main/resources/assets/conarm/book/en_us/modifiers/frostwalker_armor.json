@@ -1,0 +1,23 @@
+{
+  "armormodifier": "frostwalker_armor",
+  "text": [
+    {
+      "text": "Attaching some super cold ice and lilypads to your feet could be cold enough to freeze water."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Maybe doing it again could make it more powerful?"
+    }
+  ],
+  "effects": [
+    "Freezes nearby water",
+    "Negates damage from walking over hot surfaces",
+    "Can only be applied to boots",
+    "Multiple levels"
+  ],
+  "demoArmor": [
+    "conarm:boots"
+  ]
+}

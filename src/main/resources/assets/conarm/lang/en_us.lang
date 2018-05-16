@@ -1,6 +1,8 @@
 tile.conarm.armorforge.name=Armor Forge
 tile.conarm.armorstation.name=Armor Station
 
+tile.conarm.soft_obsidian.name=Unstable Obsidian
+
 gui.armorforge.name=Armor Forge
 gui.armorstation.name=Armor Station
 gui.armorstation.preview=Preview
@@ -146,6 +148,7 @@ modifier.voltaic_armor.desc=§oBiribiri!§r\nGetting hit charges your armor. Onc
 #################
 #   Modifiers   #
 #################
+modifier.amphibious_armor.name=Amphibious
 modifier.blast_resistant_armor.name=Blast Resistant
 modifier.blast_resistant_armor.desc=§oTake cover!§r\nAdditional protection against explosions.
 modifier.diamond_armor.name=modifier.diamond.name
@@ -156,6 +159,8 @@ modifier.extratrait_armor.name=modifier.extratrait.name
 modifier.extratrait_armor.desc=modifier.extratrait.desc
 modifier.fire_resistant_armor.name=Fire Resistant
 modifier.fire_resistant_armor.desc=§oImmolation is bad.§r\nAdditional protection against fire.
+modifier.frostwalker_armor.name=Frosty
+modifier.frostwalker_armor.desc=§oAlways stay frosty.§r\nYour feet are so cold, they freeze the water around you.
 modifier.mending_armor.name=modifier.mending_moss.name
 modifier.mending_armor.desc=§oIt's alive!§r\nPicked up XP is stored in the armor. It will slowly use up the XP to regenerate durability.
 modifier.mending_armor.extra=Stored XP: %d
