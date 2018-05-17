@@ -1,3 +1,27 @@
+0.0.16-alpha
+----------------------
+    Changes
+        Replaced Lightweight trait on Cobalt cores with Featherweight trait
+        Lightweight trait movement speed bonus has been significantly reduced
+        Modifiers once again use regular crafting materials instead of armor kits
+        Speedy trait now has 3 levels, with less movement speed per level and a lower cost
+        Resistant traits no longer give Protection enchantments, they use internal calculations instead now
+        Resistant traits now have 8 levels, with the same total damage reduction potential and a different cost
+        Changed some of the wording in the book for some modifiers
+        Lowered the required modifiers for accessories from 2 to 1
+        Armor Station (not Armor Forge!) now allows you to mix materials and replace parts, but no longer can apply modifiers
+    Additions
+        Added Featherweight trait - Reduces fall damage
+        Added new materials for all Resistant modifiers
+        Added Amphibious trait - Extends underwater breathing time - Helmets only
+        Added Frosty trait - Freezes nearby water blocks - Boots only
+    Fixed
+        Fixed Reinforced modifier not appearing on armor models
+        Fixed unrelated items appearing in the armor preview panels
+        Fixed armor result disappearing when crafting in the GUI (#30)
+        Fixed armor renaming not working properly
+    Removals
+        Removed all armor kits
 0.0.15-alpha
 ----------------------
 
