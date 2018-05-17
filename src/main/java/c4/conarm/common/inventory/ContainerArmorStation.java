@@ -26,6 +26,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.StringUtils;
 import net.minecraft.world.WorldServer;
 import slimeknights.mantle.inventory.BaseContainer;
 import slimeknights.mantle.util.ItemStackList;
@@ -37,6 +38,8 @@ import slimeknights.tconstruct.library.events.TinkerCraftingEvent;
 import slimeknights.tconstruct.library.modifiers.TinkerGuiException;
 import slimeknights.tconstruct.library.tinkering.IRepairable;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
+import slimeknights.tconstruct.library.tinkering.TinkersItem;
+import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolBuilder;
 import slimeknights.tconstruct.tools.common.inventory.ContainerTinkerStation;
@@ -132,6 +135,7 @@ public class ContainerArmorStation extends ContainerTinkerStation<TileArmorStati
                 ((GuiArmorStation)screen).textField.setText(name);
             }
         }
+        this.onCraftMatrixChanged(tile);
         if (this.out.getHasStack()) {
             if (name != null && !name.isEmpty()) {
                 this.out.inventory.getStackInSlot(0).setStackDisplayName(name);
@@ -152,6 +156,9 @@ public class ContainerArmorStation extends ContainerTinkerStation<TileArmorStati
             }
             if (result.isEmpty()) {
                 result = this.modifyArmor(false);
+            }
+            if(result.isEmpty()) {
+                result = this.renameArmor();
             }
             if (result.isEmpty()) {
                 result = this.buildArmor();
@@ -176,7 +183,7 @@ public class ContainerArmorStation extends ContainerTinkerStation<TileArmorStati
     public void onResultTaken(final EntityPlayer playerIn, final ItemStack stack) {
         boolean resultTaken = false;
         try {
-            resultTaken = (!this.repairArmor(true).isEmpty() || !this.replaceArmorParts(true).isEmpty() || !this.modifyArmor(true).isEmpty());
+            resultTaken = (!this.repairArmor(true).isEmpty() || !this.replaceArmorParts(true).isEmpty() || !this.modifyArmor(true).isEmpty() || !this.renameArmor().isEmpty());
         }
         catch (TinkerGuiException e) {
             e.printStackTrace();
@@ -245,6 +252,26 @@ public class ContainerArmorStation extends ContainerTinkerStation<TileArmorStati
         return result;
     }
 
+    private ItemStack renameArmor() throws TinkerGuiException {
+        ItemStack armorStack = getArmorStack();
+
+        if(armorStack.isEmpty() ||
+                !(armorStack.getItem() instanceof TinkersArmor) ||
+                StringUtils.isNullOrEmpty(armorName) ||
+                armorStack.getDisplayName().equals(armorName)) {
+            return ItemStack.EMPTY;
+        }
+
+        ItemStack result = armorStack.copy();
+        if(TagUtil.getNoRenameFlag(result)) {
+            throw new TinkerGuiException(Util.translate("gui.error.no_rename"));
+        }
+
+        result.setStackDisplayName(armorName);
+
+        return result;
+    }
+
     private ItemStack buildArmor() throws TinkerGuiException {
         final NonNullList<ItemStack> input = ItemStackList.withSize((this.tile).getSizeInventory());
         for (int i = 0; i < input.size(); ++i) {
@@ -255,6 +282,10 @@ public class ContainerArmorStation extends ContainerTinkerStation<TileArmorStati
             TinkerCraftingEvent.ToolCraftingEvent.fireEvent(result, this.player, input);
         }
         return result;
+    }
+
+    private ItemStack getArmorStack() {
+        return inventorySlots.get(0).getStack();
     }
 
     protected Set<ArmorCore> getBuildableArmor() {
