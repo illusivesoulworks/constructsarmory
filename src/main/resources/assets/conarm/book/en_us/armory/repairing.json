@@ -1,0 +1,17 @@
+{
+  "title": "Repairing",
+  "image": {
+    "file": "conarm:textures/gui/book/repair.png",
+    "width": 136,
+    "height": 70
+  },
+  "text": [
+    {
+      "text": "Remember how to repair tools? The same can be applied to armor pieces. Simply put the armor piece into an armor station or forge and add items equivalent to the core of the armor."
+    },
+    {
+      "text": "To repair when on the go, simply use an armor polishing kit the same way you would use a tool sharpening kit.",
+      "paragraph": true
+    }
+  ]
+}

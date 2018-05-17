@@ -1,0 +1,16 @@
+{
+  "title": "Armor Station & Forge",
+  "text": [
+    {
+      "text": "In order to craft armor pieces, you'll need two new types of tinkering tables: the Armor Station and the Armor Forge."
+    },
+    {
+      "text": "The Armor Station is the introductory armor crafting table. It can craft armor, repair, and replace parts, but it cannot modify the armor any further than its base form.",
+      "paragraph": true
+    },
+    {
+      "text": "The Armor Forge is the upgraded Armor Station, giving the ability to finally modify the armor for greater potential.",
+      "paragraph": true
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "image": {
+    "file": "conarm:textures/gui/book/armorgui.png",
+    "width": 154,
+    "height": 70
+  },
+  "text": [
+    {
+      "text": "Both of these blocks come with a handy armor preview to see what the crafted armor would look like on the user."
+    }
+  ]
+}
