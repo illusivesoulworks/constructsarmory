@@ -56,19 +56,20 @@ public class ContainerArmorStation extends ContainerTinkerStation<TileArmorStati
     protected ArmorCore selectedArmor;
     protected int activeSlots;
     public String armorName;
-    protected boolean isForge;
+    protected boolean isUpgraded;
 
-    public ContainerArmorStation(final InventoryPlayer playerInventory, final TileArmorStation tile) {
+    public ContainerArmorStation(final InventoryPlayer playerInventory, final TileArmorStation tile, boolean isUpgraded) {
         super(tile);
+        this.player = playerInventory.player;
+        this.isUpgraded = isUpgraded;
         int i;
         for (i = 0; i < tile.getSizeInventory(); i++) {
             this.addSlotToContainer(new SlotArmorStationIn(tile, i, 0, 0, this));
         }
-        this.addSlotToContainer(this.out = new SlotArmorStationOut(i, 124, 38, this));
+        this.out = new SlotArmorStationOut(i, 124, 38, this);
+        this.addSlotToContainer(out);
         this.addPlayerInventory(playerInventory, 8, 92);
-        this.onCraftMatrixChanged(null);
-        this.player = playerInventory.player;
-        this.isForge = false;
+        this.onCraftMatrixChanged(playerInventory);
     }
 
     public ItemStack getResult() {
@@ -145,7 +146,8 @@ public class ContainerArmorStation extends ContainerTinkerStation<TileArmorStati
         this.updateGUI();
         try {
             ItemStack result = this.repairArmor(false);
-            if (result.isEmpty() && isForge) {
+
+            if (result.isEmpty()) {
                 result = this.replaceArmorParts(false);
             }
             if (result.isEmpty()) {
@@ -164,7 +166,7 @@ public class ContainerArmorStation extends ContainerTinkerStation<TileArmorStati
         if (!this.world.isRemote) {
             final WorldServer server = (WorldServer)this.world;
             for (final EntityPlayer player : server.playerEntities) {
-                if (player.openContainer != this && player.openContainer instanceof ContainerArmorStation && this.sameGui((BaseContainer)player.openContainer)) {
+                if (player.openContainer != this && player.openContainer instanceof ContainerArmorStation && this.sameGui((ContainerArmorStation)player.openContainer)) {
                     ((ContainerArmorStation)player.openContainer).out.inventory.setInventorySlotContents(0, this.out.getStack());
                 }
             }
@@ -174,7 +176,7 @@ public class ContainerArmorStation extends ContainerTinkerStation<TileArmorStati
     public void onResultTaken(final EntityPlayer playerIn, final ItemStack stack) {
         boolean resultTaken = false;
         try {
-            resultTaken = (!this.repairArmor(true).isEmpty() || (isForge && !this.replaceArmorParts(true).isEmpty()) || !this.modifyArmor(true).isEmpty());
+            resultTaken = (!this.repairArmor(true).isEmpty() || !this.replaceArmorParts(true).isEmpty() || !this.modifyArmor(true).isEmpty());
         }
         catch (TinkerGuiException e) {
             e.printStackTrace();
@@ -226,12 +228,18 @@ public class ContainerArmorStation extends ContainerTinkerStation<TileArmorStati
     }
 
     private ItemStack modifyArmor(final boolean remove) throws TinkerGuiException {
+
         final ItemStack modifyable = this.inventorySlots.get(0).getStack();
         if (modifyable.isEmpty() || !(modifyable.getItem() instanceof IArmorModifyable)) {
             return ItemStack.EMPTY;
         }
         final ItemStack result = ArmorBuilder.tryModifyArmor(this.getInputs(), modifyable, remove);
         if (!result.isEmpty()) {
+
+            if (!isUpgraded) {
+                throw new TinkerGuiException(Util.translate("gui.error.modifier_on_station"));
+            }
+
             TinkerCraftingEvent.ToolModifyEvent.fireEvent(result, this.player, modifyable.copy());
         }
         return result;
@@ -241,13 +249,6 @@ public class ContainerArmorStation extends ContainerTinkerStation<TileArmorStati
         final NonNullList<ItemStack> input = ItemStackList.withSize((this.tile).getSizeInventory());
         for (int i = 0; i < input.size(); ++i) {
             input.set(i, (this.tile).getStackInSlot(i));
-        }
-        if (!isForge) {
-            for (ItemStack stack : input) {
-                if (!stack.isEmpty() && TinkerUtil.getMaterialFromStack(stack) != TinkerUtil.getMaterialFromStack(input.get(0))) {
-                    throw new TinkerGuiException(Util.translate("gui.error.station_material_mismatch"));
-                }
-            }
         }
         final ItemStack result = ArmorBuilder.tryBuildArmor(input, this.armorName, this.getBuildableArmor());
         if (!result.isEmpty()) {

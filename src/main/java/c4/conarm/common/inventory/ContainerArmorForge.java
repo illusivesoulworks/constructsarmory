@@ -18,8 +18,7 @@ import slimeknights.tconstruct.common.Sounds;
 public class ContainerArmorForge extends ContainerArmorStation {
 
     public ContainerArmorForge(InventoryPlayer playerInventory, TileArmorForge tile) {
-        super(playerInventory, tile);
-        this.isForge = true;
+        super(playerInventory, tile, true);
     }
 
     @Override

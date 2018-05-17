@@ -8,15 +8,26 @@
 
 package c4.conarm.common.tileentities;
 
+import c4.conarm.client.gui.GuiButtonArmorRepair;
 import c4.conarm.common.inventory.ContainerArmorStation;
 import c4.conarm.client.gui.GuiArmorStation;
+import c4.conarm.lib.client.ArmorBuildGuiInfo;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockPane;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.common.property.IExtendedBlockState;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import slimeknights.tconstruct.library.client.ToolBuildGuiInfo;
+import slimeknights.tconstruct.shared.block.BlockTable;
+import slimeknights.tconstruct.shared.block.PropertyTableItem;
+import slimeknights.tconstruct.tools.common.client.GuiButtonRepair;
 import slimeknights.tconstruct.tools.common.tileentity.TileToolStation;
 
 public class TileArmorStation extends TileToolStation {
@@ -33,6 +44,6 @@ public class TileArmorStation extends TileToolStation {
 
     @Override
     public Container createContainer(InventoryPlayer inventoryPlayer, World world, BlockPos pos) {
-        return new ContainerArmorStation(inventoryPlayer, this);
+        return new ContainerArmorStation(inventoryPlayer, this, false);
     }
 }

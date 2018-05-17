@@ -7,7 +7,7 @@ gui.armorforge.name=Armor Forge
 gui.armorstation.name=Armor Station
 gui.armorstation.preview=Preview
 
-gui.error.station_material_mismatch=Materials do not match.
+gui.error.modifier_on_station=Modifiers can only be applied on the Armor Forge.
 
 accessory.tooltip=Accessory: %s
 accessory.head.tooltip=Helmet Accessory
