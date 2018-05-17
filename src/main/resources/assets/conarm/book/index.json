@@ -4,7 +4,7 @@
     "data": "sections/welcome.json",
     "icon": {
       "item": {
-        "id": "conarm:armorforge",
+        "id": "conarm:armorstation",
         "damage": 0
       }
     }
