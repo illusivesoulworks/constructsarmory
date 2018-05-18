@@ -1,3 +1,12 @@
+0.0.17-beta
+----------------------
+    Changes
+        Increased level of Magnetic trait on Iron core parts to II
+        Increased level of Mundane trait on Flint core parts to II
+        Gave Shielding trait back to other Lead parts
+        Updated book contents
+    Additions
+        Added Tinkers' Tool Leveling integration
 0.0.16-alpha
 ----------------------
     Changes
