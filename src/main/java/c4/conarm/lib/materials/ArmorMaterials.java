@@ -22,7 +22,7 @@ public class ArmorMaterials {
         //Natural
         addArmorTrait(TinkerMaterials.wood, ArmorTraits.ecological);
         addArmorTrait(TinkerMaterials.stone, ArmorTraits.cheapskate, ArmorTraits.cheap);
-        addArmorTrait(TinkerMaterials.flint, ArmorTraits.mundane);
+        addArmorTrait(TinkerMaterials.flint, ArmorTraits.mundane2, ArmorTraits.mundane);
         addArmorTrait(TinkerMaterials.obsidian, ArmorTraits.duritae);
         addArmorTrait(TinkerMaterials.cactus, ArmorTraits.spiny);
         addArmorTrait(TinkerMaterials.prismarine, ArmorTraits.aquaspeed);
@@ -44,7 +44,7 @@ public class ArmorMaterials {
         addArmorTrait(TinkerMaterials.magmaslime, ArmorTraits.autoforge, ArmorTraits.superhot);
 
         //Metals
-        addArmorTrait(TinkerMaterials.iron, ArmorTraits.magnetic);
+        addArmorTrait(TinkerMaterials.iron, ArmorTraits.magnetic2, ArmorTraits.magnetic);
         addArmorTrait(TinkerMaterials.pigiron, ArmorTraits.baconlicious, ArmorMaterialType.CORE);
         addArmorTrait(TinkerMaterials.pigiron, ArmorTraits.tasty);
         addArmorTrait(TinkerMaterials.cobalt, ArmorTraits.featherweight, ArmorTraits.lightweight);

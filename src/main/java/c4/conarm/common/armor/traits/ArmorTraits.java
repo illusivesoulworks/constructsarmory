@@ -20,7 +20,8 @@ public class ArmorTraits {
     public static final AbstractArmorTrait enderport = new TraitEnderport();
     public static final AbstractArmorTrait combustible = new TraitCombustible();
     public static final AbstractArmorTrait absorbent = new TraitAbsorbent();
-    public static final AbstractArmorTrait magnetic = new TraitMagnetic();
+    public static final AbstractArmorTrait magnetic = new TraitMagnetic(1);
+    public static final AbstractArmorTrait magnetic2 = new TraitMagnetic(2);
     public static final AbstractArmorTrait tasty = new TraitTasty();
     public static final AbstractArmorTrait baconlicious = new TraitBaconlicious();
     public static final AbstractArmorTrait cheapskate = new TraitCheapskate();
@@ -33,7 +34,8 @@ public class ArmorTraits {
     public static final AbstractArmorTrait ambitious = new TraitAmbitious();
     public static final AbstractArmorTrait blessed = new TraitBlessed();
     public static final AbstractArmorTrait spiny = new TraitSpiny();
-    public static final AbstractArmorTrait mundane = new TraitMundane();
+    public static final AbstractArmorTrait mundane = new TraitMundane(1);
+    public static final AbstractArmorTrait mundane2 = new TraitMundane(2);
     public static final AbstractArmorTrait aridiculous = new TraitAridiculous();
     public static final AbstractArmorTrait petravidity = new TraitPetravidity();
     public static final AbstractArmorTrait superhot = new TraitSuperhot();

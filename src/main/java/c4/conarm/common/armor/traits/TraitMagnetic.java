@@ -9,6 +9,7 @@
 package c4.conarm.common.armor.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import c4.conarm.lib.traits.AbstractArmorTraitLeveled;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -17,10 +18,10 @@ import net.minecraft.world.World;
 import javax.vecmath.Vector3d;
 import java.util.List;
 
-public class TraitMagnetic extends AbstractArmorTrait {
+public class TraitMagnetic extends AbstractArmorTraitLeveled {
 
-    public TraitMagnetic() {
-        super("magnetic", 0xdddddd);
+    public TraitMagnetic(int lvl) {
+        super("magnetic", 0xdddddd, 3, lvl);
     }
 
     @Override

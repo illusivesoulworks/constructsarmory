@@ -12,6 +12,8 @@ import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import c4.conarm.lib.events.ArmoryEvent;
 import c4.conarm.lib.tinkering.TinkersArmor;
+import c4.conarm.lib.traits.AbstractArmorTrait;
+import c4.conarm.lib.traits.AbstractArmorTraitLeveled;
 import c4.conarm.lib.traits.IArmorAbility;
 import c4.conarm.lib.traits.IArmorTrait;
 import net.minecraft.entity.item.EntityItem;
@@ -26,6 +28,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.modifiers.IModifier;
+import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
@@ -78,17 +82,13 @@ public class ArmorEvents {
 
         for (ItemStack stack : player.getArmorInventoryList()) {
             if (stack.getItem() instanceof TinkersArmor && !ToolHelper.isBroken(stack)) {
-                NBTTagList list = TagUtil.getTraitsTagList(stack);
+                NBTTagList list = TagUtil.getModifiersTagList(stack);
                 for (int i = 0; i < list.tagCount(); i++) {
-                    ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
-                    if (trait != null && trait instanceof IArmorAbility) {
-                        NBTTagCompound modifierTag = new NBTTagCompound();
-                        NBTTagList tagList = TagUtil.getModifiersTagList(TagUtil.getTagSafe(stack));
-                        int index = TinkerUtil.getIndexInList(tagList, trait.getIdentifier());
-                        if(index >= 0) {
-                            modifierTag = tagList.getCompoundTagAt(index);
-                        }
-                        ArmorHelper.addArmorAbility(player, trait.getIdentifier(), ((IArmorAbility) trait).getAbilityLevel(modifierTag));
+                    NBTTagCompound compound = list.getCompoundTagAt(i);
+                    IModifier mod = TinkerRegistry.getModifier(compound.getString("identifier"));
+                    if (mod != null && mod instanceof IArmorAbility) {
+                        ModifierNBT data = ModifierNBT.readTag(compound);
+                        ArmorHelper.addArmorAbility(player, mod.getIdentifier(), ((IArmorAbility) mod).getAbilityLevel(data));
                     }
                 }
             }

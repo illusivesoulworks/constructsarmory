@@ -10,6 +10,7 @@ package c4.conarm.common.armor.traits;
 
 import c4.conarm.lib.armor.ArmorModifications;
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import c4.conarm.lib.traits.AbstractArmorTraitLeveled;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,12 +21,12 @@ import slimeknights.tconstruct.library.Util;
 
 import java.util.List;
 
-public class TraitMundane extends AbstractArmorTrait {
+public class TraitMundane extends AbstractArmorTraitLeveled {
 
     private static final float MODIFIER = 0.2F;
 
-    public TraitMundane() {
-        super("mundane", 0x424242);
+    public TraitMundane(int lvl) {
+        super("mundane", 0x424242, 3, lvl);
     }
 
     @Override
@@ -33,7 +34,7 @@ public class TraitMundane extends AbstractArmorTrait {
         if (source.getImmediateSource() instanceof EntityLivingBase) {
             EntityLivingBase entityLiving = (EntityLivingBase) source.getImmediateSource();
             if (entityLiving.getHeldItemMainhand().isEmpty()) {
-                mods.addEffectiveness(MODIFIER);
+                mods.addEffectiveness(MODIFIER * levels);
             }
         }
         return super.getModifications(player, mods, armor, source, damage, slot);

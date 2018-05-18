@@ -18,6 +18,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
+import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 public class AbstractArmorTrait extends AbstractTrait implements IArmorTrait, IArmorAbility {
@@ -81,7 +82,7 @@ public class AbstractArmorTrait extends AbstractTrait implements IArmorTrait, IA
     }
 
     @Override
-    public int getAbilityLevel(NBTTagCompound modifierTag) {
-        return 1;
+    public int getAbilityLevel(ModifierNBT data) {
+        return data.level;
     }
 }

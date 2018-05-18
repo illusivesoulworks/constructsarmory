@@ -8,9 +8,10 @@
 
 package c4.conarm.lib.traits;
 
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.item.ItemStack;
+import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 
 public interface IArmorAbility {
 
-    int getAbilityLevel(NBTTagCompound modifierTag);
+    int getAbilityLevel(ModifierNBT data);
 }
