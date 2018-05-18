@@ -60,7 +60,7 @@ public class ArmorMaterials {
         addArmorTrait(TinkerMaterials.copper, ArmorTraits.ambitious);
         addArmorTrait(TinkerMaterials.bronze, ArmorTraits.dense);
         addArmorTrait(TinkerMaterials.lead, ArmorTraits.heavy);
-        addArmorTrait(TinkerMaterials.lead, ArmorTraits.shielding, ArmorMaterialType.CORE);
+        addArmorTrait(TinkerMaterials.lead, ArmorTraits.shielding);
         addArmorTrait(TinkerMaterials.silver, ArmorTraits.blessed);
         addArmorTrait(TinkerMaterials.electrum, ArmorTraits.voltaic);
         addArmorTrait(TinkerMaterials.steel, ArmorTraits.steady, ArmorTraits.indomitable);
