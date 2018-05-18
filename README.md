@@ -18,7 +18,7 @@ A. No. Armor isn't quite as abstract as tools are, and any way that I can think 
 
 **Q. Does this have integration with <insert Tinkers' add-on>?**
 
-A. No. I am planning support for Tinkers' Tool Leveling, but all other add-ons will have to do integration on their end as I only want to include features that are in base Tinkers' Construct.
+A. Only Tinkers' Tool Leveling. All other add-ons will have to do integration on their end as I generally only want to include features that are in base Tinkers' Construct.
 
 **Q. Can you add armor dyeing?**
 
