@@ -14,6 +14,8 @@
 package c4.conarm.debug;
 
 import c4.conarm.ConstructsArmory;
+import c4.conarm.integrations.tinkertoolleveling.ModArmorLeveling;
+import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import com.google.common.collect.Lists;
 import net.minecraft.command.CommandBase;
@@ -24,6 +26,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
+import slimeknights.toolleveling.ModToolLeveling;
+import slimeknights.toolleveling.ToolLevelNBT;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -63,17 +68,35 @@ public class DebugCommand extends CommandBase {
             return;
         }
 
-        List<String> info = Lists.newArrayList();
+//        List<String> info = Lists.newArrayList();
+//
+//        ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData((EntityPlayer) sender);
+//
+//        if (armorAbilities != null) {
+//            for (String identifier : armorAbilities.getAbilityMap().keySet()) {
+//                info.add(String.format("\n%s: level %s", identifier, armorAbilities.getAbilityLevel(identifier)));
+//            }
+//        }
+//
+//        ConstructsArmory.logger.info(info);
 
-        ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData((EntityPlayer) sender);
+        EntityPlayer player = getCommandSenderAsPlayer(sender);
+        ItemStack itemStack = player.getHeldItemMainhand();
 
-        if (armorAbilities != null) {
-            for (String identifier : armorAbilities.getAbilityMap().keySet()) {
-                info.add(String.format("\n%s: level %s", identifier, armorAbilities.getAbilityLevel(identifier)));
+        if(!itemStack.isEmpty() && itemStack.getItem() instanceof ArmorCore) {
+            int xp;
+            if(args.length > 0) {
+                xp = parseInt(args[0]);
             }
+            else {
+                ToolLevelNBT data = new ToolLevelNBT(TinkerUtil.getModifierTag(itemStack, ModArmorLeveling.modArmorLeveling.getModifierIdentifier()));
+                xp = ModArmorLeveling.modArmorLeveling.getXpForLevelup(data.level, itemStack);
+            }
+            ModArmorLeveling.modArmorLeveling.addXp(itemStack, xp, player);
         }
-
-        ConstructsArmory.logger.info(info);
+        else {
+            throw new CommandException("No tinker armor in hand");
+        }
     }
 
     @Override

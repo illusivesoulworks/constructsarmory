@@ -21,6 +21,7 @@ import c4.conarm.common.tileentities.TileArmorForge;
 import c4.conarm.common.armor.traits.TraitAquaspeed;
 import c4.conarm.client.utils.GuiHandler;
 import c4.conarm.common.events.PlayerDataEvents;
+import c4.conarm.integrations.tinkertoolleveling.ModArmorLeveling;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.ConstructsArmory;
 import c4.conarm.common.events.ArmorEvents;
@@ -46,6 +47,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -89,6 +91,9 @@ public class CommonProxy {
     public void postInit(FMLPostInitializationEvent evt) {
         ArmorModifiers.registerPolishedModifiers();
         ArmorModifiers.registerExtraTraitModifiers();
+        if (Loader.isModLoaded("tinkertoolleveling")) {
+            ModArmorLeveling.modArmorLeveling = new ModArmorLeveling();
+        }
     }
 
     @SubscribeEvent
