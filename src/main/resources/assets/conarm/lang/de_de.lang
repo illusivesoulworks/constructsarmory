@@ -1,0 +1,225 @@
+#################
+#     Blocks    #
+#################
+tile.conarm.armorforge.name=Rüstungsschmiede
+tile.conarm.armorstation.name=Rüstungsstation
+tile.conarm.soft_obsidian.name=Instabiler Obsidian
+
+#################
+#     Items     #
+#################
+item.conarm.book.name=Materialien und Du - Rüstungsnachtrag
+item.conarm.book.tooltip=Der Nachtrag zum Buch, das jeder Bastler braucht\nvon C4
+
+item.conarm.polishing_kit.name=Polierset
+item.conarm.polishing_kit.tooltip=Mit Sand kombinieren\nVerbessert deine Rüstung auf die Widerstandskraft des Materials.
+
+item.conarm.travel_belt.name=Gürtel des Reisenden
+item.conarm.travel_sack.name=Tornister des Reisenden
+item.conarm.travel_goggles.name=Brille des Reisenden
+
+item.conarm.resist_mat.name=Schutz
+item.conarm.resist_mat.tooltip=Schutz-Modifikator
+item.conarm.resist_mat_fire.name=Feuerschutz
+item.conarm.resist_mat_fire.tooltip=Feuerschutz-Modifikator
+item.conarm.resist_mat_blast.name=Explosionsschutz
+item.conarm.resist_mat_blast.tooltip=Explosionsschutz-Modifikator
+item.conarm.resist_mat_proj.name=Schusssicher
+item.conarm.resist_mat_proj.tooltip=Schusssicher-Modifikator
+
+#################
+#      GUI      #
+#################
+gui.armorforge.name=Rüstungsschmiede
+gui.armorstation.name=Rüstungsstation
+gui.armorstation.preview=Vorschau
+
+gui.error.modifier_on_station=Modifikatoren können nur in der Rüstungsschmiede angebracht werden.
+
+#################
+#     Armor     #
+#################
+appearance.classic.name=Klassisch
+
+item.conarm.helmet.name=Helm
+item.conarm.helmet.desc=Der Helm schützt deinen Kopf vor Gefahren.\nVerbesserte Sicht separat erhältlich.
+item.conarm.chestplate.name=Brustplatte
+item.conarm.chestplate.desc=Die Brustplatte schützt vor Wunden und Verletzungen deines Torsos.
+item.conarm.leggings.name=Beinschutz
+item.conarm.leggings.desc=Der Beinschutz eignet sich perfekt, um deine Beine gesund und munter zu halten.
+item.conarm.boots.name=Stiefel
+item.conarm.boots.desc=Die Stiefel sorgen dafür, dass du dir nie wieder den Zeh stößt.
+
+item.conarm.armor_trim.name=Rüstungsverkleidung
+item.conarm.helmet_core.name=Helm-Kern
+item.conarm.chest_core.name=Brustplatten-Kern
+item.conarm.leggings_core.name=Beinschutz-Kern
+item.conarm.boots_core.name=Stiefel-Kern
+item.conarm.armor_plate.name=Rüstungsplatten
+
+#################
+#  Keybindings  #
+#################
+key.conarm.category=Construct's Armory Zubehör
+key.conarm.toggle_boots.desc=Stiefel
+key.conarm.toggle_chest.desc=Brustplatte
+key.conarm.toggle_helm.desc=Helm
+key.conarm.toggle_leg.desc=Beinschutz
+
+#################
+#     Traits    #
+#################
+modifier.absorbent_armor.name=Absorbierend
+modifier.absorbent_armor.desc=§oAbsorbierender als andere Marken.§r\nDeine Rüstung wird in Wasser und Regen stärker.
+modifier.alien_armor.name=modifier.alien.name
+modifier.alien_armor.desc=modifier.alien.desc
+modifier.ambitious_armor.name=Ambitioniert
+modifier.ambitious_armor.desc=§oAuf dem Weg zum Ruhm!§r\nDu erhältst zusätzliche Erfahrungspunkte.
+modifier.aridiculous_armor.name=modifier.aridiculous.name
+modifier.aridiculous_armor.desc=§oDreh die Heizung auf!§r\nDie Rüstung funktioniert besser in heißeren Umgebungen.
+modifier.aquaspeed_armor.name=Aquageschwindigkeit
+modifier.aquaspeed_armor.desc=§oHier wird es nass!§r\nDie Rüstung wird nicht durch Wasser beeinflusst und liebt regnerische Abende.
+modifier.autoforge_armor.name=Autoschmiedend
+modifier.autoforge_armor.desc=§oSo heiß, dass es sich selbst repariert!§r\nDie Rüstung repariert sich im Feuer.
+modifier.baconlicious_armor.name=modifier.baconlicious.name
+modifier.baconlicious_armor.desc=§oBACON!§r\nGelegentliches Erhalten von Speck bei erlittenen Treffern.
+modifier.blessed_armor.name=Gesegnet
+modifier.blessed_armor.desc=§oSeid vorsichtig, Untote.§r\nSchwächt Untote bei Berührung.
+modifier.bouncy_armor.name=Elastisch
+modifier.bouncy_armor.desc=§oImmer eine Hüpfburg!§\nDeine Rüstung neigt dazu, herumzuhüpfen.
+modifier.calcic_armor.name=Kalkig
+modifier.calcic_armor.desc=§oFür stärkere Knochen.§r\nMilch verjüngt dich und deine Rüstung.
+modifier.cheap_armor.name=modifier.cheap.name
+modifier.cheap_armor.desc=§oMehr Knall für dein Geld!§r\nErhöht die Haltbarkeit beim Reparieren der Rüstung.
+modifier.cheapskate_armor.name=modifier.cheapskate.name
+modifier.cheapskate_armor.desc=§oKönnte ein Plagiat sein!§r\nStein ist schlecht. Deine Rüstung besitzt weniger Haltbarkeit.
+modifier.combustible_armor.name=Brennbar
+modifier.combustible_armor.desc=§oDiese Rüstung ist Feuer und Flamme!§r\nSetzt bei Anzündung umliegende Kreaturen in Brand.
+modifier.dense_armor.name=modifier.dense.name
+modifier.dense_armor.desc=§oFest...er.§r\nDeine Rüstung hält länger, wenn sie wenig Haltbarkeit besitzt.
+modifier.dramatic_armor.name=Dramatisch
+modifier.dramatic_armor.desc=§oWas für eine Eile!§r\nKönnte sie dich im Notfall retten? Wer weiß!
+modifier.duritos_ranch_armor.name=modifier.duritos.name
+modifier.duritos_ranch_armor.desc=§oSchmeckt nicht so gut wie es klingt.§r\nDeine Rüstung hält länger...meistens.
+modifier.ecological_armor.name=modifier.ecological.name
+modifier.ecological_armor.desc=modifier.ecological.desc
+modifier.enderport_armor.name=Enderport
+modifier.enderport_armor.desc=§oGerade rechtzeitig!§r\nKann dich aus gefährlichen Situationen heraus teleportieren.
+modifier.featherweight_armor.name=Federgewicht
+modifier.featherweight_armor.desc=§oLeicht wie eine Feder.§r\nDu bist so leicht, dass du weniger Fallschaden nimmst.
+modifier.heavy_armor.name=modifier.heavy.name
+modifier.heavy_armor.desc=§oTrainierst du überhaupt?§r\nUnterdrückt Rückstoß.
+modifier.indomitable_armor.name=Unbezwingbar
+modifier.indomitable_armor.desc=§oGib niemals auf!§r\nMacht deine Rüstung effektiver.
+modifier.infernal_armor.name=Höllisch
+modifier.infernal_armor.desc=§oDas Neueste in dämonischer Mode.§r\nZusätzlicher Schutz vor Nicht-Nether-Mobs.
+modifier.infernal_armor.extra=Gegen Nicht-Nether: +%s
+modifier.invigorating_armor.name=Belebend
+modifier.invigorating_armor.desc=§oDas fühlt sich gut an!§r\nIrgendwie fühlst du dich gesünder.
+modifier.lightweight_armor.name=modifier.lightweight.name
+modifier.lightweight_armor.desc=§oSchnell wie der Wind!§r\nErhöht deine allgemeine Bewegungsgeschwindigkeit.
+modifier.lightweight_armor.extra=Bonus-Geschwindigkeit: +%s
+modifier.magnetic_armor.name=modifier.magnetic.name
+modifier.magnetic_armor.desc=§oAnziehende Rüstung!§r\nItems können nicht umhin, zu dir gezogen zu werden.
+modifier.mundane_armor.name=Gewöhnlich
+modifier.mundane_armor.desc=§oWaffen sind für Dummköpfe!§r\nBonusschutz gegen unbewaffnete Angreifer.
+modifier.mundane_armor.extra=Gegen Unbewaffnete: +%s
+modifier.petravidity_armor.name=Friedlichkeit
+modifier.petravidity_armor.desc=§oDer alles verzehrende Hunger ...§r\nDeine Rüstung liebt Stein, sie möchte ihn buchstäblich absorbieren (für Haltbarkeit).
+modifier.prideful_armor.name=Stolz
+modifier.prideful_armor.desc=§oWas ist Narzissmus?§r\nDu wirst stärker, nachdem du angegriffen wurdest, auf Kosten der Haltbarkeit.
+modifier.rough_armor.name=Rau
+modifier.rough_armor.desc=§oBitte nicht anfassen.§r\nSchadet Angreifern bei Berührung, abhängig von Haltbarkeit.
+modifier.rough_armor.extra=Rauer Schaden: +%s
+modifier.shielding_armor.name=Abschirmung
+modifier.shielding_armor.desc=§oJetzt nicht so besonders, nicht wahr?§r\nZusätzlicher Schutz vor magischen Angriffen.
+modifier.slimey_armor.name=modifier.slimey.name
+modifier.slimey_armor.desc=modifier.slimey.desc
+modifier.skeletal_armor.name=Skelettartig
+modifier.skeletal_armor.desc=§oStark wie...Knochen?§r\nMacht deine Rüstung stärker.
+modifier.spiny_armor.name=Dornig
+modifier.spiny_armor.desc=§oSie werden Dornen genannt, nicht Stacheln!§r\nErlittene Treffer fügen dem Angreifer Schaden zu, auf Kosten der Haltbarkeit.
+modifier.steady_armor.name=Stetig
+modifier.steady_armor.desc=§oSteh deinen Mann!§r\nWeniger Rückstoß für dich, mehr für deinen Angreifer.
+modifier.subterranean_armor.name=Unterirdisch
+modifier.subterranean_armor.desc=§oWir müssen noch tiefer§r\nDeine Rüstung ist unter dem Meeresspiegel haltbarer.
+modifier.superhot_armor.name=Superheiß
+modifier.superhot_armor.desc=§oSUPER. HEISS.§r\nDu läufst schneller, wenn du brennst!
+modifier.tasty_armor.name=modifier.tasty.name
+modifier.tasty_armor.desc=§oOm Nom Nom§r\nRiecht so gut... Du würdest lieber deine Rüstung essen als zu verhungern.
+modifier.vengeful_armor.name=Rachsüchtig
+modifier.vengeful_armor.desc=§oDafür werden sie bezahlen!§r\nDeine Angreifer fühlen sich vielleicht nicht gut, nachdem sie dich getroffen haben.
+modifier.voltaic_armor.name=Voltaisch
+modifier.voltaic_armor.desc=§oBiribiri!§r\nWenn du getroffen wirst, wird deine Rüstung aufgeladen. Werde erneut getroffen, sobald sie vollständig aufgeladen ist, um allen umliegenden Kreaturen zu schaden.
+
+#################
+#   Modifiers   #
+#################
+modifier.amphibious_armor.name=Amphibisch
+modifier.blast_resistant_armor.name=Explosionsgeschützt
+modifier.blast_resistant_armor.desc=§oIn Deckung gehen!§r\nZusätzlicher Schutz gegen Explosionen.
+modifier.diamond_armor.name=modifier.diamond.name
+modifier.diamond_armor.desc=modifier.diamond.desc
+modifier.emerald_armor.name=modifier.emerald.name
+modifier.emerald_armor.desc=modifier.emerald.desc
+modifier.extratrait_armor.name=modifier.extratrait.name
+modifier.extratrait_armor.desc=modifier.extratrait.desc
+modifier.fire_resistant_armor.name=Feuergeschützt
+modifier.fire_resistant_armor.desc=§oVerbrennung ist schlecht.§r\nZusätzlicher Schutz gegen Feuer.
+modifier.frostwalker_armor.name=Eisig
+modifier.frostwalker_armor.desc=§oBleib cool.§r\nDeine Füße sind so kalt, dass sie das Wasser um dich herum gefrieren.
+modifier.mending_armor.name=modifier.mending_moss.name
+modifier.mending_armor.desc=§oEs lebt!§r\nGesammelte Erfahrung wird in der Rüstung gespeichert. Die Erfahrung wird langsam verbraucht, um Haltbarkeit zu regenerieren.
+modifier.mending_armor.extra=Gesammelte Erfahrung: %d
+modifier.parasitic_armor.name=Parasitär
+modifier.parasitic_armor.desc=§oFür immer zusammen...§r\nDeine Rüstung wird sich von dir ernähren, um sich selbst zu reparieren.
+modifier.polished_armor.name=Poliert
+modifier.polished_armor.desc=§oJe glänzender, desto besser!§r\nDie Härte erhöht sich auf das gleiche Level wie %s.
+modifier.projectile_resistant_armor.name=Schusssicher
+modifier.projectile_resistant_armor.desc=§oKommt näher, ihr Feiglinge!§r\nZusätzlicher Schutz gegen Projektilangriffe.
+modifier.reinforced_armor.name=modifier.reinforced.name
+modifier.reinforced_armor.desc=modifier.reinforced.desc
+modifier.reinforced_armor.extra=Verstärkung: %s
+modifier.resistant_armor.name=Resistent
+modifier.resistant_armor.desc=§oHärter, stärker!§r\nZusätzlicher Schutz gegen alle Angriffe.
+modifier.soulbound_armor.name=modifier.soulbound.name
+modifier.soulbound_armor.desc=§oEin glückliches Paar!§r\nDu liebst deine Rüstung. Nicht einmal der Tod kann euch scheiden.
+modifier.speedy_armor.name=Schnell
+modifier.speedy_armor.name2=Schneller
+modifier.speedy_armor.name3=Am schnellsten
+modifier.speedy_armor.desc=§oMuss schnell los!§r\nErhöht deine allgemeine Bewegungsgeschwindigkeit.
+modifier.speedy_armor.extra=Bonus-Geschwindigkeit: +%s
+
+#################
+#  Accessories  #
+#################
+modifier.travel_belt_armor.name=Gürtel des Reisenden
+modifier.travel_sack_armor.name=Tornister des Reisenden
+modifier.travel_goggles_armor.name=Brille des Reisenden
+
+accessory.tooltip=Zubehör: %s
+accessory.head.tooltip=Helm-Zubehör
+accessory.chest.tooltip=Brustplatten-Zubehör
+accessory.legs.tooltip=Beinschutz-Zubehör
+accessory.feet.tooltip=Stiefel-Zubehör
+
+#################
+#     Stats     #
+#################
+stat.core.name=Kern
+stat.core.durability.name=Haltbarkeit
+stat.core.durability.desc=Der Basis-Multiplikatorwert für die Haltbarkeitsberechnung.\nNormalerweise ein integraler Bestandteil der Gesamthaltbarkeit eines Rüstungsteils.
+stat.core.defense.name=Verteidigung
+stat.core.defense.desc=Wie viel Verteidigung ein Material besitzt.\nDie Rüstung hängt sowohl vom Verteidigungswert als auch vom Rüstungsplatz ab.
+
+stat.plates.name=Platten
+stat.plates.modifier.name=Modifikatoren
+stat.plates.modifier.desc=Wie passend das Rüstungsmaterial als Rüstungsplatte ist.\nDie gesamte Haltbarkeit der Rüstung wird damit multipliziert.
+stat.plates.durability.name=stat.core.durability.name
+stat.plates.durability.desc=Wie gut das Material getragen werden kann.\nDer Rüstungshaltbarkeits-Multiplikator wird um diesen Betrag geändert.
+stat.plates.toughness.name=Härte
+stat.plates.toughness.desc=Wie viele Härtepunkte ein Rüstungsteil besitzt.
+
+stat.trim.name=Verkleidung
+stat.trim.durability.name=stat.core.durability.name
+stat.trim.durability.desc=Wie sehr die Verkleidung den Rüstungshaltbarkeits-Multiplikator verändert.
