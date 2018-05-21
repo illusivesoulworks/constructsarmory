@@ -1,0 +1,16 @@
+{
+  "title": "Rüstungsstation & Schmiede",
+  "text": [
+    {
+      "text": "Um Rüstungsteile herzustellen, benötigst du zwei neue Arten von Basteltischen: Die Rüstungsstation und die Rüstungsschmiede."
+    },
+    {
+      "text": "Die Rüstungsstation ist der grundlegende Basteltisch für Rüstung. Hiermit kannst du Rüstungen herstellen, reparieren und Teile ersetzen, aber man kann die Rüstung nicht weiter verändern als ihre Grundform.",
+      "paragraph": true
+    },
+    {
+      "text": "Die Rüstungsschmiede ist die verbesserte Rüstungsstation, die es ermöglicht, die Rüstung für ein größeres Leistungsvermögen zu modifizieren.",
+      "paragraph": true
+    }
+  ]
+}
