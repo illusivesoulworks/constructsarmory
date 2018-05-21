@@ -1,0 +1,17 @@
+{
+  "armormodifier": "travel_goggles_armor",
+  "text": [
+    {
+      "text": "Während du diese Brille trägst, kannst du weit entfernte Dinge sehen, als wären sie viel näher."
+    }
+  ],
+  "effects": [
+    "Ermöglicht das Heranzoomen an entfernte Orte",
+    "Schaltet den Zoom bei Tastendruck um",
+    "Nur 1 Zubehör pro Item",
+    "Benötigt 2 Modifikatoren"
+  ],
+  "demoArmor": [
+    "conarm:helmet"
+  ]
+}
