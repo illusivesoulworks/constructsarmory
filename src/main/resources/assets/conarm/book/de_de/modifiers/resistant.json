@@ -1,0 +1,26 @@
+{
+  "armormodifier": "resistant_armor",
+  "text": [
+    {
+      "text": "Du kannst deine Rüstung mit ein wenig zusätzlicher Panzerung verstärken. Wirklich hartes Zeug."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Dies schützt vor allen Arten von Angriffen."
+    }
+  ],
+  "effects": [
+    "Verringert den Schaden aller Angriffe",
+    "Benötigt nur 1 Modifikator",
+    "Nicht kompatibel mit anderen Resistenz-Arten",
+    "Mehrere Stufen"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
