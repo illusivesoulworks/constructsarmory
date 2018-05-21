@@ -1,0 +1,22 @@
+{
+  "armormodifier": "polished_armor",
+  "text": [
+    {
+      "text": "Jede Rüstung braucht ab und zu eine gute Politur. Du würdest sie nicht gerne rosten sehen, oder?"
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Wendet die gleiche Härtestufe des für die Rüstung verwendeten Materials an."
+    }
+  ],
+  "effects": [
+    "Erhöht die Widerstandsfähigkeit",
+    "Die Härte hängt vom verwendeten Material ab",
+    "Benötigt keinen Modifikator"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}
