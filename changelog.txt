@@ -1,3 +1,19 @@
+0.0.18-beta
+----------------------
+    Changes
+        Modified Traveller's Goggles zooming behavior, should zoom less and be smoother (#42)
+        Shielding trait works on more magical attacks now
+    Additions
+        Added German translation (thanks to ACGaming)
+        Added Traveller's Goggles (Night Vision) accessory - Grants you night vision at the cost of durability, only on helmets
+        Added Sticky modifier - Slows down attackers
+        Added Shulkerweight modifier - Grants jump boost, but no fall protection
+        Added High Stride modifier - Grants step assist, only on boots
+    Fixes
+        Fixed Creative modifier not working on armor pieces (#39)
+        Fixed Calcic trait not working in Survival (#37)
+        Fixed various GUI problems (#38) (#41)
+
 0.0.17-beta
 ----------------------
     Changes
