@@ -1,0 +1,17 @@
+{
+  "title": "Reparieren",
+  "image": {
+    "file": "conarm:textures/gui/book/repair.png",
+    "width": 136,
+    "height": 70
+  },
+  "text": [
+    {
+      "text": "Weißt du noch, wie du Werkzeuge reparieren kannst? Das Gleiche gilt für Rüstungsteile. Lege einfach das Rüstungsteil in eine Rüstungsstation oder -schmiede und füge Elemente hinzu, die dem Kern der Rüstung entsprechen."
+    },
+    {
+      "text": "Um Reparaturen unterwegs durchzuführen, verwende einfach ein Polierset auf die gleiche Weise wie ein Schärfungsset.",
+      "paragraph": true
+    }
+  ]
+}
