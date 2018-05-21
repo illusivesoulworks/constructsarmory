@@ -1,0 +1,17 @@
+{
+  "armormodifier": "travel_sack_armor",
+  "text": [
+    {
+      "text": "Kein Erforscher ist komplett ohne zusätzlichen Lagerplatz an seiner Seite!"
+    }
+  ],
+  "effects": [
+    "Bietet 27 Slots zusätzlichen Speicherplatz",
+    "Öffnet den Tornister bei Tastendruck",
+    "Nur 1 Zubehör per Item",
+    "Benötigt 2 Modifikatoren"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

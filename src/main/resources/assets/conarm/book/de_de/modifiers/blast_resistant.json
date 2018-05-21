@@ -1,0 +1,26 @@
+{
+  "armormodifier": "blast_resistant_armor",
+  "text": [
+    {
+      "text": "Wenn du deine Rüstung mit explosionsbeständiger Panzerung versiehst, kannst du Explosionen besser standhalten."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Kein Zement notwendig, wahrscheinlich."
+    }
+  ],
+  "effects": [
+    "Reduziert Schaden durch Explosionen",
+    "Benötigt nur 1 Modifikator",
+    "Nicht kompatibel mit anderen Resistenz-Arten",
+    "Mehrere Stufen"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

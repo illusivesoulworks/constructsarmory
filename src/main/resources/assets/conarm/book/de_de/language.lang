@@ -1,0 +1,14 @@
+// Sections
+welcome=Willkommen
+materials=Rüstungsmaterialien
+armory=Arsenal
+modifiers=Modifikatoren
+accessories=Zubehör
+
+armor.title=Rüstung
+armor.properties=Eigenschaften:
+
+material.craft_partbuilder=Kann im Werkzeugteilbauer hergestellt werden
+material.craft_casting=Kann aus %s gegossen werden
+
+modifier.effect=Effekte:

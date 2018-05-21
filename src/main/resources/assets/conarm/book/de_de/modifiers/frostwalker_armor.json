@@ -1,0 +1,23 @@
+{
+  "armormodifier": "frostwalker_armor",
+  "text": [
+    {
+      "text": "Das Anbringen von super kaltem Eis und Seerosen an den Füßen könnte kalt genug sein, um Wasser einzufrieren."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Könnte der Effekt vielleicht noch stärker werden, wenn man es wiederholt?"
+    }
+  ],
+  "effects": [
+    "Friert nahe gelegenes Wasser ein",
+    "Negiert Schaden durch das Laufen über heiße Oberflächen",
+    "Kann nur auf Stiefel angewendet werden",
+    "Mehrere Stufen"
+  ],
+  "demoArmor": [
+    "conarm:boots"
+  ]
+}

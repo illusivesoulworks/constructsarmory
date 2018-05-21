@@ -1,0 +1,19 @@
+{
+  "armormodifier": "soulbound_armor",
+  "text": [
+    {
+      "text": "Ein perfektes Paar. Du liebst deine Rüstung. Nicht einmal der Tod kann euch scheiden."
+    }
+  ],
+  "effects": [
+    "Rüstung bleibt nach dem Tod in deinem Inventar",
+    "Einmalige Verwendung",
+    "Benötigt KEINEN Modifikator"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

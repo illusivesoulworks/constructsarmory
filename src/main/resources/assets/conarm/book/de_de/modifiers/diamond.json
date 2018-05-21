@@ -1,0 +1,20 @@
+{
+  "armormodifier": "diamond_armor",
+  "text": [
+    {
+      "text": "Das Hinzufügen einer Diamantbeschichtung zu einer Rüstung macht sie widerstandsfähiger und erhöht ihre Schutzkraft."
+    }
+  ],
+  "effects": [
+    "Zusätzliche Haltbarkeit",
+    "Geringfügige Erhöhung der Panzerung und Härte",
+    "Einmalige Verwendung",
+    "Fabelhaft!"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
