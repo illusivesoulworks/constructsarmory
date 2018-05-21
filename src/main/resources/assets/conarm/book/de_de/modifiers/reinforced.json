@@ -1,0 +1,19 @@
+{
+  "armormodifier": "reinforced_armor",
+  "text": [
+    {
+      "text": "Das Hinzufügen einer verstärkten Platte zu der Rüstung scheint ihre Haltbarkeit zu erhöhen und sie stärker zu machen."
+    }
+  ],
+  "effects": [
+    "Ermöglicht es zufällig, Haltbarkeit nicht zu verbrauchen",
+    "Baut auf vorherige Schutzstufen auf",
+    "Mehrere Stufen"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

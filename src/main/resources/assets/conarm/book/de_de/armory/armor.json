@@ -1,0 +1,19 @@
+{
+  "armor": "chestplate",
+  "text": [
+    {
+      "text": "Der Helm, die Brustplatte, der Beinschutz und die Stiefel sind deine grundlegenden Rüstungsstücke."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Diese Teile reduzieren den dir zugefügten Schaden. Ziemlich einfach."
+    }
+  ],
+  "properties": [
+    "Grundlegende Schutzrüstung",
+    "Es gibt Schutz für jeden Körperteil",
+    "Schützt dich vor Schäden"
+  ]
+}

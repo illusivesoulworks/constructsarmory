@@ -1,0 +1,17 @@
+{
+  "armormodifier": "extratrait_armor",
+  "text": [
+    {
+      "text": "Nimm einen Rüstungsteil und stanze ihn direkt auf deine Rüstung! Die Rüstung übernimmt die Eigenschaften des Rüstungsteils, nicht aber die Werte."
+    }
+  ],
+  "effects": [
+    "Fügt Eigenschaften eines anderen Teils hinzu",
+    "Eigenschaften sind mit dem Austausch des Rüstungsteils gleichwertig",
+    "Die Prägung ist endgültig und kann nicht geändert werden",
+    "Benötigt keinen Modifikator"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

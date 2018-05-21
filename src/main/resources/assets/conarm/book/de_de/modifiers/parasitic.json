@@ -1,0 +1,19 @@
+{
+  "armormodifier": "parasitic_armor",
+  "text": [
+    {
+      "text": "Wenn du den Knochen eines Witherskeletts an deiner Rüstung befestigst, erhältst du parasitäre Fähigkeiten."
+    }
+  ],
+  "effects": [
+    "Stiehlt Leben von dir, um sich selbst zu reparieren",
+    "Wird dich nicht töten und entnimmt nur bei Bedarf",
+    "Einmalige Verwendung"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "armormodifier": "amphibious_armor",
+  "text": [
+    {
+      "text": "Die Kombination aus Prismarinkristallen und Glas sollte eine Art tragbare Lufttasche in deinem Helm erzeugen, mit der du unter Wasser atmen kannst."
+    }
+  ],
+  "effects": [
+    "Speichert Sauerstoff im Laufe der Zeit, wenn er ausgerüstet ist",
+    "Verwendet gespeicherten Sauerstoff unter Wasser",
+    "Kann nur auf Helme angewendet werden",
+    "Einmalige Verwendung"
+  ],
+  "demoArmor": [
+    "conarm:helmet"
+  ]
+}
