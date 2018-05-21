@@ -1,0 +1,20 @@
+{
+  "armormodifier": "mending_armor",
+  "text": [
+    {
+      "text": "Auf den abgenutzten Kanten deiner Rüstung ist etwas Moos gewachsen. Wenn du es mit einigen Erfahrungspunkten verzauberst, verschmilzt es mit der Rüstung und stellt sie nach und nach wieder her."
+    }
+  ],
+  "effects": [
+    "Speichert gesammelte Erfahrungspunkte",
+    "Repariert die Rüstung langsam im Laufe der Zeit",
+    "Die Rüstung muss nicht getragen werden, damit sie repariert wird",
+    "Mehrere Stufen"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
