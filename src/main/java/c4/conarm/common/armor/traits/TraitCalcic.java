@@ -21,10 +21,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemBucketMilk;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import slimeknights.tconstruct.library.modifiers.ModifierNBT;
+import slimeknights.tconstruct.library.utils.ModifierTagHolder;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
@@ -37,8 +40,27 @@ public class TraitCalcic extends AbstractArmorTrait {
     }
 
     @SubscribeEvent
-    public void finishMilk (LivingEntityUseItemEvent.Finish evt) {
+    public void onItemUse (LivingEntityUseItemEvent.Start evt) {
         if (evt.getItem().getItem() instanceof ItemBucketMilk && evt.getEntityLiving() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) evt.getEntityLiving();
+            for (ItemStack armor : player.getArmorInventoryList()) {
+                if (armor.getItem() instanceof TinkersArmor) {
+                    if (!ToolHelper.isBroken(armor)) {
+                        if (TinkerUtil.hasTrait(TagUtil.getTagSafe(armor), this.getModifierIdentifier())) {
+                            ModifierTagHolder modtag = ModifierTagHolder.getModifier(armor, getModifierIdentifier());
+                            Data data = modtag.getTagData(Data.class);
+                            data.milk = true;
+                            modtag.save();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public void finishMilk (LivingEntityUseItemEvent.Finish evt) {
+        if (evt.getEntityLiving() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) evt.getEntityLiving();
             int level = 0;
             for (ItemStack armor : player.getArmorInventoryList()) {
@@ -47,6 +69,10 @@ public class TraitCalcic extends AbstractArmorTrait {
                         if (TinkerUtil.hasTrait(TagUtil.getTagSafe(armor), this.getModifierIdentifier())) {
                             ArmorHelper.healArmor(armor, 10, player, EntityLiving.getSlotForItemStack(armor).getIndex());
                             level++;
+                            ModifierTagHolder modtag = ModifierTagHolder.getModifier(armor, getModifierIdentifier());
+                            Data data = modtag.getTagData(Data.class);
+                            data.milk = false;
+                            modtag.save();
                         }
                     }
                 }
@@ -54,6 +80,23 @@ public class TraitCalcic extends AbstractArmorTrait {
             if (level > 0) {
                 player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 100 * level, level - 1));
             }
+        }
+    }
+
+    public static class Data extends ModifierNBT {
+
+        boolean milk;
+
+        @Override
+        public void read(NBTTagCompound tag) {
+            super.read(tag);
+            milk = tag.getBoolean("milk");
+        }
+
+        @Override
+        public void write(NBTTagCompound tag) {
+            super.write(tag);
+            tag.setBoolean("milk", milk);
         }
     }
 }
