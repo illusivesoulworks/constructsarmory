@@ -1,0 +1,25 @@
+{
+  "armormodifier": "speedy_armor",
+  "text": [
+    {
+      "text": "Das Hinzufügen von Redstone zu einem Rüstungsteil erhöht die Geschwindigkeit."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Die Eigenschaften von Redstone, die zusätzliche Geschwindigkeit verleihen, sind noch nicht gut erforscht."
+    }
+  ],
+  "effects": [
+    "Jeder Redstonestaub erhöht die Bewegungsgeschwindigkeit um einen kleinen Prozentsatz",
+    "Baut auf andere Rüstungsteile und Bewegungssteigerungen auf",
+    "Mehrere Stufen"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
