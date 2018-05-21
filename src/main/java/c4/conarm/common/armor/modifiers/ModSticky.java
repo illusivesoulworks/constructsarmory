@@ -13,33 +13,44 @@
 
 package c4.conarm.common.armor.modifiers;
 
+import c4.conarm.common.armor.traits.TraitUtils;
 import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import java.util.List;
 
 public class ModSticky extends ArmorModifierTrait {
 
     public ModSticky() {
         super("sticky", 0xffffff);
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
-    @Override
-    public float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent evt) {
-        if (evt.getSource().getImmediateSource() instanceof EntityLivingBase) {
-            EntityLivingBase entityIn = (EntityLivingBase) evt.getSource().getImmediateSource();
-            if (!entityIn.isPotionActive(MobEffects.SLOWNESS)) {
-                if (evt.getEntity() instanceof EntityPlayer) {
-                    int level = (int) ArmorHelper.getArmorAbilityLevel((EntityPlayer) evt.getEntity(), this.identifier);
-                    entityIn.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * level, Math.max(1, level / 2)));
+    @SubscribeEvent
+    public void onLivingHurt(LivingHurtEvent evt) {
+
+        if (evt.getEntityLiving() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) evt.getEntityLiving();
+            if (evt.getSource().getImmediateSource() instanceof EntityLivingBase) {
+                EntityLivingBase entity = (EntityLivingBase) evt.getSource().getImmediateSource();
+                int level = (int) ArmorHelper.getArmorAbilityLevel(player, getModifierIdentifier());
+                if (level > 0) {
+                    entity.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100 * level, level - 1));
                 }
             }
         }
-        return super.onDamaged(armor, player, source, damage, newDamage, evt);
     }
 }

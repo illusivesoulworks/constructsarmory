@@ -1,0 +1,8 @@
+{
+    "textures": {
+        "helmet": "conarm:items/helmet/mod_sticky_armor",
+        "chestplate": "conarm:items/chestplate/mod_sticky_armor",
+        "leggings": "conarm:items/leggings/mod_sticky_armor",
+        "boots": "conarm:items/boots/mod_sticky_armor"
+    }
+}

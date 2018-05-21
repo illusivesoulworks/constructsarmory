@@ -44,15 +44,15 @@ import java.util.Map;
 
 public class ArmorModifiers {
 
-//    public static Modifier modSilkstep = new ModSilkstep();
     public static Modifier modSpeedy = new ModSpeedy(50);
     public static Modifier modParasitic = new ModParasitic();
     public static Modifier modEmerald = new ModEmerald();
     public static Modifier modDiamond = new ModDiamond();
     public static Modifier modAmphibious = new ModAmphibious();
     public static Modifier modWaterwalk = new ModFrostWalker();
-//    public static Modifier modSticky = new ModSticky();
-    public static Modifier modShulkerweight = new ModShulkerweight();
+    public static Modifier modSticky = new ModSticky();
+    public static Modifier modShulkerweight = new ModShulkerweight(20);
+    public static Modifier modHighStride = new ModHighStride();
     public static Modifier modMending = new ModMending();
     public static Modifier modFireResist = new ModResistantType("fire_resistant", 0xea9e32, EnchantmentProtection.Type.FIRE);
     public static Modifier modProjResist = new ModResistantType("projectile_resistant", 0x10574b, EnchantmentProtection.Type.PROJECTILE);
@@ -66,19 +66,21 @@ public class ArmorModifiers {
     public static AccessoryModifier modTravelBelt = new ModTravelBelt();
     public static AccessoryModifier modTravelSack = new ModTravelSack();
     public static AccessoryModifier modTravelGoggles = new ModTravelGoggles();
-//    public static Modifier modFrostStep = new ModFrostStep();
-//    public static Modifier modMagmaStep = new ModMagmaStep();
+    public static AccessoryModifier modTravelNight = new ModTravelNight();
 
     static List<Modifier> polishedMods;
     static List<Modifier> extraTraitMods;
 
     public static void setupModifiers() {
 
-//        ArmoryRegistry.registerModifier(modSilkstep);
-//        modSilkstep.addItem(TinkerCommons.matSilkyJewel, 2, 1);
+        ArmoryRegistry.registerModifier(modHighStride);
+        RecipeMatchHolder.addRecipeMatch(modHighStride, new RecipeMatch.ItemCombination(1, new ItemStack(Blocks.PISTON), new ItemStack(Blocks.PISTON)));
 
-//        ArmoryRegistry.registerModifier(modSticky);
-//        modSticky.addItem(Blocks.WEB, 1);
+        ArmoryRegistry.registerModifier(modShulkerweight);
+        RecipeMatchHolder.addItem(modShulkerweight, Items.CHORUS_FRUIT_POPPED);
+
+        ArmoryRegistry.registerModifier(modSticky);
+        RecipeMatchHolder.addItem(modSticky, Blocks.WEB, 1);
 
         ArmoryRegistry.registerModifier(modSpeedy);
         RecipeMatchHolder.addItem(modSpeedy, "dustRedstone");
@@ -129,21 +131,14 @@ public class ArmorModifiers {
         ArmoryRegistry.registerModifier(modTravelGoggles);
         RecipeMatchHolder.addItem(modTravelGoggles, ConstructsRegistry.travelGoggles);
 
-//        ArmoryRegistry.registerModifier(modFrostStep);
-//        modFrostStep.addItem(Blocks.PACKED_ICE, 1);
-//
-//        ArmoryRegistry.registerModifier(modMagmaStep);
-//        modMagmaStep.addItem(Blocks.MAGMA, 1);
-//
-//        ArmoryRegistry.registerModifier(modArthopodWard);
-//        modArthopodWard.addItem(Items.FERMENTED_SPIDER_EYE);
-//
-//        ArmoryRegistry.registerModifier(modHolyWard);
-//        modHolyWard.addItem(TinkerCommons.consecratedSoil, 1, 1);
+        ArmoryRegistry.registerModifier(modTravelNight);
+        RecipeMatchHolder.addItem(modTravelNight, ConstructsRegistry.travelNight);
 
         ArmoryRegistry.registerModifier(modPolished);
         ArmoryRegistry.registerModifier(modExtraTrait);
+
         ArmoryRegistry.registerModifier(TinkerModifiers.modCreative.getIdentifier(), TinkerModifiers.modCreative);
+        RecipeMatchHolder.addItem(TinkerModifiers.modCreative, TinkerCommons.matCreativeModifier, 1, 1);
     }
 
     private static Map<String, ModExtraArmorTrait> extraTraitLookup = new HashMap<>();

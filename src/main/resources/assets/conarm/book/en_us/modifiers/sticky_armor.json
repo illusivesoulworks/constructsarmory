@@ -1,0 +1,18 @@
+{
+  "armormodifier": "sticky_armor",
+  "text": [
+    {
+      "text": "Sticking some cobwebs on your armor looks ugly, but will tangle up anyone that touches you."
+    }
+  ],
+  "effects": [
+    "Slows enemies that attack you directly",
+    "Single use"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

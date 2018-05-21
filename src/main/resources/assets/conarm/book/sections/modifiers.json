@@ -40,6 +40,14 @@
   },
   {
     "type": "armormodifier",
+    "data": "modifiers/sticky_armor.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/shulkerweight_armor.json"
+  },
+  {
+    "type": "armormodifier",
     "data": "modifiers/amphibious_armor.json"
   },
   {

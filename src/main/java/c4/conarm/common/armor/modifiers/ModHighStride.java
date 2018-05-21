@@ -11,29 +11,26 @@
  * View the MIT License here: https://tldrlegal.com/license/mit-license
  */
 
-package c4.conarm.common.armor.traits;
+package c4.conarm.common.armor.modifiers;
 
-import c4.conarm.lib.traits.AbstractArmorTrait;
+import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
+import slimeknights.tconstruct.library.modifiers.ModifierNBT;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
 
-public class TraitShielding extends AbstractArmorTrait {
+public class ModHighStride extends ArmorModifierTrait {
 
-    private static final float MODIFIER = 0.1F;
-
-    public TraitShielding() {
-        super("shielding", 0xffffff);
+    public ModHighStride() {
+        super("high_stride", 0x8c8c8c, 2, 0);
     }
 
     @Override
-    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
-        if (source.isMagicDamage() || source == DamageSource.WITHER) {
-            newDamage -= damage * MODIFIER;
-        }
-
-        return newDamage;
+    public void onArmorTick(ItemStack armor, World world, EntityPlayer player) {
+        NBTTagCompound tag = TinkerUtil.getModifierTag(armor, identifier);
+        ModifierNBT data = ModifierNBT.readTag(tag);
+        player.stepHeight = data.level + 0.6F;
     }
-
 }

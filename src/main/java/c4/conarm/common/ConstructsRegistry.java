@@ -26,7 +26,6 @@ import c4.conarm.common.blocks.BlockArmorStation;
 import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.armor.ArmorCore;
 import com.google.common.collect.Lists;
-import net.minecraft.block.Block;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -47,10 +46,11 @@ public class ConstructsRegistry {
     //Helper
     public static List<Pair<Item, ArmorPart>> armorPartPatterns = Lists.newLinkedList();
 
-    //Augments
-    public static ItemTravelBelt travelBelt;
-    public static ItemTravelSack travelSack;
-    public static ItemTravelGoggles travelGoggles;
+    //Accessories
+    public static AccessoryBase travelBelt;
+    public static AccessoryBase travelSack;
+    public static AccessoryBase travelGoggles;
+    public static AccessoryBase travelNight;
 
     //Blocks
     public static BlockArmorForge armorForge;
@@ -92,6 +92,7 @@ public class ConstructsRegistry {
         travelBelt.initModel();
         travelSack.initModel();
         travelGoggles.initModel();
+        travelNight.initModel();
         book.initModel();
         resistMat.initModel();
         fireResistMat.initModel();
@@ -112,9 +113,10 @@ public class ConstructsRegistry {
         fireResistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat_fire");
         projResistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat_proj");
         blastResistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat_blast");
-        travelBelt = ConstructUtils.registerItem(registry, new ItemTravelBelt(), "travel_belt");
-        travelSack = ConstructUtils.registerItem(registry, new ItemTravelSack(), "travel_sack");
-        travelGoggles = ConstructUtils.registerItem(registry, new ItemTravelGoggles(), "travel_goggles");
+        travelBelt = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.LEGS), "travel_belt");
+        travelSack = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.CHEST), "travel_sack");
+        travelGoggles = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.HEAD), "travel_goggles");
+        travelNight = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.HEAD), "travel_night");
         polishingKit = (ItemPolishingKit) registerArmorPart(registry, new ItemPolishingKit(), "polishing_kit");
         polishingKit.setCreativeTab(TinkerRegistry.tabParts);
         TinkerRegistry.registerToolPart(polishingKit);

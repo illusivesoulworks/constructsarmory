@@ -14,8 +14,8 @@
 package c4.conarm.client.events;
 
 import c4.conarm.client.gui.PreviewPlayer;
+import c4.conarm.common.armor.modifiers.AbstractTravelGoggles;
 import c4.conarm.common.armor.modifiers.ArmorModifiers;
-import c4.conarm.common.armor.modifiers.ModTravelGoggles;
 import c4.conarm.common.network.AccessoryTogglePacket;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +25,6 @@ import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 import slimeknights.tconstruct.common.TinkerNetwork;
@@ -71,18 +70,6 @@ public class ClientArmorEvents {
     public void onArmorPreview(RenderLivingEvent.Specials.Pre evt) {
         if (evt.getEntity() instanceof PreviewPlayer) {
             evt.setCanceled(true);
-        }
-    }
-
-    @SubscribeEvent
-    public void onFOVUpdate(EntityViewRenderEvent.FOVModifier evt) {
-        if (evt.getEntity() instanceof EntityPlayer) {
-            ItemStack stack = ((EntityPlayer) evt.getEntity()).getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-            ModifierTagHolder modtag = ModifierTagHolder.getModifier(stack, ArmorModifiers.modTravelGoggles.getModifierIdentifier());
-            ModTravelGoggles.GogglesData data = modtag.getTagData(ModTravelGoggles.GogglesData.class);
-            if (data.goggles) {
-                evt.setFOV(evt.getFOV() * 0.1F);
-            }
         }
     }
 }

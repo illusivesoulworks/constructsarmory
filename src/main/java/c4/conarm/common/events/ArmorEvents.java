@@ -17,8 +17,6 @@ import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import c4.conarm.lib.events.ArmoryEvent;
 import c4.conarm.lib.tinkering.TinkersArmor;
-import c4.conarm.lib.traits.AbstractArmorTrait;
-import c4.conarm.lib.traits.AbstractArmorTraitLeveled;
 import c4.conarm.lib.traits.IArmorAbility;
 import c4.conarm.lib.traits.IArmorTrait;
 import net.minecraft.entity.item.EntityItem;
@@ -37,7 +35,6 @@ import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 public class ArmorEvents {
@@ -84,6 +81,19 @@ public class ArmorEvents {
         }
 
         armorAbilities.clearAllAbilities();
+
+        if (evt.getFrom().getItem() instanceof TinkersArmor) {
+            ItemStack from = evt.getFrom();
+            if (!ToolHelper.isBroken(from)) {
+                NBTTagList list = TagUtil.getTraitsTagList(from);
+                for (int i = 0; i < list.tagCount(); i++) {
+                    ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
+                    if (trait != null && trait instanceof IArmorTrait) {
+                        ((IArmorTrait) trait).onArmorChanged(from, player, evt.getSlot().getIndex());
+                    }
+                }
+            }
+        }
 
         for (ItemStack stack : player.getArmorInventoryList()) {
             if (stack.getItem() instanceof TinkersArmor && !ToolHelper.isBroken(stack)) {

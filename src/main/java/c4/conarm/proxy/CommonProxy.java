@@ -15,6 +15,7 @@ package c4.conarm.proxy;
 
 import c4.conarm.common.ConstructsRegistry;
 import c4.conarm.common.RepairRecipe;
+import c4.conarm.common.ShapelessPotionRecipe;
 import c4.conarm.common.blocks.BlockArmorForge;
 import c4.conarm.common.blocks.BlockSoftObsidian;
 import c4.conarm.common.tileentities.TileArmorForge;
@@ -37,11 +38,16 @@ import c4.conarm.common.tileentities.TileArmorStation;
 import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionType;
+import net.minecraft.potion.PotionUtils;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
@@ -56,6 +62,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreIngredient;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.commons.lang3.tuple.Pair;
 import slimeknights.tconstruct.library.TinkerRegistry;
@@ -66,6 +73,8 @@ import slimeknights.tconstruct.tools.TinkerTools;
 import slimeknights.tconstruct.tools.common.TableRecipeFactory;
 import slimeknights.tconstruct.tools.common.item.ItemBlockTable;
 
+import javax.annotation.Nonnull;
+import java.util.Arrays;
 import java.util.Locale;
 
 @Mod.EventBusSubscriber
@@ -151,6 +160,12 @@ public class CommonProxy {
         }
 
         registry.register(new RepairRecipe());
+        registry.register(new ShapelessPotionRecipe(NonNullList.from(Ingredient.EMPTY,
+                        Ingredient.fromStacks(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.NIGHT_VISION)),
+                        Ingredient.fromItem(Items.GOLDEN_CARROT),
+                        Ingredient.fromItem(Items.FLINT_AND_STEEL),
+                        Ingredient.fromItem(ConstructsRegistry.travelGoggles)),
+                new ItemStack(ConstructsRegistry.travelNight)).setRegistryName("travel_night"));
     }
 
     @SubscribeEvent

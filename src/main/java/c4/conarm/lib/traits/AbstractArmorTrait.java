@@ -77,6 +77,11 @@ public class AbstractArmorTrait extends AbstractTrait implements IArmorTrait, IA
     }
 
     @Override
+    public void onArmorChanged(ItemStack armor, EntityPlayer player, int slot) {
+        //NO-OP
+    }
+
+    @Override
     public int onArmorDamage(ItemStack armor, DamageSource source, int damage, int newDamage, EntityPlayer player, int slot) {
         return newDamage;
     }

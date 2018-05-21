@@ -17,6 +17,7 @@ item.conarm.polishing_kit.tooltip=Combine with sand\nUpgrades your armor to the 
 item.conarm.travel_belt.name=Traveller's Belt
 item.conarm.travel_sack.name=Traveller's Knapsack
 item.conarm.travel_goggles.name=Traveller's Goggles
+item.conarm.travel_night.name=Traveller's Goggles (Night Vision)
 
 item.conarm.resist_mat.name=Resistance
 item.conarm.resist_mat.tooltip=Resistant Modifier
@@ -168,6 +169,8 @@ modifier.fire_resistant_armor.name=Fire Resistant
 modifier.fire_resistant_armor.desc=§oImmolation is bad.§r\nAdditional protection against fire.
 modifier.frostwalker_armor.name=Frosty
 modifier.frostwalker_armor.desc=§oAlways stay frosty.§r\nYour feet are so cold, they freeze the water around you.
+modifier.high_stride_armor.name=High Stride
+modifier.high_stride_armor.desc=§oJumping is for barbarians.§r\nYou can walk up higher steps.
 modifier.mending_armor.name=modifier.mending_moss.name
 modifier.mending_armor.desc=§oIt's alive!§r\nPicked up XP is stored in the armor. It will slowly use up the XP to regenerate durability.
 modifier.mending_armor.extra=Stored XP: %d
@@ -182,6 +185,8 @@ modifier.reinforced_armor.desc=modifier.reinforced.desc
 modifier.reinforced_armor.extra=Reinforced: %s
 modifier.resistant_armor.name=Resistant
 modifier.resistant_armor.desc=§oHarder, stronger!§r\nAdditional protection against all attacks.
+modifier.shulkerweight_armor.name=Shulkerweight
+modifier.shulkerweight_armor.desc=§oLook, up in the sky!§r\nIncreases your jumping power.
 modifier.soulbound_armor.name=modifier.soulbound.name
 modifier.soulbound_armor.desc=§oA merry couple!§r\nYou love your armor. Not even death can part you.
 modifier.speedy_armor.name=Speedy
@@ -189,6 +194,8 @@ modifier.speedy_armor.name2=Speedier
 modifier.speedy_armor.name3=Speediest
 modifier.speedy_armor.desc=§oGotta go fast!§r\nIncreases your overall movement speed.
 modifier.speedy_armor.extra=Bonus-Speed: +%s
+modifier.sticky_armor.name=Sticky
+modifier.sticky_armor.desc=§oGet it off, get it off!§r\nSlows down anyone who attacks you.
 
 #################
 #  Accessories  #
@@ -196,6 +203,7 @@ modifier.speedy_armor.extra=Bonus-Speed: +%s
 modifier.travel_belt_armor.name=Traveller's Belt
 modifier.travel_sack_armor.name=Traveller's Knapsack
 modifier.travel_goggles_armor.name=Traveller's Goggles
+modifier.night_vision_armor.name=Traveller's Goggles (Night Vision)
 
 accessory.tooltip=Accessory: %s
 accessory.head.tooltip=Helmet Accessory

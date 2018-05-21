@@ -15,29 +15,44 @@ package c4.conarm.common.armor.modifiers;
 
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import com.google.common.collect.ImmutableList;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import slimeknights.tconstruct.library.Util;
+import slimeknights.tconstruct.library.modifiers.ModifierNBT;
+import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 import java.util.List;
 
 public class ModShulkerweight extends ArmorModifierTrait {
 
-    public ModShulkerweight() {
-        super("shulkerweight", 0xaaccff, 1, 25);
+    protected int max;
+
+    public ModShulkerweight(int count) {
+        super("shulkerweight", 0xaaccff, 1, count);
+        this.max = count;
     }
 
-//    private int getAmplifier(ItemStack armor) {
-//        return getData(armor).current;
-//    }
+    protected float getJumpBonus(ItemStack stack) {
+        NBTTagCompound modifierTag = new NBTTagCompound();
+        NBTTagList tagList = TagUtil.getModifiersTagList(TagUtil.getTagSafe(stack));
+        int index = TinkerUtil.getIndexInList(tagList, identifier);
+        if(index >= 0) {
+            modifierTag = tagList.getCompoundTagAt(index);
+        }
+        ModifierNBT.IntegerNBT modData = ModifierNBT.readInteger(modifierTag);
+        return getJumpBonus(modData);
+    }
 
-//    @Override
-//    public void onArmorTick(ItemStack armor, World world, EntityPlayer player) {
-//
-//        player.setNoGravity(true);
-//
-//        if (player.ticksExisted % 2 == 0) {
-//            player.setNoGravity(false);
-//        }
-//    }
+    protected float getJumpBonus(ModifierNBT.IntegerNBT modData) {
+        return 0.4F * modData.current / this.max;
+    }
+
+    @Override
+    public void onJumping(ItemStack armor, EntityPlayer player, LivingEvent.LivingJumpEvent evt) {
+        player.motionY += getJumpBonus(armor);
+    }
 }

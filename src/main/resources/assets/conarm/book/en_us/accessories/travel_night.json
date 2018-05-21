@@ -1,0 +1,23 @@
+{
+  "armormodifier": "night_vision_armor",
+  "text": [
+    {
+      "text": "By modifying your goggles with the right items, you can have night vision instead of zooming."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "While wearing these goggles, you can see clearly in even the darkest of places."
+    }
+  ],
+  "effects": [
+    "Gives the wearer night vision",
+    "Toggles night vision on key press",
+    "Uses durability for active night vision",
+    "Only 1 accessory per item"
+  ],
+  "demoArmor": [
+    "conarm:helmet"
+  ]
+}

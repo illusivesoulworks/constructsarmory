@@ -13,6 +13,9 @@
     "polished_armor": "models/modifiers/mod_polished_armor",
     "reinforced_armor": "models/modifiers/mod_reinforced_armor",
     "amphibious_armor": "models/modifiers/mod_amphibious_armor",
-    "frostwalker_armor": "models/modifiers/mod_frostwalker_armor"
+    "frostwalker_armor": "models/modifiers/mod_frostwalker_armor",
+    "high_stride_armor": "models/modifiers/mod_high_stride_armor",
+    "shulkerweight_armor": "models/modifiers/mod_shulkerweight_armor",
+    "sticky_armor": "models/modifiers/mod_sticky_armor"
   }
 }

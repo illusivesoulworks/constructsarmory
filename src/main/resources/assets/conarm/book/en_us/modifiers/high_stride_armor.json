@@ -1,0 +1,16 @@
+{
+  "armormodifier": "high_stride_armor",
+  "text": [
+    {
+      "text": "Using precision piston engineering, your boots could be given an extra lift."
+    }
+  ],
+  "effects": [
+    "Increases step height",
+    "Can only be applied to boots",
+    "Multiple levels"
+  ],
+  "demoArmor": [
+    "conarm:boots"
+  ]
+}

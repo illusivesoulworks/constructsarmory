@@ -8,8 +8,7 @@
   "effects": [
     "Provides 27 slots of extra storage space",
     "Opens knapsack on key press",
-    "Only 1 accessory per item",
-    "Requires 2 modifiers"
+    "Only 1 accessory per item"
   ],
   "demoArmor": [
     "conarm:chestplate"

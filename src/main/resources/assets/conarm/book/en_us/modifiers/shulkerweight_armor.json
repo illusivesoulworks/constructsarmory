@@ -1,0 +1,25 @@
+{
+  "armormodifier": "shulkerweight_armor",
+  "text": [
+    {
+      "text": "Smearing some popped chorus fruit on your armor should give you a much stronger jump."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Be careful on the landing though!"
+    }
+  ],
+  "effects": [
+    "Each popped chorus fruit increases jump by a small amount",
+    "Does not protect against fall damage",
+    "Single level"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
