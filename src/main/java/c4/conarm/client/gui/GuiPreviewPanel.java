@@ -13,16 +13,54 @@
 
 package c4.conarm.client.gui;
 
+import c4.conarm.common.inventory.ContainerArmorStation;
+import c4.conarm.lib.tinkering.TinkersArmor;
 import com.google.common.collect.Lists;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.gui.inventory.GuiInventory;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.Container;
+import net.minecraft.item.ItemStack;
 import slimeknights.mantle.client.gui.GuiMultiModule;
 import slimeknights.tconstruct.tools.common.client.module.GuiInfoPanel;
 
 public class GuiPreviewPanel extends GuiInfoPanel {
 
-    public GuiPreviewPanel(GuiMultiModule parent, Container container, int xSize, int ySize) {
+    ContainerArmorStation container;
+    float oldMouseX;
+    float oldMouseY;
+    PreviewPlayer previewPlayer;
+
+    public GuiPreviewPanel(GuiMultiModule parent, Container container, int xSize, int ySize, PreviewPlayer previewPlayer) {
         super(parent, container);
+        this.container = (ContainerArmorStation) container;
         this.xSize = xSize;
         this.ySize = ySize;
+        this.previewPlayer = previewPlayer;
+    }
+
+    @Override
+    protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+
+        int i = this.guiLeft;
+        int j = this.guiTop;
+
+        GuiInventory.drawEntityOnScreen(i + 53, j + 135, 60, (float)(i + 50) - this.oldMouseX, (float)(j + 30) - this.oldMouseY, this.previewPlayer);
+
+        super.drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY);
+    }
+
+    protected void givePreviewStack(ItemStack stack) {
+        previewPlayer.setItemStackToSlot(EntityLiving.getSlotForItemStack(stack), stack.copy());
+    }
+
+    protected void resetPreview() {
+        previewPlayer.inventory.clear();
     }
 }

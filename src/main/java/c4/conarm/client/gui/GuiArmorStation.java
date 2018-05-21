@@ -136,13 +136,6 @@ public class GuiArmorStation extends GuiTinkerStation
 
     public ArmorBuildGuiInfo currentInfo = GuiButtonArmorRepair.info;
 
-    /** The old x position of the mouse pointer */
-    private float oldMouseX;
-    /** The old y position of the mouse pointer */
-    private float oldMouseY;
-
-    private AbstractClientPlayer playerPreview = null;
-
 //    public List<String> appearances;
 //    public int appearanceSlot = 0;
 
@@ -158,7 +151,7 @@ public class GuiArmorStation extends GuiTinkerStation
         this.addModule(armorInfo);
         traitInfo = new GuiInfoPanel(this, inventorySlots);
         this.addModule(traitInfo);
-        armorPreview = new GuiPreviewPanel(this, inventorySlots, 106, this.ySize - 16);
+        armorPreview = new GuiPreviewPanel(this, inventorySlots, 106, this.ySize - 16, new PreviewPlayer(world, Minecraft.getMinecraft().player));
         this.addModule(armorPreview);
 
         armorInfo.yOffset = 5;
@@ -166,8 +159,6 @@ public class GuiArmorStation extends GuiTinkerStation
         armorPreview.yOffset = 5;
         armorPreview.setCaption(Util.translate("gui.armorstation.preview"));
         armorPreview.setText();
-
-        playerPreview = new PreviewPlayer(world, Minecraft.getMinecraft().player);
 
         this.ySize = 174;
 
@@ -220,8 +211,8 @@ public class GuiArmorStation extends GuiTinkerStation
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         super.drawScreen(mouseX, mouseY, partialTicks);
-        this.oldMouseX = (float)mouseX;
-        this.oldMouseY = (float)mouseY;
+        armorPreview.oldMouseX = (float)mouseX;
+        armorPreview.oldMouseY = (float)mouseY;
     }
 
     public Set<ArmorCore> getBuildableItems() {
@@ -347,6 +338,7 @@ public class GuiArmorStation extends GuiTinkerStation
                 armorInfo.setText();
             }
 
+            armorPreview.givePreviewStack(armorStack);
             traitInfo.setCaption(Util.translate("gui.toolstation.traits"));
 
             List<String> mods = Lists.newLinkedList();
@@ -375,6 +367,7 @@ public class GuiArmorStation extends GuiTinkerStation
             traitInfo.setText(mods, tips);
         }
         else if(currentInfo.armor.isEmpty()) {
+            armorPreview.resetPreview();
             armorInfo.setCaption(Util.translate("gui.toolstation.repair"));
             armorInfo.setText();
 
@@ -582,34 +575,7 @@ public class GuiArmorStation extends GuiTinkerStation
 
         GlStateManager.enableDepth();
 
-        int shiftX = -55;
-        int shiftY = 170;
-        int i = this.guiLeft + shiftX;
-        int j = this.guiTop + shiftY;
-        ItemStack previewStack;
-        ContainerArmorStation container = (ContainerArmorStation) this.inventorySlots;
-        if(currentInfo == GuiButtonArmorRepair.info) {
-            if (!container.getResult().isEmpty()) {
-                previewStack = container.getResult();
-            } else {
-                previewStack = this.inventorySlots.getSlot(0).getStack();
-            }
-        } else {
-            previewStack = ((ContainerArmorStation) this.inventorySlots).getResult();
-        }
-
-        if (!previewStack.isEmpty() && previewStack.getItem() instanceof TinkersArmor) {
-            playerPreview.setItemStackToSlot(EntityLiving.getSlotForItemStack(previewStack), previewStack.copy());
-        } else {
-            resetPreview(playerPreview);
-        }
-        drawEntityOnScreen(i, j, 60, (float)(i) - this.oldMouseX, (float)(j - 90) - this.oldMouseY, this.playerPreview, previewStack);
-
         super.drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY);
-    }
-
-    protected void resetPreview(AbstractClientPlayer player) {
-        player.inventory.clear();
     }
 
 //    protected void drawAppearanceMenu() {
@@ -710,46 +676,6 @@ public class GuiArmorStation extends GuiTinkerStation
         armorInfo.setText(message);
         traitInfo.setCaption(null);
         traitInfo.setText();
-    }
-
-    public static void drawEntityOnScreen(int posX, int posY, int scale, float mouseX, float mouseY, EntityLivingBase ent, ItemStack armor)
-    {
-        GlStateManager.enableColorMaterial();
-        GlStateManager.pushMatrix();
-        GlStateManager.translate((float)posX, (float)posY, 50.0F);
-        GlStateManager.scale((float)(-scale), (float)scale, (float)scale);
-        GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F);
-        float f = ent.renderYawOffset;
-        float f1 = ent.rotationYaw;
-        float f2 = ent.rotationPitch;
-        float f3 = ent.prevRotationYawHead;
-        float f4 = ent.rotationYawHead;
-        GlStateManager.rotate(135.0F, 0.0F, 1.0F, 0.0F);
-        RenderHelper.enableStandardItemLighting();
-        GlStateManager.rotate(-135.0F, 0.0F, 1.0F, 0.0F);
-        GlStateManager.rotate(-((float)Math.atan((double)(mouseY / 40.0F))) * 20.0F, 1.0F, 0.0F, 0.0F);
-        ent.renderYawOffset = (float)Math.atan((double)(mouseX / 40.0F)) * 20.0F;
-        ent.rotationYaw = (float)Math.atan((double)(mouseX / 40.0F)) * 40.0F;
-        ent.rotationPitch = -((float)Math.atan((double)(mouseY / 40.0F))) * 20.0F;
-        ent.rotationYawHead = ent.rotationYaw;
-        ent.prevRotationYawHead = ent.rotationYaw;
-        GlStateManager.translate(0.0F, 0.0F, 0.0F);
-        RenderManager rendermanager = Minecraft.getMinecraft().getRenderManager();
-        rendermanager.setPlayerViewY(180.0F);
-        rendermanager.setRenderShadow(false);
-        rendermanager.renderEntity(ent, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, false);
-        rendermanager.setRenderShadow(true);
-        ent.renderYawOffset = f;
-        ent.rotationYaw = f1;
-        ent.rotationPitch = f2;
-        ent.prevRotationYawHead = f3;
-        ent.rotationYawHead = f4;
-        GlStateManager.popMatrix();
-        RenderHelper.disableStandardItemLighting();
-        GlStateManager.disableRescaleNormal();
-        GlStateManager.setActiveTexture(OpenGlHelper.lightmapTexUnit);
-        GlStateManager.disableTexture2D();
-        GlStateManager.setActiveTexture(OpenGlHelper.defaultTexUnit);
     }
 
     @SideOnly(Side.CLIENT)
