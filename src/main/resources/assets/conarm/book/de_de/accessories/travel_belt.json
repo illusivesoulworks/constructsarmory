@@ -1,0 +1,18 @@
+{
+  "armormodifier": "travel_belt_armor",
+  "text": [
+    {
+      "text": "Während du diesen Gürtel trägst, kannst du benötigte Items im laufenden Betrieb austauschen. Wie praktisch!"
+    }
+  ],
+  "effects": [
+    "Lagert eine zweite Schnellzugriffsleiste, zu der du wechseln kannst",
+    "Wechselt Schnellzugriffsleiste bei Tastendruck",
+    "Kann nicht direkt auf den Speicher zugreifen",
+    "Nur 1 Zubehör pro Item",
+    "Benötigt 2 Modifikatoren"
+  ],
+  "demoArmor": [
+    "conarm:leggings"
+  ]
+}
