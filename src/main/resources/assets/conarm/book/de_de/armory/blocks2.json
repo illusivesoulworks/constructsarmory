@@ -1,0 +1,12 @@
+{
+  "image": {
+    "file": "conarm:textures/gui/book/armorgui.png",
+    "width": 154,
+    "height": 70
+  },
+  "text": [
+    {
+      "text": "Beide Blöcke sind mit einer praktischen Rüstungsvorschau versehen, um zu zeigen, wie die Rüstung am Spieler aussehen würde."
+    }
+  ]
+}
