@@ -17,6 +17,7 @@ import c4.conarm.lib.utils.ConstructUtils;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.client.network.NetworkPlayerInfo;
 import net.minecraft.client.resources.DefaultPlayerSkin;
 import net.minecraft.entity.Entity;
@@ -43,10 +44,13 @@ import java.util.UUID;
 public class PreviewPlayer extends AbstractClientPlayer {
 
     private static final GameProfile previewProfile = new GameProfile(UUID.fromString("79240efc-40f7-45a5-b8f9-4dc3e5cfc34a"), ConstructUtils.getPrefixedName("armor_preview"));
+    private AbstractClientPlayer player;
 
-    public PreviewPlayer(World world)
+    public PreviewPlayer(World world, AbstractClientPlayer player)
     {
         super(world, previewProfile);
+        this.player = player;
+        this.getDataManager().set(PLAYER_MODEL_FLAG, player.getDataManager().get(PLAYER_MODEL_FLAG));
     }
 
     @Override
@@ -66,6 +70,11 @@ public class PreviewPlayer extends AbstractClientPlayer {
     @Nullable
     protected NetworkPlayerInfo getPlayerInfo()
     {
-        return Minecraft.getMinecraft().getConnection().getPlayerInfo(Minecraft.getMinecraft().player.getUniqueID());
+        NetHandlerPlayClient client = Minecraft.getMinecraft().getConnection();
+        NetworkPlayerInfo info = null;
+        if (client != null) {
+            info = client.getPlayerInfo(this.player.getUniqueID());
+        }
+        return info;
     }
 }
