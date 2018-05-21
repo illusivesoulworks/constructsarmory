@@ -1,0 +1,26 @@
+{
+  "armormodifier": "projectile_resistant_armor",
+  "text": [
+    {
+      "text": "Wenn du etwas mehr aerodynamische Panzerung an deiner Rüstung anbringst, kannst du Projektilschäden reduzieren."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Vertraue uns in diesem Fall."
+    }
+  ],
+  "effects": [
+    "Reduziert Schaden von Projektilen",
+    "Benötigt nur 1 Modifikator",
+    "Nicht kompatibel mit anderen Resistenz-Arten",
+    "Mehrere Stufen"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
