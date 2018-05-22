@@ -18,6 +18,7 @@ import c4.conarm.lib.traits.AbstractArmorTrait;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.MinecraftForge;
@@ -46,9 +47,12 @@ public class TraitCombustible extends AbstractArmorTrait {
             if (level > 0) {
                 double radius = 1.5D * level;
                 BlockPos pos = player.getPosition();
+                EntityDamageSource source = new EntityDamageSource("firewood", player);
+                source.setIsThornsDamage();
+                source.setFireDamage();
                 List<Entity> entities = player.world.getEntitiesInAABBexcluding(player, new AxisAlignedBB(pos.getX() - radius, pos.getY() - radius, pos.getZ() - radius, pos.getX() + radius, pos.getY() + radius, pos.getZ() + radius), TraitUtils.IS_LIVING);
                 for (Entity entity : entities) {
-                    if (attackEntitySecondary(DamageSource.causePlayerDamage(player).setFireDamage(), level, entity, true, false)) {
+                    if (attackEntitySecondary(source, level, entity, true, false)) {
                         entity.setFire(1 + level);
                     }
                 }

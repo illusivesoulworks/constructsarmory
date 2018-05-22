@@ -72,7 +72,7 @@ public class TraitVoltaic extends AbstractArmorTrait {
                 BlockPos pos = player.getPosition();
                 List<Entity> entities = player.world.getEntitiesInAABBexcluding(player, new AxisAlignedBB(pos.getX() - radius, pos.getY() - radius, pos.getZ() - radius, pos.getX() + radius, pos.getY() + radius, pos.getZ() + radius), TraitUtils.IS_LIVING);
                 for (Entity entity : entities) {
-                    if (attackEntitySecondary(new EntityDamageSource("lightningBolt", player), 2F * level, entity, false, true, false)) {
+                    if (attackEntitySecondary(new EntityDamageSource("lightningBolt", player).setIsThornsDamage(), 2F * level, entity, false, true, false)) {
                         TinkerTools.proxy.spawnEffectParticle(ParticleEffect.Type.HEART_ELECTRO, entity, 5);
                     }
                 }

@@ -36,8 +36,8 @@ public class TraitSpiny extends AbstractArmorTrait {
 
     @Override
     public float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent evt) {
-        if (evt.getSource().getImmediateSource() instanceof EntityLivingBase && random.nextFloat() < CHANCE) {
-            damageEntityBySpines(armor, player, (EntityLivingBase) evt.getSource().getImmediateSource());
+        if (source.getImmediateSource() instanceof EntityLivingBase && random.nextFloat() < CHANCE) {
+            damageEntityBySpines(armor, player, (EntityLivingBase) source.getImmediateSource());
         }
         return super.onDamaged(armor, player, source, damage, newDamage, evt);
     }

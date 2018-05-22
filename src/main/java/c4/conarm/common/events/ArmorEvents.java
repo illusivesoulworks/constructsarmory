@@ -25,6 +25,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.EntityDamageSource;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -154,6 +155,11 @@ public class ArmorEvents {
     @SubscribeEvent
     public void playerHurt(LivingHurtEvent evt) {
 
+        //Don't respond to reflected damage, otherwise infinite recursion
+        if (evt.getSource() instanceof EntityDamageSource && ((EntityDamageSource) evt.getSource()).getIsThornsDamage()) {
+            return;
+        }
+
         if (evt.getEntity() instanceof EntityPlayer) {
 
             float damage = evt.getAmount();
@@ -224,6 +230,11 @@ public class ArmorEvents {
 
     @SubscribeEvent
     public void playerDamaged(LivingDamageEvent evt) {
+
+        //Don't respond to reflected damage, otherwise infinite recursion
+        if (evt.getSource() instanceof EntityDamageSource && ((EntityDamageSource) evt.getSource()).getIsThornsDamage()) {
+            return;
+        }
 
         if (evt.getEntity() instanceof EntityPlayer) {
 
