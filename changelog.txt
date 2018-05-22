@@ -1,3 +1,8 @@
+0.0.19-beta
+----------------------
+    Fixes
+        Fixed crashing when taking damage from Guardians while wearing Rough armor (#43), probably fixes other unknown problems as well
+
 0.0.18-beta
 ----------------------
     Changes
