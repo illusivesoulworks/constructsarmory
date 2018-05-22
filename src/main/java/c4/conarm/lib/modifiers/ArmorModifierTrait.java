@@ -13,6 +13,7 @@
 
 package c4.conarm.lib.modifiers;
 
+import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import c4.conarm.lib.utils.RecipeMatchHolder;
@@ -43,6 +44,7 @@ public class ArmorModifierTrait extends AbstractArmorTrait implements IModifierD
 
         // register the modifier trait
         TinkerRegistry.addTrait(this);
+        ArmoryRegistry.registerModifier(this);
 
         this.maxLevel = maxLevel;
         this.aspects.clear();

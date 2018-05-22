@@ -44,97 +44,100 @@ import java.util.Map;
 
 public class ArmorModifiers {
 
-    public static Modifier modSpeedy = new ModSpeedy(50);
-    public static Modifier modParasitic = new ModParasitic();
-    public static Modifier modEmerald = new ModEmerald();
-    public static Modifier modDiamond = new ModDiamond();
-    public static Modifier modAmphibious = new ModAmphibious();
-    public static Modifier modWaterwalk = new ModFrostWalker();
-    public static Modifier modSticky = new ModSticky();
-    public static Modifier modShulkerweight = new ModShulkerweight(20);
-    public static Modifier modHighStride = new ModHighStride();
-    public static Modifier modMending = new ModMending();
-    public static Modifier modFireResist = new ModResistantType("fire_resistant", 0xea9e32, EnchantmentProtection.Type.FIRE);
-    public static Modifier modProjResist = new ModResistantType("projectile_resistant", 0x10574b, EnchantmentProtection.Type.PROJECTILE);
-    public static Modifier modBlastResist = new ModResistantType("blast_resistant", 0x862d2d, EnchantmentProtection.Type.EXPLOSION);
-    public static Modifier modResist = new ModResistantType("resistant", 0xfff6f6, EnchantmentProtection.Type.ALL);
-    public static Modifier modReinforced = new ModReinforced();
-    public static Modifier modSoulbound = new ModSoulbound();
-    public static Modifier modPolished = new ModPolishedDisplay();
-    public static Modifier modExtraTrait = new ModExtraArmorTraitDisplay();
+    public static Modifier modSpeedy;
+    public static Modifier modParasitic;
+    public static Modifier modEmerald;
+    public static Modifier modDiamond;
+    public static Modifier modAmphibious;
+    public static Modifier modWaterwalk;
+    public static Modifier modSticky;
+    public static Modifier modShulkerweight;
+    public static Modifier modHighStride;
+    public static Modifier modMending;
+    public static Modifier modFireResist;
+    public static Modifier modProjResist;
+    public static Modifier modBlastResist;
+    public static Modifier modResist;
+    public static Modifier modReinforced;
+    public static Modifier modSoulbound;
+    public static Modifier modPolished;
+    public static Modifier modExtraTrait;
 
-    public static AccessoryModifier modTravelBelt = new ModTravelBelt();
-    public static AccessoryModifier modTravelSack = new ModTravelSack();
-    public static AccessoryModifier modTravelGoggles = new ModTravelGoggles();
-    public static AccessoryModifier modTravelNight = new ModTravelNight();
+    public static AccessoryModifier modTravelBelt;
+    public static AccessoryModifier modTravelSack;
+    public static AccessoryModifier modTravelGoggles;
+    public static AccessoryModifier modTravelNight;
 
     static List<Modifier> polishedMods;
     static List<Modifier> extraTraitMods;
 
     public static void setupModifiers() {
 
-        ArmoryRegistry.registerModifier(modHighStride);
-        RecipeMatchHolder.addRecipeMatch(modHighStride, new RecipeMatch.ItemCombination(1, new ItemStack(Blocks.PISTON), new ItemStack(Blocks.PISTON)));
-
-        ArmoryRegistry.registerModifier(modShulkerweight);
-        RecipeMatchHolder.addItem(modShulkerweight, Items.CHORUS_FRUIT_POPPED);
-
-        ArmoryRegistry.registerModifier(modSticky);
-        RecipeMatchHolder.addItem(modSticky, Blocks.WEB, 1);
-
-        ArmoryRegistry.registerModifier(modSpeedy);
+        modSpeedy = new ModSpeedy(50);
         RecipeMatchHolder.addItem(modSpeedy, "dustRedstone");
         RecipeMatchHolder.addItem(modSpeedy, "blockRedstone", 1, 9);
 
-        ArmoryRegistry.registerModifier(modParasitic);
+        modHighStride = new ModHighStride();
+        RecipeMatchHolder.addRecipeMatch(modHighStride, new RecipeMatch.ItemCombination(1, new ItemStack(Blocks.PISTON), new ItemStack(Blocks.PISTON)));
+
+        modShulkerweight = new ModShulkerweight(20);
+        RecipeMatchHolder.addItem(modShulkerweight, Items.CHORUS_FRUIT_POPPED);
+
+        modSticky = new ModSticky();
+        RecipeMatchHolder.addItem(modSticky, Blocks.WEB, 1);
+
+        modParasitic = new ModParasitic();
         RecipeMatchHolder.addItem(modParasitic, "boneWithered");
 
-        ArmoryRegistry.registerModifier(modDiamond);
+        modDiamond = new ModDiamond();
         RecipeMatchHolder.addItem(modDiamond, "gemDiamond");
 
-        ArmoryRegistry.registerModifier(modEmerald);
+        modEmerald = new ModEmerald();
         RecipeMatchHolder.addItem(modEmerald, "gemEmerald");
 
-        ArmoryRegistry.registerModifier(modSoulbound);
+        modSoulbound = new ModSoulbound();
         RecipeMatchHolder.addItem(modSoulbound, Items.NETHER_STAR);
 
-        ArmoryRegistry.registerModifier(modMending);
+        modMending = new ModMending();
         RecipeMatchHolder.addItem(modMending, TinkerCommons.matMendingMoss, 1, 1);
 
-        ArmoryRegistry.registerModifier(modReinforced);
+        modReinforced = new ModReinforced();
         RecipeMatchHolder.addItem(modReinforced, TinkerCommons.matReinforcement, 1, 1);
 
-        ArmoryRegistry.registerModifier(modFireResist);
+        modFireResist = new ModResistantType("fire_resistant", 0xea9e32, EnchantmentProtection.Type.FIRE);
         RecipeMatchHolder.addItem(modFireResist, ConstructsRegistry.fireResistMat);
 
-        ArmoryRegistry.registerModifier(modBlastResist);
+        modBlastResist = new ModResistantType("blast_resistant", 0x862d2d, EnchantmentProtection.Type.EXPLOSION);
         RecipeMatchHolder.addItem(modBlastResist, ConstructsRegistry.blastResistMat);
 
-        ArmoryRegistry.registerModifier(modProjResist);
+        modProjResist = new ModResistantType("projectile_resistant", 0x10574b, EnchantmentProtection.Type.PROJECTILE);
         RecipeMatchHolder.addItem(modProjResist, ConstructsRegistry.projResistMat);
 
-        ArmoryRegistry.registerModifier(modResist);
+        modResist = new ModResistantType("resistant", 0xfff6f6, EnchantmentProtection.Type.ALL);
         RecipeMatchHolder.addItem(modResist, ConstructsRegistry.resistMat);
 
-        ArmoryRegistry.registerModifier(modAmphibious);
+        modAmphibious = new ModAmphibious();
         RecipeMatchHolder.addRecipeMatch(modAmphibious, new RecipeMatch.ItemCombination(1, new ItemStack(Blocks.GLASS), new ItemStack(Items.PRISMARINE_CRYSTALS), new ItemStack(Blocks.GLASS)));
 
-        ArmoryRegistry.registerModifier(modWaterwalk);
+        modWaterwalk = new ModFrostWalker();
         RecipeMatchHolder.addRecipeMatch(modWaterwalk, new RecipeMatch.ItemCombination(1, new ItemStack(Blocks.WATERLILY), new ItemStack(Blocks.PACKED_ICE), new ItemStack(Blocks.WATERLILY), new ItemStack(Blocks.PACKED_ICE)));
 
-        ArmoryRegistry.registerModifier(modTravelBelt);
+        modTravelBelt = new ModTravelBelt();
         RecipeMatchHolder.addItem(modTravelBelt, ConstructsRegistry.travelBelt);
 
-        ArmoryRegistry.registerModifier(modTravelSack);
+        modTravelSack = new ModTravelSack();
         RecipeMatchHolder.addItem(modTravelSack, ConstructsRegistry.travelSack);
 
-        ArmoryRegistry.registerModifier(modTravelGoggles);
+        modTravelGoggles = new ModTravelGoggles();
         RecipeMatchHolder.addItem(modTravelGoggles, ConstructsRegistry.travelGoggles);
 
-        ArmoryRegistry.registerModifier(modTravelNight);
+        modTravelNight = new ModTravelNight();
         RecipeMatchHolder.addItem(modTravelNight, ConstructsRegistry.travelNight);
 
+        modPolished = new ModPolishedDisplay();
         ArmoryRegistry.registerModifier(modPolished);
+
+        modExtraTrait = new ModExtraArmorTraitDisplay();
         ArmoryRegistry.registerModifier(modExtraTrait);
 
         ArmoryRegistry.registerModifier(TinkerModifiers.modCreative.getIdentifier(), TinkerModifiers.modCreative);
@@ -155,7 +158,6 @@ public class ArmorModifiers {
     public static void registerExtraTraitModifiers() {
         TinkerRegistry.getAllMaterials().forEach(ArmorModifiers::registerExtraTraitModifiers);
         extraTraitMods = Lists.newArrayList(extraTraitLookup.values());
-        extraTraitMods.forEach(ArmoryRegistry::registerModifier);
     }
 
     private static void registerExtraTraitModifiers(Material material) {

@@ -13,6 +13,7 @@
 
 package c4.conarm.lib.modifiers;
 
+import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.lib.utils.RecipeMatchHolder;
 import com.google.common.collect.ImmutableList;
@@ -32,6 +33,7 @@ public abstract class ArmorModifier extends ToolModifier {
 
     public ArmorModifier(String identifier, int color) {
         super(identifier + "_armor", color);
+        ArmoryRegistry.registerModifier(this);
     }
 
     @Override
