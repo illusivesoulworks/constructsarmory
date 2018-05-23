@@ -67,6 +67,7 @@ public class ArmorModifiers {
     public static AccessoryModifier modTravelSack;
     public static AccessoryModifier modTravelGoggles;
     public static AccessoryModifier modTravelNight;
+    public static AccessoryModifier modTravelSoul;
 
     static List<Modifier> polishedMods;
     static List<Modifier> extraTraitMods;
@@ -133,6 +134,9 @@ public class ArmorModifiers {
 
         modTravelNight = new ModTravelNight();
         RecipeMatchHolder.addItem(modTravelNight, ConstructsRegistry.travelNight);
+
+        modTravelSoul = new ModTravelSoul();
+        RecipeMatchHolder.addItem(modTravelSoul, ConstructsRegistry.travelSoul);
 
         modPolished = new ModPolishedDisplay();
         ArmoryRegistry.registerModifier(modPolished);

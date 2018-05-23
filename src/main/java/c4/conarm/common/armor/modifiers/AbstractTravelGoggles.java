@@ -106,7 +106,8 @@ public abstract class AbstractTravelGoggles extends AccessoryModifier implements
     enum VisionType {
 
         ZOOM ("travel_goggles"),
-        NIGHT_VISION ("night_vision");
+        NIGHT_VISION ("night_vision"),
+        SOUL ("soul_sight");
 
         String identifier;
 

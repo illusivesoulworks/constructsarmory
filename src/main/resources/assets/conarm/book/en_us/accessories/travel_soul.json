@@ -1,0 +1,22 @@
+{
+  "armormodifier": "soul_sight_armor",
+  "text": [
+    {
+      "text": "By modifying your goggles with the right items, you can have soul sight instead of zooming."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "While wearing these goggles, you can see the souls of nearby beings."
+    }
+  ],
+  "effects": [
+    "Allows the wearer to see nearby souls",
+    "Toggles soul sight on key press",
+    "Only 1 accessory per item"
+  ],
+  "demoArmor": [
+    "conarm:helmet"
+  ]
+}

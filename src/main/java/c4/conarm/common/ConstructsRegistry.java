@@ -51,6 +51,7 @@ public class ConstructsRegistry {
     public static AccessoryBase travelSack;
     public static AccessoryBase travelGoggles;
     public static AccessoryBase travelNight;
+    public static AccessoryBase travelSoul;
 
     //Blocks
     public static BlockArmorForge armorForge;
@@ -93,6 +94,7 @@ public class ConstructsRegistry {
         travelSack.initModel();
         travelGoggles.initModel();
         travelNight.initModel();
+        travelSoul.initModel();
         book.initModel();
         resistMat.initModel();
         fireResistMat.initModel();
@@ -117,6 +119,7 @@ public class ConstructsRegistry {
         travelSack = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.CHEST), "travel_sack");
         travelGoggles = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.HEAD), "travel_goggles");
         travelNight = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.HEAD), "travel_night");
+        travelSoul = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.HEAD), "travel_soul");
         polishingKit = (ItemPolishingKit) registerArmorPart(registry, new ItemPolishingKit(), "polishing_kit");
         polishingKit.setCreativeTab(TinkerRegistry.tabParts);
         TinkerRegistry.registerToolPart(polishingKit);
