@@ -1,0 +1,14 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "conarm:travel_belt"
+    },
+    {
+      "item": "minecraft:brewing_stand"
+    }
+  ],
+  "result": {
+    "item": "conarm:travel_potion"
+  }
+}
