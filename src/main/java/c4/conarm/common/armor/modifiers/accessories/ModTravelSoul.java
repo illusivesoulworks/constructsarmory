@@ -11,23 +11,19 @@
  * View the MIT License here: https://tldrlegal.com/license/mit-license
  */
 
-package c4.conarm.common.armor.modifiers;
+package c4.conarm.common.armor.modifiers.accessories;
 
 import c4.conarm.client.fx.ParticleSoul;
 import c4.conarm.common.armor.traits.TraitUtils;
 import c4.conarm.common.armor.utils.ArmorHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

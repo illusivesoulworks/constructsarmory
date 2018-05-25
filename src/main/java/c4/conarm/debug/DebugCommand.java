@@ -23,7 +23,10 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
@@ -80,23 +83,25 @@ public class DebugCommand extends CommandBase {
 //
 //        ConstructsArmory.logger.info(info);
 
-        EntityPlayer player = getCommandSenderAsPlayer(sender);
-        ItemStack itemStack = player.getHeldItemMainhand();
+//        EntityPlayer player = getCommandSenderAsPlayer(sender);
+//        ItemStack itemStack = player.getHeldItemMainhand();
+//
+//        if(!itemStack.isEmpty() && itemStack.getItem() instanceof ArmorCore) {
+//            int xp;
+//            if(args.length > 0) {
+//                xp = parseInt(args[0]);
+//            }
+//            else {
+//                ToolLevelNBT data = new ToolLevelNBT(TinkerUtil.getModifierTag(itemStack, ModArmorLeveling.modArmorLeveling.getModifierIdentifier()));
+//                xp = ModArmorLeveling.modArmorLeveling.getXpForLevelup(data.level, itemStack);
+//            }
+//            ModArmorLeveling.modArmorLeveling.addXp(itemStack, xp, player);
+//        }
+//        else {
+//            throw new CommandException("No tinker armor in hand");
+//        }
 
-        if(!itemStack.isEmpty() && itemStack.getItem() instanceof ArmorCore) {
-            int xp;
-            if(args.length > 0) {
-                xp = parseInt(args[0]);
-            }
-            else {
-                ToolLevelNBT data = new ToolLevelNBT(TinkerUtil.getModifierTag(itemStack, ModArmorLeveling.modArmorLeveling.getModifierIdentifier()));
-                xp = ModArmorLeveling.modArmorLeveling.getXpForLevelup(data.level, itemStack);
-            }
-            ModArmorLeveling.modArmorLeveling.addXp(itemStack, xp, player);
-        }
-        else {
-            throw new CommandException("No tinker armor in hand");
-        }
+        ((EntityPlayer) sender).inventory.setInventorySlotContents(0, PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM, 4), PotionTypes.POISON));
     }
 
     @Override

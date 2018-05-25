@@ -14,28 +14,22 @@
 package c4.conarm.client.events;
 
 import c4.conarm.client.gui.PreviewPlayer;
-import c4.conarm.common.armor.modifiers.AbstractTravelGoggles;
-import c4.conarm.common.armor.modifiers.ArmorModifiers;
 import c4.conarm.common.network.AccessoryTogglePacket;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 import slimeknights.tconstruct.common.TinkerNetwork;
-import slimeknights.tconstruct.library.utils.ModifierTagHolder;
 
 public class ClientArmorEvents {
 
-    private static KeyBinding toggleHelmet;
-    private static KeyBinding toggleChestplate;
-    private static KeyBinding toggleLeggings;
-    private static KeyBinding toggleBoots;
+    public static KeyBinding toggleHelmet;
+    public static KeyBinding toggleChestplate;
+    public static KeyBinding toggleLeggings;
+    public static KeyBinding toggleBoots;
 
     public static void init() {
         toggleHelmet = registerKeybinding(new KeyBinding("key.conarm.toggle_helm.desc", Keyboard.KEY_G, "key.conarm.category"));

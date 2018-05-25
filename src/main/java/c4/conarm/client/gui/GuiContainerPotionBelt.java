@@ -13,31 +13,43 @@
 
 package c4.conarm.client.gui;
 
-import c4.conarm.common.inventory.ContainerKnapsack;
+import c4.conarm.client.events.ClientArmorEvents;
 import c4.conarm.common.armor.modifiers.accessories.ModTravelSack;
+import c4.conarm.common.inventory.ContainerKnapsack;
+import c4.conarm.common.inventory.ContainerPotionBelt;
+import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nonnull;
+import java.io.IOException;
 
-public class GuiContainerKnapsack extends GuiContainer {
+public class GuiContainerPotionBelt extends GuiContainer {
 
-    private static final ResourceLocation CHEST_GUI_TEXTURE = new ResourceLocation("minecraft","textures/gui/container/generic_54.png");
+    private static final ResourceLocation POTION_BELT_GUI = ConstructUtils.getResource("textures/gui/potionbelt.png");
 
-    private final ContainerKnapsack container;
+    private final ContainerPotionBelt container;
     private final IInventory player;
-    private final int inventoryRows;
 
-    public GuiContainerKnapsack(@Nonnull ContainerKnapsack containerKnapsack, IInventory playerInventory) {
+    public GuiContainerPotionBelt(@Nonnull ContainerPotionBelt potionBelt, IInventory playerInventory) {
 
-        super(containerKnapsack);
+        super(potionBelt);
 
-        this.container = containerKnapsack;
+        this.container = potionBelt;
         this.player = playerInventory;
-        this.inventoryRows = ModTravelSack.SACK_SIZE / 9;
-        this.ySize = 114 + this.inventoryRows * 18;
+        this.ySize = 133;
+    }
+
+    protected void keyTyped(char typedChar, int keyCode) throws IOException
+    {
+        super.keyTyped(typedChar, keyCode);
+
+        if (keyCode == ClientArmorEvents.toggleLeggings.getKeyCode()) {
+            this.mc.player.closeScreen();
+        }
     }
 
     @Override
@@ -58,11 +70,10 @@ public class GuiContainerKnapsack extends GuiContainer {
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
     {
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-        this.mc.getTextureManager().bindTexture(CHEST_GUI_TEXTURE);
+        this.mc.getTextureManager().bindTexture(POTION_BELT_GUI);
         int i = (this.width - this.xSize) / 2;
         int j = (this.height - this.ySize) / 2;
-        this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.inventoryRows * 18 + 17);
-        this.drawTexturedModalRect(i, j + this.inventoryRows * 18 + 17, 0, 126, this.xSize, 96);
+        this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);
     }
 
 }

@@ -11,13 +11,10 @@
  * View the MIT License here: https://tldrlegal.com/license/mit-license
  */
 
-package c4.conarm.common.armor.modifiers;
+package c4.conarm.common.armor.modifiers.accessories;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

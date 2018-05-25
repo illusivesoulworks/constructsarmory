@@ -15,7 +15,7 @@ package c4.conarm.common.inventory;
 
 import c4.conarm.common.ConstructsRegistry;
 import c4.conarm.common.armor.modifiers.ArmorModifiers;
-import c4.conarm.common.armor.modifiers.ModTravelSack;
+import c4.conarm.common.armor.modifiers.accessories.ModTravelSack;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.EntityEquipmentSlot;

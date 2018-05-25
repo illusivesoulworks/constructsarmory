@@ -1,0 +1,17 @@
+{
+  "armormodifier": "potion_belt_armor",
+  "text": [
+    {
+      "text": "By modifying your belt with the right items, you can store more potions instead of swapping hotbars."
+    }
+  ],
+  "effects": [
+    "Stores 7 slots of potions",
+    "Potions can stack up to 4 times per slot while in the belt",
+    "Opens potion storage on key press",
+    "Only 1 accessory per item"
+  ],
+  "demoArmor": [
+    "conarm:leggings"
+  ]
+}

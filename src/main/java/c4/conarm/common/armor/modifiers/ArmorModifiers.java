@@ -14,6 +14,7 @@
 package c4.conarm.common.armor.modifiers;
 
 import c4.conarm.common.ConstructsRegistry;
+import c4.conarm.common.armor.modifiers.accessories.*;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.materials.ArmorMaterialType;
@@ -64,6 +65,7 @@ public class ArmorModifiers {
     public static Modifier modExtraTrait;
 
     public static AccessoryModifier modTravelBelt;
+    public static AccessoryModifier modTravelPotion;
     public static AccessoryModifier modTravelSack;
     public static AccessoryModifier modTravelGoggles;
     public static AccessoryModifier modTravelNight;
@@ -125,6 +127,9 @@ public class ArmorModifiers {
 
         modTravelBelt = new ModTravelBelt();
         RecipeMatchHolder.addItem(modTravelBelt, ConstructsRegistry.travelBelt);
+
+        modTravelPotion = new ModTravelPotion();
+        RecipeMatchHolder.addItem(modTravelPotion, ConstructsRegistry.travelPotion);
 
         modTravelSack = new ModTravelSack();
         RecipeMatchHolder.addItem(modTravelSack, ConstructsRegistry.travelSack);

@@ -48,6 +48,7 @@ public class ConstructsRegistry {
 
     //Accessories
     public static AccessoryBase travelBelt;
+    public static AccessoryBase travelPotion;
     public static AccessoryBase travelSack;
     public static AccessoryBase travelGoggles;
     public static AccessoryBase travelNight;
@@ -91,6 +92,7 @@ public class ConstructsRegistry {
 
     public static void initModels() {
         travelBelt.initModel();
+        travelPotion.initModel();
         travelSack.initModel();
         travelGoggles.initModel();
         travelNight.initModel();
@@ -116,6 +118,7 @@ public class ConstructsRegistry {
         projResistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat_proj");
         blastResistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat_blast");
         travelBelt = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.LEGS), "travel_belt");
+        travelPotion = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.LEGS), "travel_potion");
         travelSack = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.CHEST), "travel_sack");
         travelGoggles = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.HEAD), "travel_goggles");
         travelNight = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.HEAD), "travel_night");

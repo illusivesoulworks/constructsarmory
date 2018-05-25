@@ -15,6 +15,7 @@ item.conarm.polishing_kit.name=Polishing Kit
 item.conarm.polishing_kit.tooltip=Combine with sand\nUpgrades your armor to the material's toughness level.
 
 item.conarm.travel_belt.name=Traveller's Belt
+item.conarm.travel_potion.name=Traveller's Belt (Alchemy)
 item.conarm.travel_sack.name=Traveller's Knapsack
 item.conarm.travel_goggles.name=Traveller's Goggles
 item.conarm.travel_night.name=Traveller's Goggles (Night Vision)
@@ -202,6 +203,7 @@ modifier.sticky_armor.desc=§oGet it off, get it off!§r\nSlows down anyone who 
 #  Accessories  #
 #################
 modifier.travel_belt_armor.name=Traveller's Belt
+modifier.potion_belt_armor.name=Traveller's Belt (Alchemy)
 modifier.travel_sack_armor.name=Traveller's Knapsack
 modifier.travel_goggles_armor.name=Traveller's Goggles
 modifier.night_vision_armor.name=Traveller's Goggles (Night Vision)

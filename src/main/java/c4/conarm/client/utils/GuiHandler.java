@@ -13,8 +13,10 @@
 
 package c4.conarm.client.utils;
 
+import c4.conarm.client.gui.GuiContainerPotionBelt;
 import c4.conarm.common.inventory.ContainerKnapsack;
 import c4.conarm.client.gui.GuiContainerKnapsack;
+import c4.conarm.common.inventory.ContainerPotionBelt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.world.World;
@@ -23,12 +25,16 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 public class GuiHandler implements IGuiHandler {
 
     public static final int GUI_KNAPSACK_ID = 0;
+    public static final int GUI_POTIONBELT_ID = 1;
 
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 
-        if (ID == GUI_KNAPSACK_ID) {
-            return new ContainerKnapsack(player.inventory, player.getItemStackFromSlot(EntityEquipmentSlot.CHEST));
+        switch (ID) {
+            case GUI_KNAPSACK_ID:
+                return new ContainerKnapsack(player.inventory, player.getItemStackFromSlot(EntityEquipmentSlot.CHEST));
+            case GUI_POTIONBELT_ID:
+                return new ContainerPotionBelt(player.inventory, player.getItemStackFromSlot(EntityEquipmentSlot.LEGS));
         }
 
         return null;
@@ -37,8 +43,11 @@ public class GuiHandler implements IGuiHandler {
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 
-        if (ID == GUI_KNAPSACK_ID) {
-            return new GuiContainerKnapsack(new ContainerKnapsack(player.inventory, player.getItemStackFromSlot(EntityEquipmentSlot.CHEST)), player.inventory);
+        switch (ID) {
+            case GUI_KNAPSACK_ID:
+                return new GuiContainerKnapsack(new ContainerKnapsack(player.inventory, player.getItemStackFromSlot(EntityEquipmentSlot.CHEST)), player.inventory);
+            case GUI_POTIONBELT_ID:
+                return new GuiContainerPotionBelt(new ContainerPotionBelt(player.inventory, player.getItemStackFromSlot(EntityEquipmentSlot.LEGS)), player.inventory);
         }
 
         return null;

@@ -11,7 +11,7 @@
  * View the MIT License here: https://tldrlegal.com/license/mit-license
  */
 
-package c4.conarm.common.armor.modifiers;
+package c4.conarm.common.armor.modifiers.accessories;
 
 import c4.conarm.common.armor.utils.ArmorHelper;
 import net.minecraft.entity.player.EntityPlayer;

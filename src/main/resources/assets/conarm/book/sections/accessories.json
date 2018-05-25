@@ -18,5 +18,9 @@
   {
     "type": "armormodifier",
     "data": "accessories/travel_belt.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "accessories/potion_belt.json"
   }
 ]

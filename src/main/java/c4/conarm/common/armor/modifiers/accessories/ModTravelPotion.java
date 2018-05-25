@@ -11,19 +11,29 @@
  * View the MIT License here: https://tldrlegal.com/license/mit-license
  */
 
-package c4.conarm.common.armor.modifiers;
+package c4.conarm.common.armor.modifiers.accessories;
 
+import c4.conarm.ConstructsArmory;
 import c4.conarm.client.models.accessories.ModelBelt;
-import c4.conarm.lib.utils.ConstructUtils;
+import c4.conarm.client.utils.GuiHandler;
+import c4.conarm.common.inventory.ContainerPotionBelt;
 import c4.conarm.lib.modifiers.AccessoryModifier;
 import c4.conarm.lib.modifiers.IAccessoryRender;
+import c4.conarm.lib.utils.ConstructUtils;
+import com.google.common.collect.Lists;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagIntArray;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.potion.PotionType;
+import net.minecraft.potion.PotionUtils;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -31,32 +41,34 @@ import net.minecraftforge.items.ItemStackHandler;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.utils.ModifierTagHolder;
 
-public class ModTravelBelt extends AccessoryModifier implements IAccessoryRender {
+import java.util.List;
 
-    private static final String TAG_HOTBAR = "hotbar";
+public class ModTravelPotion extends AccessoryModifier implements IAccessoryRender {
+
+    private static final String TAG_POTION = "potions";
 
     @SideOnly(Side.CLIENT)
     private static ModelBelt model;
     private static ResourceLocation texture = ConstructUtils.getResource("textures/models/accessories/travel_belt.png");
 
-    public ModTravelBelt() {
-        super("travel_belt");
+    public ModTravelPotion() {
+        super("potion_belt");
     }
 
     @Override
     public void onKeybinding(ItemStack armor, EntityPlayer player) {
-        swapHotbars(armor, player);
+        player.openGui(ConstructsArmory.instance, GuiHandler.GUI_POTIONBELT_ID, player.world, 0, 0, 0);
     }
 
     @Override
     public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag) {
 
         super.applyEffect(rootCompound, modifierTag);
-        NBTTagCompound oldBelt = modifierTag.getCompoundTag(TAG_HOTBAR);
+        NBTTagCompound oldBelt = modifierTag.getCompoundTag(TAG_POTION);
         if (oldBelt.hasNoTags()) {
-            modifierTag.setTag(TAG_HOTBAR, (new ItemStackHandler(9)).serializeNBT());
+            modifierTag.setTag(TAG_POTION, (new ItemStackHandler(7)).serializeNBT());
         } else {
-            modifierTag.setTag(TAG_HOTBAR, oldBelt);
+            modifierTag.setTag(TAG_POTION, oldBelt);
         }
     }
 
@@ -70,41 +82,25 @@ public class ModTravelBelt extends AccessoryModifier implements IAccessoryRender
         model.render(entityLivingBaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
     }
 
-    private void swapHotbars(ItemStack stack, EntityPlayer player) {
-        ModifierTagHolder modtag = ModifierTagHolder.getModifier(stack, getModifierIdentifier());
-        HotbarData data = modtag.getTagData(HotbarData.class);
-
-        ItemStackHandler belt = data.hotbar;
-
-        for (int i = 0; i < belt.getSlots(); i++) {
-            ItemStack heldStack = player.inventory.getStackInSlot(i).copy();
-            ItemStack beltStack = belt.getStackInSlot(i).copy();
-            player.inventory.setInventorySlotContents(i, beltStack);
-            belt.setStackInSlot(i, heldStack);
-        }
-
-        modtag.save();
-    }
-
     @Override
     public boolean canApplyCustom(ItemStack stack) {
         return EntityLiving.getSlotForItemStack(stack) == EntityEquipmentSlot.LEGS && super.canApplyCustom(stack);
     }
 
-    public static class HotbarData extends ModifierNBT {
+    public static class PotionsData extends ModifierNBT {
 
-        ItemStackHandler hotbar = new ItemStackHandler(9);
+        public ItemStackHandler potions = new ItemStackHandler(7);
 
         @Override
         public void read(NBTTagCompound tag) {
             super.read(tag);
-            hotbar.deserializeNBT((NBTTagCompound) tag.getTag(TAG_HOTBAR));
+            potions.deserializeNBT(tag.getCompoundTag(TAG_POTION));
         }
 
         @Override
         public void write(NBTTagCompound tag) {
             super.write(tag);
-            tag.setTag(TAG_HOTBAR, hotbar.serializeNBT());
+            tag.setTag(TAG_POTION, potions.serializeNBT());
         }
     }
 }
