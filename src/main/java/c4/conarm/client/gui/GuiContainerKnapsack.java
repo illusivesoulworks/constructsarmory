@@ -13,6 +13,7 @@
 
 package c4.conarm.client.gui;
 
+import c4.conarm.client.events.ClientArmorEvents;
 import c4.conarm.common.inventory.ContainerKnapsack;
 import c4.conarm.common.armor.modifiers.accessories.ModTravelSack;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -21,6 +22,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nonnull;
+import java.io.IOException;
 
 public class GuiContainerKnapsack extends GuiContainer {
 
@@ -38,6 +40,16 @@ public class GuiContainerKnapsack extends GuiContainer {
         this.player = playerInventory;
         this.inventoryRows = ModTravelSack.SACK_SIZE / 9;
         this.ySize = 114 + this.inventoryRows * 18;
+    }
+
+    @Override
+    protected void keyTyped(char typedChar, int keyCode) throws IOException
+    {
+        super.keyTyped(typedChar, keyCode);
+
+        if (keyCode == ClientArmorEvents.toggleChestplate.getKeyCode()) {
+            this.mc.player.closeScreen();
+        }
     }
 
     @Override

@@ -43,6 +43,7 @@ public class GuiContainerPotionBelt extends GuiContainer {
         this.ySize = 133;
     }
 
+    @Override
     protected void keyTyped(char typedChar, int keyCode) throws IOException
     {
         super.keyTyped(typedChar, keyCode);
