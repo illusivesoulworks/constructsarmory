@@ -5,4 +5,10 @@ armory=护甲
 modifiers=强化
 accessories=部件
 
+armor.title=护甲
+armor.properties=属性：
+
+material.craft_partbuilder=Can be crafted in the Part Builder
+material.craft_casting=Can be cast from %s
+
 modifier.effect=效果：
