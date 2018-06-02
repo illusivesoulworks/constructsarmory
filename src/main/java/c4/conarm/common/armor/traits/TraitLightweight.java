@@ -34,7 +34,7 @@ public class TraitLightweight extends AbstractArmorTrait {
                                                                 UUID.fromString("69c21f84-449d-4e18-89c1-b9f7b5ca98f0"),
                                                                 UUID.fromString("37f79f7c-5cca-426b-824b-9ba2ced92337"),
                                                                 UUID.fromString("1316663f-febe-430f-8714-94bf21118ab6") };
-    private static final double SPEED_PER_LEVEL = 0.025D;
+    private static final double SPEED_PER_LEVEL = 0.05D;
 
     public TraitLightweight() {
         super("lightweight", 0x00ff00);
