@@ -7,10 +7,9 @@
   ],
   "effects": [
     "Stores a second hotbar that you can swap to",
-    "Swaps hotbar on key press",
+    "通过快捷键使用",
     "Cannot access storage directly",
-    "只能强化一次",
-    "需要两个强化槽"
+    "每件护甲只能装配一个部件"
   ],
   "demoArmor": [
     "conarm:leggings"
