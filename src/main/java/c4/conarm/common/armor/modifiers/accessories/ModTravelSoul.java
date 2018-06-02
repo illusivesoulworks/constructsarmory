@@ -50,10 +50,10 @@ public class ModTravelSoul extends AbstractTravelGoggles {
     @Override
     public void onArmorTick(ItemStack armor, World world, EntityPlayer player) {
 
-        if (world.isRemote) {
-            ModifierTagHolder modtag = ModifierTagHolder.getModifier(armor, getModifierIdentifier());
-            GogglesData data = modtag.getTagData(GogglesData.class);
-            if (data.goggles) {
+        ModifierTagHolder modtag = ModifierTagHolder.getModifier(armor, getModifierIdentifier());
+        GogglesData data = modtag.getTagData(GogglesData.class);
+        if (data.goggles) {
+            if (world.isRemote) {
                 int radius = 20;
                 BlockPos pos = player.getPosition();
                 List<Entity> entities = player.world.getEntitiesInAABBexcluding(player, new AxisAlignedBB(pos.getX() - radius, pos.getY() - radius, pos.getZ() - radius, pos.getX() + radius, pos.getY() + radius, pos.getZ() + radius), TraitUtils.IS_LIVING);
@@ -64,12 +64,9 @@ public class ModTravelSoul extends AbstractTravelGoggles {
                         Minecraft.getMinecraft().effectRenderer.addEffect(soul);
                     }
                 }
+            } else {
+                ArmorHelper.damageArmor(armor, DamageSource.GENERIC, 1, player, EntityEquipmentSlot.HEAD.getIndex());
             }
         }
-    }
-
-    @Override
-    public void onArmorChanged(ItemStack armor, EntityPlayer player, int slot) {
-
     }
 }

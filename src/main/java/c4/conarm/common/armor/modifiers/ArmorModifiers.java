@@ -47,6 +47,9 @@ public class ArmorModifiers {
 
     public static Modifier modSpeedy;
     public static Modifier modParasitic;
+    public static Modifier modPowerful;
+    public static Modifier modTelekinetic;
+    public static Modifier modDexterous;
     public static Modifier modEmerald;
     public static Modifier modDiamond;
     public static Modifier modAmphibious;
@@ -54,6 +57,7 @@ public class ArmorModifiers {
     public static Modifier modSticky;
     public static Modifier modShulkerweight;
     public static Modifier modHighStride;
+    public static Modifier modGlowing;
     public static Modifier modMending;
     public static Modifier modFireResist;
     public static Modifier modProjResist;
@@ -70,6 +74,8 @@ public class ArmorModifiers {
     public static AccessoryModifier modTravelGoggles;
     public static AccessoryModifier modTravelNight;
     public static AccessoryModifier modTravelSoul;
+    public static AccessoryModifier modTravelSneak;
+    public static AccessoryModifier modTravelSlowFall;
 
     static List<Modifier> polishedMods;
     static List<Modifier> extraTraitMods;
@@ -79,6 +85,18 @@ public class ArmorModifiers {
         modSpeedy = new ModSpeedy(50);
         RecipeMatchHolder.addItem(modSpeedy, "dustRedstone");
         RecipeMatchHolder.addItem(modSpeedy, "blockRedstone", 1, 9);
+
+        modPowerful = new ModPowerful();
+        RecipeMatchHolder.addItem(modPowerful, ConstructsRegistry.gauntletAttack);
+
+        modDexterous = new ModDexterous();
+        RecipeMatchHolder.addItem(modDexterous, ConstructsRegistry.gauntletSpeed);
+
+        modTelekinetic = new ModTelekinetic();
+        RecipeMatchHolder.addItem(modTelekinetic, ConstructsRegistry.gauntletReach);
+
+        modGlowing = new ModGlowing();
+        RecipeMatchHolder.addRecipeMatch(modGlowing, new RecipeMatch.ItemCombination(1, new ItemStack(Items.GLOWSTONE_DUST), new ItemStack(Items.ENDER_EYE), new ItemStack(Items.GLOWSTONE_DUST)));
 
         modHighStride = new ModHighStride();
         RecipeMatchHolder.addRecipeMatch(modHighStride, new RecipeMatch.ItemCombination(1, new ItemStack(Blocks.PISTON), new ItemStack(Blocks.PISTON)));
@@ -142,6 +160,12 @@ public class ArmorModifiers {
 
         modTravelSoul = new ModTravelSoul();
         RecipeMatchHolder.addItem(modTravelSoul, ConstructsRegistry.travelSoul);
+
+        modTravelSlowFall = new ModTravelSlowFall();
+        RecipeMatchHolder.addItem(modTravelSlowFall, ConstructsRegistry.travelSlowFall);
+
+        modTravelSneak = new ModTravelSneak();
+        RecipeMatchHolder.addItem(modTravelSneak, ConstructsRegistry.travelSneak);
 
         modPolished = new ModPolishedDisplay();
         ArmoryRegistry.registerModifier(modPolished);

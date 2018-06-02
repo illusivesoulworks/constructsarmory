@@ -17,6 +17,14 @@
   },
   {
     "type": "armormodifier",
+    "data": "accessories/travel_sneak.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "accessories/travel_slowfall.json"
+  },
+  {
+    "type": "armormodifier",
     "data": "accessories/travel_belt.json"
   },
   {

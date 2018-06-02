@@ -14,6 +14,7 @@
   "effects": [
     "Allows the wearer to see nearby souls",
     "Toggles soul sight on key press",
+    "Uses durability for active soul sight",
     "Only 1 accessory per item"
   ],
   "demoArmor": [

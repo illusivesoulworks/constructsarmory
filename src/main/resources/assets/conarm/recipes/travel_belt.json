@@ -1,18 +1,15 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    " s ",
-    "lll",
-    " s "
+    "clc"
   ],
   "key": {
     "l": {
-      "type": "forge:ore_dict",
-      "ore": "leather"
+      "item": "conarm:travel_belt_base"
     },
-    "s": {
+    "c": {
       "type": "forge:ore_dict",
-      "ore": "string"
+      "ore": "chestWood"
     }
   },
   "result": {

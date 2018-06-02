@@ -1,0 +1,23 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "rer",
+    "ege",
+    "rer"
+  ],
+  "key": {
+    "r": {
+      "type": "forge:ore_dict",
+      "ore": "blockLapis"
+    },
+    "e": {
+      "item": "minecraft:ender_eye"
+    },
+    "g": {
+      "item": "conarm:gauntlet_mat"
+    }
+  },
+  "result": {
+    "item": "conarm:gauntlet_mat_reach"
+  }
+}

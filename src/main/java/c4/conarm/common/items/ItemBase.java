@@ -18,10 +18,13 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import slimeknights.tconstruct.library.TinkerRegistry;
 
 public class ItemBase extends Item {
 
-    public ItemBase() {}
+    public ItemBase() {
+        this.setCreativeTab(TinkerRegistry.tabGeneral);
+    }
 
     @SideOnly(Side.CLIENT)
     public void initModel() {

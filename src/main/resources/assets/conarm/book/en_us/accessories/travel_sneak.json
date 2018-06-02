@@ -1,0 +1,17 @@
+{
+  "armormodifier": "travel_sneak_armor",
+  "text": [
+    {
+      "text": "No explorer is complete without some extra storage space by their side!"
+    }
+  ],
+  "effects": [
+    "Grants invisibility",
+    "Toggle invisibility on key press",
+    "Uses durability for active invisibility",
+    "Only 1 accessory per item"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

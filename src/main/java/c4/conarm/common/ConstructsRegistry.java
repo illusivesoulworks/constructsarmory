@@ -53,6 +53,8 @@ public class ConstructsRegistry {
     public static AccessoryBase travelGoggles;
     public static AccessoryBase travelNight;
     public static AccessoryBase travelSoul;
+    public static AccessoryBase travelSneak;
+    public static AccessoryBase travelSlowFall;
 
     //Blocks
     public static BlockArmorForge armorForge;
@@ -80,6 +82,13 @@ public class ConstructsRegistry {
     public static ItemBase fireResistMat;
     public static ItemBase projResistMat;
     public static ItemBase blastResistMat;
+    public static ItemBase gauntletMat;
+    public static ItemBase gauntletAttack;
+    public static ItemBase gauntletSpeed;
+    public static ItemBase gauntletReach;
+    public static ItemBase travelCloak;
+    public static ItemBase travelBeltBase;
+    public static ItemBase travelGogglesBase;
 
     public static void registerArmorParts(IForgeRegistry<Item> registry) {
         helmetCore = registerArmorPart(registry, new ArmorPart(Material.VALUE_Ingot * 4, EntityEquipmentSlot.HEAD), "helmet_core");
@@ -91,17 +100,26 @@ public class ConstructsRegistry {
     }
 
     public static void initModels() {
+        travelBeltBase.initModel();
         travelBelt.initModel();
         travelPotion.initModel();
         travelSack.initModel();
+        travelGogglesBase.initModel();
         travelGoggles.initModel();
         travelNight.initModel();
         travelSoul.initModel();
+        travelCloak.initModel();
+        travelSlowFall.initModel();
+        travelSneak.initModel();
         book.initModel();
         resistMat.initModel();
         fireResistMat.initModel();
         projResistMat.initModel();
         blastResistMat.initModel();
+        gauntletMat.initModel();
+        gauntletAttack.initModel();
+        gauntletSpeed.initModel();
+        gauntletReach.initModel();
     }
 
     public static void registerArmorPieces(IForgeRegistry<Item> registry) {
@@ -113,15 +131,24 @@ public class ConstructsRegistry {
 
     public static void registerItems(IForgeRegistry<Item> registry) {
         book = ConstructUtils.registerItem(registry, new ItemArmoryBook(), "book");
-        resistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat");
-        fireResistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat_fire");
-        projResistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat_proj");
-        blastResistMat = ConstructUtils.registerItem(registry, new ItemResistantMat(), "resist_mat_blast");
+        resistMat = ConstructUtils.registerItem(registry, new ItemConarmMat(), "resist_mat");
+        fireResistMat = ConstructUtils.registerItem(registry, new ItemConarmMat(), "resist_mat_fire");
+        projResistMat = ConstructUtils.registerItem(registry, new ItemConarmMat(), "resist_mat_proj");
+        blastResistMat = ConstructUtils.registerItem(registry, new ItemConarmMat(), "resist_mat_blast");
+        gauntletMat = ConstructUtils.registerItem(registry, new ItemBase(), "gauntlet_mat");
+        gauntletSpeed = ConstructUtils.registerItem(registry, new ItemConarmMat(), "gauntlet_mat_speed");
+        gauntletAttack = ConstructUtils.registerItem(registry, new ItemConarmMat(), "gauntlet_mat_attack");
+        gauntletReach = ConstructUtils.registerItem(registry, new ItemConarmMat(), "gauntlet_mat_reach");
+        travelBeltBase = ConstructUtils.registerItem(registry, new ItemBase(), "travel_belt_base");
         travelBelt = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.LEGS), "travel_belt");
         travelPotion = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.LEGS), "travel_potion");
         travelSack = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.CHEST), "travel_sack");
+        travelGogglesBase = ConstructUtils.registerItem(registry, new ItemBase(), "travel_goggles_base");
         travelGoggles = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.HEAD), "travel_goggles");
         travelNight = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.HEAD), "travel_night");
+        travelCloak = ConstructUtils.registerItem(registry, new ItemBase(), "travel_cloak");
+        travelSneak = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.CHEST), "travel_sneak");
+        travelSlowFall = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.CHEST), "travel_slowfall");
         travelSoul = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.HEAD), "travel_soul");
         polishingKit = (ItemPolishingKit) registerArmorPart(registry, new ItemPolishingKit(), "polishing_kit");
         polishingKit.setCreativeTab(TinkerRegistry.tabParts);

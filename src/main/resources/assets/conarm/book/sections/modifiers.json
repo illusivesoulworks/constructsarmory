@@ -48,7 +48,23 @@
   },
   {
     "type": "armormodifier",
+    "data": "modifiers/soulbound_armor.json"
+  },
+  {
+    "type": "armormodifier",
     "data": "modifiers/amphibious_armor.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/powerful_armor.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/dexterous_armor.json"
+  },
+  {
+    "type": "armormodifier",
+    "data": "modifiers/telekinetic_armor.json"
   },
   {
     "type": "armormodifier",
@@ -56,7 +72,7 @@
   },
   {
     "type": "armormodifier",
-    "data": "modifiers/soulbound_armor.json"
+    "data": "modifiers/glowing_armor.json"
   },
   {
     "type": "armormodifier_polished",

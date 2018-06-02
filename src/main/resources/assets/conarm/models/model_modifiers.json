@@ -16,6 +16,10 @@
     "frostwalker_armor": "models/modifiers/mod_frostwalker_armor",
     "high_stride_armor": "models/modifiers/mod_high_stride_armor",
     "shulkerweight_armor": "models/modifiers/mod_shulkerweight_armor",
-    "sticky_armor": "models/modifiers/mod_sticky_armor"
+    "sticky_armor": "models/modifiers/mod_sticky_armor",
+    "glowing_armor": "models/modifiers/mod_glowing_armor",
+    "powerful_armor": "models/modifiers/mod_powerful_armor",
+    "dexterous_armor": "models/modifiers/mod_dexterous_armor",
+    "telekinetic_armor": "models/modifiers/mod_telekinetic_armor"
   }
 }

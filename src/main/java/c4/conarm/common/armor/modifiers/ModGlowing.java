@@ -13,44 +13,44 @@
 
 package c4.conarm.common.armor.modifiers;
 
+import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import slimeknights.tconstruct.library.modifiers.ModifierAspect;
+import slimeknights.tconstruct.shared.TinkerCommons;
 
-public class ModSilkstep extends ArmorModifierTrait {
+public class ModGlowing extends ArmorModifierTrait {
 
-    public ModSilkstep() {
-        super("silkstep", 0xfbe28b);
-        addAspects(new ModifierAspect.SingleAspect(this));
+    public ModGlowing() {
+        super("glowing", 0xffffaa);
     }
 
     @Override
     public void onArmorTick(ItemStack armor, World world, EntityPlayer player) {
+        if(!world.isRemote) {
 
-        if (player.fallDistance > 0.0F) {
-            player.fallDistance = 0.0F;
+            BlockPos pos = player.getPosition();
+
+            if(world.getLightFromNeighbors(pos) < 8) {
+                for(BlockPos candidate : new BlockPos[]{pos, pos.up(), pos.north(), pos.east(), pos.south(), pos.west(), pos.down()}) {
+
+                    if(TinkerCommons.blockGlow.addGlow(world, candidate, EnumFacing.values()[random.nextInt(6)])) {
+                        ArmorHelper.damageArmor(armor, DamageSource.causePlayerDamage(player), 1, player, EntityLiving.getSlotForItemStack(armor).getIndex());
+                        return;
+                    }
+                }
+            }
         }
     }
 
     @Override
     public boolean canApplyCustom(ItemStack stack) {
-        return EntityLiving.getSlotForItemStack(stack) == EntityEquipmentSlot.FEET;
-    }
-
-    @Override
-    public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag) {
-
-        super.applyEffect(rootCompound, modifierTag);
-
-//        ArmorNBT data = ArmorTagUtil.getArmorStats(rootCompound);
-//        data.armor = Math.max(0f, data.armor - 2f);
-//        data.toughness = Math.max(0f, data.toughness - 1f);
-//
-//        TagUtil.setToolTag(rootCompound, data.get());
+        return EntityLiving.getSlotForItemStack(stack) == EntityEquipmentSlot.FEET && super.canApplyCustom(stack);
     }
 }

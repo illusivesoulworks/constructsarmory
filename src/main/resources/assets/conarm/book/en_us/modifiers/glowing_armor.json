@@ -1,0 +1,15 @@
+{
+  "armormodifier": "glowing_armor",
+  "text": [
+    {
+      "text": "Some glowstone and a magical ender eye. Obviously this sees the light level."
+    }
+  ],
+  "effects": [
+    "Places a lightsource on low light level",
+    "Costs durability"
+  ],
+  "demoArmor": [
+    "conarm:boots"
+  ]
+}

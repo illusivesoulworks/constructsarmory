@@ -1,22 +1,15 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "lsl",
-    "glg",
-    "   "
+    "glg"
   ],
   "key": {
     "l": {
-      "type": "forge:ore_dict",
-      "ore": "leather"
+      "item": "conarm:travel_goggles_base"
     },
     "g": {
       "type": "forge:ore_dict",
       "ore": "blockGlass"
-    },
-    "s": {
-      "type": "forge:ore_dict",
-      "ore": "string"
     }
   },
   "result": {

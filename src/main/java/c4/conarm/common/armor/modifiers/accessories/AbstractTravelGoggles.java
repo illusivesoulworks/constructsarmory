@@ -14,6 +14,7 @@
 package c4.conarm.common.armor.modifiers.accessories;
 
 import c4.conarm.client.models.accessories.ModelGoggles;
+import c4.conarm.lib.modifiers.IToggleable;
 import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.modifiers.AccessoryModifier;
 import c4.conarm.lib.modifiers.IAccessoryRender;
@@ -31,7 +32,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.utils.ModifierTagHolder;
 
-public abstract class AbstractTravelGoggles extends AccessoryModifier implements IAccessoryRender {
+public abstract class AbstractTravelGoggles extends AccessoryModifier implements IAccessoryRender, IToggleable {
 
     private static final String TAG_GOGGLES = "goggles";
 
@@ -79,6 +80,13 @@ public abstract class AbstractTravelGoggles extends AccessoryModifier implements
         GlStateManager.rotate(90, 0, -1, 0);
         model.render(entityLivingBaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         GlStateManager.popMatrix();
+    }
+
+    @Override
+    public boolean getToggleStatus(ItemStack stack) {
+        ModifierTagHolder modtag = ModifierTagHolder.getModifier(stack, getModifierIdentifier());
+        GogglesData data = modtag.getTagData(GogglesData.class);
+        return data.goggles;
     }
 
     @Override

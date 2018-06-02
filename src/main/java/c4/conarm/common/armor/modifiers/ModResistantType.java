@@ -40,7 +40,6 @@ import java.util.function.Function;
 public class ModResistantType extends ArmorModifierTrait {
 
     private static final float BASE_REDUCTION = 0.02F;
-    private static final float MAX_REDUCTION = 0.8F;
     private final EnchantmentProtection.Type type;
 
     public ModResistantType(String identifier, int color, EnchantmentProtection.Type type) {

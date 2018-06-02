@@ -2,7 +2,7 @@
   "type": "forge:ore_shapeless",
   "ingredients": [
     {
-      "item": "conarm:travel_belt"
+      "item": "conarm:travel_belt_base"
     },
     {
       "item": "minecraft:brewing_stand"

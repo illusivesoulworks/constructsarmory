@@ -1,0 +1,17 @@
+{
+  "armormodifier": "travel_slowfall_armor",
+  "text": [
+    {
+      "text": "Making your cloak more aerodynamic should help you fall slower and mitigate impact."
+    }
+  ],
+  "effects": [
+    "Wearer falls slower and does not suffer fall damage",
+    "Toggle slow falling on key press",
+    "Uses durability for active slow falling (even when on the ground)",
+    "Only 1 accessory per item"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

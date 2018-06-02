@@ -1,0 +1,20 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "rrr",
+    "rgr",
+    "rrr"
+  ],
+  "key": {
+    "r": {
+      "type": "forge:ore_dict",
+      "ore": "blockRedstone"
+    },
+    "g": {
+      "item": "conarm:gauntlet_mat"
+    }
+  },
+  "result": {
+    "item": "conarm:gauntlet_mat_speed"
+  }
+}

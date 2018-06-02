@@ -23,9 +23,9 @@ import slimeknights.tconstruct.library.Util;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemResistantMat extends ItemBase {
+public class ItemConarmMat extends ItemBase {
 
-    public ItemResistantMat() {
+    public ItemConarmMat() {
         this.setCreativeTab(TinkerRegistry.tabGeneral);
     }
 

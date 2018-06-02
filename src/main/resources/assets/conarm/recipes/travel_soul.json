@@ -1,24 +1,22 @@
 {
-  "type": "forge:ore_shapeless",
-  "ingredients": [
-    {
-      "item": "conarm:travel_goggles"
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " t ",
+    "glg",
+    " t "
+  ],
+  "key": {
+    "l": {
+      "item": "conarm:travel_goggles_base"
     },
-    {
+    "t": {
       "item": "minecraft:ghast_tear"
     },
-    {
-      "item": "minecraft:ghast_tear"
-    },
-    {
-      "type": "forge:ore_dict",
-      "ore": "dustGlowstone"
-    },
-    {
+    "g": {
       "type": "forge:ore_dict",
       "ore": "dustGlowstone"
     }
-  ],
+  },
   "result": {
     "item": "conarm:travel_soul"
   }

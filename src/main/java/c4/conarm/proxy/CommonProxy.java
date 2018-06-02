@@ -164,8 +164,15 @@ public class CommonProxy {
                         Ingredient.fromStacks(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.NIGHT_VISION)),
                         Ingredient.fromItem(Items.GOLDEN_CARROT),
                         Ingredient.fromItem(Items.FLINT_AND_STEEL),
-                        Ingredient.fromItem(ConstructsRegistry.travelGoggles)),
-                new ItemStack(ConstructsRegistry.travelNight)).setRegistryName("travel_night"));
+                        Ingredient.fromStacks(new ItemStack(ConstructsRegistry.travelGogglesBase))),
+                        new ItemStack(ConstructsRegistry.travelNight)).setRegistryName("travel_night"));
+        registry.register(new ShapelessPotionRecipe(NonNullList.from(Ingredient.EMPTY,
+                        Ingredient.fromStacks(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.INVISIBILITY)),
+                        Ingredient.fromItem(Items.GOLDEN_CARROT),
+                        Ingredient.fromItem(Items.ENDER_EYE),
+                        Ingredient.fromItem(Items.FERMENTED_SPIDER_EYE),
+                        Ingredient.fromStacks(new ItemStack(ConstructsRegistry.travelCloak))),
+                        new ItemStack(ConstructsRegistry.travelSneak)).setRegistryName("travel_sneak"));
     }
 
     @SubscribeEvent

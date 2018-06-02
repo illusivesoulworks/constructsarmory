@@ -1,0 +1,23 @@
+{
+  "armormodifier": "telekinetic_armor",
+  "text": [
+    {
+      "text": "Attaching this gauntlet of far reach should give you magical powers."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Specifically, you'll find that you can reach things from further away."
+    }
+  ],
+  "effects": [
+    "Increases reach distance",
+    "Can only be applied to chestplates",
+    "Cannot be applied with Powerful or Dexterous",
+    "Single use"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

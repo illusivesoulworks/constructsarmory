@@ -1,0 +1,17 @@
+{
+  "armormodifier": "dexterous_armor",
+  "text": [
+    {
+      "text": "Attaching this gauntlet of dexterity should give a general increase in attack speed."
+    }
+  ],
+  "effects": [
+    "Increases attack speed",
+    "Can only be applied to chestplates",
+    "Cannot be applied with Telekinetic or Powerful",
+    "Single use"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}
