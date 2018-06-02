@@ -7,6 +7,7 @@
   ],
   "effects": [
     "Places a lightsource on low light level",
+    "Can only be used on boots",
     "Costs durability"
   ],
   "demoArmor": [
