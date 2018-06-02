@@ -23,6 +23,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.common.MinecraftForge;
@@ -100,7 +101,7 @@ public class ModArmorLeveling extends ArmorModifierTrait {
     @Override
     public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
         if (damage > 0) {
-            addXp(armor, Math.max(1, (int)(damage / 4)), player);
+            addXp(armor, MathHelper.clamp((int) (damage / 4), 1, 100), player);
         }
         return newDamage;
     }
