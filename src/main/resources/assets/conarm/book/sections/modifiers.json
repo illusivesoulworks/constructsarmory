@@ -68,6 +68,10 @@
   },
   {
     "type": "armormodifier",
+    "data": "modifiers/high_stride_armor.json"
+  },
+  {
+    "type": "armormodifier",
     "data": "modifiers/frostwalker_armor.json"
   },
   {
