@@ -14,6 +14,8 @@
 package c4.conarm;
 
 import c4.conarm.debug.DebugCommand;
+import c4.conarm.integrations.tinkertoolleveling.CommandLevelArmor;
+import c4.conarm.integrations.tinkertoolleveling.ModArmorLeveling;
 import c4.conarm.proxy.CommonProxy;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
@@ -63,8 +65,11 @@ public class ConstructsArmory {
         FMLLog.log.log(Level.ERROR, "Invalid fingerprint detected! The file " + evt.getSource().getName() + " may have been tampered with. This version will NOT be supported by the author!");
     }
 
-//    @Mod.EventHandler
-//    public void serverLoad(FMLServerStartingEvent evt) {
-//        evt.registerServerCommand(new DebugCommand());
-//    }
+    @Mod.EventHandler
+    public void serverLoad(FMLServerStartingEvent evt) {
+        evt.registerServerCommand(new DebugCommand());
+        if (ModArmorLeveling.modArmorLeveling != null) {
+            evt.registerServerCommand(new CommandLevelArmor());
+        }
+    }
 }
