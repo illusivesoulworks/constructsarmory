@@ -17,6 +17,7 @@ import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.modifiers.AccessoryModifier;
+import c4.conarm.lib.modifiers.IToggleable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -53,7 +54,12 @@ public class ArmorTooltipBuilder {
                 continue;
             }
             if(modifier instanceof AccessoryModifier) {
-                tooltips.add(data.getColorString() + String.format(Util.translate("accessory.tooltip"), modifier.getTooltip(tag, false)));
+                tooltips.add(data.getColorString() + modifier.getTooltip(tag, false));
+                if (modifier instanceof IToggleable) {
+                    String key = ((IToggleable) modifier).getToggleStatus(stack) ? "accessory.toggle.active" : "accessory.toggle.inactive";
+                    tooltips.add(data.getColorString() + String.format(Util.translate("accessory.toggle.tooltip"), Util.translate(key)));
+                }
+                tooltips.add("");
                 continue;
             }
             toAdd.add(data.getColorString() + modifier.getTooltip(tag, false));
