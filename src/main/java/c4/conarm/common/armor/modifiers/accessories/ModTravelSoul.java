@@ -13,11 +13,9 @@
 
 package c4.conarm.common.armor.modifiers.accessories;
 
-import c4.conarm.client.fx.ParticleSoul;
+import c4.conarm.ConstructsArmory;
 import c4.conarm.common.armor.traits.TraitUtils;
 import c4.conarm.common.armor.utils.ArmorHelper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.Particle;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -53,18 +51,13 @@ public class ModTravelSoul extends AbstractTravelGoggles {
         ModifierTagHolder modtag = ModifierTagHolder.getModifier(armor, getModifierIdentifier());
         GogglesData data = modtag.getTagData(GogglesData.class);
         if (data.goggles) {
-            if (world.isRemote) {
-                int radius = 20;
-                BlockPos pos = player.getPosition();
-                List<Entity> entities = player.world.getEntitiesInAABBexcluding(player, new AxisAlignedBB(pos.getX() - radius, pos.getY() - radius, pos.getZ() - radius, pos.getX() + radius, pos.getY() + radius, pos.getZ() + radius), TraitUtils.IS_LIVING);
-                for (Entity entity : entities) {
-                    if (entity instanceof EntityLivingBase && random.nextInt(5) == 0) {
-                        Particle soul = new ParticleSoul(world, entity.posX, entity.posY + entity.height / 1.25D, entity.posZ, (float) Math.sqrt(((EntityLivingBase) entity).getHealth()));
-                        soul.setAlphaF(0.35F);
-                        Minecraft.getMinecraft().effectRenderer.addEffect(soul);
-                    }
-                }
-            } else {
+            int radius = 20;
+            BlockPos pos = player.getPosition();
+            List<Entity> entities = player.world.getEntitiesInAABBexcluding(player, new AxisAlignedBB(pos.getX() - radius, pos.getY() - radius, pos.getZ() - radius, pos.getX() + radius, pos.getY() + radius, pos.getZ() + radius), TraitUtils.IS_LIVING);
+            for (Entity entity : entities) {
+                ConstructsArmory.proxy.generateParticle(entity);
+            }
+            if (!world.isRemote && player.ticksExisted % 100 == 0) {
                 ArmorHelper.damageArmor(armor, DamageSource.GENERIC, 1, player, EntityEquipmentSlot.HEAD.getIndex());
             }
         }

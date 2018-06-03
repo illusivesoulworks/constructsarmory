@@ -37,6 +37,7 @@ import c4.conarm.common.blocks.BlockArmorStation;
 import c4.conarm.common.tileentities.TileArmorStation;
 import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
@@ -179,6 +180,8 @@ public class CommonProxy {
     public static void registerPotions(RegistryEvent.Register<Potion> evt) {
         evt.getRegistry().registerAll(TraitSuperhot.superhotPotion, TraitAquaspeed.aquaspeedPotion);
     }
+
+    public void generateParticle(Entity entity) {}
 
     private static void registerStencil(Item pattern, ArmorPart armorPart) {
         for(ArmorCore armorCore : ArmoryRegistry.getArmor()) {

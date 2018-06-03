@@ -13,6 +13,7 @@
 
 package c4.conarm.proxy;
 
+import c4.conarm.client.fx.ParticleSoul;
 import c4.conarm.client.gui.PreviewPlayer;
 import c4.conarm.common.ConstructsRegistry;
 import c4.conarm.common.armor.modifiers.ArmorModifiers;
@@ -29,9 +30,12 @@ import c4.conarm.lib.book.ArmoryBook;
 import c4.conarm.client.events.ClientArmorEvents;
 import com.google.common.collect.Maps;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
@@ -58,6 +62,7 @@ import slimeknights.tconstruct.tools.ToolClientEvents;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Random;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -69,6 +74,7 @@ public class ClientProxy extends CommonProxy {
     private static final String LOCATION_ArmorStation = "conarm:armorstation";
     private static final ModelResourceLocation locArmorForge = new ModelResourceLocation(LOCATION_ArmorForge, "normal");
     private static final ModelResourceLocation locArmorStation = new ModelResourceLocation(LOCATION_ArmorStation, "normal");
+    private static final Random random = new Random();
     public static final Map<String, String> modifierCache = Maps.newHashMap();
 
     @Override
@@ -83,7 +89,6 @@ public class ClientProxy extends CommonProxy {
     public void init(FMLInitializationEvent evt) {
         super.init(evt);
         ArmoryRegistryClient.registerArmorBuildInfo();
-        MinecraftForge.EVENT_BUS.register(new ClientArmorEvents());
         MinecraftForge.EVENT_BUS.register(new ClientArmorEvents());
     }
 
@@ -154,5 +159,14 @@ public class ClientProxy extends CommonProxy {
     public static void modelBake(ModelBakeEvent evt) {
         ToolClientEvents.replaceTableModel(locArmorForge, MODEL_ArmorForge, evt);
         ToolClientEvents.replaceTableModel(locArmorStation, MODEL_ArmorStation, evt);
+    }
+
+    @Override
+    public void generateParticle(Entity entity) {
+        if (entity instanceof EntityLivingBase && random.nextInt(5) == 0) {
+            Particle soul = new ParticleSoul(entity.world, entity.posX, entity.posY + entity.height / 1.25D, entity.posZ, (float) Math.sqrt(((EntityLivingBase) entity).getHealth()));
+            soul.setAlphaF(0.35F);
+            Minecraft.getMinecraft().effectRenderer.addEffect(soul);
+        }
     }
 }
