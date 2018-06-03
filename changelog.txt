@@ -15,6 +15,7 @@
         Updated Chinese localization (thanks to DYColdWind)
         Buffed Lightweight trait speed bonus
         Changed accessory tooltip, now shows toggle status for applicable accessories
+        Void damage no longer gives armor XP
     Fixes
         Fixed High Stride modifier not appearing in the in-game book
         Fixed armor XP breaking when hit by extremely high damage values (i.e. /kill)
