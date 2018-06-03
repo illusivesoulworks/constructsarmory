@@ -34,7 +34,7 @@ public class ConstructsArmory {
 
     public static final String MODID = "conarm";
     public static final String MODNAME = "Construct's Armory";
-    public static final String MODVER = "0.0.19-b";
+    public static final String MODVER = "0.0.20-b";
 
     @SidedProxy(clientSide = "c4.conarm.proxy.ClientProxy", serverSide = "c4.conarm.proxy.CommonProxy")
     public static CommonProxy proxy;
@@ -67,7 +67,7 @@ public class ConstructsArmory {
 
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent evt) {
-        evt.registerServerCommand(new DebugCommand());
+//        evt.registerServerCommand(new DebugCommand());
         if (ModArmorLeveling.modArmorLeveling != null) {
             evt.registerServerCommand(new CommandLevelArmor());
         }

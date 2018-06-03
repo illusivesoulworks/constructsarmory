@@ -1,3 +1,24 @@
+0.0.20-beta
+----------------------
+    Additions
+        Added Traveller's Goggles (Soul Sight) accessory - Allows the wearer to see nearby souls, only on helmets
+        Added Traveller's Cloak (Invisibility) accessory - Allows the wearer to turn invisible
+        Added Traveller's Cloak (Slow Fall) accessory - Slows falling on the wearer and negates fall damage
+        Added Traveller's Belt (Alchemy) accessory - Allows the wearer to store potions that can stack up to 4 times, only on leggings
+        Added Powerful modifier - Only on chestplates - Increases attack damage
+        Added Dexterous modifier - Only on chestplates - Increases attack speed
+        Added Telekinetic modifier - Only on chestplates - Increases reach distance
+        Added Glowing modifier - Only on boots - Uses durability to light up dark spots under you
+        Added new op command, /levelupArmor, for debugging leveling integration
+    Changes
+        Can now close the respective GUIs of accessories with the toggle keybind
+        Updated Chinese localization (thanks to DYColdWind)
+        Buffed Lightweight trait speed bonus
+        Changed accessory tooltip, now shows toggle status for applicable accessories
+    Fixes
+        Fixed High Stride modifier not appearing in the in-game book
+        Fixed armor XP breaking when hit by extremely high damage values (i.e. /kill)
+
 0.0.19-beta
 ----------------------
     Fixes
