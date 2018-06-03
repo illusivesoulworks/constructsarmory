@@ -100,7 +100,7 @@ public class ModArmorLeveling extends ArmorModifierTrait {
 
     @Override
     public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
-        if (damage > 0) {
+        if (damage > 0 && source != DamageSource.OUT_OF_WORLD) {
             addXp(armor, MathHelper.clamp((int) (damage / 4), 1, 100), player);
         }
         return newDamage;
