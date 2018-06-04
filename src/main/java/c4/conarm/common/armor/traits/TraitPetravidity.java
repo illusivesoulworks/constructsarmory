@@ -14,14 +14,15 @@
 package c4.conarm.common.armor.traits;
 
 import c4.conarm.common.armor.utils.ArmorHelper;
+import c4.conarm.lib.armor.ArmorModifications;
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 public class TraitPetravidity extends AbstractArmorTrait {
@@ -31,19 +32,17 @@ public class TraitPetravidity extends AbstractArmorTrait {
     }
 
     @Override
-    public void onItemPickup(ItemStack armor, EntityItem item, EntityItemPickupEvent evt) {
-        ItemStack stack = item.getItem();
-        int toRepair = ToolHelper.getMaxDurability(armor) - ToolHelper.getCurrentDurability(armor);
-        if (toRepair > 0 && stack.getItem() == Item.getItemFromBlock(Blocks.STONE)) {
-            int count = stack.getCount();
-            if (toRepair >= count) {
-                ArmorHelper.healArmor(armor, count, evt.getEntityPlayer(), EntityLiving.getSlotForItemStack(armor).getIndex());
-                item.setDead();
-            } else {
-                ArmorHelper.healArmor(armor, toRepair, evt.getEntityPlayer(), EntityLiving.getSlotForItemStack(armor).getIndex());
-                item.getItem().shrink(toRepair);
+    public ArmorModifications getModifications(EntityPlayer player, ArmorModifications mods, ItemStack armor, DamageSource source, double damage, int slot) {
+        BlockPos pos = player.getPosition();
+        for(BlockPos candidate : new BlockPos[]{pos, pos.up(), pos.north(), pos.east(), pos.south(), pos.west(), pos.down()}) {
+            if (player.world.getBlockState(candidate).getMaterial() == Material.ROCK) {
+                mods.addEffectiveness(0.2F);
+                if (random.nextFloat() < 0.1F && ToolHelper.getCurrentDurability(armor) < ToolHelper.getMaxDurability(armor)) {
+                    ArmorHelper.healArmor(armor, 3, player, EntityLiving.getSlotForItemStack(armor).getIndex());
+                }
+                return mods;
             }
-            evt.setCanceled(true);
         }
+        return mods;
     }
 }
