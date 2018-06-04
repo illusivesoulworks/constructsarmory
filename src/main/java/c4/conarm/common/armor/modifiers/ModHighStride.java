@@ -13,11 +13,14 @@
 
 package c4.conarm.common.armor.modifiers;
 
+import c4.conarm.common.network.SetStepHeightPacket;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import slimeknights.tconstruct.common.TinkerNetwork;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
@@ -31,6 +34,15 @@ public class ModHighStride extends ArmorModifierTrait {
     public void onArmorTick(ItemStack armor, World world, EntityPlayer player) {
         NBTTagCompound tag = TinkerUtil.getModifierTag(armor, identifier);
         ModifierNBT data = ModifierNBT.readTag(tag);
-        player.stepHeight = data.level + 0.6F;
+        if (player instanceof EntityPlayerMP) {
+            TinkerNetwork.sendTo(new SetStepHeightPacket(data.level + 0.6F), (EntityPlayerMP) player);
+        }
+    }
+
+    @Override
+    public void onArmorChanged(ItemStack armor, EntityPlayer player, int slot) {
+        if (player instanceof EntityPlayerMP) {
+            TinkerNetwork.sendTo(new SetStepHeightPacket(0.6F), (EntityPlayerMP) player);
+        }
     }
 }
