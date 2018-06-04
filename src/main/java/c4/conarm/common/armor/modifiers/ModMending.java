@@ -50,10 +50,8 @@ public class ModMending extends ArmorModifierTrait {
 
         if(!world.isRemote && entity instanceof EntityPlayer){
             EntityPlayer player = (EntityPlayer) entity;
-            if (!player.inventory.armorInventory.contains(armor)) {
-                if (needsRepair(armor) && useXp(armor, world)) {
-                    ArmorHelper.healArmor(armor, getDurabilityPerXP(armor), player, EntityLiving.getSlotForItemStack(armor).getIndex());
-                }
+            if (needsRepair(armor) && useXp(armor, world)) {
+                ArmorHelper.healArmor(armor, getDurabilityPerXP(armor), player, EntityLiving.getSlotForItemStack(armor).getIndex());
             }
         }
     }

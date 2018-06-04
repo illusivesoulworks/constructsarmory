@@ -8,7 +8,6 @@
   "effects": [
     "Stores collected XP",
     "Slowly repairs the armor over time",
-    "Have to be not wearing the armor to repair",
     "Multiple levels"
   ],
   "demoArmor": [
