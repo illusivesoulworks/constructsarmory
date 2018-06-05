@@ -46,7 +46,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
@@ -63,7 +62,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreIngredient;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.commons.lang3.tuple.Pair;
 import slimeknights.tconstruct.library.TinkerRegistry;
@@ -74,15 +72,12 @@ import slimeknights.tconstruct.tools.TinkerTools;
 import slimeknights.tconstruct.tools.common.TableRecipeFactory;
 import slimeknights.tconstruct.tools.common.item.ItemBlockTable;
 
-import javax.annotation.Nonnull;
-import java.util.Arrays;
 import java.util.Locale;
 
 @Mod.EventBusSubscriber
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent evt) {
-
         ConstructsNetwork.init();
         ArmorMaterials.registerArmorMaterialStats();
     }

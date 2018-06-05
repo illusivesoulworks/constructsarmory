@@ -13,6 +13,7 @@
 
 package c4.conarm.client.gui;
 
+import c4.conarm.common.ConfigHandler;
 import c4.conarm.common.inventory.ContainerArmorForge;
 import c4.conarm.common.inventory.ContainerArmorStation;
 import c4.conarm.lib.ArmoryRegistry;
@@ -110,7 +111,6 @@ public class GuiArmorStation extends GuiTinkerStation
     private static final GuiElement BeamRight = new GuiElement(131, 180, 2, 7);
     private static final GuiElementScalable BeamCenter = new GuiElementScalable(2, 180, 129, 7);
 
-    public static final int Column_Count = 5;
     private static final int Table_slot_count = 6;
 
     protected GuiElement buttonDecorationTop = SlotSpaceTop;
@@ -145,20 +145,23 @@ public class GuiArmorStation extends GuiTinkerStation
     public GuiArmorStation(InventoryPlayer playerInv, World world, BlockPos pos, TileArmorStation tile) {
         super(world, pos, (ContainerTinkerStation) tile.createContainer(playerInv, world, pos));
 
-        buttons = new GuiButtonsArmorStation(this, inventorySlots);
+        if (!ConfigHandler.compactView) {
+            armorPreview = new GuiPreviewPanel(this, inventorySlots, 106, this.ySize - 16, new PreviewPlayer(world, Minecraft.getMinecraft().player));
+            this.addModule(armorPreview);
+            armorPreview.yOffset = 5;
+            armorPreview.setCaption(Util.translate("gui.armorstation.preview"));
+            armorPreview.setText();
+        }
+
+        buttons = new GuiButtonsArmorStation(this, inventorySlots, armorPreview != null ? 5 : 1);
         this.addModule(buttons);
         armorInfo = new GuiInfoPanel(this, inventorySlots);
         this.addModule(armorInfo);
         traitInfo = new GuiInfoPanel(this, inventorySlots);
         this.addModule(traitInfo);
-        armorPreview = new GuiPreviewPanel(this, inventorySlots, 106, this.ySize - 16, new PreviewPlayer(world, Minecraft.getMinecraft().player));
-        this.addModule(armorPreview);
 
         armorInfo.yOffset = 5;
         traitInfo.yOffset = armorInfo.getYSize() + 9;
-        armorPreview.yOffset = 5;
-        armorPreview.setCaption(Util.translate("gui.armorstation.preview"));
-        armorPreview.setText();
 
         this.ySize = 174;
 
@@ -183,8 +186,11 @@ public class GuiArmorStation extends GuiTinkerStation
         armorInfo.yOffset = beamC.h + panelDecorationL.h;
         traitInfo.xOffset = armorInfo.xOffset;
         traitInfo.yOffset = armorInfo.yOffset + armorInfo.getYSize() + 4;
-        armorPreview.yOffset = beamC.h + buttonDecorationTop.h * 3 + buttons.getYSize();
-        armorPreview.xOffset = -284;
+
+        if (armorPreview != null) {
+            armorPreview.yOffset = beamC.h + buttonDecorationTop.h * 3 + buttons.getYSize();
+            armorPreview.xOffset = -284;
+        }
 
         for(GuiModule module : modules) {
             try {
@@ -211,8 +217,11 @@ public class GuiArmorStation extends GuiTinkerStation
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         super.drawScreen(mouseX, mouseY, partialTicks);
-        armorPreview.oldMouseX = (float)mouseX;
-        armorPreview.oldMouseY = (float)mouseY;
+
+        if (armorPreview != null) {
+            armorPreview.oldMouseX = (float) mouseX;
+            armorPreview.oldMouseY = (float) mouseY;
+        }
     }
 
     public Set<ArmorCore> getBuildableItems() {
@@ -338,7 +347,9 @@ public class GuiArmorStation extends GuiTinkerStation
                 armorInfo.setText();
             }
 
-            armorPreview.givePreviewStack(armorStack);
+            if (armorPreview != null) {
+                armorPreview.givePreviewStack(armorStack);
+            }
             traitInfo.setCaption(Util.translate("gui.toolstation.traits"));
 
             List<String> mods = Lists.newLinkedList();
@@ -367,7 +378,10 @@ public class GuiArmorStation extends GuiTinkerStation
             traitInfo.setText(mods, tips);
         }
         else if(currentInfo.armor.isEmpty()) {
-            armorPreview.resetPreview();
+
+            if (armorPreview != null) {
+                armorPreview.resetPreview();
+            }
             armorInfo.setCaption(Util.translate("gui.toolstation.repair"));
             armorInfo.setText();
 
@@ -561,6 +575,9 @@ public class GuiArmorStation extends GuiTinkerStation
         }
         for(Object o : buttonList) {
             GuiButton button = (GuiButton) o;
+            if (armorPreview == null && buttonList.get(buttonList.size() - 1) == button) {
+                continue;
+            }
             buttonDecorationTop.draw(button.x, button.y - buttonDecorationTop.h);
             buttonDecorationBot.draw(button.x, button.y + button.height);
             buttonDecorationTop.draw(button.x, button.y + button.height + buttonDecorationTop.h);
@@ -631,7 +648,9 @@ public class GuiArmorStation extends GuiTinkerStation
     protected void metal() {
         armorInfo.metal();
         traitInfo.metal();
-        armorPreview.metal();
+        if (armorPreview != null) {
+            armorPreview.metal();
+        }
 
         buttonDecorationTop = SlotSpaceTop.shift(SlotSpaceTop.w * 2, 0);
         buttonDecorationBot = SlotSpaceBottom.shift(SlotSpaceBottom.w * 2, 0);
@@ -648,7 +667,9 @@ public class GuiArmorStation extends GuiTinkerStation
     protected void wood() {
         armorInfo.wood();
         traitInfo.wood();
-        armorPreview.wood();
+        if (armorPreview != null) {
+            armorPreview.wood();
+        }
 
         buttonDecorationTop = SlotSpaceTop.shift(SlotSpaceTop.w, 0);
         buttonDecorationBot = SlotSpaceBottom.shift(SlotSpaceBottom.w, 0);

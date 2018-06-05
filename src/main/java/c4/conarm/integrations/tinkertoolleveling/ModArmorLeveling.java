@@ -13,6 +13,7 @@
 
 package c4.conarm.integrations.tinkertoolleveling;
 
+import c4.conarm.common.ConfigHandler;
 import c4.conarm.lib.events.ArmoryEvent;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import c4.conarm.lib.tinkering.ArmorBuilder;
@@ -29,7 +30,6 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -42,7 +42,6 @@ import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.toolleveling.TinkerToolLeveling;
 import slimeknights.toolleveling.ToolLevelNBT;
-import slimeknights.toolleveling.config.Config;
 
 import java.awt.*;
 import java.util.List;
@@ -57,11 +56,21 @@ public class ModArmorLeveling extends ArmorModifierTrait {
 
     public static ModArmorLeveling modArmorLeveling;
 
+    public static int newArmorMinModifiers;
+    public static int maximumLevels;
+    public static int baseXP;
+    public static float levelMultiplier;
+
     public ModArmorLeveling() {
         super("leveling", 0xffffff);
         aspects.clear();
         addAspects(new ModifierAspect.DataAspect(this));
         MinecraftForge.EVENT_BUS.register(this);
+
+        newArmorMinModifiers = ConfigHandler.leveling.newArmorMinModifiers;
+        maximumLevels = ConfigHandler.leveling.maximumLevels;
+        baseXP = ConfigHandler.leveling.baseXP;
+        levelMultiplier = ConfigHandler.leveling.levelMultiplier;
     }
 
     @SubscribeEvent
@@ -74,7 +83,7 @@ public class ModArmorLeveling extends ArmorModifierTrait {
         NBTTagCompound baseTag = evt.armor.buildTag(materials);
 
         int modifiers = baseTag.getInteger(Tags.FREE_MODIFIERS);
-        int modifierDelta = Config.getStartingModifiers() - modifiers;
+        int modifierDelta = getStartingModifiers() - modifiers;
 
         NBTTagCompound toolTag = TagUtil.getToolTag(evt.tag);
         modifiers = toolTag.getInteger(Tags.FREE_MODIFIERS);
@@ -136,11 +145,11 @@ public class ModArmorLeveling extends ArmorModifierTrait {
         ToolLevelNBT data = getLevelData(modifierTag);
         data.xp += amount;
 
-        if(!Config.canLevelUp(data.level)) {
+        if(!canLevelUp(data.level)) {
             return;
         }
 
-        int xpForLevelup = getXpForLevelup(data.level, armor);
+        int xpForLevelup = getXpForLevelup(data.level);
 
         boolean leveledUp = false;
         if(data.xp >= xpForLevelup) {
@@ -169,11 +178,11 @@ public class ModArmorLeveling extends ArmorModifierTrait {
         }
     }
 
-    public int getXpForLevelup(int level, ItemStack tool) {
+    public int getXpForLevelup(int level) {
         if(level <= 1) {
-            return Config.getBaseXpForTool(tool.getItem()) / 5;
+            return getBaseXp();
         }
-        return (int) ((float) getXpForLevelup(level - 1, tool) * Config.getLevelMultiplier());
+        return (int) ((float) getXpForLevelup(level - 1) * getLevelMultiplier());
     }
 
     private ToolLevelNBT getLevelData(ItemStack itemStack) {
@@ -184,14 +193,30 @@ public class ModArmorLeveling extends ArmorModifierTrait {
         return new ToolLevelNBT(modifierNBT);
     }
 
+    public static int getBaseXp() {
+        return baseXP;
+    }
+
+    public static float getLevelMultiplier() {
+        return levelMultiplier;
+    }
+
+    public static int getStartingModifiers() {
+        return newArmorMinModifiers;
+    }
+
+    public static boolean canLevelUp(int currentLevel) {
+        return maximumLevels < 0 || maximumLevels >= currentLevel;
+    }
+
     private static class Tooltips {
 
         public static void addTooltips(ItemStack itemStack, List<String> tooltips) {
             NBTTagCompound tag = TinkerUtil.getModifierTag(itemStack, modArmorLeveling.getModifierIdentifier());
             if(!tag.hasNoTags()) {
                 ToolLevelNBT data = new ToolLevelNBT(tag);
-                if(Config.canLevelUp(data.level)) {
-                    tooltips.add(1, getXpToolTip(data.xp, modArmorLeveling.getXpForLevelup(data.level, itemStack)));
+                if(canLevelUp(data.level)) {
+                    tooltips.add(1, getXpToolTip(data.xp, modArmorLeveling.getXpForLevelup(data.level)));
                 }
                 tooltips.add(1, getLevelTooltip(data.level));
             }

@@ -63,7 +63,7 @@ public class CommandLevelArmor extends CommandBase {
             }
             else {
                 ToolLevelNBT data = new ToolLevelNBT(TinkerUtil.getModifierTag(itemStack, ModArmorLeveling.modArmorLeveling.getModifierIdentifier()));
-                xp = ModArmorLeveling.modArmorLeveling.getXpForLevelup(data.level, itemStack);
+                xp = ModArmorLeveling.modArmorLeveling.getXpForLevelup(data.level);
             }
             ModArmorLeveling.modArmorLeveling.addXp(itemStack, xp, player);
         }

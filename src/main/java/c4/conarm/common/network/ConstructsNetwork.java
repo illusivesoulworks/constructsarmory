@@ -13,6 +13,7 @@
 
 package c4.conarm.common.network;
 
+import c4.conarm.integrations.tinkertoolleveling.ConfigSyncLevelingPacket;
 import slimeknights.tconstruct.common.TinkerNetwork;
 
 public class ConstructsNetwork {
@@ -22,5 +23,6 @@ public class ConstructsNetwork {
         TinkerNetwork.instance.registerPacket(ArmorStationTextPacket.class);
         TinkerNetwork.instance.registerPacketServer(AccessoryTogglePacket.class);
         TinkerNetwork.instance.registerPacketClient(SetStepHeightPacket.class);
+        TinkerNetwork.instance.registerPacketClient(ConfigSyncLevelingPacket.class);
     }
 }
