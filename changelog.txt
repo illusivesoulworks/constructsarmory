@@ -1,3 +1,17 @@
+0.0.21-rc1
+----------------------
+    Additions
+        Added config file with options:
+            Spawn With Book - Set to true to give armory book on first spawn
+            Compact GUI - Set to true to remove the armor preview (#47)
+            Leveling - Basically a separate config from the base tool leveling config to modify the armor leveling stuff
+    Changes
+        Mending modifier can now repair anywhere in the inventory, even while being worn
+        Petravidity trait behavior has changed, now when the player is around stone it makes armor more effective and a chance to heal armor durability
+        Bouncy trait on boots now damages the armor on every bounce
+    Fixes
+        Fixed High Stride step assist becoming permanent (#54)
+
 0.0.20-beta
 ----------------------
     Additions
