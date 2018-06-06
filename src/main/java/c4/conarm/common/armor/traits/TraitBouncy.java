@@ -13,6 +13,8 @@
 
 package c4.conarm.common.armor.traits;
 
+import c4.conarm.common.armor.utils.ArmorHelper;
+import c4.conarm.common.network.ArmorBouncedPacket;
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,6 +22,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import slimeknights.tconstruct.common.TinkerNetwork;
@@ -53,13 +56,14 @@ public class TraitBouncy extends AbstractArmorTrait {
             evt.setDamageMultiplier(0);
             player.fallDistance = 0;
             if(isClient) {
+                double motionY = player.motionY;
                 player.motionY *= -0.9;
                 player.isAirBorne = true;
                 player.onGround = false;
                 double f = 0.91d + 0.04d;
                 player.motionX /= f;
                 player.motionZ /= f;
-                TinkerNetwork.sendToServer(new BouncedPacket());
+                TinkerNetwork.sendToServer(new ArmorBouncedPacket(Math.abs(motionY)));
             }
             else {
                 evt.setCanceled(true);

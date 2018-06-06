@@ -24,5 +24,6 @@ public class ConstructsNetwork {
         TinkerNetwork.instance.registerPacketServer(AccessoryTogglePacket.class);
         TinkerNetwork.instance.registerPacketClient(SetStepHeightPacket.class);
         TinkerNetwork.instance.registerPacketClient(ConfigSyncLevelingPacket.class);
+        TinkerNetwork.instance.registerPacketServer(ArmorBouncedPacket.class);
     }
 }
