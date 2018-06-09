@@ -15,9 +15,11 @@ package c4.conarm.common.armor.traits;
 
 import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class TraitAutoforge extends AbstractArmorTrait {
 
@@ -26,13 +28,23 @@ public class TraitAutoforge extends AbstractArmorTrait {
     }
 
     @Override
-    public int onArmorDamage(ItemStack armor, DamageSource source, int damage, int newDamage, EntityPlayer player, int slot) {
+    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
+
         if (source.isFireDamage()) {
             if (source == DamageSource.LAVA) {
-                ArmorHelper.healArmor(armor, 3, player, slot);
+                ArmorHelper.healArmor(armor, 3, player, EntityLiving.getSlotForItemStack(armor).getIndex());
             } else {
-                ArmorHelper.healArmor(armor, 1, player, slot);
+                ArmorHelper.healArmor(armor, 1, player, EntityLiving.getSlotForItemStack(armor).getIndex());
             }
+        }
+
+        return newDamage;
+    }
+
+    @Override
+    public int onArmorDamage(ItemStack armor, DamageSource source, int damage, int newDamage, EntityPlayer player, int slot) {
+
+        if (source.isFireDamage()) {
             return 0;
         }
         return super.onArmorDamage(armor, source, damage, newDamage, player, slot);
