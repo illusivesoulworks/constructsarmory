@@ -44,6 +44,7 @@ import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.common.util.EnumHelper;
@@ -128,9 +129,9 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
 
     //Fractional armor values don't get calculated properly so we call this method to compensate
     protected double getArmorDifference(float armor, EntityLivingBase entity) {
-        double actualTotalArmor = entity.getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue();
-        double totalArmor = entity.getTotalArmorValue();
-        return armor - ((actualTotalArmor - armor) - (totalArmor - armor));
+        double currentArmor = entity.getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue();
+        int targetArmor = MathHelper.floor(entity.getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue() - armor);
+        return currentArmor - targetArmor;
     }
 
     @Override
