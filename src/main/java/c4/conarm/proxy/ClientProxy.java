@@ -67,8 +67,6 @@ import java.util.Random;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
 
-    private static final ResourceLocation MODEL_ArmorForge = new ResourceLocation(ConstructsArmory.MODID, "block/armorforge");
-    private static final ResourceLocation MODEL_ArmorStation = new ResourceLocation(ConstructsArmory.MODID, "block/armorstation");
     private static final ArmorModelLoader loader = new ArmorModelLoader();
     private static final String LOCATION_ArmorForge = "conarm:armorforge";
     private static final String LOCATION_ArmorStation = "conarm:armorstation";
@@ -157,8 +155,8 @@ public class ClientProxy extends CommonProxy {
 
     @SubscribeEvent (priority = EventPriority.LOW)
     public static void modelBake(ModelBakeEvent evt) {
-        ToolClientEvents.replaceTableModel(locArmorForge, MODEL_ArmorForge, evt);
-        ToolClientEvents.replaceTableModel(locArmorStation, MODEL_ArmorStation, evt);
+        ToolClientEvents.replaceTableModel(locArmorForge, evt);
+        ToolClientEvents.replaceTableModel(locArmorStation, evt);
     }
 
     @Override

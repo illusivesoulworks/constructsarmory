@@ -5,13 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
 ## [Unreleased]
+### Fixed
+- Autoforge trait not repairing armor on fire [#57](https://github.com/TheIllusiveC4/ConstructsArmory/issues/57)
+- Armor taking double durability damage
+- NoSuchMethodError crash with Tinkers' Construct 1.12.2-2.10.1.87 [#60](https://github.com/TheIllusiveC4/ConstructsArmory/issues/60)
 
-## [0.0.21-rc1] - 2018-06-06
+## [0.0.21-rc1] - 2018.06.06
 ### Added
-- Added config file
-- Added Spawn With Book config option - Set to true to give armory book on first spawn
-- Added Compact GUI config option - Set to true to remove the armor preview [#47](https://github.com/TheIllusiveC4/ConstructsArmory/issues/47)
-- Added Leveling config options - Basically a separate config from the base tool leveling config to modify the armor leveling stuff
+- Spawn With Book config option - Set to true to give armory book on first spawn
+- Compact GUI config option - Set to true to remove the armor preview [#47](https://github.com/TheIllusiveC4/ConstructsArmory/issues/47)
+- Leveling config options - Basically a separate config from the base tool leveling config to modify the armor leveling stuff
 
 ### Changed
 - Mending modifier can now repair anywhere in the inventory
@@ -41,12 +44,12 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 - Void damage no longer gives armor XP
 
 ### Fixed
-- Fixed High Stride modifier not appearing in the in-game book
-- Fixed armor XP breaking when hit by extremely high damage values (i.e. /kill)
+- High Stride modifier not appearing in the in-game book
+- Armor XP breaking when hit by extremely high damage values (i.e. /kill)
 
 ## [0.0.19-beta] - 2018.05.22
 ### Fixed
-- Fixed crashing when taking damage from Guardians while wearing Rough armor [#43](https://github.com/TheIllusiveC4/ConstructsArmory/issues/43)
+- Crashing when taking damage from Guardians while wearing Rough armor [#43](https://github.com/TheIllusiveC4/ConstructsArmory/issues/43)
 
 ## [0.0.18-beta] - 2018.05.21
 ### Added
@@ -59,9 +62,9 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 - Traveller's Goggles zooms less and smoother [#42](https://github.com/TheIllusiveC4/ConstructsArmory/issues/42)
 - Shielding trait works on more magical attacks
 ### Fixed
-- Fixed Creative modifier not working on armor pieces [#39](https://github.com/TheIllusiveC4/ConstructsArmory/issues/39)
-- Fixed Calcic trait not working in Survival [#37](https://github.com/TheIllusiveC4/ConstructsArmory/issues/37)
-- Fixed various GUI problems [#38](https://github.com/TheIllusiveC4/ConstructsArmory/issues/38) [#41](https://github.com/TheIllusiveC4/ConstructsArmory/issues/41)
+- Creative modifier not working on armor pieces [#39](https://github.com/TheIllusiveC4/ConstructsArmory/issues/39)
+- Calcic trait not working in Survival [#37](https://github.com/TheIllusiveC4/ConstructsArmory/issues/37)
+- Various GUI problems [#38](https://github.com/TheIllusiveC4/ConstructsArmory/issues/38) [#41](https://github.com/TheIllusiveC4/ConstructsArmory/issues/41)
 
 ## [0.0.17-beta] - 2018.05.18
 ### Added
@@ -89,10 +92,10 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 - Lowered the required modifiers for accessories from 2 to 1
 - Armor Station (not Armor Forge!) now allows you to mix materials and replace parts, but no longer can apply modifiers
 ### Fixed
-- Fixed Reinforced modifier not appearing on armor models
-- Fixed unrelated items appearing in the armor preview panels
-- Fixed armor result disappearing when crafting in the GUI [#30](https://github.com/TheIllusiveC4/ConstructsArmory/issues/30)
-- Fixed armor renaming not working properly
+- Reinforced modifier not appearing on armor models
+- Unrelated items appearing in the armor preview panels
+- Armor result disappearing when crafting in the GUI [#30](https://github.com/TheIllusiveC4/ConstructsArmory/issues/30)
+- Armor renaming not working properly
 ### Removed
 - Armor kits
         
@@ -103,8 +106,8 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 - Miscellaneous code cleanup
 - Separated accessories and modifiers in the in-game book
 ### Fixed
-- Fixed error related to the Embossment model loader
-- Fixed armor page in the in-game book
+- Error related to the Embossment model loader
+- Armor page in the in-game book
 
 ## [0.0.14-alpha] - 2018.05.11
 ### Added
@@ -120,11 +123,11 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 - Changed Steady trait calculations, knockback on attackers is increased
 - Shielding trait for Lead is now only on the Core piece
 ### Fixed
-- Fixed polished modifier not working
+- Polished modifier not working
 
 ## [0.0.13-alpha] - 2018.04.23
 ### Fixed
-- Fixed crash on dedicated server boot
+- Crash on dedicated server boot
 
 ## [0.0.12-alpha] - 2018.04.23
 ### Added
@@ -137,10 +140,10 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 - Broken armor no longer renders when worn by players
 - Tooltip now says "Accessory: ___" to indicate accessory attachments on armor
 ### Fixed
-- Scaled armor up a little bit to prevent clipping some player's skins (hopefully it's scaled up enough to prevent most cases)
-- Fixed crashing when using Manyullyn armor's Prideful trait
-- Fixed armor applying defense values and traits even when the armor is broken
-- Fixed fractional armor values not displaying and calculating correctly
+- Armor clipping some player's skins (hopefully it's scaled up enough to prevent most cases)
+- Crashing when using Manyullyn armor's Prideful trait
+- Armor applying defense values and traits even when the armor is broken
+- Fractional armor values not displaying and calculating correctly
 
 ## [0.0.11-alpha] - 2018.04.12
 ### Added
@@ -158,7 +161,7 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 - Armor Forge recipe has been changed to accommodate the addition of the armor station
 - Armor Forge texture has been updated
 ### Fixed
-- Fixed Traveller's Knapsack and Traveller's Belt deleting their inventories upon modifying the armor they're attached to
+- Traveller's Knapsack and Traveller's Belt deleting their inventories upon modifying the armor they're attached to
 
 ## [0.0.9-alpha] - 2018.03.25
 ### Added
@@ -168,7 +171,7 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 ### Changed
 - Adjusted armor toughness calculations to more closely mimic vanilla mechanics
 ### Fixed
-- Fixed potential issues with armor abilities staying on the player after removing armor
+- Potential issues with armor abilities staying on the player after removing armor
 
 ## [0.0.8-alpha] - 2018.03.09
 ### Added
@@ -178,12 +181,12 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 - Following the previous change, changes have been made to the maximum values for the Speedy and Resistant(s) modifiers. Everything considered, they are fairly more expensive now. Also, this could cause some funky behavior for your already modified armor so just remake it if that happens.
 - Updated some textures.
 ### Fixed
-- Fixed certain TCon modifiers being unavailable due to material conflicts
-- Fixed End armor being listed multiple times in JEI
+- Certain TCon modifiers being unavailable due to material conflicts
+- End armor being listed multiple times in JEI
         
 ## [0.0.7.1-alpha] - 2018.03.02
 ### Fixed
-- Fixed server crash due to client-side coding
+- Server crash due to client-side coding
 
 ## [0.0.7-alpha] - 2018.03.01
 ### Added
@@ -199,7 +202,7 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
     - Toughness is less common on materials, but materials that do have it generally have more toughness than before.
 - Changed a lot of the internal names for modifiers/traits. This was done to fix current compatibility issues with other mods that add modifiers/traits with the same name, and to prevent future issues from occurring. This will cause all current armor to lose most of their traits/modifiers.
 ### Fixed
-- Fixed a small memory leak issue with the dynamic textures
+- Small memory leak issue with the dynamic textures
 
 ## [0.0.6-alpha] - 2018.02.26
 ### Added
@@ -207,7 +210,7 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 ### Changed
 - Complete rendering refactor, minimal to no FPS drops now when rendering the armor. This also fixes some small, weird graphical glitches that happen with the armor sometimes.
 ### Fixed
-- Fixed armor modifiers being called the original TCon modifier name in the in-game book
+- Armor modifiers being called the original TCon modifier name in the in-game book
 
 ## [0.0.5-alpha] - 2018.02.24
 ### Added
@@ -215,8 +218,8 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 ### Changed
 - Updated Tinkers' Construct dependency to 2.9.1 and up
 ### Fixed
-- Fixed tool modifiers being replaced by their armor modifier equivalent (applies to Parasitic/Necrotic, Emerald, Mending Moss, maybe more. Best idea is to just remake your tools if you're using this mod.)
-- Fixed armor models rendering oddly on armor stands
+- Tool modifiers being replaced by their armor modifier equivalent (applies to Parasitic/Necrotic, Emerald, Mending Moss, maybe more. Best idea is to just remake your tools if you're using this mod.)
+- Armor models rendering oddly on armor stands
 
 ## [0.0.4-alpha] - 2018.02.21
 ### Added
@@ -225,8 +228,7 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 - Emerald modifier now also raises an armor piece's defense points to 2 if it is lower than that
 - Ecological trait now works even if you're not wearing the armor, but received a slight nerf to its recovery speed in exchange
 ### Fixed
-- Fixed crashing when loaded with FTBUtilities
-- Miscellaneous code cleanup
+- Crashing when loaded with FTBUtilities
 
 ## [0.0.3-alpha] - 2018.02.19
 ### Added
@@ -240,10 +242,10 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 - Diamond modifier - Adds durability and stats
 - Emerald modifier - Adds durability
 ### Fixed
-- Fixed core and plate material stats being switched when crafting the armor (you'll need to remake any for the proper stats)
+- Core and plate material stats being switched when crafting the armor (you'll need to remake any for the proper stats)
 
 ## [0.0.2-alpha] - 2018.02.18
 ### Fixed
-- Fixed potential crashes with the unused modifier code
+- Potential crashes with the unused modifier code
     
 ## [0.0.1-alpha] - 2018.02.18
