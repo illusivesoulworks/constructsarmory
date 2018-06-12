@@ -4,10 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
-## [Unreleased]
+## [0.0.23-rc3] - 2018.06.12
 ### Changed
-- License for Construct's Armory to LGPLv3
-
+- License for Construct's Armory changed from GPLv3 to LGPLv3
+- Updated Tinkers' Construct dependency to 1.12.2-2.10.1.87
+- Modifier model texture code now determined by modifier rather than armor, this should be the correct abstraction to allow for add-on modifiers to show up correctly but I really have no idea so if you're an add-on developer and you want to add a modifier and nothing works for you as is, contact me please.
 
 ## [0.0.22-rc2] - 2018.06.11
 ### Fixed
