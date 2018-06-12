@@ -165,12 +165,6 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
     public abstract String getAppearanceName();
 
     @SideOnly(Side.CLIENT)
-    public String getArmorModifierLocation()
-    {
-        return "conarm:models/modifiers/mod";
-    }
-
-    @SideOnly(Side.CLIENT)
     public String getArmorModelTexture(String type)
     {
         return String.format("%s_%s", "conarm:models/armor/armor", type);

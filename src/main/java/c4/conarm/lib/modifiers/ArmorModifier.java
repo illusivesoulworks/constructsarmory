@@ -13,8 +13,10 @@
 
 package c4.conarm.lib.modifiers;
 
+import c4.conarm.ConstructsArmory;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.tinkering.TinkersArmor;
+import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.utils.RecipeMatchHolder;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
@@ -29,7 +31,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.PriorityQueue;
 
-public abstract class ArmorModifier extends ToolModifier {
+public abstract class ArmorModifier extends ToolModifier implements IArmorModelModifier {
 
     public ArmorModifier(String identifier, int color) {
         super(identifier + "_armor", color);

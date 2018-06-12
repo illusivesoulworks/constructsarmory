@@ -14,6 +14,8 @@
 package c4.conarm.lib.client;
 
 import c4.conarm.lib.materials.ArmorMaterialType;
+import c4.conarm.lib.modifiers.ArmorModifier;
+import c4.conarm.lib.modifiers.IArmorModelModifier;
 import c4.conarm.lib.tinkering.TinkersArmor;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
@@ -147,12 +149,15 @@ public class DynamicTextureHelper {
         }
 
         for (IModifier modifier : modifiers) {
+
             TextureMap map = Minecraft.getMinecraft().getTextureMapBlocks();
             String loc;
             if (modifier instanceof IArmorMaterialTexture) {
                 loc = ((IArmorMaterialTexture) modifier).getBaseTexture();
+            } else if (modifier instanceof IArmorModelModifier){
+                loc = String.format("%s_%s", ((IArmorModelModifier) modifier).getModelTextureLocation(), modifier.getIdentifier());
             } else {
-                loc = String.format("%s_%s",armor.getArmorModifierLocation(), modifier.getIdentifier());
+                continue;
             }
             TextureAtlasSprite sprite = map.getAtlasSprite(loc);
 

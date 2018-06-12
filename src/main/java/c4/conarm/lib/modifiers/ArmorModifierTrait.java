@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.PriorityQueue;
 
-public class ArmorModifierTrait extends AbstractArmorTrait implements IModifierDisplay {
+public class ArmorModifierTrait extends AbstractArmorTrait implements IModifierDisplay, IArmorModelModifier {
 
     protected final int maxLevel;
 
