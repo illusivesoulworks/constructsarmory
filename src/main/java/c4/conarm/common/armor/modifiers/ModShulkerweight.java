@@ -2,7 +2,7 @@
  * Copyright (c) 2018 <C4>
  *
  * This Java class is distributed as a part of the Construct's Armory mod.
- * Construct's Armory is open source and distributed under the GNU General Public License v3.
+ * Construct's Armory is open source and distributed under the GNU Lesser General Public License v3.
  * View the source code and license file on github: https://github.com/TheIllusiveC4/ConstructsArmory
  *
  * Some classes and assets are taken and modified from the parent mod, Tinkers' Construct.
