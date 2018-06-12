@@ -1,4 +1,4 @@
-# Construct's Armory ![](http://cf.way2muchnoise.eu/versions/constructs-armory.svg) ![](http://cf.way2muchnoise.eu/short_constructs-armory_downloads.svg) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+# Construct's Armory [![](http://cf.way2muchnoise.eu/versions/constructs-armory.svg)](https://minecraft.curseforge.com/projects/constructs-armory) [![](http://cf.way2muchnoise.eu/short_constructs-armory_downloads.svg)](https://minecraft.curseforge.com/projects/constructs-armory/files) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 Construct's Armory is an add-on mod for Tinkers' Construct that adds four armor items: Helmet, Chestplate, Leggings, and Boots. These armor types can be customized just like the tools from Tinkers' Construct, allowing you to make different armor parts out of different materials in order to form a completely custom armor item.
 
