@@ -15,6 +15,7 @@ package c4.conarm.common.armor.traits;
 
 import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,6 +24,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class TraitVengeful extends AbstractArmorTrait {
@@ -35,7 +37,8 @@ public class TraitVengeful extends AbstractArmorTrait {
 
     @Override
     public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
-        if (source.getTrueSource() instanceof EntityLivingBase) {
+        Entity entity = source.getTrueSource();
+        if (entity instanceof EntityLivingBase && !(entity instanceof FakePlayer)) {
             if (random.nextFloat() < 0.15F) {
                 Potion potion;
                 switch(random.nextInt(4)) {
