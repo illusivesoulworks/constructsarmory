@@ -13,10 +13,9 @@
 
 package c4.conarm.common.network;
 
+import c4.conarm.common.ConfigHandler;
 import c4.conarm.common.armor.traits.ArmorTraits;
-import c4.conarm.common.armor.traits.TraitUtils;
 import c4.conarm.common.armor.utils.ArmorHelper;
-import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.tinkering.TinkersArmor;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.network.NetHandlerPlayClient;
@@ -25,7 +24,6 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.util.DamageSource;
-import net.minecraftforge.fml.common.network.ByteBufUtils;
 import slimeknights.mantle.network.AbstractPacketThreadsafe;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
@@ -52,10 +50,12 @@ public class ArmorBouncedPacket extends AbstractPacketThreadsafe {
 
         EntityPlayer player = netHandler.player;
         player.fallDistance = 0;
-        ItemStack armor = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-        if (armor.getItem() instanceof TinkersArmor && !ToolHelper.isBroken(armor)
-                && TinkerUtil.hasTrait(TagUtil.getTagSafe(armor), ArmorTraits.bouncy.getIdentifier())) {
-            ArmorHelper.damageArmor(armor, DamageSource.FALL, (int) (1 + magnitude), player, EntityEquipmentSlot.FEET.getIndex());
+        if (ConfigHandler.bounceDurability) {
+            ItemStack armor = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+            if (armor.getItem() instanceof TinkersArmor && !ToolHelper.isBroken(armor)
+                    && TinkerUtil.hasTrait(TagUtil.getTagSafe(armor), ArmorTraits.bouncy.getIdentifier())) {
+                ArmorHelper.damageArmor(armor, DamageSource.FALL, (int) (1 + magnitude), player, EntityEquipmentSlot.FEET.getIndex());
+            }
         }
     }
 
