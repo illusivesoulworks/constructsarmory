@@ -4,10 +4,10 @@
 conarm.general.spawnwithbook=获取指导手册
 conarm.general.spawnwithbook.tooltip=当设置为ture时，第一次进入游戏的玩家都将获得一本"护甲锻造手册"。
 conarm.general.compactview=简约GUI
-conarm.general.compactview.tooltip=若设置为ture则盔甲装配台中GUI预览功能将禁用。
+conarm.general.compactview.tooltip=若设置为ture则盔甲组装台/装配台中GUI预览功能将禁用。
 
-conarm.general.leveling.newarmorminmodifiers=Starting Modifier Amount
-conarm.general.leveling.newarmorminmodifiers.tooltip=Reduces the amount of modifiers a newly built armor gets if the value is lower than the regular amount of modifiers the armor would have.
+conarm.general.leveling.newarmorminmodifiers=修改强化次数
+conarm.general.leveling.newarmorminmodifiers.tooltip=若该值低于原护甲强化次数则其强化次数将被降低。
 conarm.general.leveling.maximumlevels=最大等级
 conarm.general.leveling.maximumlevels.tooltip=决定最大的等级，设置为0或者更低则无等级上限。
 conarm.general.leveling.basexp=基础XP消耗
@@ -38,7 +38,7 @@ item.conarm.travel_sack.name=旅行者背包
 item.conarm.travel_goggles_base.name=旅行者护目镜（基础）
 item.conarm.travel_goggles.name=旅行者护目镜（远眺）
 item.conarm.travel_night.name=旅行者护目镜（夜视）
-item.conarm.travel_soul.name=旅行者护目镜（灵魂窥探）
+item.conarm.travel_soul.name=旅行者护目镜（灵魂窥视）
 item.conarm.travel_cloak.name=旅行者披风（基础）
 item.conarm.travel_sneak.name=旅行者披风（隐身）
 item.conarm.travel_slowfall.name=旅行者披风（缓落）
@@ -248,7 +248,7 @@ modifier.travel_sneak_armor.name=旅行者披风（隐身）
 modifier.travel_slowfall_armor.name=旅行者披风（缓落）
 modifier.travel_goggles_armor.name=旅行者护目镜（远眺）
 modifier.night_vision_armor.name=旅行者护目镜（夜视）
-modifier.soul_sight_armor.name=旅行者护目镜（灵魂窥探）
+modifier.soul_sight_armor.name=旅行者护目镜（灵魂窥视）
 
 accessory.tooltip=部件：%s
 accessory.head.tooltip=头盔部件
