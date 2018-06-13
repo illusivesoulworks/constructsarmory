@@ -14,13 +14,9 @@
   "effects": [
     "提高韧性",
     "韧性的强度取决于材料",
-    "有时甚至会降低等级",
     "不修改强化"
   ],
   "demoArmor": [
-    "conarm:helmet",
-    "conarm:chestplate",
-    "conarm:leggings",
-    "conarm:boots"
+    "conarm:chestplate"
   ]
 }
