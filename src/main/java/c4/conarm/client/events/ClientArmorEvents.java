@@ -29,13 +29,13 @@ public class ClientArmorEvents {
     public static KeyBinding toggleHelmet;
     public static KeyBinding toggleChestplate;
     public static KeyBinding toggleLeggings;
-    public static KeyBinding toggleBoots;
+//    public static KeyBinding toggleBoots;
 
     public static void init() {
         toggleHelmet = registerKeybinding(new KeyBinding("key.conarm.toggle_helm.desc", Keyboard.KEY_G, "key.conarm.category"));
         toggleChestplate = registerKeybinding(new KeyBinding("key.conarm.toggle_chest.desc", Keyboard.KEY_H, "key.conarm.category"));
         toggleLeggings = registerKeybinding(new KeyBinding("key.conarm.toggle_leg.desc", Keyboard.KEY_J, "key.conarm.category"));
-        toggleBoots = registerKeybinding(new KeyBinding("key.conarm.toggle_boots.desc", Keyboard.KEY_K, "key.conarm.category"));
+//        toggleBoots = registerKeybinding(new KeyBinding("key.conarm.toggle_boots.desc", Keyboard.KEY_K, "key.conarm.category"));
     }
 
     private static KeyBinding registerKeybinding(KeyBinding key) {
@@ -54,9 +54,10 @@ public class ClientArmorEvents {
             TinkerNetwork.sendToServer(new AccessoryTogglePacket(EntityEquipmentSlot.CHEST.getIndex()));
         } else if (toggleLeggings.isPressed()) {
             TinkerNetwork.sendToServer(new AccessoryTogglePacket(EntityEquipmentSlot.LEGS.getIndex()));
-        } else if (toggleBoots.isPressed()) {
-            TinkerNetwork.sendToServer(new AccessoryTogglePacket(EntityEquipmentSlot.FEET.getIndex()));
         }
+//        else if (toggleBoots.isPressed()) {
+//            TinkerNetwork.sendToServer(new AccessoryTogglePacket(EntityEquipmentSlot.FEET.getIndex()));
+//        }
     }
 
     //Cancel rendering the name of the fake player in the armor preview
