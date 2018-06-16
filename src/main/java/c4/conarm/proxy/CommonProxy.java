@@ -109,8 +109,8 @@ public class CommonProxy {
         ConstructsRegistry.armorStation = ConstructUtils.registerBlock(registry, new BlockArmorStation(), "armorstation");
         ConstructsRegistry.softObsidian = ConstructUtils.registerBlock(registry, new BlockSoftObsidian(), "soft_obsidian");
 
-        GameRegistry.registerTileEntity(TileArmorStation.class, "armorstation");
-        GameRegistry.registerTileEntity(TileArmorForge.class, "armorforge");
+        GameRegistry.registerTileEntity(TileArmorStation.class, ConstructUtils.getResource("armorstation"));
+        GameRegistry.registerTileEntity(TileArmorForge.class, ConstructUtils.getResource("armorforge"));
     }
 
     @SubscribeEvent
