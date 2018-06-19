@@ -15,8 +15,10 @@ package c4.conarm.common.armor.modifiers;
 
 import c4.conarm.common.network.SetStepHeightPacket;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -44,5 +46,10 @@ public class ModHighStride extends ArmorModifierTrait {
         if (player instanceof EntityPlayerMP) {
             TinkerNetwork.sendTo(new SetStepHeightPacket(0.6F), (EntityPlayerMP) player);
         }
+    }
+
+    @Override
+    public boolean canApplyCustom(ItemStack stack) {
+        return EntityLiving.getSlotForItemStack(stack) == EntityEquipmentSlot.FEET && super.canApplyCustom(stack);
     }
 }
