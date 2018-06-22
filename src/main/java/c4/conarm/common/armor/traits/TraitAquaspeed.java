@@ -13,68 +13,33 @@
 
 package c4.conarm.common.armor.traits;
 
-import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.traits.AbstractArmorTrait;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
-import slimeknights.tconstruct.library.potion.TinkerPotion;
+import com.google.common.collect.Multimap;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityPlayer;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
 
 import javax.annotation.Nonnull;
+import java.util.UUID;
 
 public class TraitAquaspeed extends AbstractArmorTrait {
 
-    public static TinkerPotion aquaspeedPotion = new AquaspeedPotion();
-
-    private static final double SPEED_MOD = 0.05D;
+    protected static final UUID[] SWIMSPEED_MODIFIERS = new UUID[]{ UUID.fromString("21929d25-2631-4df7-9bf4-a80f084e7bf4"),
+                                                                    UUID.fromString("2dfcd5ff-f0c3-4012-a438-e961fcd7420f"),
+                                                                    UUID.fromString("eb94ffe8-959b-4440-a15b-00122626eed6"),
+                                                                    UUID.fromString("e673b8ee-7241-4fbd-9aa3-2bf3b8c7e807") };
+    private static final double SWIMSPEED_PER_LEVEL = 0.05D;
 
     public TraitAquaspeed() {
         super("aquaspeed", TextFormatting.AQUA);
     }
 
-    /*Code derived from Vazkii's Botania Water Ring*/
     @Override
-    public void onAbilityTick(int level, World world, EntityPlayer player) {
-        if (!world.isRemote && (player.isInWater())) {
-            aquaspeedPotion.apply(player, 5, level);
-        }
-    }
-
-    private static class AquaspeedPotion extends TinkerPotion {
-
-        AquaspeedPotion() {
-            super(ConstructUtils.getResource("aquaspeedPotion"), false, false);
-        }
-
-        @Override
-        public boolean isReady(int duration, int strength) {
-            return true;
-        }
-
-        @Override
-        public void performEffect(@Nonnull EntityLivingBase entity, int level) {
-
-            if (entity.isInWater()) {
-                double motionX = entity.motionX * (1 + SPEED_MOD * level);
-                double motionY = entity.motionY * (1 + SPEED_MOD * level);
-                double motionZ = entity.motionZ * (1 + SPEED_MOD * level);
-
-                boolean isFlying = entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isFlying;
-                double maxSpeed = 1.1D + (level - 1) / 15D;
-
-                if (!isFlying) {
-                    if (Math.abs(motionX) < maxSpeed) {
-                        entity.motionX = motionX;
-                    }
-                    if (Math.abs(motionY) < maxSpeed) {
-                        entity.motionY = motionY;
-                    }
-                    if (Math.abs(motionZ) < maxSpeed) {
-                        entity.motionZ = motionZ;
-                    }
-                }
-            }
+    public void getAttributeModifiers(@Nonnull EntityEquipmentSlot slot, ItemStack stack, Multimap<String, AttributeModifier> attributeMap) {
+        if (slot == EntityLiving.getSlotForItemStack(stack)) {
+            attributeMap.put(EntityPlayer.SWIM_SPEED.getName(), new AttributeModifier(SWIMSPEED_MODIFIERS[slot.getIndex()], "Aquaspeed trait modifier", SWIMSPEED_PER_LEVEL, 0));
         }
     }
 }
