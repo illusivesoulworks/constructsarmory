@@ -5,8 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
 ## [Unreleased]
+### Added
+- Turkish translation (thank you atlj_)
+- Russian translation (thank you vizmarios)
+- ContentTweaker integration (please refer to the GitHub wiki for documentation)
 ### Fixed
 - High Stride modifier not being restricted to boots [#67](https://github.com/TheIllusiveC4/ConstructsArmory/issues/67)
+- Armor Defense reduction being way too much
 
 ## [1.0.0] - 2018.06.15
 ### Added
