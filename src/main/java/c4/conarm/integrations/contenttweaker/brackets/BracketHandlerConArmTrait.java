@@ -30,6 +30,12 @@ import stanhebben.zenscript.type.natives.JavaMethod;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+ * Base code is from ContentTweaker by The-Acronym-Coders
+ * ContentTweaker is open source and distributed under the MIT License
+ * View the source code on github: https://github.com/The-Acronym-Coders/ContentTweaker
+ * View the MIT License here: https://tldrlegal.com/license/mit-license
+ */
 @BracketHandler
 @ZenRegister
 public class BracketHandlerConArmTrait implements IBracketHandler {

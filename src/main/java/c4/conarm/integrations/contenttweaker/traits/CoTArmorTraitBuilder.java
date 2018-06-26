@@ -29,6 +29,12 @@ import stanhebben.zenscript.annotations.ZenProperty;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Base code is from ContentTweaker by The-Acronym-Coders
+ * ContentTweaker is open source and distributed under the MIT License
+ * View the source code on github: https://github.com/The-Acronym-Coders/ContentTweaker
+ * View the MIT License here: https://tldrlegal.com/license/mit-license
+ */
 @ZenClass("mods.contenttweaker.conarm.ArmorTraitBuilder")
 @ZenRegister
 public class CoTArmorTraitBuilder {
@@ -44,35 +50,9 @@ public class CoTArmorTraitBuilder {
     @ZenProperty
     public boolean hidden = false;
     @ZenProperty
-    public Functions.AfterBlockBreak afterBlockBreak = null;
+    public ArmorFunctions.OnUpdate onUpdate = null;
     @ZenProperty
-    public Functions.BeforeBlockBreak beforeBlockBreak = null;
-    @ZenProperty
-    public Functions.BlockHarvestDrops onBlockHarvestDrops = null;
-    @ZenProperty
-    public Functions.Damage calcDamage = null;
-    @ZenProperty
-    public Functions.IsCriticalHit calcCrit = null;
-    @ZenProperty
-    public Functions.MiningSpeed getMiningSpeed = null;
-    @ZenProperty
-    public Functions.OnHit onHit = null;
-    @ZenProperty
-    public Functions.OnUpdate onUpdate = null;
-    @ZenProperty
-    public Functions.AfterHit afterHit = null;
-    @ZenProperty
-    public Functions.KnockBack calcKnockBack = null;
-    @ZenProperty
-    public Functions.OnBlock onBlock = null;
-    @ZenProperty
-    public Functions.OnToolDamage onToolDamage = null;
-    @ZenProperty
-    public Functions.OnToolHeal calcToolHeal = null;
-    @ZenProperty
-    public Functions.OnToolRepair onToolRepair = null;
-    @ZenProperty
-    public Functions.OnPlayerHurt onPlayerHurt = null;
+    public ArmorFunctions.OnArmorRepair onArmorRepair = null;
     @ZenProperty
     public ArmorFunctions.OnArmorTick onArmorTick = null;
     @ZenProperty
@@ -100,11 +80,11 @@ public class CoTArmorTraitBuilder {
     @ZenProperty
     public ArmorFunctions.GetAbilityLevel getAbilityLevel = null;
     @ZenProperty
-    public Functions.CanApplyTogetherTrait canApplyTogetherTrait = null;
+    public ArmorFunctions.CanApplyTogetherTrait canApplyTogetherTrait = null;
     @ZenProperty
-    public Functions.CanApplyTogetherEnchantment canApplyTogetherEnchantment = null;
+    public ArmorFunctions.CanApplyTogetherEnchantment canApplyTogetherEnchantment = null;
     @ZenProperty
-    public Functions.ExtraInfo extraInfo = null;
+    public ArmorFunctions.ExtraInfo extraInfo = null;
     @ZenProperty
     public String localizedName = null;
     @ZenProperty
@@ -132,23 +112,10 @@ public class CoTArmorTraitBuilder {
     }
 
     @ZenMethod
-    public TConTraitRepresentation register() {
+    public ConArmTraitRepresentation register() {
         CoTArmorTrait trait = new CoTArmorTrait(identifier, color, maxLevel, countPerLevel);
-        trait.afterBlockBreak = this.afterBlockBreak;
-        trait.beforeBlockBreak = this.beforeBlockBreak;
-        trait.onBlockHarvestDrops = this.onBlockHarvestDrops;
-        trait.calcDamage = this.calcDamage;
-        trait.calcCrit = this.calcCrit;
-        trait.getMiningSpeed = this.getMiningSpeed;
-        trait.onHit = this.onHit;
         trait.onUpdate = this.onUpdate;
-        trait.afterHit = this.afterHit;
-        trait.calcKnockBack = this.calcKnockBack;
-        trait.onBlock = this.onBlock;
-        trait.onToolDamage = this.onToolDamage;
-        trait.calcToolHeal = this.calcToolHeal;
-        trait.onToolRepair = this.onToolRepair;
-        trait.onPlayerHurt = this.onPlayerHurt;
+        trait.onArmorRepair = this.onArmorRepair;
         trait.onArmorTick = this.onArmorTick;
         trait.getModifications = this.getModifications;
         trait.onItemPickup = this.onItemPickup;
@@ -175,6 +142,6 @@ public class CoTArmorTraitBuilder {
 
         TinkerRegistry.addTrait(trait);
 
-        return new TConTraitRepresentation(trait);
+        return new ConArmTraitRepresentation(trait);
     }
 }

@@ -43,6 +43,12 @@ import stanhebben.zenscript.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Base code is from ContentTweaker by The-Acronym-Coders
+ * ContentTweaker is open source and distributed under the MIT License
+ * View the source code on github: https://github.com/The-Acronym-Coders/ContentTweaker
+ * View the MIT License here: https://tldrlegal.com/license/mit-license
+ */
 @ZenClass("mods.contenttweaker.conarm.ExtendedMaterialBuilder")
 @ZenRegister
 public class CoTConArmMaterialBuilder {
