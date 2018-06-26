@@ -25,6 +25,7 @@ import com.teamacronymcoders.contenttweaker.modules.tinkers.traits.CoTTraitBuild
 import com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.utils.CoTRecipeMatch;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions;
+import crafttweaker.annotations.ModOnly;
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.item.IIngredient;
 import crafttweaker.api.item.IItemStack;
@@ -51,6 +52,7 @@ import java.util.List;
  */
 @ZenClass("mods.contenttweaker.conarm.ExtendedMaterialBuilder")
 @ZenRegister
+@ModOnly("contenttweaker")
 public class CoTConArmMaterialBuilder {
 
     @ZenProperty

@@ -17,6 +17,7 @@ import c4.conarm.integrations.contenttweaker.ArmorFunctions;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.utils.CoTRecipeMatch;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions;
+import crafttweaker.annotations.ModOnly;
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.item.IIngredient;
 import crafttweaker.api.item.IItemStack;
@@ -37,6 +38,7 @@ import java.util.List;
  */
 @ZenClass("mods.contenttweaker.conarm.ArmorTraitBuilder")
 @ZenRegister
+@ModOnly("contenttweaker")
 public class CoTArmorTraitBuilder {
 
     @ZenProperty

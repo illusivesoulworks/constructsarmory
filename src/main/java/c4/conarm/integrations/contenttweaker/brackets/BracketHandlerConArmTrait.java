@@ -38,6 +38,7 @@ import java.util.stream.Collectors;
  */
 @BracketHandler
 @ZenRegister
+@ModOnly("contenttweaker")
 public class BracketHandlerConArmTrait implements IBracketHandler {
     public final IJavaMethod method = JavaMethod.get(GlobalRegistry.getTypes(), TConTraitRepresentation.class, "getFromString", String.class);
 

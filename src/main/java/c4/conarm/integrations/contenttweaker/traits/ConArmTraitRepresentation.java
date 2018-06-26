@@ -14,6 +14,7 @@
 package c4.conarm.integrations.contenttweaker.traits;
 
 import crafttweaker.CraftTweakerAPI;
+import crafttweaker.annotations.ModOnly;
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.item.IIngredient;
 import crafttweaker.api.item.IItemStack;
@@ -35,6 +36,7 @@ import stanhebben.zenscript.annotations.ZenMethod;
  */
 @ZenClass("mods.contenttweaker.conarm.ArmorTrait")
 @ZenRegister
+@ModOnly("contenttweaker")
 public class ConArmTraitRepresentation {
 
     private final ITrait trait;
