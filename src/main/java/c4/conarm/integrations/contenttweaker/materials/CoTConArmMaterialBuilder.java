@@ -14,11 +14,14 @@
 package c4.conarm.integrations.contenttweaker.materials;
 
 import c4.conarm.integrations.contenttweaker.traits.CoTArmorTraitBuilder;
+import c4.conarm.integrations.contenttweaker.traits.ConArmTraitRepresentation;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.materials.CoTTConMaterialIntegration;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.materials.TConMaterialRepresentation;
+import com.teamacronymcoders.contenttweaker.modules.tinkers.traits.CoTTrait;
+import com.teamacronymcoders.contenttweaker.modules.tinkers.traits.CoTTraitBuilder;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.utils.CoTRecipeMatch;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions;
@@ -120,6 +123,16 @@ public class CoTConArmMaterialBuilder {
     @ZenMethod
     public void addMaterialTrait(TConTraitRepresentation trait, @Optional String dependency) {
         addMaterialTrait(trait.getTrait(), dependency);
+    }
+
+    @ZenMethod
+    public void addMaterialTrait(ConArmTraitRepresentation trait, @Optional String dependency) {
+        addMaterialTrait(trait.getTrait(), dependency);
+    }
+
+    @ZenMethod
+    public void addMaterialTrait(CoTTraitBuilder traitBuilder, @Optional String dependency) {
+        addMaterialTrait(traitBuilder.identifier, dependency);
     }
 
     @ZenMethod
