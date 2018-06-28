@@ -100,8 +100,9 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
 
         if (!ToolHelper.isBroken(armor) && !source.isUnblockable() && entity instanceof EntityPlayer) {
 
+            EntityEquipmentSlot equipslot = EntityLiving.getSlotForItemStack(armor);
             EntityPlayer player = (EntityPlayer) entity;
-            ArmorModifications mods = new ArmorModifications(ArmorHelper.getArmor(armor, slot), ArmorHelper.getToughness(armor));
+            ArmorModifications mods = new ArmorModifications(ArmorHelper.getArmor(armor, equipslot.getIndex()), ArmorHelper.getToughness(armor));
             NBTTagList list = TagUtil.getTraitsTagList(armor);
 
             for (int i = 0; i < list.tagCount(); i++) {
@@ -118,7 +119,7 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
             ArmorProperties prop = ArmorHelper.getPropertiesAfterAbsorb(armor, damage, totalArmor, totalToughness, armorType);
 
             //Subtract armor and toughness so that ISpecialArmor does not calculate it twice
-            prop.Armor -= ArmorHelper.getArmor(armor, slot);
+            prop.Armor -= ArmorHelper.getArmor(armor, equipslot.getIndex());
             prop.Toughness -= ArmorHelper.getToughness(armor);
 
             return prop;
