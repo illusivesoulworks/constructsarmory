@@ -16,10 +16,11 @@ package c4.conarm.common.armor.traits;
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nonnull;
 import java.util.UUID;
@@ -30,7 +31,7 @@ public class TraitAquaspeed extends AbstractArmorTrait {
                                                                     UUID.fromString("2dfcd5ff-f0c3-4012-a438-e961fcd7420f"),
                                                                     UUID.fromString("eb94ffe8-959b-4440-a15b-00122626eed6"),
                                                                     UUID.fromString("e673b8ee-7241-4fbd-9aa3-2bf3b8c7e807") };
-    private static final double SWIMSPEED_PER_LEVEL = 0.05D;
+    private static final double SWIMSPEED_PER_LEVEL = 0.30D;
 
     public TraitAquaspeed() {
         super("aquaspeed", TextFormatting.AQUA);
