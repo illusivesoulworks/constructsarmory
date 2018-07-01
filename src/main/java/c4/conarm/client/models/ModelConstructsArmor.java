@@ -69,7 +69,7 @@ public class ModelConstructsArmor extends ModelArmorBase {
         this.textureWidth = 64;
         this.textureHeight = 64;
 
-        float scale = 0.2F;
+        float scale = 0.6F;
 
         //Helmet
         this.headAnchor = new ModelRenderer(this, 0, 0);
@@ -142,7 +142,7 @@ public class ModelConstructsArmor extends ModelArmorBase {
 
         this.belt = new ModelRenderer(this, 0, 0);
         this.belt.setRotationPoint(0.0F, 9.5F, 0.0F);
-        this.belt.addBox(-4.5F, 0.0F, -2.5F, 9, 2, 5, scale + 0.0F);
+        this.belt.addBox(-4.5F, 0.0F, -2.5F, 9, 2, 5, scale - 0.2F);
 
         this.skirtFront = new ModelRenderer(this, 54, 7);
         this.skirtFront.setRotationPoint(0.0F, 11.5F, -2.5F);
