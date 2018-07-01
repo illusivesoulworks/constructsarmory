@@ -15,6 +15,7 @@ package c4.conarm.common.armor.modifiers;
 
 import c4.conarm.common.ConstructsRegistry;
 import c4.conarm.common.armor.utils.ArmorTagUtil;
+import c4.conarm.lib.armor.ArmorNBT;
 import c4.conarm.lib.client.IArmorMaterialTexture;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.materials.PlatesMaterialStats;
@@ -69,20 +70,27 @@ public class ModPolished extends ToolModifier implements IArmorMaterialTexture {
 
     @Override
     public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag) {
-        NBTTagCompound tag = TagUtil.getToolTag(rootCompound);
-        PlatesMaterialStats stats = material.getStats(ArmorMaterialType.PLATES);
-        tag.setFloat(ArmorTagUtil.TOUGHNESS, stats.toughness);
+
+        ArmorNBT data = ArmorTagUtil.getArmorStats(rootCompound);
+        float originalToughness = ArmorTagUtil.getOriginalArmorStats(rootCompound).toughness;
+        float matToughness = ((PlatesMaterialStats) material.getStats(ArmorMaterialType.PLATES)).toughness;
+        float addedToughness = Math.max(0, matToughness - originalToughness);
+
+        if (addedToughness > 0) {
+            data.toughness += addedToughness;
+            TagUtil.setToolTag(rootCompound, data.get());
+        }
 
         NBTTagList tagList = TagUtil.getModifiersTagList(rootCompound);
         for(int i = 0; i < tagList.tagCount(); i++) {
             NBTTagCompound mod = tagList.getCompoundTagAt(i);
-            ModifierNBT data = ModifierNBT.readTag(mod);
+            ModifierNBT modData = ModifierNBT.readTag(mod);
 
-            if(data.identifier.equals(this.identifier)) {
+            if(modData.identifier.equals(this.identifier)) {
                 break;
             }
 
-            if(data.identifier.startsWith("polished_armor")) {
+            if(modData.identifier.startsWith("polished_armor")) {
                 tagList.removeTag(i);
                 i--;
             }
