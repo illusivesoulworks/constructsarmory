@@ -29,6 +29,8 @@ public interface IArmorTrait extends ITrait {
 
     void onItemPickup(ItemStack armor, EntityItem item, EntityItemPickupEvent evt);
 
+    float onHeal(ItemStack armor, EntityPlayer player, float amount, float newAmount, LivingHealEvent evt);
+
     float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt);
 
     float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent evt);

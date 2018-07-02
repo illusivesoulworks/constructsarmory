@@ -62,6 +62,7 @@ public class CoTArmorTrait extends ArmorModifierTrait implements IArmorTrait {
     ArmorFunctions.OnArmorTick onArmorTick = null;
     ArmorFunctions.GetModifications getModifications = null;
     ArmorFunctions.OnItemPickup onItemPickup = null;
+    ArmorFunctions.OnHeal onHeal = null;
     ArmorFunctions.OnHurt onHurt = null;
     ArmorFunctions.OnDamaged onDamaged = null;
     ArmorFunctions.OnFalling onFalling = null;
@@ -169,6 +170,14 @@ public class CoTArmorTrait extends ArmorModifierTrait implements IArmorTrait {
         } else {
             super.onItemPickup(armor, item, evt);
         }
+    }
+
+    @Override
+    public float onHeal(ItemStack armor, EntityPlayer player, float amount, float newAmount, LivingHealEvent evt) {
+        if (onHeal != null) {
+            return onHeal.handle(thisTrait, CraftTweakerMC.getIItemStack(armor), CraftTweakerMC.getIPlayer(player), amount, newAmount, evt);
+        }
+        return super.onHeal(armor, player, amount, newAmount, evt);
     }
 
     @Override

@@ -47,6 +47,11 @@ public class AbstractArmorTrait extends AbstractTrait implements IArmorTrait, IA
     }
 
     @Override
+    public float onHeal(ItemStack armor, EntityPlayer player, float amount, float newAmount, LivingHealEvent evt) {
+        return newAmount;
+    }
+
+    @Override
     public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
         return newDamage;
     }
