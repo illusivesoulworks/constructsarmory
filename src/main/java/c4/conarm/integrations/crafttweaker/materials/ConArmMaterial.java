@@ -16,6 +16,7 @@ package c4.conarm.integrations.crafttweaker.materials;
 import c4.conarm.integrations.crafttweaker.actions.SetDefenseAction;
 import c4.conarm.integrations.crafttweaker.actions.SetDurabilityAction;
 import c4.conarm.integrations.crafttweaker.actions.SetModifierAction;
+import c4.conarm.integrations.crafttweaker.actions.SetToughnessAction;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
@@ -103,7 +104,7 @@ public class ConArmMaterial implements IConArmMaterial {
 
     @Override
     public void setToughness(float toughness) {
-        CraftTweakerAPI.apply(new SetModifierAction(this, toughness));
+        CraftTweakerAPI.apply(new SetToughnessAction(this, toughness));
     }
 
     @Override
