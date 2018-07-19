@@ -13,33 +13,35 @@
 
 package c4.conarm.common.armor.modifiers.accessories;
 
-import c4.conarm.client.models.accessories.ModelCloak;
-import c4.conarm.lib.modifiers.AccessoryModifier;
-import c4.conarm.lib.modifiers.IAccessoryRender;
-import c4.conarm.lib.utils.ConstructUtils;
-import net.minecraft.client.Minecraft;
+import c4.conarm.lib.tinkering.TinkersArmor;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import slimeknights.tconstruct.library.modifiers.ModifierNBT;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
+import slimeknights.tconstruct.library.utils.ToolHelper;
 
 public class ModTravelSneak extends AbstractToggleAccessoryModifier {
 
-    @SideOnly(Side.CLIENT)
-    private static ModelCloak model;
-    private static ResourceLocation texture = ConstructUtils.getResource("textures/models/accessories/travel_cloak.png");
-
     public ModTravelSneak() {
         super("travel_sneak", true);
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    @SubscribeEvent
+    public void onPlayerVisibility(PlayerEvent.Visibility evt) {
+        EntityPlayer player = evt.getEntityPlayer();
+        ItemStack stack = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+        if (stack.getItem() instanceof TinkersArmor && !ToolHelper.isBroken(stack) && TinkerUtil.hasModifier(TagUtil.getTagSafe(stack), this.identifier)) {
+            evt.modifyVisibility(0.5D);
+        }
     }
 
     @Override
