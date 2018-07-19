@@ -23,6 +23,8 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 
 public class ModParasitic extends ArmorModifierTrait {
 
+    private static final int DELAY = 5;
+
     public ModParasitic() {
         super("parasitic", 0x5e0000);
     }
@@ -30,30 +32,12 @@ public class ModParasitic extends ArmorModifierTrait {
     @Override
     public void onArmorTick(ItemStack armor, World world, EntityPlayer player) {
 
-        if (world.isRemote) {
-            return;
-        }
-
-        if (needsRepair(armor)) {
-            if (hasMoreHealthThanDurability(armor, player) && random.nextFloat() < 0.1F / 20) {
-                //Make sure we don't actually kill the player we're feeding off
-                if (player.getHealth() > 2.0F) {
-                    ArmorHelper.healArmor(armor, getDurabilityPerHP(), player, EntityLiving.getSlotForItemStack(armor).getIndex());
-                    player.setHealth(player.getHealth() - 1.0F);
-                }
+        if (!world.isRemote && needsRepair(armor) && player.getFoodStats().getFoodLevel() > 1) {
+            player.addExhaustion(0.08F);
+            if (player.ticksExisted % (20 * DELAY) == 0) {
+                ArmorHelper.healArmor(armor, 1, player, EntityLiving.getSlotForItemStack(armor).getIndex());
             }
         }
-    }
-
-    private int getDurabilityPerHP() {
-        return 5;
-    }
-
-    //We only siphon health if the health percentage is higher than our durability percentage
-    private boolean hasMoreHealthThanDurability(ItemStack stack, EntityPlayer player) {
-        float durabilityPerc = ((float) ToolHelper.getCurrentDurability(stack)) / ((float) ToolHelper.getMaxDurability(stack));
-        float healthPerc = player.getHealth() / player.getMaxHealth();
-        return durabilityPerc < healthPerc;
     }
 
     private boolean needsRepair(ItemStack itemStack) {
