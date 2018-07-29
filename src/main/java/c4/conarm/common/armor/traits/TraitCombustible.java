@@ -52,7 +52,7 @@ public class TraitCombustible extends AbstractArmorTrait {
                 source.setFireDamage();
                 List<Entity> entities = player.world.getEntitiesInAABBexcluding(player, new AxisAlignedBB(pos.getX() - radius, pos.getY() - radius, pos.getZ() - radius, pos.getX() + radius, pos.getY() + radius, pos.getZ() + radius), TraitUtils.IS_LIVING);
                 for (Entity entity : entities) {
-                    if (attackEntitySecondary(source, level, entity, true, false)) {
+                    if (!entity.isImmuneToFire() && attackEntitySecondary(source, level, entity, true, false)) {
                         entity.setFire(1 + level);
                     }
                 }

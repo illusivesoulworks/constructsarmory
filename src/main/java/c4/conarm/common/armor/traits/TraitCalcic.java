@@ -67,12 +67,14 @@ public class TraitCalcic extends AbstractArmorTrait {
                 if (armor.getItem() instanceof TinkersArmor) {
                     if (!ToolHelper.isBroken(armor)) {
                         if (TinkerUtil.hasTrait(TagUtil.getTagSafe(armor), this.getModifierIdentifier())) {
-                            ArmorHelper.healArmor(armor, 10, player, EntityLiving.getSlotForItemStack(armor).getIndex());
-                            level++;
                             ModifierTagHolder modtag = ModifierTagHolder.getModifier(armor, getModifierIdentifier());
                             Data data = modtag.getTagData(Data.class);
-                            data.milk = false;
-                            modtag.save();
+                            if (data.milk) {
+                                ArmorHelper.healArmor(armor, 10, player, EntityLiving.getSlotForItemStack(armor).getIndex());
+                                level++;
+                                data.milk = false;
+                                modtag.save();
+                            }
                         }
                     }
                 }

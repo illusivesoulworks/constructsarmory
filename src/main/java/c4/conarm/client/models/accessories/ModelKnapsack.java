@@ -35,7 +35,7 @@ public class ModelKnapsack extends ModelBase {
         this.textureHeight = 32;
         this.knapsack = new ModelRenderer(this, 0, 0);
         this.knapsack.setRotationPoint(0.0F, 0.0F, 0.0F);
-        this.knapsack.addBox(-3.5F, 0.0F, 2.5F, 7, 9, 5, 0.5F);
+        this.knapsack.addBox(-3.5F, 0.0F, 4.0F, 7, 9, 5, 0.5F);
     }
 
     @Override

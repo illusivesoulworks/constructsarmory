@@ -37,18 +37,18 @@ public class ModelCloak extends ModelBase {
 
         this.hood = new ModelRenderer(this, 0, 22);
         this.hood.setRotationPoint(0.0F, 0.0F, 0.0F);
-        this.hood.addBox(-5.0F, -4.0F, -4.0F, 10, 5, 13, 0.2F);
+        this.hood.addBox(-5.0F, -3.5F, -3.0F, 10, 5, 13, 0.45F);
         this.setRotateAngle(hood, 0.13962634015954636F, 0.0F, 0.0F);
 
         this.right = new ModelRenderer(this, 0, 0);
         this.right.mirror = true;
         this.right.setRotationPoint(5.0F, 0.0F, 0.0F);
-        this.right.addBox(-5.0F, -4.0F, -5.0F, 10, 12, 10, 0.2F);
+        this.right.addBox(-5.0F, -3.5F, -4.0F, 10, 12, 10, 0.45F);
         this.setRotateAngle(right, 0.0F, -0.13962634015954636F, -0.06981317007977318F);
 
         this.left = new ModelRenderer(this, 0, 40);
         this.left.setRotationPoint(-5.0F, 0.0F, 0.0F);
-        this.left.addBox(-5.0F, -4.0F, -5.0F, 10, 7, 10, 0.2F);
+        this.left.addBox(-5.0F, -3.5F, -4.0F, 10, 7, 10, 0.45F);
         this.setRotateAngle(left, 0.0F, 0.13962634015954636F, 0.06981317007977318F);
 
         this.anchor.addChild(hood);

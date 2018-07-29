@@ -13,10 +13,14 @@
 
 package c4.conarm.integrations.jei;
 
+import c4.conarm.common.ConstructsRegistry;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.armor.ArmorCore;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.ISubtypeRegistry;
+import net.minecraft.item.Item;
+import slimeknights.tconstruct.plugin.jei.interpreter.TableSubtypeInterpreter;
+import slimeknights.tconstruct.plugin.jei.interpreter.ToolSubtypeInterpreter;
 
 import javax.annotation.Nonnull;
 
@@ -26,9 +30,13 @@ public class JEIPlugin implements IModPlugin {
     @Override
     public void registerItemSubtypes(@Nonnull ISubtypeRegistry registry) {
 
-        ArmorSubtypeInterpreter armorInterpreter = new ArmorSubtypeInterpreter();
+        ToolSubtypeInterpreter armorInterpreter = new ToolSubtypeInterpreter();
+        TableSubtypeInterpreter tableInterpreter = new TableSubtypeInterpreter();
+
         for (ArmorCore armor : ArmoryRegistry.getArmor()) {
             registry.registerSubtypeInterpreter(armor, armorInterpreter);
         }
+
+        registry.registerSubtypeInterpreter(Item.getItemFromBlock(ConstructsRegistry.armorForge), tableInterpreter);
     }
 }

@@ -14,6 +14,7 @@
 package c4.conarm.debug;
 
 import c4.conarm.ConstructsArmory;
+import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.integrations.tinkertoolleveling.ModArmorLeveling;
 import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
@@ -21,6 +22,7 @@ import com.google.common.collect.Lists;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -28,8 +30,10 @@ import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
+import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.toolleveling.ModToolLeveling;
 import slimeknights.toolleveling.ToolLevelNBT;
 
@@ -71,37 +75,22 @@ public class DebugCommand extends CommandBase {
             return;
         }
 
-//        List<String> info = Lists.newArrayList();
-//
-//        ArmorAbilityHandler.IArmorAbilities armorAbilities = ArmorAbilityHandler.getArmorAbilitiesData((EntityPlayer) sender);
-//
-//        if (armorAbilities != null) {
-//            for (String identifier : armorAbilities.getAbilityMap().keySet()) {
-//                info.add(String.format("\n%s: level %s", identifier, armorAbilities.getAbilityLevel(identifier)));
-//            }
-//        }
-//
-//        ConstructsArmory.logger.info(info);
+        EntityPlayer player = getCommandSenderAsPlayer(sender);
+        ItemStack itemStack = player.getHeldItemMainhand();
 
-//        EntityPlayer player = getCommandSenderAsPlayer(sender);
-//        ItemStack itemStack = player.getHeldItemMainhand();
-//
-//        if(!itemStack.isEmpty() && itemStack.getItem() instanceof ArmorCore) {
-//            int xp;
-//            if(args.length > 0) {
-//                xp = parseInt(args[0]);
-//            }
-//            else {
-//                ToolLevelNBT data = new ToolLevelNBT(TinkerUtil.getModifierTag(itemStack, ModArmorLeveling.modArmorLeveling.getModifierIdentifier()));
-//                xp = ModArmorLeveling.modArmorLeveling.getXpForLevelup(data.level, itemStack);
-//            }
-//            ModArmorLeveling.modArmorLeveling.addXp(itemStack, xp, player);
-//        }
-//        else {
-//            throw new CommandException("No tinker armor in hand");
-//        }
-
-        ((EntityPlayer) sender).inventory.setInventorySlotContents(0, PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM, 4), PotionTypes.POISON));
+        if(!itemStack.isEmpty() && itemStack.getItem() instanceof ArmorCore) {
+            int damage;
+            if(args.length > 0) {
+                damage = parseInt(args[0]);
+            }
+            else {
+                damage = ToolHelper.getCurrentDurability(itemStack) - 1;
+            }
+            ArmorHelper.damageArmor(itemStack, DamageSource.OUT_OF_WORLD, damage, player, EntityLiving.getSlotForItemStack(itemStack).getIndex());
+        }
+        else {
+            throw new CommandException("No tinker armor in hand");
+        }
     }
 
     @Override

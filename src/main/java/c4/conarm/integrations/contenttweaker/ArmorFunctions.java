@@ -27,6 +27,7 @@ import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.player.IPlayer;
 import crafttweaker.api.world.IWorld;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -85,6 +86,12 @@ public class ArmorFunctions {
     @ZenRegister
     public interface OnItemPickup {
         void handle(ConArmTraitRepresentation thisTrait, IItemStack stack, IEntityItem entityItem, PlayerPickupItemEvent evt);
+    }
+
+    @ZenClass("mods.conarm.traits.Heal")
+    @ZenRegister
+    public interface OnHeal {
+        float handle(ConArmTraitRepresentation thisTrait, IItemStack stack, IPlayer player, float amount, float newAmount, LivingHealEvent evt);
     }
 
     @ZenClass("mods.conarm.traits.Hurt")

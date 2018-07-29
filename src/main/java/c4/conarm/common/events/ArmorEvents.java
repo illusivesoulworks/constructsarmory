@@ -153,6 +153,33 @@ public class ArmorEvents {
     }
 
     @SubscribeEvent
+    public void playerHeal(LivingHealEvent evt) {
+
+        if (evt.getEntityLiving() instanceof EntityPlayer) {
+
+            float amount = evt.getAmount();
+            float newAmount = amount;
+
+            EntityPlayer player = (EntityPlayer) evt.getEntity();
+            for (ItemStack stack : player.getArmorInventoryList()) {
+                if (stack.getItem() instanceof TinkersArmor) {
+                    if (!ToolHelper.isBroken(stack)) {
+                        NBTTagList list = TagUtil.getTraitsTagList(stack);
+                        for (int i = 0; i < list.tagCount(); i++) {
+                            ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
+                            if (trait != null && trait instanceof IArmorTrait) {
+                                newAmount = ((IArmorTrait) trait).onHeal(stack, player, amount, newAmount, evt);
+                            }
+                        }
+                    }
+                }
+            }
+
+            evt.setAmount(Math.max(0, newAmount));
+        }
+    }
+
+    @SubscribeEvent
     public void playerHurt(LivingHurtEvent evt) {
 
         //Don't respond to reflected damage, otherwise infinite recursion

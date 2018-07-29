@@ -33,7 +33,7 @@ public class ModelGoggles extends ModelBase {
         this.textureHeight = 32;
         this.goggles = new ModelRenderer(this, 0, 0);
         this.goggles.setRotationPoint(0.0F, 0.0F, 0.0F);
-        this.goggles.addBox(-5F, -5.5F, -5.7F, 10, 4, 10, 0.4F);
+        this.goggles.addBox(-5F, -5.5F, -5.4F, 10, 4, 10, 0.7F);
     }
 
     @Override

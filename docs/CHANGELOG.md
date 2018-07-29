@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.0.2] - 2018.07.19
+### Added
+- Player Heal trait event
+### Changed
+- Parasitic trait adds exhaustion in exchange for durability repair instead of damaging the player [#76](https://github.com/TheIllusiveC4/ConstructsArmory/issues/76)
+- Invisibility Cloak is more powerful (weaker than potion Invisibility when wearing 1 or less piece of armor, but becomes more powerful by comparison with more armor)
+### Fixed
+- CraftTweaker setToughness method applying to the modifier rather than toughness value
+- Calcic trait activating for all food items rather than just milk [#86](https://github.com/TheIllusiveC4/ConstructsArmory/issues/86)
+- High Stride modifier letting sneaking players fall off blocks [#82](https://github.com/TheIllusiveC4/ConstructsArmory/issues/82)
+- Invisibility Cloak book entry [#85](https://github.com/TheIllusiveC4/ConstructsArmory/issues/85)
+
+## [1.0.1.2] - 2018.06.30
+### Fixed
+- Polished modifier overwriting toughness values [#77](https://github.com/TheIllusiveC4/ConstructsArmory/issues/77)
+- Combustible trait setting fire to entities that are immune to fire
+- JEI not interpreting Armor Forge subtypes correctly [#71](https://github.com/TheIllusiveC4/ConstructsArmory/issues/71)
+- Armor models clipping on some player skins
+- Crashing on outdated Forge versions by updating the dependency version
+- Crashing with ArrayIndexOutOfBoundsException with Blood Magic's Living Armor [#75](https://github.com/TheIllusiveC4/ConstructsArmory/issues/75)
+
 ## [1.0.1.1] - 2018.06.26
 ### Fixed
 - Crash when loading with CraftTweaker without ContentTweaker [#71](https://github.com/TheIllusiveC4/ConstructsArmory/issues/71)

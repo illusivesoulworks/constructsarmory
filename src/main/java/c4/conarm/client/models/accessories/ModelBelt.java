@@ -34,10 +34,10 @@ public class ModelBelt extends ModelBase {
 
         this.belt = new ModelRenderer(this, 0, 0);
         this.belt.setRotationPoint(0.0F, 9.5F, 0.0F);
-        this.belt.addBox(-4.5F, 0.0F, -2.5F, 9, 2, 5, 0.3F);
+        this.belt.addBox(-4.5F, 0.0F, -2.5F, 9, 2, 5, 0.7F);
         this.buckle = new ModelRenderer(this, 0, 7);
         this.buckle.setRotationPoint(0.0F, 9.5F, 0.0F);
-        this.buckle.addBox(-2F, -1F, -3.3F, 4, 4, 1, 0.0F);
+        this.buckle.addBox(-2F, -1F, -3.3F, 4, 4, 1, 0.4F);
 
         this.anchor.addChild(belt);
         this.anchor.addChild(buckle);

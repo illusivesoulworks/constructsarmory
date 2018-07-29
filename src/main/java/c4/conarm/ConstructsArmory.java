@@ -27,14 +27,20 @@ import org.apache.logging.log4j.Logger;
 @Mod(   modid = ConstructsArmory.MODID,
         name = ConstructsArmory.MODNAME,
         version = ConstructsArmory.MODVER,
-        dependencies = "required-after:forge@[14.23.2.2611,);required-after:mantle@[1.12-1.3.1,);required-after:tconstruct@[1.12.2-2.10.1.87,)",
+        dependencies =  "required-after:forge@[14.23.4.2705,);" +
+                        "required-after:mantle@[1.12-1.3.1,);" +
+                        "required-after:tconstruct@[1.12.2-2.10.1.87,);" +
+                        "after:contenttweaker@[1.12.2-4.6.0,);" +
+                        "after:crafttweaker@[1.12-4.1.9,)",
         acceptedMinecraftVersions = "[1.12.2, 1.13)",
         certificateFingerprint = "5d5b8aee896a4f5ea3f3114784742662a67ad32f")
 public class ConstructsArmory {
 
     public static final String MODID = "conarm";
     public static final String MODNAME = "Construct's Armory";
-    public static final String MODVER = "1.0.1.1";
+    public static final String MODVER = "1.0.2";
+
+    private static final boolean DEBUG = false;
 
     @SidedProxy(clientSide = "c4.conarm.proxy.ClientProxy", serverSide = "c4.conarm.proxy.CommonProxy")
     public static CommonProxy proxy;
@@ -67,7 +73,9 @@ public class ConstructsArmory {
 
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent evt) {
-//        evt.registerServerCommand(new DebugCommand());
+        if (DEBUG) {
+            evt.registerServerCommand(new DebugCommand());
+        }
         if (ModArmorLeveling.modArmorLeveling != null) {
             evt.registerServerCommand(new CommandLevelArmor());
         }

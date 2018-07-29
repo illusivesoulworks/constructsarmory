@@ -37,7 +37,11 @@ public class ModHighStride extends ArmorModifierTrait {
         NBTTagCompound tag = TinkerUtil.getModifierTag(armor, identifier);
         ModifierNBT data = ModifierNBT.readTag(tag);
         if (player instanceof EntityPlayerMP) {
-            TinkerNetwork.sendTo(new SetStepHeightPacket(data.level + 0.6F), (EntityPlayerMP) player);
+            float stepHeight = 0.6F;
+            if (!player.isSneaking()) {
+                stepHeight += data.level;
+            }
+            TinkerNetwork.sendTo(new SetStepHeightPacket(stepHeight), (EntityPlayerMP) player);
         }
     }
 

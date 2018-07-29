@@ -62,6 +62,8 @@ public class CoTArmorTraitBuilder {
     @ZenProperty
     public ArmorFunctions.OnItemPickup onItemPickup = null;
     @ZenProperty
+    public ArmorFunctions.OnHeal onHeal = null;
+    @ZenProperty
     public ArmorFunctions.OnHurt onHurt = null;
     @ZenProperty
     public ArmorFunctions.OnDamaged onDamaged = null;
@@ -121,6 +123,7 @@ public class CoTArmorTraitBuilder {
         trait.onArmorTick = this.onArmorTick;
         trait.getModifications = this.getModifications;
         trait.onItemPickup = this.onItemPickup;
+        trait.onHeal = this.onHeal;
         trait.onHurt = this.onHurt;
         trait.onDamaged = this.onDamaged;
         trait.onKnockback = this.onKnockback;
