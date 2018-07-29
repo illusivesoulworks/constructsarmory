@@ -1,0 +1,280 @@
+#################
+#     Config    #
+#################
+conarm.general.spawnwithbook=Bir Kitap İle Başla
+conarm.general.spawnwithbook.tooltip=Dünya'ya ilk Defa Giren Oyunculara Armory Kitabı Vermek İçin true Yap
+conarm.general.compactview=Sıkıştırılmış Arayüz
+conarm.general.compactview.tooltip=Zırh istasyonu/Forge Arayüzündeki zırh öngösterim panelini devre dışı bırakmak için true yap
+
+conarm.general.leveling.newarmorminmodifiers=Yeni Yapılan Bir Zırhtaki En Az Özelleştirme Sayısı
+conarm.general.leveling.newarmorminmodifiers.tooltip=Eğer şu anki değerden daha küçük bir değer girilirse minimum yeni yapılan zırhlardaki minimum özelleştirme sayılarını azaltır
+conarm.general.leveling.maximumlevels=Maksimum Level
+conarm.general.leveling.maximumlevels.tooltip=Maksimum Erişilebilicek level.Eğer 0 veya daha az bir değer girilirse limitsiz olur
+conarm.general.leveling.basexp=Ana XP Gereksinimi
+conarm.general.leveling.basexp.tooltip=Zırh için gereken ana XP gereksinimi
+conarm.general.leveling.levelingmultiplier=Level Atlama Katsayısı
+conarm.general.leveling.levelingmultiplier.tooltip=Level Atlamak için gereken XP nin artış Katsayısı(ne kadar fazlaysa o kadar xp gerekir)
+
+#################
+#     Blocks    #
+#################
+tile.conarm.armorforge.name=Zırh Ocağı
+tile.conarm.armorstation.name=Zırh Masası
+tile.conarm.soft_obsidian.name=Değişken Obsidyen(Unstable)
+
+#################
+#     Items     #
+#################
+item.conarm.book.name=Materyaller Ve Siz - Zırh Eklentisi
+item.conarm.book.tooltip=Her Tinker'ın ihtiyacı olan kitap eklentisi\nby C4
+
+item.conarm.polishing_kit.name=Cila Kiti
+item.conarm.polishing_kit.tooltip=Kum ile birleştirmek\nZırhınızı, Materyalin Sertlik Seviyesine Yükseltir
+
+item.conarm.travel_belt_base.name=Yolcu'nun Kemeri (Base)
+item.conarm.travel_belt.name=Yolcu'nun Kemeri (Storage)
+item.conarm.travel_potion.name=Yolcu'nun Kemeri (Alchemy)
+item.conarm.travel_sack.name=Yolcu'nun Bel Çantası
+item.conarm.travel_goggles_base.name=Yolcu'nun Gözlüğü (Base)
+item.conarm.travel_goggles.name=Yolcu'nun Gözlüğü (Zoom)
+item.conarm.travel_night.name=Yolcu'nun Gözlüğü (Night Vision)
+item.conarm.travel_soul.name=Yolcu'nun Gözlüğü (Soul Sight)
+item.conarm.travel_cloak.name=Yolcu'nun Pelerini (Base)
+item.conarm.travel_sneak.name=Yolcu'nun Pelerini (Invisibility)
+item.conarm.travel_slowfall.name=Yolcu'nun Pelerini (Slow Fall)
+
+item.conarm.resist_mat.name=Dayanıklılık
+item.conarm.resist_mat.tooltip=Dayanıklılık Özelleştirmesi
+item.conarm.resist_mat_fire.name=Ateş Dayanıklılığı
+item.conarm.resist_mat_fire.tooltip=Ateşe karşı Dayanıklılık Özelleştirmesi
+item.conarm.resist_mat_blast.name=Patlama Dayanıklılığı
+item.conarm.resist_mat_blast.tooltip=Patlamaya karşı Dayanıklılık Özelleştirmesi
+item.conarm.resist_mat_proj.name=Atılan Cisim Dayanıklılığı
+item.conarm.resist_mat_proj.tooltip=Atılan Cisimlere Karşı Dayanıklılık Özelleştirmesi
+
+item.conarm.gauntlet_mat.name=Eldiven (Base)
+item.conarm.gauntlet_mat_attack.name=Güç Eldiveni
+item.conarm.gauntlet_mat_attack.tooltip=Güç Özelleştirmesi
+item.conarm.gauntlet_mat_speed.name=Hız Eldiveni
+item.conarm.gauntlet_mat_speed.tooltip=Atiklik Özelleştirmesi
+item.conarm.gauntlet_mat_reach.name=Uzağa Erişim Eldiveni
+item.conarm.gauntlet_mat_reach.tooltip=Telekinetik Özelleştirme
+
+#################
+#      GUI      #
+#################
+gui.armorforge.name=Zırh Ocağı
+gui.armorstation.name=Zırh Masası
+gui.armorstation.preview=Öngösterim
+
+gui.error.modifier_on_station=Zırh Ocağında uygulanabilen özelleştirmeler.
+
+#################
+#     Armor     #
+#################
+appearance.classic.name=Klasik
+
+item.conarm.helmet.name=Kask
+item.conarm.helmet.desc=Kask kafanızı tehlikelerden korur.\nGeliştirilmiş Görüş Ayrı Satılır.
+item.conarm.chestplate.name=Göğüslük
+item.conarm.chestplate.desc=Göğüslük göğüsünüzdeki yaralanmaları ve kanamaları önlemeye yardımcı olur.
+item.conarm.leggings.name=Bacaklık
+item.conarm.leggings.desc=Bacaklık o bebek gibi yumuşak bacaklarını güvende tutmak için mükemmel.
+item.conarm.boots.name=Botlar
+item.conarm.boots.desc=Botlar ayak parmaklarını bi daha asla masa bacaklarına vurmayacağından emin olmanı sağlar.
+
+item.conarm.armor_trim.name=Zırh Kırpıcı
+item.conarm.helmet_core.name=Kask Ana Parçası
+item.conarm.chest_core.name=Göğüslük Ana Parçası
+item.conarm.leggings_core.name=Bacaklık Ana Parçası
+item.conarm.boots_core.name=Bot Ana Parçası
+item.conarm.armor_plate.name=Zırh Plakaları
+
+#################
+#  Keybindings  #
+#################
+key.conarm.category=Construct's Armory Accessories
+key.conarm.toggle_boots.desc=Botlar
+key.conarm.toggle_chest.desc=Göğüslük
+key.conarm.toggle_helm.desc=Kask
+key.conarm.toggle_leg.desc=Bacaklık
+
+#################
+#     Traits    #
+#################
+modifier.absorbent_armor.name=Emici
+modifier.absorbent_armor.desc=§oDiğerlerinden daha emici.§r\nZırhın suyun içindeyken ve yağmur altında daha güçlü olur.
+modifier.alien_armor.name=modifier.alien.name
+modifier.alien_armor.desc=modifier.alien.desc
+modifier.ambitious_armor.name=Hırslı
+modifier.ambitious_armor.desc=§oOrdular İleri!§r\nEkstra XP kazanmanı sağlar.
+modifier.aridiculous_armor.name=modifier.aridiculous.name
+modifier.aridiculous_armor.desc=§oOrtamı Biraz Isıt!§r\nZırhın sıcak ortamlarda daha iyi çalışır.
+modifier.aquaspeed_armor.name=Islak Hız
+modifier.aquaspeed_armor.desc=§oBurası Biraz Islanıyor!§r\nZırhın suda engellenemiyor ve yağmurlu sabahları seviyor.
+modifier.autoforge_armor.name=Ocak
+modifier.autoforge_armor.desc=§oO kadar sıcak ki kendisini tamir ediyor!§r\nZırh, ateşin içindeyken kendisni tamir eder.
+modifier.baconlicious_armor.name=modifier.baconlicious.name
+modifier.baconlicious_armor.desc=§oDomuz Eti!§r\nBazen hasar alınca domuz eti verir.
+modifier.blessed_armor.name=Lanetli
+modifier.blessed_armor.desc=§oDikkat et, lanetli!.§r\nZombi, iskelet ve benzeri yaratıkları zayıflatır.
+modifier.bouncy_armor.name=Zıplayan
+modifier.bouncy_armor.desc=§oHer zaman bir zıplama ipi gibi!§r\nZırhın etrafta zıplamaya yatkındır.
+modifier.calcic_armor.name=Kalsiyumlu
+modifier.calcic_armor.desc=§oGüçlü kemikler için.§r\Süt, hem zırhını yeniler hem canını doldurur.
+modifier.cheap_armor.name=modifier.cheap.name
+modifier.cheap_armor.desc=§oParan cebinde kalsın!§r\nZırhı onarırken daha çok hitpoint kazanır.
+modifier.cheapskate_armor.name=modifier.cheapskate.name
+modifier.cheapskate_armor.desc=§oBiraz kötü olabilir!§r\nTaşlar kötü. Zırhının dayanıklılığı daha az.
+modifier.combustible_armor.name=Yakılabilir
+modifier.combustible_armor.desc=§oZırhın yanıyoooo!§r\nTutuştuğu zaman etraftaki yaratıkları ve oyuncuları alevlendirir.
+modifier.dense_armor.name=modifier.dense.name
+modifier.dense_armor.desc=§oDaha..ser..t.§r\nZırhının dayanıklılığı azken daha çok dayanır.
+modifier.dramatic_armor.name=Dramatik
+modifier.dramatic_armor.desc=§oBu ne acele!§r\nBelki seni sıkıştığında kurtarır!Kim bilir?
+modifier.duritos_ranch_armor.name=modifier.duritos.name
+modifier.duritos_ranch_armor.desc=§oAdı gibi lezzetli değil.§r\nZırhın daha uzun süre dayanır...çoğu zaman.
+modifier.ecological_armor.name=modifier.ecological.name
+modifier.ecological_armor.desc=modifier.ecological.desc
+modifier.enderport_armor.name=Enderport
+modifier.enderport_armor.desc=§oTam zamanında!§r\nSeni tehlikeli durumlardan uzaklaştırabilir.
+modifier.featherweight_armor.name=Tüy gibi
+modifier.featherweight_armor.desc=§oBir tüy kadar hafif.§r\nO kadar hafifsin ki düşünce daha az hasar alıyorsun.
+modifier.heavy_armor.name=modifier.heavy.name
+modifier.heavy_armor.desc=§o35 liralık protein tozu?§r\nGeri tepmeni azaltır.
+modifier.indomitable_armor.name=Yıldırılamayan
+modifier.indomitable_armor.desc=§Asla pes etme!r\§nZırhını daha etkili kılar.
+modifier.infernal_armor.name=Cehennemsi
+modifier.infernal_armor.desc=§oŞeytansı modadaki son parça.§r\nNetherdan olmayan moblara karşı yüksek koruma.
+modifier.infernal_armor.extra=Netherdan olmayan moblara karşı: +%s
+modifier.invigorating_armor.name=Yaşam dolu
+modifier.invigorating_armor.desc=§oHarika hissettiriyor!§r\nBir şekilde daha sağlıklı hissediyorsun.
+modifier.lightweight_armor.name=modifier.lightweight.name
+modifier.lightweight_armor.desc=§oRüzgar gibi sürüklen!§r\nHareket hızını artırır.
+modifier.lightweight_armor.extra=Bonus-Hız: +%s
+modifier.magnetic_armor.name=modifier.magnetic.name
+modifier.magnetic_armor.desc=§oÇekici Zırh!§r\nEşyaların sana karşı sürüklenmekten başka bi çareleri yok, tatlım.
+modifier.mundane_armor.name=Olağan
+modifier.mundane_armor.desc=§oSilahlar Kaybedenler İçin!§r\nSilahsız saldırganlara karşı ekstra koruma.
+modifier.mundane_armor.extra=Silahsızlara Karşı: +%s
+modifier.petravidity_armor.name=Petravidity
+modifier.petravidity_armor.desc=§oÇok fazla taş var, hepsini görmeliyim!§r\nTaşın Zırhları sever(biraz ters oldu sanki), onlar etraftayken(taşlar) daha iyi işler.
+modifier.prideful_armor.name=Onurlu
+modifier.prideful_armor.desc=§oNarsisizm nedir?§r\nSaldırılınca daha güçlüsün, dayanıklılık pahasına.
+modifier.rough_armor.name=Sert
+modifier.rough_armor.desc=§oLütfen dokunmayın.§r\nSaldırganlara temas sırasında dayanıklılığa göre hasar verir.
+modifier.rough_armor.extra=Sert Hasar: +%s
+modifier.shielding_armor.name=Kalkanımsı
+modifier.shielding_armor.desc=§oŞimdi o kadar özel değil, ha?§r\nSihirli saldırılara karşı ekstra koruma sağlar.
+modifier.slimey_armor.name=modifier.slimey.name
+modifier.slimey_armor.desc=modifier.slimey.desc
+modifier.skeletal_armor.name=İskeletsi
+modifier.skeletal_armor.desc=§oBir....kemik..kadar sert?§r\nZırhını daha sert yapar.
+modifier.spiny_armor.name=Dikencikli
+modifier.spiny_armor.desc=§oOnların adı dikencik...diken değil!§r\nSaldırıya uğramak, saldırgana hasar vurur.Dayanıklılık pahasına tabii ki.
+modifier.steady_armor.name=Yerinden Oynamaz
+modifier.steady_armor.desc=§oYerini al!§r\nSen daha az geri tepersin, rakibin daha çok.
+modifier.subterranean_armor.name=Suyun Altında
+modifier.subterranean_armor.desc=§oDaha derine İnmeliyiz!§r\nZırhın deniz seviyesinin altında daha uzun süre dayanır.
+modifier.superhot_armor.name=Süpersıcak
+modifier.superhot_armor.desc=§oÇOK.ATEŞLİ.§r\nYanarken daha hızlı koşarsın!
+modifier.tasty_armor.name=modifier.tasty.name
+modifier.tasty_armor.desc=§oOm Nom Nom§r\nÇok güzel kokuyor..Ölmektense zırhını yersin.Değil mi?
+modifier.vengeful_armor.name=Kinli
+modifier.vengeful_armor.desc=§oBunu ödeyeceksiniz!§r\nSaldırganlar sana vurunca pek de iyi hissetmezler.
+modifier.voltaic_armor.name=Galvanik
+modifier.voltaic_armor.desc=§oZZzzz!§r\nHasar almak zırhını şarj eder. Tamamen şarj olunca tekrar hasar alırsan etrafındaki tüm yaratıklara hasar verirsin.
+
+#################
+#   Modifiers   #
+#################
+modifier.amphibious_armor.name=Amfibik
+modifier.amphibious_armor.desc=§oSualtı modası.§r\nSuyun altında limitli bir süre için nefes almanı sağlar.
+modifier.blast_resistant_armor.name=Patlama Dayanıklı
+modifier.blast_resistant_armor.desc=§oSiper Al!§r\nPatlamalara karşı ekstra dayanıklılık.
+modifier.diamond_armor.name=modifier.diamond.name
+modifier.diamond_armor.desc=modifier.diamond.desc
+modifier.dexterous_armor.name=Eliçabuk
+modifier.dexterous_armor.desc=§oEn yetenkli eller.§r\nSaldırı hızını artırır.
+modifier.emerald_armor.name=modifier.emerald.name
+modifier.emerald_armor.desc=modifier.emerald.desc
+modifier.extratrait_armor.name=modifier.extratrait.name
+modifier.extratrait_armor.desc=modifier.extratrait.desc
+modifier.fire_resistant_armor.name=Ateşe Dayanıklı
+modifier.fire_resistant_armor.desc=§o3.Derece yanıkları pek sevmeyiz..di mi?§r\nAteşe karşı ekstra dayanıklılık.
+modifier.frostwalker_armor.name=Buz Gibi
+modifier.frostwalker_armor.desc=§oDaima buz gibi kal.§r\nAyakların o kadar soğuk ki etrafındaki suyu donduruyor.
+modifier.glowing_armor.name=Parlak
+modifier.glowing_armor.desc=§oŞahin bırak rakı dayımın§r\nEtraf çok kararınca kendi aydınlatma yöntemini oluşturur.
+modifier.high_stride_armor.name=Kazma Bacak
+modifier.high_stride_armor.desc=§oZıplamak barbarlar için.§r\nSen zıplamak yerine daha yükseğe adım atıyorsun.
+modifier.mending_armor.name=modifier.mending_moss.name
+modifier.mending_armor.desc=§oCanlı!§r\nKazanılan XP zırhta depolanır. Yavaş yavaş XP kullanarak zırhı tamir eder.
+modifier.mending_armor.extra=Biriken XP: %d
+modifier.parasitic_armor.name=Yılışık
+modifier.parasitic_armor.desc=§oSonsuza kadar beraber...§r\nZırhın kendini tamir etmek için senden beslenir.
+modifier.polished_armor.name=Cilalı
+modifier.polished_armor.desc=§oNe kadar parlaksa o kadar iyi!§r\nSertlik %s leveli kadar yükselir.
+modifier.powerful_armor.name=Güçlü
+modifier.powerful_armor.desc=§oElim sanki kızarmaya mı....baş..lıyor!§r\nVuruş hasarını artırır.
+modifier.projectile_resistant_armor.name=Atılan Cisim Dayanıklı
+modifier.projectile_resistant_armor.desc=§oYakına gelin, sizi korkaklar!§r\nUzaktan gelen saldırılara karşı ekstra koruma.
+modifier.reinforced_armor.name=modifier.reinforced.name
+modifier.reinforced_armor.desc=modifier.reinforced.desc
+modifier.reinforced_armor.extra=Güçlendirilmiş: %s
+modifier.resistant_armor.name=Dayanıklı
+modifier.resistant_armor.desc=§oSiper al, Geliyorum!§r\nHer türlü saldırıya karşı ekstra koruma.
+modifier.shulkerweight_armor.name=Gökdelen
+modifier.shulkerweight_armor.desc=§oYukarı bak!§r\nZıplama gücünü artırır.
+modifier.soulbound_armor.name=modifier.soulbound.name
+modifier.soulbound_armor.desc=§oPonçik bir çift!§r\nZırhını o kadar çok seviyorsun ki ölüm bile sizi ayıramaz.
+modifier.speedy_armor.name=Hızlı
+modifier.speedy_armor.name2=Daha hızlı
+modifier.speedy_armor.name3=En hızlı
+modifier.speedy_armor.desc=§oGotta go fast(sahnic)!§r\nHareket hızını artırır.
+modifier.speedy_armor.extra=Bonus-Hız: +%s
+modifier.sticky_armor.name=Yapışkan
+modifier.sticky_armor.desc=§oÜstümden çekil, üstümden çekii..l!§r\nSana saldıranları yavaşlatır.
+modifier.telekinetic_armor.name=Telekinetik
+modifier.telekinetic_armor.desc=§oAllah'ın mutantı seni.§r\nDaha uzağa erişebilirsin.
+
+#################
+#  Accessories  #
+#################
+modifier.travel_belt_armor.name=Yolcu'nun Kemeri (Storage)
+modifier.potion_belt_armor.name=Yolcu'nun Kemeri (Alchemy)
+modifier.travel_sack_armor.name=Yolcu'nun Bel Çantası
+modifier.travel_sneak_armor.name=Yolcu'nun Pelerini (Invisibility)
+modifier.travel_slowfall_armor.name=Yolcu'nun Pelerini (Slow Fall)
+modifier.travel_goggles_armor.name=Yolcu'nun Gözlüğü (Zoom)
+modifier.night_vision_armor.name=Yolcu'nun Gözlüğü (Night Vision)
+modifier.soul_sight_armor.name=Yolcu'nun Gözlüğü (Soul Sight)
+
+accessory.head.tooltip=Kask Aksesuarı
+accessory.chest.tooltip=Göğüslük Aksesuarı
+accessory.legs.tooltip=Bacaklık Aksesuarı
+accessory.feet.tooltip=Botlar Aksesuarı
+accessory.toggle.tooltip=Statüs: %s
+accessory.toggle.active=Aktif
+accessory.toggle.inactive=İnaktif
+
+#################
+#     Stats     #
+#################
+stat.core.name=Ana Parça
+stat.core.durability.name=Dayanıklılık
+stat.core.durability.desc=Dayanıklılık hesaplamaları için ana katsayı.\nGenel olarak katlanarak artan bi stat.
+stat.core.defense.name=Defans
+stat.core.defense.desc=Bir materyalin ne kadar defansa sahip olduğu.\nZırhın gücü defans ve takıldığı zırh slotuna göre hesaplanır.
+
+stat.plates.name=Plak
+stat.plates.modifier.name=Özelleştirme
+stat.plates.modifier.desc=Bir materyalin zırhta kullanmak için ne kadar uygun olduğu.\nZırhın toplam dayanıklılığı bu miktar ile çarpılacak.
+stat.plates.durability.name=stat.core.durability.name
+stat.plates.durability.desc=Materyal ne kadar rahat giyilebilir.\nZırh dayanıklılığı bu miktar ile çarpılacak.
+stat.plates.toughness.name=Sertlik
+stat.plates.toughness.desc=Bir zırh parçasının sahip olduğu sertlik.
+
+stat.trim.name=Kırpıcı
+stat.trim.durability.name=stat.core.durability.name
+stat.trim.durability.desc=Kırpmanın zırhınızın dayanıklılığını arttırdığı miktar.

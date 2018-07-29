@@ -34,7 +34,7 @@ public class ConstructsArmory {
 
     public static final String MODID = "conarm";
     public static final String MODNAME = "Construct's Armory";
-    public static final String MODVER = "1.0.0";
+    public static final String MODVER = "1.0.1.1";
 
     @SidedProxy(clientSide = "c4.conarm.proxy.ClientProxy", serverSide = "c4.conarm.proxy.CommonProxy")
     public static CommonProxy proxy;

@@ -118,20 +118,13 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
             ArmorProperties prop = ArmorHelper.getPropertiesAfterAbsorb(armor, damage, totalArmor, totalToughness, armorType);
 
             //Subtract armor and toughness so that ISpecialArmor does not calculate it twice
-            prop.Armor -= getArmorDifference(ArmorHelper.getArmor(armor, slot), entity);
+            prop.Armor -= ArmorHelper.getArmor(armor, slot);
             prop.Toughness -= ArmorHelper.getToughness(armor);
 
             return prop;
         }
 
         return new ArmorProperties(0, 0, 0);
-    }
-
-    //Fractional armor values don't get calculated properly so we call this method to compensate
-    protected double getArmorDifference(float armor, EntityLivingBase entity) {
-        double currentArmor = entity.getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue();
-        int targetArmor = MathHelper.floor(entity.getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue() - armor);
-        return currentArmor - targetArmor;
     }
 
     @Override
