@@ -173,7 +173,7 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void registerPotions(RegistryEvent.Register<Potion> evt) {
-        evt.getRegistry().registerAll(TraitSuperhot.superhotPotion, TraitAquaspeed.aquaspeedPotion);
+        evt.getRegistry().registerAll(TraitSuperhot.superhotPotion);
     }
 
     public void generateParticle(Entity entity) {}

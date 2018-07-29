@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.12.2-1.0.2"
+version = "1.12.2-1.0.3"
 group = "c4.conarm" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "conarm"
 
@@ -33,7 +33,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.4.2705"
+    version = "1.12.2-14.23.4.2744"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
