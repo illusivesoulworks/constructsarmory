@@ -13,6 +13,8 @@
 
 package c4.conarm.common.armor.utils;
 
+import c4.conarm.common.ConstructsRegistry;
+import c4.conarm.common.armor.modifiers.ArmorModifiers;
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import c4.conarm.lib.events.ArmoryEvent;
 import c4.conarm.lib.tinkering.TinkersArmor;
@@ -30,6 +32,7 @@ import net.minecraftforge.common.ISpecialArmor;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
+import slimeknights.tconstruct.library.tinkering.TinkersItem;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
@@ -46,6 +49,11 @@ public class ArmorHelper {
 
     public static boolean isUnbrokenTinkersArmor(ItemStack stack) {
         return stack.getItem() instanceof TinkersArmor && !ToolHelper.isBroken(stack);
+    }
+
+    public static boolean disableRender(ItemStack stack) {
+        return stack.getItem() instanceof TinkersArmor && TinkerUtil.hasModifier(TagUtil.getTagSafe(stack),
+                ArmorModifiers.modConcealed.identifier);
     }
 
     public static ISpecialArmor.ArmorProperties getPropertiesAfterAbsorb(ItemStack armor, double damage, float totalArmor, float totalToughness, EntityEquipmentSlot slot) {

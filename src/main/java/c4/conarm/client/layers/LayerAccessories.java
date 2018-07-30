@@ -13,6 +13,7 @@
 
 package c4.conarm.client.layers;
 
+import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.modifiers.IAccessoryRender;
 import net.minecraft.client.model.ModelBase;
@@ -50,7 +51,8 @@ public class LayerAccessories <T extends ModelBase> implements LayerRenderer<Ent
 
         ItemStack itemstack = entityLivingBaseIn.getItemStackFromSlot(slotIn);
 
-        if (itemstack.getItem() instanceof ArmorCore && !ToolHelper.isBroken(itemstack))
+        if (itemstack.getItem() instanceof ArmorCore && !ToolHelper.isBroken(itemstack)
+                && !ArmorHelper.disableRender(itemstack))
         {
             ArmorCore armorCore = (ArmorCore) itemstack.getItem();
             NBTTagList list = TagUtil.getBaseModifiersTagList(itemstack);

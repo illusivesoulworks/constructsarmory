@@ -52,6 +52,10 @@
   },
   {
     "type": "armormodifier",
+    "data": "modifiers/concealed_armor.json"
+  },
+  {
+    "type": "armormodifier",
     "data": "modifiers/amphibious_armor.json"
   },
   {

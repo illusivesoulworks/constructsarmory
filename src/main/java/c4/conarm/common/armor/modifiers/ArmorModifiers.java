@@ -58,6 +58,7 @@ public class ArmorModifiers {
     public static Modifier modShulkerweight;
     public static Modifier modHighStride;
     public static Modifier modGlowing;
+    public static Modifier modConcealed;
     public static Modifier modMending;
     public static Modifier modFireResist;
     public static Modifier modProjResist;
@@ -85,6 +86,9 @@ public class ArmorModifiers {
         modSpeedy = new ModSpeedy(50);
         RecipeMatchHolder.addItem(modSpeedy, "dustRedstone");
         RecipeMatchHolder.addItem(modSpeedy, "blockRedstone", 1, 9);
+
+        modConcealed = new ModConcealed();
+        RecipeMatchHolder.addItem(modConcealed, ConstructsRegistry.invisibleInk);
 
         modPowerful = new ModPowerful();
         RecipeMatchHolder.addItem(modPowerful, ConstructsRegistry.gauntletAttack);

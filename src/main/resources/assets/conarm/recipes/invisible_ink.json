@@ -1,0 +1,23 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemLapis"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockGlass"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "enderpearl"
+    }
+  ],
+  "result": {
+    "item": "conarm:invisible_ink"
+  }
+}

@@ -78,6 +78,7 @@ public class ConstructsRegistry {
     //Items
     public static ItemArmoryBook book;
     public static ItemPolishingKit polishingKit;
+    public static ItemBase invisibleInk;
     public static ItemBase resistMat;
     public static ItemBase fireResistMat;
     public static ItemBase projResistMat;
@@ -120,6 +121,7 @@ public class ConstructsRegistry {
         gauntletAttack.initModel();
         gauntletSpeed.initModel();
         gauntletReach.initModel();
+        invisibleInk.initModel();
     }
 
     public static void registerArmorPieces(IForgeRegistry<Item> registry) {
@@ -131,6 +133,7 @@ public class ConstructsRegistry {
 
     public static void registerItems(IForgeRegistry<Item> registry) {
         book = ConstructUtils.registerItem(registry, new ItemArmoryBook(), "book");
+        invisibleInk = ConstructUtils.registerItem(registry, new ItemConarmMat(), "invisible_ink");
         resistMat = ConstructUtils.registerItem(registry, new ItemConarmMat(), "resist_mat");
         fireResistMat = ConstructUtils.registerItem(registry, new ItemConarmMat(), "resist_mat_fire");
         projResistMat = ConstructUtils.registerItem(registry, new ItemConarmMat(), "resist_mat_proj");

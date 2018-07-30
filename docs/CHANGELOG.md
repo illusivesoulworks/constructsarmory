@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
 ## [Unreleased]
+### Added
+- Concealed modifier from new Invisible Ink item, makes armor invisible (purely cosmetic) [#64](https://github.com/TheIllusiveC4/ConstructsArmory/issues/64)
 ### Changed
 - Aquaspeed trait now uses the new Forge attribute for Swim Speed
 

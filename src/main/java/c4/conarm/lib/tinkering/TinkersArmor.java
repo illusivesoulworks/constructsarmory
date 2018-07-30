@@ -175,7 +175,7 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
         if (brokenModel == null) {
             brokenModel = new ModelBrokenArmor();
         }
-        if (ToolHelper.isBroken(itemStack)) {
+        if (ToolHelper.isBroken(itemStack) || ArmorHelper.disableRender(itemStack)) {
             return brokenModel;
         }
         return model;
