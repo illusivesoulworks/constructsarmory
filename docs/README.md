@@ -12,6 +12,10 @@ This book will have information about the new tinkering tables you'll need, the 
 
 # FAQ
 
+**Q. Can you add a modifier/material to support ____?**
+
+A. No. I could, but I won't. As soon as I add support for one mod, then I won't have any reason not to add support for any and all mods. Considering the scope of possibilities, this is a huge endeavor and will only end up bloating this mod with a bunch of optional features. In addition, I'd rather have the other mods add support on their end because then they have full control over what kind of integration to introduce, if any.
+
 **Q. Are you going to have different armor types?**
 
 A. No. Armor isn't quite as abstract as tools are, and any way that I can think of to differentiate armor is already handled by the traits/modifiers system. There is room however for add-ons to possibly implement cosmetic alternatives.
