@@ -27,7 +27,7 @@ import org.apache.logging.log4j.Logger;
 @Mod(   modid = ConstructsArmory.MODID,
         name = ConstructsArmory.MODNAME,
         version = ConstructsArmory.MODVER,
-        dependencies =  "required-after:forge@[14.23.4.2705,);" +
+        dependencies =  "required-after:forge@[14.23.4.2745,);" +
                         "required-after:mantle@[1.12-1.3.1,);" +
                         "required-after:tconstruct@[1.12.2-2.10.1.87,);" +
                         "after:contenttweaker@[1.12.2-4.8.0,);" +
@@ -38,7 +38,7 @@ public class ConstructsArmory {
 
     public static final String MODID = "conarm";
     public static final String MODNAME = "Construct's Armory";
-    public static final String MODVER = "1.0.2";
+    public static final String MODVER = "1.1.0";
 
     private static final boolean DEBUG = false;
 

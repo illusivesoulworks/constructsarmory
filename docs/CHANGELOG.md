@@ -4,11 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
-## [Unreleased]
+## [1.1.0] - 2018.08.28
 ### Added
 - Concealed modifier from new Invisible Ink item, makes armor invisible (purely cosmetic) [#64](https://github.com/TheIllusiveC4/ConstructsArmory/issues/64)
+- (API) Added disableRendering method for additional invisibility logic
 ### Changed
-- Aquaspeed trait now uses the new Forge attribute for Swim Speed
+- Updated Forge dependency to 14.23.4.2745
+- Aquaspeed trait now uses the new Forge attribute for Swim Speed (thank you Karthas077) [#101](https://github.com/TheIllusiveC4/ConstructsArmory/issues/101)
+- Updated ContentTweaker dependency to 4.8.0
+- Updated ContentTweaker integration [#100](https://github.com/TheIllusiveC4/ConstructsArmory/issues/100)
+- (API) Split onArmorChanged into onArmorEquipped and onArmorRemoved
+- Traveller's Cloak of Invisibility, when active, now makes the chestplate invisible as well
+### Fixed
+- Invigorating hearts not persisting upon relogging [#103](https://github.com/TheIllusiveC4/ConstructsArmory/issues/103)
 
 ## [1.0.2] - 2018.07.19
 ### Added
