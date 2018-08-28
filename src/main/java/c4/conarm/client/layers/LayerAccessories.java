@@ -52,7 +52,7 @@ public class LayerAccessories <T extends ModelBase> implements LayerRenderer<Ent
         ItemStack itemstack = entityLivingBaseIn.getItemStackFromSlot(slotIn);
 
         if (itemstack.getItem() instanceof ArmorCore && !ToolHelper.isBroken(itemstack)
-                && !ArmorHelper.disableRender(itemstack))
+                && !ArmorHelper.disableRender(itemstack, entityLivingBaseIn))
         {
             ArmorCore armorCore = (ArmorCore) itemstack.getItem();
             NBTTagList list = TagUtil.getBaseModifiersTagList(itemstack);

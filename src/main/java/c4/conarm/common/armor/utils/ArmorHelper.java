@@ -21,6 +21,7 @@ import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.lib.traits.IArmorAbility;
 import c4.conarm.lib.traits.IArmorTrait;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -51,9 +52,19 @@ public class ArmorHelper {
         return stack.getItem() instanceof TinkersArmor && !ToolHelper.isBroken(stack);
     }
 
-    public static boolean disableRender(ItemStack stack) {
-        return stack.getItem() instanceof TinkersArmor && TinkerUtil.hasModifier(TagUtil.getTagSafe(stack),
-                ArmorModifiers.modConcealed.identifier);
+    public static boolean disableRender(ItemStack stack, EntityLivingBase entityLivingBase) {
+        if (stack.getItem() instanceof TinkersArmor) {
+            NBTTagList list = TagUtil.getTraitsTagList(stack);
+            for (int i = 0; i < list.tagCount(); i++) {
+                ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
+                if (trait != null && trait instanceof IArmorTrait) {
+                    if (((IArmorTrait) trait).disableRendering(stack, entityLivingBase)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     public static ISpecialArmor.ArmorProperties getPropertiesAfterAbsorb(ItemStack armor, double damage, float totalArmor, float totalToughness, EntityEquipmentSlot slot) {

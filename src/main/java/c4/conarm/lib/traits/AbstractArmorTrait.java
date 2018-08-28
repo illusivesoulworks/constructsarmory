@@ -14,6 +14,7 @@
 package c4.conarm.lib.traits;
 
 import c4.conarm.lib.armor.ArmorModifications;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -104,5 +105,10 @@ public class AbstractArmorTrait extends AbstractTrait implements IArmorTrait, IA
     @Override
     public int getAbilityLevel(ModifierNBT data) {
         return data.level;
+    }
+
+    @Override
+    public boolean disableRendering(ItemStack armor, EntityLivingBase entityLivingBase) {
+        return false;
     }
 }

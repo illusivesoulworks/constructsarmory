@@ -14,6 +14,7 @@
 package c4.conarm.lib.traits;
 
 import c4.conarm.lib.armor.ArmorModifications;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -50,4 +51,6 @@ public interface IArmorTrait extends ITrait {
     int onArmorDamage(ItemStack armor, DamageSource source, int damage, int newDamage, EntityPlayer player, int slot);
 
     int onArmorHeal(ItemStack armor, DamageSource source, int amount, int newAmount, EntityPlayer player, int slot);
+
+    boolean disableRendering(ItemStack armor, EntityLivingBase entityLivingBase);
 }

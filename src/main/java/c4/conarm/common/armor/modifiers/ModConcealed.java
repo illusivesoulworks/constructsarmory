@@ -14,19 +14,29 @@
 package c4.conarm.common.armor.modifiers;
 
 import c4.conarm.lib.modifiers.ArmorModifier;
+import c4.conarm.lib.modifiers.ArmorModifierTrait;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import slimeknights.tconstruct.library.modifiers.IToolMod;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 
-public class ModConcealed extends ArmorModifier {
+public class ModConcealed extends ArmorModifierTrait {
 
     public ModConcealed() {
         super("concealed", 0xfff5cc);
-
-        addAspects(new ModifierAspect.SingleAspect(this), new ModifierAspect.DataAspect(this));
+        this.aspects.clear();
+        addAspects(new ModifierAspect.DataAspect(this), new ModifierAspect.SingleAspect(this));
     }
 
     @Override
-    public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag) {
-        //NO-OP
+    public boolean canApplyTogether(IToolMod otherModifier) {
+        return otherModifier != ArmorModifiers.modTravelSneak;
+    }
+
+    @Override
+    public boolean disableRendering(ItemStack armor, EntityLivingBase entityLivingBase) {
+        return true;
     }
 }
