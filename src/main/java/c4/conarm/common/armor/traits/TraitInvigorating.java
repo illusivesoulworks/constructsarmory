@@ -14,25 +14,16 @@
 package c4.conarm.common.armor.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
-import com.google.common.collect.Multimap;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import slimeknights.tconstruct.library.utils.ToolHelper;
 
-import javax.annotation.Nonnull;
 import java.util.UUID;
 
 public class TraitInvigorating extends AbstractArmorTrait {
-
-    private static final int DURABILITY_BREAK = 10;
-    private static final float ABSORB_PER_LEVEL = 0.1F;
 
     protected static final UUID[] HEALTH_MODIFIERS = new UUID[]{
             UUID.fromString("cc2c4cca-6d0c-4468-bca3-7994834be6cc"),
@@ -46,9 +37,22 @@ public class TraitInvigorating extends AbstractArmorTrait {
     }
 
     @Override
-    public void getAttributeModifiers(@Nonnull EntityEquipmentSlot slot, ItemStack stack, Multimap<String, AttributeModifier> attributeMap) {
-        if (slot == EntityLiving.getSlotForItemStack(stack)) {
-            attributeMap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(HEALTH_MODIFIERS[slot.getIndex()], "Invigorating trait modifier", HEALTH_PER_LEVEL, 0));
+    public void onArmorEquipped(ItemStack armor, EntityPlayer player, int slot) {
+        IAttributeInstance healthAtt = player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH);
+        AttributeModifier modifier = healthAtt.getModifier(HEALTH_MODIFIERS[slot]);
+        if (modifier == null) {
+            healthAtt.applyModifier(new AttributeModifier(HEALTH_MODIFIERS[slot], "Invigorating trait modifier", HEALTH_PER_LEVEL, 0));
         }
+        player.heal((float)HEALTH_PER_LEVEL);
+    }
+
+    @Override
+    public void onArmorRemoved(ItemStack armor, EntityPlayer player, int slot) {
+        IAttributeInstance healthAtt = player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH);
+        AttributeModifier modifier = healthAtt.getModifier(HEALTH_MODIFIERS[slot]);
+        if (modifier != null) {
+            healthAtt.removeModifier(modifier);
+        }
+        player.setHealth(player.getHealth());
     }
 }
