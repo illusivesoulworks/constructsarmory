@@ -22,6 +22,7 @@ import crafttweaker.api.minecraft.CraftTweakerMC;
 import crafttweaker.api.oredict.IOreDictEntry;
 import slimeknights.mantle.util.RecipeMatchRegistry;
 import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.modifiers.ModifierTrait;
 import slimeknights.tconstruct.library.traits.ITrait;
 import stanhebben.zenscript.annotations.Optional;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -87,6 +88,14 @@ public class ConArmTraitRepresentation {
         return "<conarmtrait:" + trait.getIdentifier() + ">";
     }
 
+    @ZenMethod
+    public ConArmTraitDataRepresentation getData(IItemStack itemStack) {
+        if(trait instanceof ModifierTrait)
+            return new ConArmTraitDataRepresentation(((ModifierTrait) trait).getData(CraftTweakerMC.getItemStack
+                    (itemStack)));
+        CraftTweakerAPI.logError("Trait " + trait.getIdentifier() + " is not applicable to the getData function!");
+        return null;
+    }
 
     public ITrait getTrait() {
         return trait;
