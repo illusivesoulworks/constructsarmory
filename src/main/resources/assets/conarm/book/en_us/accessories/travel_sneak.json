@@ -9,6 +9,7 @@
     "Grants invisibility",
     "Toggle invisibility on key press",
     "Uses durability for active invisibility",
+    "Cannot be used with the Concealed modifier",
     "Only 1 accessory per item"
   ],
   "demoArmor": [

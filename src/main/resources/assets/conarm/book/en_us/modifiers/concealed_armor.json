@@ -13,7 +13,8 @@
   ],
   "effects": [
     "Renders your armor invisible",
-    "Requires no modifier"
+    "Requires no modifier",
+    "Cannot be used with the Traveller's Cloak of Invisibility"
   ],
   "demoArmor": [
     "conarm:helmet",
