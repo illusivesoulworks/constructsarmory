@@ -55,7 +55,7 @@ public class ModTravelSneak extends AbstractToggleAccessoryModifier {
     }
 
     @Override
-    public void onArmorChanged(ItemStack armor, EntityPlayer player, int slot) {
+    public void onArmorRemoved(ItemStack armor, EntityPlayer player, int slot) {
         if (player.isPotionActive(MobEffects.INVISIBILITY)) {
             PotionEffect effect = player.getActivePotionEffect(MobEffects.INVISIBILITY);
             if (effect != null && effect.getAmplifier() == -44) {

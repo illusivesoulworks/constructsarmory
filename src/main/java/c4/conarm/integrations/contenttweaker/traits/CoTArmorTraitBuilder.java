@@ -76,7 +76,9 @@ public class CoTArmorTraitBuilder {
     @ZenProperty
     public ArmorFunctions.OnAbility onAbility = null;
     @ZenProperty
-    public ArmorFunctions.OnArmorChange onArmorChange = null;
+    public ArmorFunctions.OnArmorEquip onArmorEquip = null;
+    @ZenProperty
+    public ArmorFunctions.OnArmorRemove onArmorRemove = null;
     @ZenProperty
     public ArmorFunctions.OnArmorDamaged onArmorDamaged = null;
     @ZenProperty
@@ -130,7 +132,8 @@ public class CoTArmorTraitBuilder {
         trait.onFalling = this.onFalling;
         trait.onJumping = this.onJumping;
         trait.onAbility = this.onAbility;
-        trait.onArmorChange = this.onArmorChange;
+        trait.onArmorEquip = this.onArmorEquip;
+        trait.onArmorRemove = this.onArmorRemove;
         trait.onArmorDamaged = this.onArmorDamaged;
         trait.onArmorHealed = this.onArmorHealed;
         trait.getAbilityLevel = this.getAbilityLevel;

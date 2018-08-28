@@ -43,7 +43,9 @@ public interface IArmorTrait extends ITrait {
 
     void onAbilityTick(int level, World world, EntityPlayer player);
 
-    void onArmorChanged(ItemStack armor, EntityPlayer player, int slot);
+    void onArmorEquipped(ItemStack armor, EntityPlayer player, int slot);
+
+    void onArmorRemoved(ItemStack armor, EntityPlayer player, int slot);
 
     int onArmorDamage(ItemStack armor, DamageSource source, int damage, int newDamage, EntityPlayer player, int slot);
 

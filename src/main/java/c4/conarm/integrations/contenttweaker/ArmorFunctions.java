@@ -130,9 +130,15 @@ public class ArmorFunctions {
         void handle(ConArmTraitRepresentation thisTrait, int level, IWorld world, IPlayer player);
     }
 
-    @ZenClass("mods.conarm.traits.ArmorChange")
+    @ZenClass("mods.conarm.traits.ArmorEquipped")
     @ZenRegister
-    public interface OnArmorChange {
+    public interface OnArmorEquip {
+        void handle(ConArmTraitRepresentation thisTrait, IItemStack stack, IPlayer player, int slot);
+    }
+
+    @ZenClass("mods.conarm.traits.ArmorRemoved")
+    @ZenRegister
+    public interface OnArmorRemove {
         void handle(ConArmTraitRepresentation thisTrait, IItemStack stack, IPlayer player, int slot);
     }
 

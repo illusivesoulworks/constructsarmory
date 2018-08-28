@@ -46,7 +46,7 @@ public class ModHighStride extends ArmorModifierTrait {
     }
 
     @Override
-    public void onArmorChanged(ItemStack armor, EntityPlayer player, int slot) {
+    public void onArmorRemoved(ItemStack armor, EntityPlayer player, int slot) {
         if (player instanceof EntityPlayerMP) {
             TinkerNetwork.sendTo(new SetStepHeightPacket(0.6F), (EntityPlayerMP) player);
         }

@@ -90,7 +90,20 @@ public class ArmorEvents {
                 for (int i = 0; i < list.tagCount(); i++) {
                     ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
                     if (trait != null && trait instanceof IArmorTrait) {
-                        ((IArmorTrait) trait).onArmorChanged(from, player, evt.getSlot().getIndex());
+                        ((IArmorTrait) trait).onArmorRemoved(from, player, evt.getSlot().getIndex());
+                    }
+                }
+            }
+        }
+
+        if (evt.getTo().getItem() instanceof TinkersArmor) {
+            ItemStack to = evt.getTo();
+            if (!ToolHelper.isBroken(to)) {
+                NBTTagList list = TagUtil.getTraitsTagList(to);
+                for (int i = 0; i < list.tagCount(); i++) {
+                    ITrait trait = TinkerRegistry.getTrait(list.getStringTagAt(i));
+                    if (trait != null && trait instanceof IArmorTrait) {
+                        ((IArmorTrait) trait).onArmorEquipped(to, player, evt.getSlot().getIndex());
                     }
                 }
             }

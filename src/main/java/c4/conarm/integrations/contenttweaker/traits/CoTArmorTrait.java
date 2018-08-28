@@ -70,7 +70,8 @@ public class CoTArmorTrait extends ArmorModifierTrait implements IArmorTrait {
     ArmorFunctions.OnKnockback onKnockback = null;
     ArmorFunctions.OnArmorDamaged onArmorDamaged = null;
     ArmorFunctions.OnArmorHealed onArmorHealed = null;
-    ArmorFunctions.OnArmorChange onArmorChange = null;
+    ArmorFunctions.OnArmorEquip onArmorEquip = null;
+    ArmorFunctions.OnArmorRemove onArmorRemove = null;
     ArmorFunctions.OnAbility onAbility = null;
     ArmorFunctions.GetAbilityLevel getAbilityLevel = null;
     String localizedName = null;
@@ -233,11 +234,20 @@ public class CoTArmorTrait extends ArmorModifierTrait implements IArmorTrait {
     }
 
     @Override
-    public void onArmorChanged(ItemStack armor, EntityPlayer player, int slot) {
-        if (onArmorChange != null) {
-            onArmorChange.handle(thisTrait, CraftTweakerMC.getIItemStack(armor), CraftTweakerMC.getIPlayer(player), slot);
+    public void onArmorEquipped(ItemStack armor, EntityPlayer player, int slot) {
+        if (onArmorEquip != null) {
+            onArmorEquip.handle(thisTrait, CraftTweakerMC.getIItemStack(armor), CraftTweakerMC.getIPlayer(player), slot);
         } else {
-            super.onArmorChanged(armor, player, slot);
+            super.onArmorEquipped(armor, player, slot);
+        }
+    }
+
+    @Override
+    public void onArmorRemoved(ItemStack armor, EntityPlayer player, int slot) {
+        if (onArmorRemove != null) {
+            onArmorRemove.handle(thisTrait, CraftTweakerMC.getIItemStack(armor), CraftTweakerMC.getIPlayer(player), slot);
+        } else {
+            super.onArmorRemoved(armor, player, slot);
         }
     }
 
