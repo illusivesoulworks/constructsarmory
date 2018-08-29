@@ -33,7 +33,7 @@ public class RecipeMatchHolder {
 
     public static Optional<PriorityQueue<RecipeMatch>> getRecipes(IModifier modifier) {
 
-        return Optional.of(recipes.get(modifier));
+        return Optional.ofNullable(recipes.get(modifier));
     }
 
     public static Optional<RecipeMatch.Match> matches(IModifier modifier, NonNullList<ItemStack> stacks) {
