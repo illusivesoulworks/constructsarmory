@@ -22,6 +22,8 @@ import c4.conarm.common.tileentities.TileArmorForge;
 import c4.conarm.common.armor.traits.TraitAquaspeed;
 import c4.conarm.client.utils.GuiHandler;
 import c4.conarm.common.events.PlayerDataEvents;
+import c4.conarm.integrations.contenttweaker.materials.CoTConArmMaterial;
+import c4.conarm.integrations.contenttweaker.materials.CoTConArmMaterialBuilder;
 import c4.conarm.integrations.tinkertoolleveling.ModArmorLeveling;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.ConstructsArmory;
@@ -91,6 +93,10 @@ public class CommonProxy {
         MinecraftForge.EVENT_BUS.register(new PlayerDataEvents());
         CapabilityManager.INSTANCE.register(ArmorAbilityHandler.IArmorAbilities.class, new ArmorAbilityHandler.Storage() , ArmorAbilityHandler.ArmorAbilities::new);
         NetworkRegistry.INSTANCE.registerGuiHandler(ConstructsArmory.instance, new GuiHandler());
+
+        if (Loader.isModLoaded("contenttweaker")) {
+            CoTConArmMaterialBuilder.addedMaterials.forEach(CoTConArmMaterial::registerTraits);
+        }
     }
 
     public void postInit(FMLPostInitializationEvent evt) {

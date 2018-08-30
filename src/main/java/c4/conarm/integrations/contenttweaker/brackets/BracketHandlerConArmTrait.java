@@ -13,6 +13,7 @@
 
 package c4.conarm.integrations.contenttweaker.brackets;
 
+import c4.conarm.integrations.contenttweaker.traits.ConArmTraitRepresentation;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation;
 import crafttweaker.annotations.BracketHandler;
 import crafttweaker.annotations.ModOnly;
@@ -40,7 +41,8 @@ import java.util.stream.Collectors;
 @ZenRegister
 @ModOnly("contenttweaker")
 public class BracketHandlerConArmTrait implements IBracketHandler {
-    public final IJavaMethod method = JavaMethod.get(GlobalRegistry.getTypes(), TConTraitRepresentation.class, "getFromString", String.class);
+    public final IJavaMethod method = JavaMethod.get(GlobalRegistry.getTypes(), ConArmTraitRepresentation.class,
+            "getFromString", String.class);
 
     public BracketHandlerConArmTrait() {
     }

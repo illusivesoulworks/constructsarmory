@@ -15,6 +15,7 @@ package c4.conarm.integrations.contenttweaker.materials;
 
 import com.teamacronymcoders.contenttweaker.modules.tinkers.materials.TConMaterialRepresentation;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions;
+import crafttweaker.CraftTweakerAPI;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.liquid.ILiquidStack;
 import crafttweaker.api.minecraft.CraftTweakerMC;
@@ -23,9 +24,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import slimeknights.mantle.util.RecipeMatch;
+import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
+import slimeknights.tconstruct.library.traits.ITrait;
+import stanhebben.zenscript.util.Pair;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 
 /*
  * Base code is from ContentTweaker by The-Acronym-Coders
@@ -42,9 +47,11 @@ public class CoTConArmMaterial extends Material {
     public String localizedName = null;
     public Functions.ItemLocalizer itemLocalizer = null;
     final TConMaterialRepresentation thisMaterial = new TConMaterialRepresentation(this);
+    private final List<Pair<String, String>> traits;
 
-    public CoTConArmMaterial(String identifier, int color) {
+    public CoTConArmMaterial(String identifier, int color, List<Pair<String, String>> traits) {
         super(identifier, color);
+        this.traits = traits;
     }
 
     public void addItemMatch(RecipeMatch recipeMatch) {
@@ -106,5 +113,22 @@ public class CoTConArmMaterial extends Material {
     @Override
     public Fluid getFluid() {
         return liquid == null ? null : CraftTweakerMC.getFluid(liquid.getDefinition());
+    }
+
+    public void registerTraits() {
+        for (final Pair<String, String> traitPair : traits) {
+            final String traitName = traitPair.getKey();
+            final ITrait trait = TinkerRegistry.getTrait(traitName);
+            if (trait != null) {
+                this.addTrait(trait, traitPair.getValue());
+            } else {
+                CraftTweakerAPI.logError("Could not identify Trait <conarmtrait:" + traitName + ">, it will not be " +
+                        "added to material " + getIdentifier());
+            }
+        }
+    }
+
+    void addTrait(String materialTrait, String dependency) {
+        traits.add(new Pair<>(materialTrait, dependency));
     }
 }

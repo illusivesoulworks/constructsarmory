@@ -18,6 +18,7 @@ import c4.conarm.integrations.contenttweaker.traits.ConArmTraitRepresentation;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
+import com.teamacronymcoders.contenttweaker.modules.tinkers.materials.CoTTConMaterial;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.materials.CoTTConMaterialIntegration;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.materials.TConMaterialRepresentation;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.traits.CoTTrait;
@@ -54,6 +55,8 @@ import java.util.List;
 @ZenRegister
 @ModOnly("contenttweaker")
 public class CoTConArmMaterialBuilder {
+
+    public static List<CoTConArmMaterial> addedMaterials = new ArrayList<>();
 
     @ZenProperty
     public String identifier;
@@ -270,7 +273,8 @@ public class CoTConArmMaterialBuilder {
 
     @ZenMethod
     public TConMaterialRepresentation register() {
-        CoTConArmMaterial material = new CoTConArmMaterial(identifier, color);
+        CoTConArmMaterial material = new CoTConArmMaterial(identifier, color, materialTraits);
+        addedMaterials.add(material);
 
         //MaterialStats, if available
         if (headMaterialStats != null) {
@@ -328,13 +332,6 @@ public class CoTConArmMaterialBuilder {
         }
         if (shard != null) {
             material.setShard(CraftTweakerMC.getItemStack(shard));
-        }
-
-
-        //Traits
-        for (Pair<String, String> pair : materialTraits) {
-            ITrait trait = TinkerRegistry.getTrait(pair.getKey());
-            material.addTrait(trait, pair.getValue());
         }
 
         material.itemLocalizer = this.itemLocalizer;
