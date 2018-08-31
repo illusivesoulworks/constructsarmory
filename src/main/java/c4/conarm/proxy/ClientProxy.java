@@ -13,6 +13,7 @@
 
 package c4.conarm.proxy;
 
+import c4.conarm.client.events.EventHandlerClient;
 import c4.conarm.client.fx.ParticleSoul;
 import c4.conarm.client.gui.PreviewPlayer;
 import c4.conarm.common.ConstructsRegistry;
@@ -88,6 +89,7 @@ public class ClientProxy extends CommonProxy {
         super.init(evt);
         ArmoryRegistryClient.registerArmorBuildInfo();
         MinecraftForge.EVENT_BUS.register(new ClientArmorEvents());
+        MinecraftForge.EVENT_BUS.register(new EventHandlerClient());
     }
 
     @Override

@@ -38,6 +38,10 @@ public class ConfigHandler {
     @Config.Name("Bouncy Trait Uses Durability")
     @Config.Comment("Set to true to have the Bouncy trait use durability for each bounce")
     public static boolean bounceDurability = true;
+    @Config.Name("Max Speed FoV Change Percentage")
+    @Config.Comment("Set the maximum percentage for the speed FoV changes (use negative number for no maximum)")
+    @Config.RangeDouble(min = -1.0D, max = 1.0D)
+    public static double fovCap = -1.0D;
 
     public static final Leveling leveling = new Leveling();
 
