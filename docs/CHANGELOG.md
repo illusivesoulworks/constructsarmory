@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.1.1] - 2018.09.05
+### Added
+- Config option to control max speed FoV changes [#98](https://github.com/TheIllusiveC4/ConstructsArmory/issues/98)
+### Fixed
+- ContentTweaker integration [#107](https://github.com/TheIllusiveC4/ConstructsArmory/issues/107)]
+- NPE in ArmorModifiers::getItems [#106](https://github.com/TheIllusiveC4/ConstructsArmory/issues/106)
+
 ## [1.1.0] - 2018.08.28
 ### Added
 - Concealed modifier from new Invisible Ink item, makes armor invisible (purely cosmetic) [#64](https://github.com/TheIllusiveC4/ConstructsArmory/issues/64)
