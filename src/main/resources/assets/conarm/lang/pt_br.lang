@@ -1,0 +1,287 @@
+# Localizated to Portuguese (Brazil) by SAMUELPV
+
+#################
+#     Config    #
+#################
+conarm.general.spawnwithbook=Spawnar Com Livro
+conarm.general.spawnwithbook.tooltip=Defina para "true" para que o Livro do Construct's Armory seja dado aos jogadores que entrar em um mundo pela primeira vez
+conarm.general.compactview=Interface Compacta
+conarm.general.compactview.tooltip=Defina para "true" para desativar o painel de prévia da armadura na Interface de Estação/Forja de Armadura
+
+conarm.general.leveling.newarmorminmodifiers=Quantidade de Modificadores Inicial
+conarm.general.leveling.newarmorminmodifiers.tooltip=Reduz a quantidade de modificadores que uma armadura recém-construída recebe se o valor for menor que a quantidade regular de modificadores que a armadura teria.
+conarm.general.leveling.maximumlevels=Níveis Máximos
+conarm.general.leveling.maximumlevels.tooltip=Níveis máximos alcançáveis. Se definido como 0 ou inferior, não haverá limites de nível.
+conarm.general.leveling.basexp=Requisito de XP Mínimo
+conarm.general.leveling.basexp.tooltip=XP Mínimo necessário para armadura
+conarm.general.leveling.levelingmultiplier=Multiplicador de Nivelamento
+conarm.general.leveling.levelingmultiplier.tooltip=O quanto é para multiplicar a experiência necessária para cada nível.
+
+#################
+#     Blocks    #
+#################
+tile.conarm.armorforge.name=Forja de Armadura
+tile.conarm.armorstation.name=Estação de Armadura
+tile.conarm.soft_obsidian.name=Obsidiana Instável
+
+#################
+#     Items     #
+#################
+item.conarm.book.name=Materiais e Você - Adendo do Arsenal
+item.conarm.book.tooltip=O adendo ao livro que todo Tinker precisa\npor C4
+
+item.conarm.polishing_kit.name=Kit de Polimento
+item.conarm.polishing_kit.tooltip=Combinar com areia\nMelhora sua armadura para o nível de resistência do material.
+
+item.conarm.travel_belt_base.name=Cinto de Viajante (Base)
+item.conarm.travel_belt.name=Cinto de Viajante (Armazenamento)
+item.conarm.travel_potion.name=Cinto de Viajante (Alquimia)
+item.conarm.travel_sack.name=Mochila de Viajante
+item.conarm.travel_goggles_base.name=Óculos de Viajante (Base)
+item.conarm.travel_goggles.name=Óculos de Viajante (Zoom)
+item.conarm.travel_night.name=Óculos de Viajante (Visão Noturna)
+item.conarm.travel_soul.name=Óculos de Viajante (Visão de Alma)
+item.conarm.travel_cloak.name=Capa de Viajante (Base)
+item.conarm.travel_sneak.name=Capa de Viajante (Invisibilidade)
+item.conarm.travel_slowfall.name=Capa de Viajante (Queda Lenta)
+
+item.conarm.resist_mat.name=Resistência
+item.conarm.resist_mat.tooltip=Modificador: Resistência
+item.conarm.resist_mat_fire.name=Resistência ao Fogo
+item.conarm.resist_mat_fire.tooltip=Modificador: Resistência ao Fogo
+item.conarm.resist_mat_blast.name=Resistência à Explosões
+item.conarm.resist_mat_blast.tooltip=Modificador: Resistência à Explosões
+item.conarm.resist_mat_proj.name=Resistência à Projéteis
+item.conarm.resist_mat_proj.tooltip=Modificador: Resistência à Projéteis
+
+item.conarm.gauntlet_mat.name=Manopla
+item.conarm.gauntlet_mat_attack.name=Manopla do Poder
+item.conarm.gauntlet_mat_attack.tooltip=Modificador: Poderoso
+item.conarm.gauntlet_mat_speed.name=Manopla da Destreza
+item.conarm.gauntlet_mat_speed.tooltip=Modificador: Habilidoso
+item.conarm.gauntlet_mat_reach.name=Manopla do Longo Alcance
+item.conarm.gauntlet_mat_reach.tooltip=Modificador: Telecinético
+
+item.conarm.invisible_ink.name=Tinta Invisível
+item.conarm.invisible_ink.tooltip=Modificador: Escondido
+
+#################
+#      GUI      #
+#################
+gui.armorforge.name=Forja de Armadura
+gui.armorstation.name=Estação de Armadura
+gui.armorstation.preview=Prévia
+
+gui.error.modifier_on_station=Modificadores só podem ser aplicados na Forja de Armadura.
+
+#################
+#     Armor     #
+#################
+appearance.classic.name=Clássico
+
+item.conarm.helmet.name=Capacete
+item.conarm.helmet.desc=O Capacete protege sua cabeça dos perigos.\nVisão aprimorada vendida separadamente.
+item.conarm.chestplate.name=Peitoral
+item.conarm.chestplate.desc=O Peitoral ajuda a prevenir lesões e ferimentos no seu tórax.
+item.conarm.leggings.name=Calça
+item.conarm.leggings.desc=A Calça é perfeita para manter as suas pernas sãs e salvas.
+item.conarm.boots.name=Botas
+item.conarm.boots.desc=As Botas garantem que você nunca mais tenha que se preocupar com os dedos do pé.
+
+item.conarm.armor_trim.name=Acabamento de Armadura
+item.conarm.helmet_core.name=Núcleo de Capacete
+item.conarm.chest_core.name=Núcleo de Peitoral
+item.conarm.leggings_core.name=Núcleo de Calça
+item.conarm.boots_core.name=Núcleo de Botas
+item.conarm.armor_plate.name=Placas de Armadura
+
+#################
+#  Keybindings  #
+#################
+key.conarm.category=Acessórios do Construct's Armory
+key.conarm.toggle_boots.desc=Botas
+key.conarm.toggle_chest.desc=Peitoral
+key.conarm.toggle_helm.desc=Capacete
+key.conarm.toggle_leg.desc=Calça
+
+#################
+#     Traits    #
+#################
+modifier.absorbent_armor.name=Absorvente
+modifier.absorbent_armor.desc=§oMais absorvente que Always.§r\nSua armadura fica mais forte na água e na chuva.
+modifier.alien_armor.name=modifier.alien.name
+modifier.alien_armor.desc=modifier.alien.desc
+modifier.ambitious_armor.name=Ambicioso
+modifier.ambitious_armor.desc=§oRumo a glória!§r\nVocê ganha XP adicional.
+modifier.aridiculous_armor.name=modifier.aridiculous.name
+modifier.aridiculous_armor.desc=§oQuanto mais quente, melhor!§r\nA armadura funciona melhor em ambientes mais quentes.
+modifier.aquaspeed_armor.name=Velocidade Aquática
+modifier.aquaspeed_armor.desc=§oTá ficando molhado aqui!§r\nA armadura não tem limitações na água e ama as noites chuvosas.
+modifier.autoforge_armor.name=Auto-forjar
+modifier.autoforge_armor.desc=§oTanto calor, que ela se conserta!§r\nA armadura se conserta ao pegar fogo.
+modifier.baconlicious_armor.name=modifier.baconlicious.name
+modifier.baconlicious_armor.desc=§oBACON!§r\nSer atingido às vezes dá bacon.
+modifier.blessed_armor.name=Abençoado
+modifier.blessed_armor.desc=§oMortos-vivos, cuidado.§r\nEnfraquece mortos-vivos ao entrar em contato.
+modifier.bouncy_armor.name=Saltitante
+modifier.bouncy_armor.desc=§oParece um pula-pula!§r\nSua armadura tende a saltitar por ai.
+modifier.calcic_armor.name=Cálcico
+modifier.calcic_armor.desc=§oPara ossos fortes.§r\nLeite rejuvenesce você e sua armadura.
+modifier.cheap_armor.name=modifier.cheap.name
+modifier.cheap_armor.desc=§oMais barato, impossível!§r\nAumenta o ganho de durabilidade quando repara a armadura.
+modifier.cheapskate_armor.name=modifier.cheapskate.name
+modifier.cheapskate_armor.desc=§oTalvez seja pirata!§r\nPedra é ruim. Sua armadura tem menos durabilidade.
+modifier.combustible_armor.name=Inflamável
+modifier.combustible_armor.desc=§o"Tá pegando fogo, bicho!"§r\nPõe fogo nos mobs ao redor de você quando acionada.
+modifier.dense_armor.name=modifier.dense.name
+modifier.dense_armor.desc=§oResistente...talvez.§r\nSua armadura dura mais quando tem menos durabilidade.
+modifier.dramatic_armor.name=Dramático
+modifier.dramatic_armor.desc=§oQue correria!§r\nPode te salvar num aperto? Quem sabe!
+modifier.duritos_ranch_armor.name=modifier.duritos.name
+modifier.duritos_ranch_armor.desc=§oNão tem um gosto tão bom.§r\nSua armadura dura mais... de vez em quando.
+modifier.ecological_armor.name=modifier.ecological.name
+modifier.ecological_armor.desc=modifier.ecological.desc
+modifier.enderport_armor.name=Enderporte
+modifier.enderport_armor.desc=§oBem na hora!§r\nPode te teleportar para longe de situações perigosas.
+modifier.featherweight_armor.name=enchantment.protect.fall
+modifier.featherweight_armor.desc=§oLeve como uma pena.§r\nVocê tá tão leve, que leva menos dano de queda.
+modifier.heavy_armor.name=modifier.heavy.name
+modifier.heavy_armor.desc=§oVocê nem se move?§r\nAnula a repulsão.
+modifier.indomitable_armor.name=Indomável
+modifier.indomitable_armor.desc=§oNunca desista!§r\nDeixa sua armadura mais eficaz.
+modifier.infernal_armor.name=Infernal
+modifier.infernal_armor.desc=§oÚltima moda entre os demônios.§r\nProteção extra contra mobs que não são do Nether.
+modifier.infernal_armor.extra=Contra Não-Nether: +%s
+modifier.invigorating_armor.name=Revigorante
+modifier.invigorating_armor.desc=§oQue ótima sensação!§r\nDe alguma forma, você se sente mais saudável.
+modifier.lightweight_armor.name=modifier.lightweight.name
+modifier.lightweight_armor.desc=§oLivre como o vento!§r\nAumenta sua velocidade total.
+modifier.lightweight_armor.extra=Bônus-Velocidade: +%s
+modifier.magnetic_armor.name=modifier.magnetic.name
+modifier.magnetic_armor.desc=§oArmadura atraente!§r\nOs itens não conseguem deixar de serem atraídos por você.
+modifier.mundane_armor.name=Mundano
+modifier.mundane_armor.desc=§oArmas são para os fracos!§r\nProteção Bônus contra inimigos desarmados.
+modifier.mundane_armor.extra=Contra Desarmado: +%s
+modifier.petravidity_armor.name=modifier.petramor.name
+modifier.petravidity_armor.desc=§oTantas pedras, precisa ver!§r\nSua armadura ama pedra, opera melhor ao redor delas.
+modifier.prideful_armor.name=Orgulhoso
+modifier.prideful_armor.desc=§oO que é narcisismo?§r\nVocê fica mais resistente ao ser atacado, ao custo da durabilidade.
+modifier.rough_armor.name=Áspero
+modifier.rough_armor.desc=§oPor favor, não toque.§r\nCausa danos quando os inimigos entram em contato baseado na durabilidade.
+modifier.rough_armor.extra=Dano Áspero: +%s
+modifier.shielding_armor.name=Blindagem
+modifier.shielding_armor.desc=§oNão é tão especial agora, hã?§r\nProteção adicional contra ataques mágicos.
+modifier.slimey_armor.name=modifier.slimey.name
+modifier.slimey_armor.desc=modifier.slimey.desc
+modifier.skeletal_armor.name=Esquelético
+modifier.skeletal_armor.desc=§oForte como...ossos?§r\nDeixa sua armadura mais resistente.
+modifier.spiny_armor.name=Espinhosa
+modifier.spiny_armor.desc=§oSão chamados de espinhos, não de espetos!§r\nSer atacado causa dano ao inimigo ao custo de durabilidade.
+modifier.steady_armor.name=Firme
+modifier.steady_armor.desc=§oFirme como uma rocha!§r\nMenos repulsão para você, mais para seu inimigo.
+modifier.subterranean_armor.name=Subterrâneo
+modifier.subterranean_armor.desc=§oTemos que ir mais fundo!§r\nSua armadura dura mais quando está abaixo do nível do mar.
+modifier.superhot_armor.name=Super Quente
+modifier.superhot_armor.desc=§oSUPER. QUENTE.§r\nVocê corre mais rápido enquanto está pegando fogo!
+modifier.tasty_armor.name=modifier.tasty.name
+modifier.tasty_armor.desc=§oOm Nom Nom§r\nO cheiro é tão gostoso... que você prefere comer sua armadura do que morrer de fome.
+modifier.vengeful_armor.name=Vingativo
+modifier.vengeful_armor.desc=§oVão pagar por isso!§r\nSeus inimigos podem não se sentir bem depois de ter atacado você.
+modifier.voltaic_armor.name=Volático
+modifier.voltaic_armor.desc=§oBiribiri!§r\nSer atingido carrega sua armadura. Depois de totalmente carregado, seja atingido mais uma vez para descarregar e causar dano em todos os mobs ao redor de você.
+
+#################
+#   Modifiers   #
+#################
+modifier.amphibious_armor.name=Anfíbio
+modifier.amphibious_armor.desc=§oModa subaquática.§r\nLhe permite respirar debaixo d'água por um tempo limitado.
+modifier.blast_resistant_armor.name=item.conarm.resist_mat_blast.name
+modifier.blast_resistant_armor.desc=§oProtejam-se!§r\nProteção adicional contra explosões.
+modifier.concealed_armor.name=Escondido
+modifier.concealed_armor.desc=§oO que você está vestindo?§r\nSua armadura fica invisível.
+modifier.diamond_armor.name=modifier.diamond.name
+modifier.diamond_armor.desc=modifier.diamond.desc
+modifier.dexterous_armor.name=Habilidoso
+modifier.dexterous_armor.desc=§oMal posso ver seus movimentos.§r\nVelocidade de ataque aumentada.
+modifier.emerald_armor.name=modifier.emerald.name
+modifier.emerald_armor.desc=modifier.emerald.desc
+modifier.extratrait_armor.name=Estampamento
+modifier.extratrait_armor.desc=modifier.extratrait.desc
+modifier.fire_resistant_armor.name=item.conarm.resist_mat_fire.name
+modifier.fire_resistant_armor.desc=§oImolação é ruim.§r\nProteção adicional contra fogo.
+modifier.frostwalker_armor.name=Gelado
+modifier.frostwalker_armor.desc=§oFique sempre gelado.§r\nSeus pés estão tão gelados que congelam a água em volta de você.
+modifier.glowing_armor.name=Brilhante
+modifier.glowing_armor.desc=§oBotas de luzinha!§r\nSempre que fica um breu, suas botas sacrificam uma parte de si mesmas para iluminar o seu caminho.
+modifier.high_stride_armor.name=Passos Altos
+modifier.high_stride_armor.desc=§oPular é para os fracos.§r\nVocê pode subir degraus mais altos.
+modifier.mending_armor.name=modifier.mending_moss.name
+modifier.mending_armor.desc=§oEstá vivo!§r\nXP coletado é guardado na armadura. Ela irá lentamente usar o XP para regenerar a durabilidade.
+modifier.mending_armor.extra=XP Armazenado: %d
+modifier.parasitic_armor.name=Parasítico
+modifier.parasitic_armor.desc=§oJuntos para sempreeee...§r\nSua armadura vai se alimentar de você para se reparar.
+modifier.polished_armor.name=Polido
+modifier.polished_armor.desc=§oO mais brilhante, o melhor!§r\nA resistência aumentou para o mesmo nível que %s.
+modifier.powerful_armor.name=Poderoso
+modifier.powerful_armor.desc=§oOs meus punhos falam por mim!§r\nDano de ataque aumentado.
+modifier.projectile_resistant_armor.name=item.conarm.resist_mat_proj.name
+modifier.projectile_resistant_armor.desc=§oCheguem mais perto, seus covardes!§r\nProteção adicional contra ataques de projéteis.
+modifier.reinforced_armor.name=modifier.reinforced.name
+modifier.reinforced_armor.desc=modifier.reinforced.desc
+modifier.reinforced_armor.extra=Reforçado: %s
+modifier.resistant_armor.name=Resistente
+modifier.resistant_armor.desc=§oMais resistente, mais forte!§r\nProteção adicional contra todos os ataques.
+modifier.shulkerweight_armor.name=Peso Shulker
+modifier.shulkerweight_armor.desc=§oOlhe para o céu!§r\nAumenta a força do pulo.
+modifier.soulbound_armor.name=modifier.soulbound.name
+modifier.soulbound_armor.desc=§oUm casal feliz!§r\nVocê ama sua armadura. Nem a morte irá separá-los.
+modifier.speedy_armor.name=Rápido
+modifier.speedy_armor.name2=Mais Rápido
+modifier.speedy_armor.name3=Mais Rápido Ainda
+modifier.speedy_armor.desc=§oTenho que ir mais rápido!§r\nAumenta sua velocidade.
+modifier.speedy_armor.extra=Bônus-Velocidade: +%s
+modifier.sticky_armor.name=Grudento
+modifier.sticky_armor.desc=§oTira isso de mim!§r\nDeixa lento qualquer um que te atacar.
+modifier.telekinetic_armor.name=Telecinético
+modifier.telekinetic_armor.desc=§oNão mais limitado pela realidade.§r\nVocê pode alcançar mais longe.
+
+#################
+#  Accessories  #
+#################
+modifier.travel_belt_armor.name=Cinto de Viajante (Armazenamento)
+modifier.potion_belt_armor.name=Cinto de Viajante (Alquimia)
+modifier.travel_sack_armor.name=Mochila de Viajante
+modifier.travel_sneak_armor.name=Capa de Viajante (Invisibilidade)
+modifier.travel_slowfall_armor.name=Capa de Viajante (Queda Lenta)
+modifier.travel_goggles_armor.name=Óculos de Viajante (Zoom)
+modifier.night_vision_armor.name=Óculos de Viajante (Visão Noturna)
+modifier.soul_sight_armor.name=Óculos de Viajante (Visão de Alma)
+
+accessory.head.tooltip=Acessório de Capacete
+accessory.chest.tooltip=Acessório de Peitoral
+accessory.legs.tooltip=Acessório de Calça
+accessory.feet.tooltip=Acessório de Botas
+accessory.toggle.tooltip=Estado: %s
+accessory.toggle.active=Ativo
+accessory.toggle.inactive=Inativo
+
+#################
+#     Stats     #
+#################
+stat.core.name=Núcleo
+stat.core.durability.name=Durabilidade
+stat.core.durability.desc=O valor de multiplicador base para cálculos de durabilidade.\nGeralmente uma parte integrante da durabilidade geral de uma peça de armadura.
+stat.core.defense.name=Proteção
+stat.core.defense.desc=Quanta proteção um material tem.\nA armadura depende do valor de proteção e do slot da armadura.
+
+stat.plates.name=Placas
+stat.plates.modifier.name=Modificador
+stat.plates.modifier.desc=O quão adequado o material da armadura é como blindagem.\nA durabilidade total da armadura será multiplicada por isso.
+stat.plates.durability.name=stat.core.durability.name
+stat.plates.durability.desc=Quão bem o material pode ser usado.\nO multiplicador de durabilidade da armadura será alterada por essa quantidade.
+stat.plates.toughness.name=Resistência
+stat.plates.toughness.desc=Quantos pontos de resistência uma parte de armadura tem.
+
+stat.trim.name=Acabamento
+stat.trim.durability.name=stat.core.durability.name
+stat.trim.durability.desc=O quanto o acabamento altera o multiplicador de durabilidade da armadura.
