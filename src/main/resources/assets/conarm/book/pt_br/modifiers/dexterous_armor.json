@@ -1,0 +1,17 @@
+{
+  "armormodifier": "dexterous_armor",
+  "text": [
+    {
+      "text": "Anexando esta manopla da destreza deve dar um aumento geral na velocidade de ataque."
+    }
+  ],
+  "effects": [
+    "Aumenta a velocidade de ataque",
+    "Só pode ser aplicado no peitoral",
+    "Não pode ser aplicado junto com Telecinético ou Poderoso",
+    "Uso único"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

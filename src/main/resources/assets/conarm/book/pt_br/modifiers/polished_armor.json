@@ -1,0 +1,22 @@
+{
+  "armormodifier": "polished_armor",
+  "text": [
+    {
+      "text": "Toda armadura precisa de um bom polimento de \nvez em quando. Você não gostaria de vê-la \nenferrujada, não é?"
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Aplica o mesmo nível de resistência do material usado na armadura."
+    }
+  ],
+  "effects": [
+    "Aumenta nível de resistência",
+    "A resistência adicionada depende do material usado",
+    "Não requer modificador"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}
