@@ -1,0 +1,19 @@
+{
+  "armormodifier": "reinforced_armor",
+  "text": [
+    {
+      "text": "Adicionando uma placa de reforço na armadura parece ajudar com sua durabilidade, deixando-a mais forte."
+    }
+  ],
+  "effects": [
+    "Adiciona uma chance de não consumir durabilidade",
+    "Acrescenta com níveis anteriores de Reforço",
+    "Múltiplos níveis"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

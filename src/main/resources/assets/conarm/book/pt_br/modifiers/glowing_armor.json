@@ -1,0 +1,16 @@
+{
+  "armormodifier": "glowing_armor",
+  "text": [
+    {
+      "text": "Um pouco de pedra luminosa e um olho do fim \nmágico. Obviamente, isso vê o nível de luz."
+    }
+  ],
+  "effects": [
+    "Coloca uma fonte de luz com baixo nível de luz",
+    "Só pode ser usado nas botas",
+    "Custa durabilidade"
+  ],
+  "demoArmor": [
+    "conarm:boots"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "armormodifier": "travel_slowfall_armor",
+  "text": [
+    {
+      "text": "Deixando sua capa mais aerodinâmica deve lhe ajudar a cair mais devagar e reduzir o impacto."
+    }
+  ],
+  "effects": [
+    "O usuário cai bem mais lento e não sofre dano de queda",
+    "Ativa/Desativa a queda lenta com uma tecla",
+    "Usa durabilidade para ativar a queda lenta (mesmo quando tiver no chão)",
+    "Apenas 1 acessório por item"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

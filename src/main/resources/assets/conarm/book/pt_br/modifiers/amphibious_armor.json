@@ -1,0 +1,17 @@
+{
+  "armormodifier": "amphibious_armor",
+  "text": [
+    {
+      "text": "Combinando alguns cristais de prismarinho e vidro deve criar algum tipo de bolsa de ar \nportátil no seu capacete, que você pode usar \npara respirar debaixo d'água."
+    }
+  ],
+  "effects": [
+    "Armazena oxigênio ao longo do tempo quando equipado",
+    "Usa o oxigênio armazenado enquanto estiver debaixo d'água",
+    "Só pode ser aplicado em capacetes",
+    "Uso único"
+  ],
+  "demoArmor": [
+    "conarm:helmet"
+  ]
+}

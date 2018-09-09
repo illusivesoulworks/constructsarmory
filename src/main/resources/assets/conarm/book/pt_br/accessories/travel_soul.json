@@ -1,0 +1,23 @@
+{
+  "armormodifier": "soul_sight_armor",
+  "text": [
+    {
+      "text": "Modificando seus óculos com certos itens, você pode ter visão de alma em vez de zoom."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Enquanto estiver usando estes óculos, você \npode ver as almas dos mobs próximos."
+    }
+  ],
+  "effects": [
+    "Permite ao usuário ver almas próximas",
+    "Ativa/Desativa a visão de alma com uma tecla",
+    "Usa durabilidade para ativar a visão de alma",
+    "Apenas 1 acessório por item"
+  ],
+  "demoArmor": [
+    "conarm:helmet"
+  ]
+}

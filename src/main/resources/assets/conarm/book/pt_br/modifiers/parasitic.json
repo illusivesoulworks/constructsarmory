@@ -1,0 +1,19 @@
+{
+  "armormodifier": "parasitic_armor",
+  "text": [
+    {
+      "text": "Anexando o osso de um Esqueleto Wither na sua armadura dará a ela habilidades parasíticas."
+    }
+  ],
+  "effects": [
+    "Consome sua vida para reparar a si mesma",
+    "Não vai te matar e só vai consumir quando necessário",
+    "Uso único"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
