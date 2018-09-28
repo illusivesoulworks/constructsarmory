@@ -13,7 +13,6 @@
 
 package c4.conarm.proxy;
 
-import c4.conarm.client.events.EventHandlerClient;
 import c4.conarm.client.fx.ParticleSoul;
 import c4.conarm.client.gui.PreviewPlayer;
 import c4.conarm.common.ConstructsRegistry;
@@ -38,7 +37,6 @@ import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -89,7 +87,6 @@ public class ClientProxy extends CommonProxy {
         super.init(evt);
         ArmoryRegistryClient.registerArmorBuildInfo();
         MinecraftForge.EVENT_BUS.register(new ClientArmorEvents());
-        MinecraftForge.EVENT_BUS.register(new EventHandlerClient());
     }
 
     @Override
