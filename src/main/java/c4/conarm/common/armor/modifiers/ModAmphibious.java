@@ -18,15 +18,11 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
@@ -57,7 +53,7 @@ public class ModAmphibious extends ArmorModifierTrait {
                     player.setAir(player.getAir() + 1);
                 }
             } else if (canStoreOxygen(data)) {
-                addOxygen(modtag, data, MAX_CAPACITY);
+                addOxygen(modtag, data, 2);
             }
         }
     }
@@ -69,6 +65,14 @@ public class ModAmphibious extends ArmorModifierTrait {
     private void addOxygen(ModifierTagHolder modtag, OxygenData data, int amount) {
         data.oxygen = MathHelper.clamp(data.oxygen + amount, 0, MAX_CAPACITY);
         modtag.save();
+    }
+
+    @Override
+    public List<String> getExtraInfo(ItemStack armor, NBTTagCompound modifierTag) {
+        OxygenData data = ModifierNBT.readTag(modifierTag, OxygenData.class);
+        assert data != null;
+        String loc = String.format(LOC_Extra, getIdentifier());
+        return ImmutableList.of(Util.translateFormatted(loc, data.oxygen / 20));
     }
 
     @Override
