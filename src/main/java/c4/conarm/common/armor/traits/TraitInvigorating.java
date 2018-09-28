@@ -43,7 +43,6 @@ public class TraitInvigorating extends AbstractArmorTrait {
         if (modifier == null) {
             healthAtt.applyModifier(new AttributeModifier(HEALTH_MODIFIERS[slot], "Invigorating trait modifier", HEALTH_PER_LEVEL, 0));
         }
-        player.heal((float)HEALTH_PER_LEVEL);
     }
 
     @Override
