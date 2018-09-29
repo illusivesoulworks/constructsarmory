@@ -13,10 +13,18 @@
 
 package c4.conarm.lib.traits;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 
 public interface IArmorAbility {
 
+    /**
+     * Determines how the ability level used in {@link c4.conarm.lib.traits.IArmorTrait#onAbilityTick(int, World, EntityPlayer)}
+     * is calculated
+     * @param data The ModifierNBT data for the ItemStack that has the trait or modifier
+     * @return The level amount for an instance of the trait or modifier on an ItemStack
+     */
     int getAbilityLevel(ModifierNBT data);
 }
