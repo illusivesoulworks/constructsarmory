@@ -8,6 +8,7 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 ### Added
 - [API] Javadocs to IArmorTrait.class and IArmorAbility.class
 - Extra info for Amphibious modifier to display stored oxygen in Armor Station/Forge [#116](https://github.com/TheIllusiveC4/ConstructsArmory/issues/116)
+- Portuguese translation (thank you SAMUELPV)
 ### Fixed
 - Invigorating trait healing bug [#118](https://github.com/TheIllusiveC4/ConstructsArmory/issues/118)
 ### Removed
