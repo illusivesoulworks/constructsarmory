@@ -4,11 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.1.2] - 2018.09.30
+### Added
+- [API] Javadocs to IArmorTrait.class and IArmorAbility.class
+- Extra info for Amphibious modifier to display stored oxygen in Armor Station/Forge [#116](https://github.com/TheIllusiveC4/ConstructsArmory/issues/116)
+### Fixed
+- Invigorating trait healing bug [#118](https://github.com/TheIllusiveC4/ConstructsArmory/issues/118)
+### Removed
+- Speed FoV config option (split into separate mod, [Custom FoV](https://minecraft.curseforge.com/projects/custom-fov))
+
 ## [1.1.1] - 2018.09.05
 ### Added
 - Config option to control max speed FoV changes [#98](https://github.com/TheIllusiveC4/ConstructsArmory/issues/98)
 ### Fixed
-- ContentTweaker integration [#107](https://github.com/TheIllusiveC4/ConstructsArmory/issues/107)]
+- ContentTweaker integration [#107](https://github.com/TheIllusiveC4/ConstructsArmory/issues/107)
 - NPE in ArmorModifiers::getItems [#106](https://github.com/TheIllusiveC4/ConstructsArmory/issues/106)
 
 ## [1.1.0] - 2018.08.28
