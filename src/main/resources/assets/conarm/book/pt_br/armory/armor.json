@@ -1,0 +1,19 @@
+{
+  "armor": "chestplate",
+  "text": [
+    {
+      "text": "O Capacete, o Peitoral, a Calça, e a Botas são \nsuas partes de armadura de proteção básica."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Estas partes irão reduzir o dano causado a você. \nMuito simples."
+    }
+  ],
+  "properties": [
+    "Armadura de proteção básica",
+    "Há uma para cada parte do corpo",
+    "Te protege de danos"
+  ]
+}

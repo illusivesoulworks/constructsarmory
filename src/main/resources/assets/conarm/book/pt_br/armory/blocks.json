@@ -1,0 +1,16 @@
+{
+  "title": "Estação e Forja de Armadura",
+  "text": [
+    {
+      "text": "Para fazer as partes de armadura, você precisará \nde dois novos tipos de mesas do Tinkers: \na Estação de Armadura e a Forja de Armadura."
+    },
+    {
+      "text": "A Estação de Armadura é a mesa de fabricação de armaduras básica. Pode fazer armaduras, reparar, \ne substituir partes, mas não pode modificar a \narmadura mais do que isso.",
+      "paragraph": true
+    },
+    {
+      "text": "A Forja de Armadura é uma Estação de Armadura melhorada, com a habilidade de adicionar modifi- \ncadores na armadura para o máximo do seu potencial.",
+      "paragraph": true
+    }
+  ]
+}

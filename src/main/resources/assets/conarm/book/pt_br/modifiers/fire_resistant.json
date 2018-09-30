@@ -1,0 +1,26 @@
+{
+  "armormodifier": "fire_resistant_armor",
+  "text": [
+    {
+      "text": "Revestindo sua armadura com material de resis- \ntência ao fogo vai ficar mais difícil de você \nse queimar."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "É apenas ciência."
+    }
+  ],
+  "effects": [
+    "Reduz o dano de fogo e lava",
+    "Requer 1 único modificador",
+    "Não é compatível com outras resistências",
+    "Múltiplos níveis"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

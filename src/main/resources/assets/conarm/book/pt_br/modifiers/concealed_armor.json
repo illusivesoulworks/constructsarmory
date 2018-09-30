@@ -1,0 +1,25 @@
+{
+  "armormodifier": "concealed_armor",
+  "text": [
+    {
+      "text": "Aplicando algumas tintas invisíveis vai deixar sua armadura invisível à olho nu."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Meramente cosmético."
+    }
+  ],
+  "effects": [
+    "Deixa sua armadura invisível",
+    "Não requer modificador",
+    "Não pode ser usado com a \nCapa de Viajante (Invisibi- \nlidade)"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

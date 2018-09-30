@@ -1,0 +1,16 @@
+{
+  "armormodifier": "travel_sack_armor",
+  "text": [
+    {
+      "text": "Nenhum explorador está perfeitos sem alguns espaços extras de armazenamento ao seu lado!"
+    }
+  ],
+  "effects": [
+    "Fornece 27 slots de espaço extra de armazenamento",
+    "Abre a mochila com uma tecla",
+    "Apenas 1 acessório por item"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

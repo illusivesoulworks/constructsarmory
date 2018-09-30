@@ -1,0 +1,19 @@
+{
+  "armormodifier": "soulbound_armor",
+  "text": [
+    {
+      "text": "Uma combinação perfeita. Você ama sua armadu- \nra. Nem a morte poderá separá-los."
+    }
+  ],
+  "effects": [
+    "A armadura permanece no seu inventário após a morte",
+    "Uso único",
+    "NÃO requer um modificador"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "image": {
+    "file": "conarm:textures/gui/book/armorgui.png",
+    "width": 154,
+    "height": 70
+  },
+  "text": [
+    {
+      "text": "Ambas as mesa vêm com uma visualização de arma- \ndura acessível para ver como a armadura fabri- \ncada ficará no usuário."
+    }
+  ]
+}
