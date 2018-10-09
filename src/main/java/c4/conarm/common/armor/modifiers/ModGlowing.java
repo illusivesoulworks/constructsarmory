@@ -41,7 +41,7 @@ public class ModGlowing extends ArmorModifierTrait {
                 for(BlockPos candidate : new BlockPos[]{pos, pos.up(), pos.north(), pos.east(), pos.south(), pos.west(), pos.down()}) {
 
                     if(TinkerCommons.blockGlow.addGlow(world, candidate, EnumFacing.values()[random.nextInt(6)])) {
-                        ArmorHelper.damageArmor(armor, DamageSource.causePlayerDamage(player), 1, player, EntityLiving.getSlotForItemStack(armor).getIndex());
+                        ArmorHelper.damageArmor(armor, DamageSource.causePlayerDamage(player), 1, player);
                         return;
                     }
                 }

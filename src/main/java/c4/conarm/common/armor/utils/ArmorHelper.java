@@ -118,6 +118,12 @@ public class ArmorHelper {
         }
     }
 
+    public static void damageArmor(ItemStack stack, DamageSource source, int amount, EntityPlayer player) {
+        damageArmor(stack, source, amount, player, EntityLiving.getSlotForItemStack(stack).getIndex());
+    }
+
+    //Use the slot-less version above instead
+    @Deprecated
     public static void damageArmor(ItemStack stack, DamageSource source, int amount, EntityPlayer player, int slot) {
         if(amount == 0 || ToolHelper.isBroken(stack)) {
             return;

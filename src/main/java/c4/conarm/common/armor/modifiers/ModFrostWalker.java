@@ -50,7 +50,7 @@ public class ModFrostWalker extends ArmorModifierTrait {
     public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
 
         if (source == DamageSource.HOT_FLOOR) {
-            ArmorHelper.damageArmor(armor, source, 3, player, EntityLiving.getSlotForItemStack(armor).getIndex());
+            ArmorHelper.damageArmor(armor, source, 3, player);
             evt.setCanceled(true);
         }
 
