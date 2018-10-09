@@ -53,7 +53,7 @@ public class ModTravelBelt extends AccessoryModifier implements IAccessoryRender
 
         super.applyEffect(rootCompound, modifierTag);
         NBTTagCompound oldBelt = modifierTag.getCompoundTag(TAG_HOTBAR);
-        if (oldBelt.hasNoTags()) {
+        if (oldBelt.isEmpty()) {
             modifierTag.setTag(TAG_HOTBAR, (new ItemStackHandler(9)).serializeNBT());
         } else {
             modifierTag.setTag(TAG_HOTBAR, oldBelt);

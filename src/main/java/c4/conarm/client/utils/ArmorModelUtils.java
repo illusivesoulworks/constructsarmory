@@ -32,16 +32,16 @@ public class ArmorModelUtils {
             return null;
         }
         ResourceLocation itemLocation = armor.getRegistryName();
-        String path = "armor/" + itemLocation.getResourcePath() + ArmorModelLoader.EXTENSION;
+        String path = "armor/" + itemLocation.getPath() + ArmorModelLoader.EXTENSION;
 
-        ResourceLocation location = new ResourceLocation(itemLocation.getResourceDomain(), path);
+        ResourceLocation location = new ResourceLocation(itemLocation.getNamespace(), path);
         ArmorModelLoader.addPartMapping(location, armor);
 
         return registerArmorModel(armor, location);
     }
 
     public static ResourceLocation registerArmorModel(Item item, final ResourceLocation location) {
-        if(!location.getResourcePath().endsWith(ArmorModelLoader.EXTENSION)) {
+        if(!location.getPath().endsWith(ArmorModelLoader.EXTENSION)) {
             ConstructsArmory.logger.error("The material-model " + location.toString() + " does not end with '"
                     + ArmorModelLoader.EXTENSION
                     + "' and will therefore not be loaded by the custom model loader!");

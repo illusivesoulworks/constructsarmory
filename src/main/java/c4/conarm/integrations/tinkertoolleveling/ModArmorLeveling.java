@@ -92,7 +92,7 @@ public class ModArmorLeveling extends ArmorModifierTrait {
         toolTag.setInteger(Tags.FREE_MODIFIERS, modifiers);
         TagUtil.setToolTag(evt.tag, toolTag);
 
-        if(TinkerUtil.getModifierTag(evt.tag, getModifierIdentifier()).hasNoTags()) {
+        if(TinkerUtil.getModifierTag(evt.tag, getModifierIdentifier()).isEmpty()) {
             apply(evt.tag);
         }
 
@@ -213,7 +213,7 @@ public class ModArmorLeveling extends ArmorModifierTrait {
 
         public static void addTooltips(ItemStack itemStack, List<String> tooltips) {
             NBTTagCompound tag = TinkerUtil.getModifierTag(itemStack, modArmorLeveling.getModifierIdentifier());
-            if(!tag.hasNoTags()) {
+            if(!tag.isEmpty()) {
                 ToolLevelNBT data = new ToolLevelNBT(tag);
                 if(canLevelUp(data.level)) {
                     tooltips.add(1, getXpToolTip(data.xp, modArmorLeveling.getXpForLevelup(data.level)));

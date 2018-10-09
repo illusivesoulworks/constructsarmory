@@ -98,11 +98,11 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
 
     @Override
     public String getLocalizedToolName() {
-        return Util.translate(this.getUnlocalizedName() + ".name");
+        return Util.translate(this.getTranslationKey() + ".name");
     }
 
     public String getLocalizedDescription() {
-        return Util.translate(this.getUnlocalizedName() + ".desc");
+        return Util.translate(this.getTranslationKey() + ".desc");
     }
 
     @Override
@@ -193,7 +193,7 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
     }
 
     public String getIdentifier() {
-        return getRegistryName().getResourcePath();
+        return getRegistryName().getPath();
     }
 
     @Override

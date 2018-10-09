@@ -65,7 +65,7 @@ public class ModTravelPotion extends AccessoryModifier implements IAccessoryRend
 
         super.applyEffect(rootCompound, modifierTag);
         NBTTagCompound oldBelt = modifierTag.getCompoundTag(TAG_POTION);
-        if (oldBelt.hasNoTags()) {
+        if (oldBelt.isEmpty()) {
             modifierTag.setTag(TAG_POTION, (new ItemStackHandler(7)).serializeNBT());
         } else {
             modifierTag.setTag(TAG_POTION, oldBelt);

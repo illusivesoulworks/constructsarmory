@@ -81,7 +81,7 @@ public class ContainerKnapsack extends Container {
     }
 
     public String getUnformattedText() {
-        return Util.translate(String.format("%s.name", ConstructsRegistry.travelSack.getUnlocalizedName()));
+        return Util.translate(String.format("%s.name", ConstructsRegistry.travelSack.getTranslationKey()));
     }
 
     @Override

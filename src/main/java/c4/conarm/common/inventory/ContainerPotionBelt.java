@@ -62,7 +62,7 @@ public class ContainerPotionBelt extends Container {
     }
 
     public String getUnformattedText() {
-        return Util.translate(String.format("%s.name", ConstructsRegistry.travelPotion.getUnlocalizedName()));
+        return Util.translate(String.format("%s.name", ConstructsRegistry.travelPotion.getTranslationKey()));
     }
 
     @Override

@@ -31,6 +31,6 @@ public class ItemConarmMat extends ItemBase {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.addAll(LocUtils.getTooltips(Util.translate(stack.getUnlocalizedName() + ".tooltip")));
+        tooltip.addAll(LocUtils.getTooltips(Util.translate(stack.getTranslationKey() + ".tooltip")));
     }
 }

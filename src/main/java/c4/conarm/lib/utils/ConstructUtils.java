@@ -41,19 +41,19 @@ public class ConstructUtils {
     }
 
     public static <T extends Block> T registerItemBlock(IForgeRegistry<Item> registry, ItemBlock itemBlock) {
-        itemBlock.setUnlocalizedName(itemBlock.getBlock().getUnlocalizedName());
+        itemBlock.setTranslationKey(itemBlock.getBlock().getTranslationKey());
         register(registry, itemBlock, itemBlock.getBlock().getRegistryName());
         return (T) itemBlock.getBlock();
     }
 
     public static <T extends Block> T registerBlock(IForgeRegistry<Block> registry, T block, String name) {
-        block.setUnlocalizedName(getPrefixedName(name));
+        block.setTranslationKey(getPrefixedName(name));
         register(registry, block, name);
         return block;
     }
 
     public static <T extends Item> T registerItem(IForgeRegistry<Item> registry, T item, String name) {
-        item.setUnlocalizedName(getPrefixedName(name));
+        item.setTranslationKey(getPrefixedName(name));
         register(registry, item, name);
         return item;
     }

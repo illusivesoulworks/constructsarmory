@@ -51,7 +51,7 @@ public class ModTravelSack extends AccessoryModifier implements IAccessoryRender
 
         super.applyEffect(rootCompound, modifierTag);
         NBTTagCompound oldSack = modifierTag.getCompoundTag(TAG_KNAPSACK);
-        if (oldSack.hasNoTags()) {
+        if (oldSack.isEmpty()) {
             modifierTag.setTag(TAG_KNAPSACK, (new ItemStackHandler(SACK_SIZE)).serializeNBT());
         } else {
             modifierTag.setTag(TAG_KNAPSACK, oldSack);

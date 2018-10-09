@@ -55,7 +55,7 @@ public class ArmorModelLoader implements ICustomModelLoader {
 
     @Override
     public boolean accepts(@Nonnull ResourceLocation modelLocation) {
-        return modelLocation.getResourcePath().endsWith(EXTENSION);
+        return modelLocation.getPath().endsWith(EXTENSION);
     }
 
     @Override
@@ -143,11 +143,12 @@ public class ArmorModelLoader implements ICustomModelLoader {
                 }
             }
 
-            String toolName = FilenameUtils.getBaseName(modelLocation.getResourcePath());
+            String toolName = FilenameUtils.getBaseName(modelLocation.getPath());
             IModel mods;
             ModifierModel modifiers = null;
             try {
-                mods = ModelLoaderRegistry.getModel(ModifierModelLoader.getLocationForToolModifiers(modelLocation.getResourceDomain(), toolName));
+                mods = ModelLoaderRegistry.getModel(ModifierModelLoader.getLocationForToolModifiers(modelLocation.getNamespace(),
+                        toolName));
 
                 if(mods == null || !(mods instanceof ModifierModel)) {
                     ConstructsArmory.logger.trace(
@@ -160,7 +161,8 @@ public class ArmorModelLoader implements ICustomModelLoader {
                     for(ToolModelOverride toolModelOverride : overrides) {
                         if(toolModelOverride.modifierSuffix != null) {
                             String modifierName = toolName + toolModelOverride.modifierSuffix;
-                            IModel extraModel = ModelLoaderRegistry.getModel(ModifierModelLoader.getLocationForToolModifiers(modelLocation.getResourceDomain(), modifierName));
+                            IModel extraModel = ModelLoaderRegistry.getModel(
+                                    ModifierModelLoader.getLocationForToolModifiers(modelLocation.getNamespace(), modifierName));
                             if(extraModel instanceof ModifierModel) {
                                 ModifierModel overriddenModifierModel = new ModifierModel();
                                 for(Map.Entry<String, String> entry : modifiers.getModels().entrySet()) {
