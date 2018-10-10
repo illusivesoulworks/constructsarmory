@@ -30,7 +30,7 @@ import org.apache.logging.log4j.Logger;
         dependencies =  "required-after:forge@[14.23.4.2745,);" +
                         "required-after:mantle@[1.12-1.3.1,);" +
                         "required-after:tconstruct@[1.12.2-2.10.1.87,);" +
-                        "after:contenttweaker@[1.12.2-4.8.0,);" +
+                        "after:contenttweaker@(1.12.2-4.7.0,);" +
                         "after:crafttweaker@[1.12-4.1.9,)",
         acceptedMinecraftVersions = "[1.12.2, 1.13)",
         certificateFingerprint = "5d5b8aee896a4f5ea3f3114784742662a67ad32f")
