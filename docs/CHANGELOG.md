@@ -11,7 +11,7 @@ This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 ### Changed
 - Frosty modifier now requires a new item, Frosty Soles, which is comprised of the old recipe
 ### Fixed
-- Invigorating trait data bug [#123](https://github.com/TheIllusiveC4/ConstructsArmory/issues/118)
+- Invigorating trait data bug [#123](https://github.com/TheIllusiveC4/ConstructsArmory/issues/123)
 
 ## [1.1.2] - 2018.09.30
 ### Added
