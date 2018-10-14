@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.2.0] - 2018.10.13
+### Added
+- [API] Slot-less damageArmor method, deprecated old method
+- Biomes O' Plenty Lilypad support for the Frosty modifier
+### Changed
+- Frosty modifier now requires a new item, Frosty Soles, which is comprised of the old recipe
+### Fixed
+- Invigorating trait data bug [#123](https://github.com/TheIllusiveC4/ConstructsArmory/issues/118)
+
 ## [1.1.2] - 2018.09.30
 ### Added
 - [API] Javadocs to IArmorTrait.class and IArmorAbility.class
