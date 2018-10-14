@@ -145,7 +145,7 @@ public class ArmorModifiers {
         RecipeMatchHolder.addRecipeMatch(modAmphibious, new RecipeMatch.ItemCombination(1, new ItemStack(Blocks.GLASS), new ItemStack(Items.PRISMARINE_CRYSTALS), new ItemStack(Blocks.GLASS)));
 
         modWaterwalk = new ModFrostWalker();
-        RecipeMatchHolder.addRecipeMatch(modWaterwalk, new RecipeMatch.ItemCombination(1, new ItemStack(Blocks.WATERLILY), new ItemStack(Blocks.PACKED_ICE), new ItemStack(Blocks.WATERLILY), new ItemStack(Blocks.PACKED_ICE)));
+        RecipeMatchHolder.addItem(modWaterwalk, ConstructsRegistry.frostySoles);
 
         modTravelBelt = new ModTravelBelt();
         RecipeMatchHolder.addItem(modTravelBelt, ConstructsRegistry.travelBelt);

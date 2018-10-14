@@ -87,6 +87,7 @@ public class ConstructsRegistry {
     public static ItemBase gauntletAttack;
     public static ItemBase gauntletSpeed;
     public static ItemBase gauntletReach;
+    public static ItemBase frostySoles;
     public static ItemBase travelCloak;
     public static ItemBase travelBeltBase;
     public static ItemBase travelGogglesBase;
@@ -122,6 +123,7 @@ public class ConstructsRegistry {
         gauntletSpeed.initModel();
         gauntletReach.initModel();
         invisibleInk.initModel();
+        frostySoles.initModel();
     }
 
     public static void registerArmorPieces(IForgeRegistry<Item> registry) {
@@ -142,6 +144,7 @@ public class ConstructsRegistry {
         gauntletSpeed = ConstructUtils.registerItem(registry, new ItemConarmMat(), "gauntlet_mat_speed");
         gauntletAttack = ConstructUtils.registerItem(registry, new ItemConarmMat(), "gauntlet_mat_attack");
         gauntletReach = ConstructUtils.registerItem(registry, new ItemConarmMat(), "gauntlet_mat_reach");
+        frostySoles = ConstructUtils.registerItem(registry, new ItemConarmMat(), "frosty_soles");
         travelBeltBase = ConstructUtils.registerItem(registry, new ItemBase(), "travel_belt_base");
         travelBelt = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.LEGS), "travel_belt");
         travelPotion = ConstructUtils.registerItem(registry, new AccessoryBase(EntityEquipmentSlot.LEGS), "travel_potion");

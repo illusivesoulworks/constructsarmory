@@ -1,0 +1,19 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "p p",
+    "l l"
+  ],
+  "key": {
+    "l": {
+      "type": "forge:ore_dict",
+      "ore": "lilypad"
+    },
+    "p": {
+      "item": "minecraft:packed_ice"
+    }
+  },
+  "result": {
+    "item": "conarm:frosty_soles"
+  }
+}
