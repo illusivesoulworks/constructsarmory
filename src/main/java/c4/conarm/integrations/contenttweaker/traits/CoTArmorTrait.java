@@ -17,6 +17,7 @@ import c4.conarm.integrations.contenttweaker.ArmorFunctions;
 import c4.conarm.lib.armor.ArmorModifications;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import c4.conarm.lib.traits.IArmorTrait;
+import c4.conarm.lib.utils.RecipeMatchHolder;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions;
 import crafttweaker.api.minecraft.CraftTweakerMC;
@@ -276,6 +277,6 @@ public class CoTArmorTrait extends ArmorModifierTrait implements IArmorTrait {
     }
 
     public void addItem(RecipeMatch recipeMatch) {
-        this.items.add(recipeMatch);
+        RecipeMatchHolder.addRecipeMatch(this, recipeMatch);
     }
 }
