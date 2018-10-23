@@ -56,7 +56,7 @@ public class TraitInvigorating extends AbstractArmorTrait {
                         HEALTH_PER_LEVEL * level, 0));
             }
 
-            if (oldMaxHealth > healthAtt.getAttributeValue()) {
+            if (oldMaxHealth > healthAtt.getAttributeValue() && player.getHealth() > player.getMaxHealth()) {
                 player.setHealth(player.getMaxHealth());
             }
         }
