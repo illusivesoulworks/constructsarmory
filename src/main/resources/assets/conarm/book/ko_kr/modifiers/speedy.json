@@ -1,0 +1,25 @@
+{
+  "armormodifier": "speedy_armor",
+  "text": [
+    {
+      "text": "갑옷에 레드스톤을 넣으면 속도가 증가하는것 같습니다."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "속도를 높이는 레드스톤의 특성은 아직 잘 이해되지 않는다."
+    }
+  ],
+  "effects": [
+    "각 레드스톤은 이동속도를 작게 증가시킨다.",
+    "다른 갑옷 요소와 이동속도 버프는 중첩됩니다.",
+    "다중레벨"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

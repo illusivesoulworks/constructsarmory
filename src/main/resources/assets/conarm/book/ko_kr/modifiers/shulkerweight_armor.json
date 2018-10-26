@@ -1,0 +1,25 @@
+{
+  "armormodifier": "shulkerweight_armor",
+  "text": [
+    {
+      "text": "갑옷의 구운 코러스 냄새를 맡으면 훨씬 더 멀리 점프를 할 수 있게될겁니다."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "그래도 착륙엔 주의하세요!"
+    }
+  ],
+  "effects": [
+    "각각 구운 코러스가 점프력을 작게 상승시킨다",
+    "낙하로부터 보호되지 않음",
+    "일회용"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

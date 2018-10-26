@@ -1,0 +1,26 @@
+{
+  "armormodifier": "projectile_resistant_armor",
+  "text": [
+    {
+      "text": "갑옷에 공기역학적 도금을 바르면 발사체 손상을 줄일 수 있을겁니다."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "이번에는 우리를 믿어라"
+    }
+  ],
+  "effects": [
+    "발사체로 인한 피해 감소",
+    "오직 1개의 모디파이어만 사용",
+    "다른 저항과 함께 사용불가",
+    "다중 레벨"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

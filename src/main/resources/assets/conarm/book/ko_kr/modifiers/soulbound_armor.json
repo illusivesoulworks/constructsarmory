@@ -1,0 +1,19 @@
+{
+  "armormodifier": "soulbound_armor",
+  "text": [
+    {
+      "text": "완벽한 짝입니다. 당신은 갑옷을 사랑하시네요. 죽음조차도 당신을 갑옷과 떄어놓을수 없을것입니다."
+    }
+  ],
+  "effects": [
+    "사망후에도 갑옷보유",
+    "일회용",
+    "모디파이어가 필요하지 않음"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
