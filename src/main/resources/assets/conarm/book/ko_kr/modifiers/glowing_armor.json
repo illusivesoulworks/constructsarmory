@@ -1,0 +1,16 @@
+{
+  "armormodifier": "glowing_armor",
+  "text": [
+    {
+      "text": "일부 글로우스톤과 마법의 엔더의눈. 분명히 이것은 빛의 정도를 볼수 있을것입니다."
+    }
+  ],
+  "effects": [
+    "광원을 낮은 수준으로 배치",
+    "부츠에만 사용 가능",
+    "내구도 비용"
+  ],
+  "demoArmor": [
+    "conarm:boots"
+  ]
+}

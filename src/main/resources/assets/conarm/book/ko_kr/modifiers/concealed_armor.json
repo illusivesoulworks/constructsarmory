@@ -1,0 +1,25 @@
+{
+  "armormodifier": "concealed_armor",
+  "text": [
+    {
+      "text": "보이지 않는 잉크를 바르면 당신의 갑옷이 눈에 보이지 않게 될겁니다."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "순전히 화장품"
+    }
+  ],
+  "effects": [
+    "갑옷을 보이지 않게 합니다.",
+    "모디파이어를 소비하지 않습니다.",
+    "여행자의 망토(투명화)와 함께 사용불가."
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

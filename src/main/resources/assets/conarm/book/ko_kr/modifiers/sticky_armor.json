@@ -1,0 +1,18 @@
+{
+  "armormodifier": "sticky_armor",
+  "text": [
+    {
+      "text": "당신의 갑옷에 거미줄을 몇 개 끼는것은 보기엔 흉하지만, 당신에게 닿는 사람은 누구든지 묶을 것입니다."
+    }
+  ],
+  "effects": [
+    "당신은 직접적으로 공격하는 적들의 속도를 늦춥니다",
+    "일회용"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

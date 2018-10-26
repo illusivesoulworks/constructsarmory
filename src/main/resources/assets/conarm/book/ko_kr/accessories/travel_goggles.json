@@ -1,0 +1,16 @@
+{
+  "armormodifier": "travel_goggles_armor",
+  "text": [
+    {
+      "text": "이 고글을 착용하는 동안 멀리있는것을 바로앞에 있는것처럼 볼 수 있습니다. "
+    }
+  ],
+  "effects": [
+    "먼곳을 확대가능",
+    "키를 누를시 확대",
+    "아이템당 액세서리 1개만 사용가능"
+  ],
+  "demoArmor": [
+    "conarm:helmet"
+  ]
+}

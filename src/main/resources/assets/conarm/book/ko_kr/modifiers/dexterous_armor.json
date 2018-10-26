@@ -1,0 +1,17 @@
+{
+  "armormodifier": "dexterous_armor",
+  "text": [
+    {
+      "text": "민첩을 발휘하면 공격 속도가 훨씬 빨라질것입니다."
+    }
+  ],
+  "effects": [
+    "공격속도 증가",
+    "갑옷에만 적용가능",
+    "힘 또는 운동신경과 함께 사용불가",
+    "일회용"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

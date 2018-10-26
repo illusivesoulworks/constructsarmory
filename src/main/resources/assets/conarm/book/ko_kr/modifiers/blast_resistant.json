@@ -1,0 +1,26 @@
+{
+  "armormodifier": "blast_resistant_armor",
+  "text": [
+    {
+      "text": "내열판으로 갑옷을 도금하면 폭발에 대한 보호력이 향상됩니다."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "시멘트는 필요 없어요. 아마도."
+    }
+  ],
+  "effects": [
+    "폭발로 인한 피해 감소",
+    "오직 1개의 모디파이어만 사용",
+    "다른 저항과 함께 사용불가",
+    "다중 레벨"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
