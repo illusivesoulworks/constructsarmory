@@ -448,7 +448,7 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
 
         ItemStack item = repairable.copy();
 
-        while(item.getItemDamage() > 0) {
+        do {
             int amount = calculateRepairAmount(materials, repairItems, EntityLiving.getSlotForItemStack(repairable));
 
             if(amount <= 0) {
@@ -459,7 +459,7 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
             NBTTagCompound tag = TagUtil.getExtraTag(item);
             tag.setInteger(Tags.REPAIR_COUNT, tag.getInteger(Tags.REPAIR_COUNT) + 1);
             TagUtil.setExtraTag(item, tag);
-        }
+        } while (item.getItemDamage() > 0);
 
         return item;
     }
