@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.2.0.2] - 2018.11.29
+### Added
+- Korean localization (thanks hatik05)
+
+### Fixed
+- Miscellaneous repair bugs [#135](https://github.com/TheIllusiveC4/ConstructsArmory/issues/135)
+
 ## [1.2.0.1] - 2018.10.25
 ### Fixed
 - Invigorating trait healing bug [#126](https://github.com/TheIllusiveC4/ConstructsArmory/issues/126)

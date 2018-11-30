@@ -38,7 +38,7 @@ public class ConstructsArmory {
 
     public static final String MODID = "conarm";
     public static final String MODNAME = "Construct's Armory";
-    public static final String MODVER = "1.2.0.1";
+    public static final String MODVER = "1.2.0.2";
 
     private static final boolean DEBUG = false;
 
