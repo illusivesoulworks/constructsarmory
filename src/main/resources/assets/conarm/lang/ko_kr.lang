@@ -1,0 +1,284 @@
+#################
+#     Config    #
+#################
+conarm.general.spawnwithbook=책과 함께 스폰하기
+conarm.general.spawnwithbook.tooltip=처음 세계에 접속하는 플레이어에게 튜토리얼책을 얻게 하려면 true로 설정하세요.
+conarm.general.compactview=조밀한 GUI
+conarm.general.compactview.tooltip=방어구 스테이션/포지 GUI에서 방어구 미리보기를 사용하지 않으려면 true로 설정하세요.
+
+conarm.general.leveling.newarmorminmodifiers=기본 모디파이어 수
+conarm.general.leveling.newarmorminmodifiers.tooltip=방어구의 모디파이어의 값이 기본 모디파이어보다 낮을경우 새로 제작될 방어구의 모디파이어 수가 줄어듭니다.
+conarm.general.leveling.maximumlevels=최대 레벨
+conarm.general.leveling.maximumlevels.tooltip=달성 가능한 최대레벨입니다. 레벨 0 이하면 레벨의 상한이 없습니다.
+conarm.general.leveling.basexp=기본 XP 요구사항
+conarm.general.leveling.basexp.tooltip=레벨업 하기위한 XP의 기본량입니다
+conarm.general.leveling.levelingmultiplier=레벨-XP 배율
+conarm.general.leveling.levelingmultiplier.tooltip=각 레벨을 오를떄마다 필요한 XP량을 얼마나 배가 시키는지에 대한것입니다.
+#################
+#     Blocks    #
+#################
+tile.conarm.armorforge.name=방어구 포지
+tile.conarm.armorstation.name=방어구 스테이션
+tile.conarm.soft_obsidian.name=불안정한 흑요석
+
+#################
+#     Items     #
+#################
+item.conarm.book.name=재료와 당신 - Armory외전
+item.conarm.book.tooltip=모든 대장장이가 필요로하는 책의 외전입니다.\nby C4
+
+item.conarm.polishing_kit.name=연마 키드
+item.conarm.polishing_kit.tooltip=모래랑 결합.\n방어구를 재료의 강인함 수준까지 끌어올립니다.
+
+item.conarm.travel_belt_base.name=여행자의 벨트 (기본)
+item.conarm.travel_belt.name=여행자의 벨트 (수납)
+item.conarm.travel_potion.name=여행자의 벨트 (연금술)
+item.conarm.travel_sack.name=여행자의 배낭
+item.conarm.travel_goggles_base.name=여행자의 고글 (기본)
+item.conarm.travel_goggles.name=여행자의 고글 (확대)
+item.conarm.travel_night.name=여행자의 고글 (야간투시)
+item.conarm.travel_soul.name=여행자의 고글 (영혼의 시야)
+item.conarm.travel_cloak.name=여행자의 망토 (기본)
+item.conarm.travel_sneak.name=여행자의 망토 (투명화)
+item.conarm.travel_slowfall.name=여행자의 망토 (느린하락)
+
+item.conarm.resist_mat.name=보호
+item.conarm.resist_mat.tooltip=보호 모디파이어
+item.conarm.resist_mat_fire.name=화염보호
+item.conarm.resist_mat_fire.tooltip=화염보호 모디파이어
+item.conarm.resist_mat_blast.name=폭발보호
+item.conarm.resist_mat_blast.tooltip=폭발보호 모디파이어
+item.conarm.resist_mat_proj.name=발사체보호
+item.conarm.resist_mat_proj.tooltip=발사체보호 모디파이어
+
+item.conarm.gauntlet_mat.name=건틀릿 (기본)
+item.conarm.gauntlet_mat_attack.name=힘의 건틀릿
+item.conarm.gauntlet_mat_attack.tooltip=힘 모디파이어
+item.conarm.gauntlet_mat_speed.name=민첩의 건틀릿
+item.conarm.gauntlet_mat_speed.tooltip=민첩 모디파이어
+item.conarm.gauntlet_mat_reach.name=원거리의 건틀릿
+item.conarm.gauntlet_mat_reach.tooltip=운동신경 모디파이어
+
+item.conarm.invisible_ink.name=투명한 잉크
+item.conarm.invisible_ink.tooltip=숨겨진 모디파이어
+
+item.conarm.frosty_soles.name=서리 밑창
+item.conarm.frosty_soles.tooltip=서리 모디파이어
+#################
+#      GUI      #
+#################
+gui.armorforge.name=방어구 포지
+gui.armorstation.name=방어구 스테이션
+gui.armorstation.preview=미리보기
+gui.error.modifier_on_station=모디파이어는 방어구 포지에서만 적용할 수 있습니다.
+
+#################
+#     Armor     #
+#################
+appearance.classic.name=클래식
+
+item.conarm.helmet.name=투구
+item.conarm.helmet.desc=투구는 머리를 위험으로부터 보호합니다.\n개선된 버전은 별도 판매
+item.conarm.chestplate.name=갑옷
+item.conarm.chestplate.desc=갑옷은 상터와 부상을 예방하는데 도움이 됩니다.
+item.conarm.leggings.name=레깅스
+item.conarm.leggings.desc=레깅스는 다리를 안정하고 건강하고 아름답게 유지합니다.
+item.conarm.boots.name=부츠
+item.conarm.boots.desc=부츠는 발가락이 더 이상 문틈에 찧지 않도록 도와줍니다.
+
+item.conarm.armor_trim.name=방어구 트림
+item.conarm.helmet_core.name=투구 코어
+item.conarm.chest_core.name=갑옷 코어
+item.conarm.leggings_core.name=레깅스 코어
+item.conarm.boots_core.name=부츠 코어
+item.conarm.armor_plate.name=방어구 판
+
+#################
+#  Keybindings  #
+#################
+key.conarm.category=Construct's Armory 액세서리
+key.conarm.toggle_boots.desc=부츠
+key.conarm.toggle_chest.desc=갑옷
+key.conarm.toggle_helm.desc=투구
+key.conarm.toggle_leg.desc=레깅스
+
+#################
+#     Traits    #
+#################
+modifier.absorbent_armor.name=흡수성
+modifier.absorbent_armor.desc=§o다른 브랜드보다 흡수성이 뛰어납니다.§r\n물과 비가 당신의 방어구를 더욱 강하게 만듭니다.
+modifier.alien_armor.name=에일리언
+modifier.alien_armor.desc=§o에이리언에이리언§r\n방어구의 능력치가 랜덤으로 상승합니다.
+modifier.ambitious_armor.name=야심
+modifier.ambitious_armor.desc=§o이 세계를 그대에게.§r\n당신은 추가 XP를 얻습니다.
+modifier.aridiculous_armor.name=앗뜨거
+modifier.aridiculous_armor.desc=§o더욱 뜨겁게!§r\n이 방어구는 더 뜨거운환경에서 잘 작동합니다.
+modifier.aquaspeed_armor.name=쓱쓱이
+modifier.aquaspeed_armor.desc=§o여기..젖었어..§r\n이 방어구는 물에게 방해받지 않고 비오는 밤을 사랑합니다.
+modifier.autoforge_armor.name=자동수리
+modifier.autoforge_armor.desc=§o폭염에 갑옷입고 불구덩이속에 쳐박힌 기분을 알아?§r\n갑옷이 불속에서 스스로를 수리합니다.
+modifier.baconlicious_armor.name=베이커리우스
+modifier.baconlicious_armor.desc=§oBACON!§r\n맞을떄 가끔씩 베이컨을 얻습니다.
+modifier.blessed_armor.name=축복
+modifier.blessed_armor.desc=§o조심해. 언데드.§r\n언데드와 접촉하면 그들을 약화시킵니다.
+modifier.bouncy_armor.name=탄력
+modifier.bouncy_armor.desc=§o통통하네요.§r\n당신의 갑옷은 좀 튕깁니다.
+modifier.calcic_armor.name=칼슘
+modifier.calcic_armor.desc=§o더 강한뼈를 원해§r\n우유는 당신과 당신의 갑옷을 젋게 합니다.
+modifier.cheap_armor.name=싼
+modifier.cheap_armor.desc=§o싸다 싸!§r\n갑옷을 수리할떄 얻는 내구도가 증가합니다.
+modifier.cheapskate_armor.name=가난뱅이
+modifier.cheapskate_armor.desc=§o당신은 가난합니다.§r\n돌은 안좋습니다. 갑옷의 내구도가 낮습니다.
+modifier.combustible_armor.name=가연성
+modifier.combustible_armor.desc=§o-그럼에도 내 몸은 불로 되어있다.§r\n불이 붙으면 그것을 주위 생물에게 옮깁니다.
+modifier.dense_armor.name=빽빽
+modifier.dense_armor.desc=§o이렇게나..단단해..§r\n갑옷의 내구도가 낮으면 갑옷의 내구도 지속시간이 길어집니다.
+modifier.dramatic_armor.name=드라마틱
+modifier.dramatic_armor.desc=§o네가 도움을 청하는 얼굴을 했었어..!§r\n혹시몰라. 네가 핀치일때 누가 구해줄지
+modifier.duritos_ranch_armor.name=도X토스
+modifier.duritos_ranch_armor.desc=§o들리는것보단 맛이 없습니다.§r\n갑옷은 길게..매우 길게 지속됩니다.
+modifier.ecological_armor.name=자연친화력
+modifier.ecological_armor.desc=방어구의 내구도를 서서히 회복시킵니다.
+modifier.enderport_armor.name=엔더포트
+modifier.enderport_armor.desc=§o텔레포트한다면 지금바로!§r\n위험한 상황에서 벗어날수 있습니다.
+modifier.featherweight_armor.name=깃털몸무게
+modifier.featherweight_armor.desc=§oㄴ..난 깃털만큼 가벼워!§r\n당신은 가볍기에 낙하 대미지를 적게받을수 있다
+modifier.heavy_armor.name=무거움
+modifier.heavy_armor.desc=§o너도 들겠니?§r\n넉백을 감소합니다.
+modifier.indomitable_armor.name=불굴
+modifier.indomitable_armor.desc=§o포기하면 편하지 않아!§r\n갑옷을 보다 효율적으로 만듭니다.
+modifier.infernal_armor.name=지옥
+modifier.infernal_armor.desc=§o악마들의 최신유행!§r\n네더-몹 이외의 몹들에게 추가적인 방어력
+modifier.infernal_armor.extra=Vs 비-네더몹: +%s
+modifier.invigorating_armor.name=상쾌
+modifier.invigorating_armor.desc=§o기분이 상쾌하군!§r\n어찌됬든, 당신은 더 상쾌합니다.
+modifier.lightweight_armor.name=경량
+modifier.lightweight_armor.desc=§o바람과함께 달아나다§r\n당신의 전반적인 이동속도가 증가합니다.
+modifier.lightweight_armor.extra=추가-속도: +%s
+modifier.magnetic_armor.name=자석
+modifier.magnetic_armor.desc=§o인기많은 갑옷!§r\n아이템은 잉여하지만 당신에게 끌릴순 있습니다.
+modifier.mundane_armor.name=평범
+modifier.mundane_armor.desc=§o당신은 평범합니다.§r\n비무장몹에 대한 추가적인 보호
+modifier.mundane_armor.extra=Vs 비무장몹: +%s
+modifier.petravidity_armor.name=견석여금
+modifier.petravidity_armor.desc=§o돌보기를 금같이 하라§r\n갑옷은돌을좋아하고 주위를 잘돌봅니다.
+modifier.prideful_armor.name=오만
+modifier.prideful_armor.desc=§o이것이 나르시시즘입니까?§r\n당신은 내구도를 희생시켜 공격을 당한후, 더 "강인"해집니다.
+modifier.rough_armor.name=거친
+modifier.rough_armor.desc=§o나도 만질거야!§r\n몹에게 내구도를 비용으로 공격을 합니다.
+modifier.rough_armor.extra=거친공격: +%s
+modifier.shielding_armor.name=보호막
+modifier.shielding_armor.desc=§o칫, 결계인가§r\n마법공격으로부터의 추가보호
+modifier.slimey_armor.name=슬리미
+modifier.slimey_armor.desc=§o후유카이데스§r\n작은 슬라임을 0.3%확률로 소환
+modifier.skeletal_armor.name=스켈레탈
+modifier.skeletal_armor.desc=§o다들 그렇게 뼈다귀가 되는거야§r\n갑옷을 좀더 튼튼하게 만듭니다.
+modifier.spiny_armor.name=가시
+modifier.spiny_armor.desc=§o이건 이제 가시가아니라 등뼈입니다.§r\n대미지를 받으면 공격자에게 피해를 입힙니다.
+modifier.steady_armor.name=확고
+modifier.steady_armor.desc=§o너의 위치를 지켜라§r\n당신을 위해, 더욱 공격자를 위해 넉백을 줄입니다.
+modifier.subterranean_armor.name=지하
+modifier.subterranean_armor.desc=§o더욱 깊은곳으로..§r\n당신의 갑옷은 지하에서 내구도가 더욱 좋아집니다.
+modifier.superhot_armor.name=슈퍼핫
+modifier.superhot_armor.desc=§o슈퍼. 핫 §r\n당신에게 불이 붙었을때 더욱 빨리 달릴 수 있습니다.
+modifier.tasty_armor.name=마이쪙
+modifier.tasty_armor.desc=§o얌냠냠§r\n냄새져아...굶는것보단 갑옷을 먹는게 좋겠군요.
+modifier.vengeful_armor.name=복수심
+modifier.vengeful_armor.desc=§o대가를 지불해라§r\n공격자가 당신을 때리면 그다지 좋아하지 않을것입니다.
+modifier.voltaic_armor.name=볼타익
+modifier.voltaic_armor.desc=§o찌릿찌릿!§r\n당신이 맞았을때 갑옷이 충전됩니다. 일단 완전히 충전되면 주위의 생물에게 방전시킵니다.
+#################
+#   Modifiers   #
+#################
+modifier.amphibious_armor.name=수륙양용
+modifier.amphibious_armor.desc=§o지하수 패션§r\n제한된 시간동안 수중호흡을 할수 있습니다.
+modifier.amphibious_armor.extra=저장된 산소: %d
+modifier.blast_resistant_armor.name=폭발보호
+modifier.blast_resistant_armor.desc=§o덥개를 씌워!§r\n폭발에 대한 추가보호
+modifier.concealed_armor.name=비밀
+modifier.concealed_armor.desc=§o착한사람에게만 보이는 옷§r\n당신의 갑옷이 보이지 않게됩니다.
+modifier.diamond_armor.name=다이아몬드
+modifier.diamond_armor.desc=§o반짝!§r\n내구도를 향상시킵니다.
+modifier.dexterous_armor.name=민첩
+modifier.dexterous_armor.desc=§o손은 눈보다 빠르지.§r\n공격속도가 향상됩니다.
+modifier.emerald_armor.name=에메랄드
+modifier.emerald_armor.desc=§o우훗 멋진옷§r\n기본스탯에 따라 내구도를 향상시킵니다.
+modifier.extratrait_armor.name=엠보싱
+modifier.extratrait_armor.desc=§o마법같이, 감쪽같이!§r\n%s의 힘으로 엠보싱하여 그것의 특성을 얻게됩니다.
+modifier.fire_resistant_armor.name=화염보호
+modifier.fire_resistant_armor.desc=§o제독 나빠-§r\n불에 대한 추가보호
+modifier.frostwalker_armor.name=서리
+modifier.frostwalker_armor.desc=§o항상 발이 시렵습니다.§r\n당신의 발은 너무 차갑습니다. 주위의 물이 얼어붙습니다.
+modifier.glowing_armor.name=글로잉
+modifier.glowing_armor.desc=§o반짝반짝 작은 옷§r\n어두울때 내구도를 희생해 주위를 밝힙니다.
+modifier.high_stride_armor.name=높은보폭
+modifier.high_stride_armor.desc=§o마크를 하는데 점프따위 필요하지 않아§r\n당신은 더 높은곳을 걸을수 있습니다.
+modifier.mending_armor.name=수선이끼
+modifier.mending_armor.desc=§o살아있는것 같다.§r\nXP를 주워서 갑옷에 저장합니다. XP를 천천히 사용해 내구도를 회복합니다.
+modifier.mending_armor.extra=저장된 XP: %d
+modifier.parasitic_armor.name=기생
+modifier.parasitic_armor.desc=§o영원히..함ㄲㅔㅔ..§r\n당신의 갑옷은 당신을 먹어 내구도를 재생합니다.
+modifier.polished_armor.name=우아한
+modifier.polished_armor.desc=§o빛이난다. 멋지다.§r\n강인함을 %s의 수준까지 끌어올립니다.
+modifier.powerful_armor.name=힘내 
+modifier.powerful_armor.desc=§o큿..내왼손의 흑염룡이..!§r\n공격 대미지가 증가합니다.
+modifier.projectile_resistant_armor.name=발사체보호
+modifier.projectile_resistant_armor.desc=§o가까이 와라 애송이!§r\n발사체공격에 대한 추가보호
+modifier.reinforced_armor.name=강화
+modifier.reinforced_armor.desc=§o꽤나 강하군!§r\n각 레벨당 내구도를 사용하지 않을 확률을 %s 추가합니다.
+modifier.reinforced_armor.extra=강화: %s
+modifier.resistant_armor.name=보호
+modifier.resistant_armor.desc=§o힘세고 강한 갑옷!§r\n모든공격에 대한 추가보호
+modifier.shulkerweight_armor.name=셜커의무게
+modifier.shulkerweight_armor.desc=§o봐! 하늘이야!§r\n당신의 점프력을 향상시킵니다.
+modifier.soulbound_armor.name=소울바운드
+modifier.soulbound_armor.desc=§o커플천국!§r\n당신은 당신의 갑옷을 사랑합니다. 죽음따위로 갑옷과 당신을 나눌수 없습니다.
+modifier.speedy_armor.name=빠름
+modifier.speedy_armor.name2=꽤나 빠름
+modifier.speedy_armor.name3=엄청 빠름
+modifier.speedy_armor.desc=§o빨리 간닷!!§r\n당신의 전반적인 이동속도가 증가합니다.
+modifier.speedy_armor.extra=추가-속도: +%s
+modifier.sticky_armor.name=끈적끈적
+modifier.sticky_armor.desc=§o꺼져, 꺼지라고§r\n누군가가 당신을 공격하면 공격자는 끈적끈적해집니다.
+modifier.telekinetic_armor.name=운동신경
+modifier.telekinetic_armor.desc=§o인간을 그만두겠다.§r\n당신의 사거리가 늘어납니다.
+#################
+#  Accessories  #
+#################
+modifier.travel_belt_armor.name=여행자의 벨트 (수납)
+modifier.potion_belt_armor.name=여행자의 벨트 (연금술)
+modifier.travel_sack_armor.name=여행자의 배낭
+modifier.travel_sneak_armor.name=여행자의 망토 (투명화)
+modifier.travel_slowfall_armor.name=여행자의 망토 (저속하강)
+modifier.travel_goggles_armor.name=여행자의 고글 (확대)
+modifier.night_vision_armor.name=여행자의 고글 (야간투시)
+modifier.soul_sight_armor.name=여행자의 고글 (영혼의 시야)
+
+accessory.head.tooltip=투구 액세서리
+accessory.chest.tooltip=갑옷 액세서리
+accessory.legs.tooltip=레깅스 액세서리
+accessory.feet.tooltip=부츠 액세서리
+accessory.toggle.tooltip=스테이터스: %s
+accessory.toggle.active=활성화
+accessory.toggle.inactive=비활성화
+
+#################
+#     Stats     #
+#################
+stat.core.name=코어
+stat.core.durability.name=내구도
+stat.core.durability.desc=내구도 계산을 위핸 기본 값.\n갑옷 요소중 내구도를 정하는 요소입니다.
+stat.core.defense.name=방어력
+stat.core.defense.desc=이 재료의 방어력이 얼마인지\n방어구의 가치는 방어력에 달려있습니다.
+
+stat.plates.name=판
+stat.plates.modifier.name=모디파이어
+stat.plates.modifier.desc=갑옷의 재료가 갑옷판에 얼마나 적합한지\n갑옷의 총 내구도에 이것을 곱합니다.
+stat.plates.durability.name=stat.core.durability.name
+stat.plates.durability.desc=그 재료를 얼마나 잘 입을수 있는지\n갑옷의 내구도 승수는 이것으로 정해집니다.
+stat.plates.toughness.name=강인함
+stat.plates.toughness.desc=갑옷요소가 얼마나 강인한지 알려줍니다.
+
+stat.trim.name=트림
+stat.trim.durability.name=stat.core.durability.name
+stat.trim.durability.desc=트림이 내구도의 승수를 얼마나 바꿀까요?

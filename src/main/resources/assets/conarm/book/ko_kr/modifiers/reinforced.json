@@ -1,0 +1,19 @@
+{
+  "armormodifier": "reinforced_armor",
+  "text": [
+    {
+      "text": "강화판을 갑옷에 붙이면 내구도가 좋아져 더 강해질것입니다."
+    }
+  ],
+  "effects": [
+    "내구도를 소비하지 않는 기회를 준다",
+    "이전에 강화한 강화레벨과 겹칩니다.",
+    "다중 레벨"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

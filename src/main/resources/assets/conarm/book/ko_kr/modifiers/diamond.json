@@ -1,0 +1,20 @@
+{
+  "armormodifier": "diamond_armor",
+  "text": [
+    {
+      "text": "갑옷에 다이아몬드 코팅을 바르면 탄력성이 높아져 방어력이 향상됩니다."
+    }
+  ],
+  "effects": [
+    "추가 내구도",
+    "방어력에 조금 향상되고 강인함이 향상됩니다.",
+    "일회용",
+    "굉장해!"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

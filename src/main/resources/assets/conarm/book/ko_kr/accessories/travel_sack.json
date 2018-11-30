@@ -1,0 +1,16 @@
+{
+  "armormodifier": "travel_sack_armor",
+  "text": [
+    {
+      "text": "옆에 저장공간이 없는 탐험가는 없습니다."
+    }
+  ],
+  "effects": [
+    "27슬롯의 추가 저장공간제공",
+    "키를 누를시 배낭이 열림",
+    "아이템당 액세서리 1개만 사용가능"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

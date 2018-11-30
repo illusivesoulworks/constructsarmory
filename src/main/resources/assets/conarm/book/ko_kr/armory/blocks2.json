@@ -1,0 +1,12 @@
+{
+  "image": {
+    "file": "conarm:textures/gui/book/armorgui.png",
+    "width": 154,
+    "height": 70
+  },
+  "text": [
+    {
+      "text": "이 두가지 블록 둘다 사용자가 만든 갑옷의 모양을 볼 수 있는 편안한 방어구 미리보기와 함께 제공됩니다."
+    }
+  ]
+}

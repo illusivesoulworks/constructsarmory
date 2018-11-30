@@ -1,0 +1,19 @@
+{
+  "armormodifier": "mending_armor",
+  "text": [
+    {
+      "text": "당신의 낡은 갑옷에 이끼가 좀 생겼습니다. 일부 XP로 인첸팅하면 갑옷과 융화돼 수리가 됩니다."
+    }
+  ],
+  "effects": [
+    "XP를 수집",
+    "시간이 흐르면서 천천히 갑옷을 수리",
+    "다중 레벨"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

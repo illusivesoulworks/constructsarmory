@@ -1,0 +1,19 @@
+{
+  "armormodifier": "parasitic_armor",
+  "text": [
+    {
+      "text": "당신의 갑옷에 위더 스켈레톤의 뼈를 부착하면 기생하는 능력이 생깁니다."
+    }
+  ],
+  "effects": [
+    "스스로 수리하기 위해 생명을 강탈",
+    "당신을 죽이진 않고 필요할때만",
+    "일회용"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

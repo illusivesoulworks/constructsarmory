@@ -1,0 +1,26 @@
+{
+  "armormodifier": "resistant_armor",
+  "text": [
+    {
+      "text": "당신은 약간의 도금을 당신의 갑옷에 바를 수 있습니다. 정말 힘들어요"
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "이는 모든 형태의 공격으로부터 보호하는데 도움이 됩니다."
+    }
+  ],
+  "effects": [
+    "모든 공격으로 인한 피해 감소",
+    "오직 1개의 모디파이어만 사용",
+    "다른 저항과 함께 사용불가",
+    "다중 레벨"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
