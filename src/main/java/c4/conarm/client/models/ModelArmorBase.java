@@ -16,8 +16,14 @@ package c4.conarm.client.models;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityArmorStand;
+import net.minecraft.entity.monster.AbstractSkeleton;
+import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.MathHelper;
 
 import javax.annotation.Nullable;
 
@@ -34,8 +40,9 @@ public class ModelArmorBase extends ModelBiped {
     @Override
     public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, @Nullable Entity entityIn)
     {
-        if (entityIn instanceof EntityArmorStand)
-        {
+        super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+
+        if (entityIn instanceof EntityArmorStand) {
             EntityArmorStand entityarmorstand = (EntityArmorStand)entityIn;
             this.bipedHead.rotateAngleX = 0.017453292F * entityarmorstand.getHeadRotation().getX();
             this.bipedHead.rotateAngleY = 0.017453292F * entityarmorstand.getHeadRotation().getY();
@@ -60,7 +67,45 @@ public class ModelArmorBase extends ModelBiped {
             this.bipedRightLeg.rotateAngleZ = 0.017453292F * entityarmorstand.getRightLegRotation().getZ();
             this.bipedRightLeg.setRotationPoint(0.0F, 11.0F, 0.0F);
             copyModelAngles(this.bipedHead, this.bipedHeadwear);
-        } else super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+        } else if (entityIn instanceof AbstractSkeleton) {
+            ItemStack itemstack = ((EntityLivingBase)entityIn).getHeldItemMainhand();
+            AbstractSkeleton abstractskeleton = (AbstractSkeleton)entityIn;
+
+            if (abstractskeleton.isSwingingArms() && (itemstack.isEmpty() || itemstack.getItem() != Items.BOW))
+            {
+                float f = MathHelper.sin(this.swingProgress * (float)Math.PI);
+                float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
+                this.bipedRightArm.rotateAngleZ = 0.0F;
+                this.bipedLeftArm.rotateAngleZ = 0.0F;
+                this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
+                this.bipedLeftArm.rotateAngleY = 0.1F - f * 0.6F;
+                this.bipedRightArm.rotateAngleX = -((float)Math.PI / 2F);
+                this.bipedLeftArm.rotateAngleX = -((float)Math.PI / 2F);
+                this.bipedRightArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
+                this.bipedLeftArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
+                this.bipedRightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+                this.bipedLeftArm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+                this.bipedRightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+                this.bipedLeftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+            }
+        } else if (entityIn instanceof EntityZombie) {
+            boolean flag = ((EntityZombie)entityIn).isArmsRaised();
+            float f = MathHelper.sin(this.swingProgress * (float)Math.PI);
+            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
+            this.bipedRightArm.rotateAngleZ = 0.0F;
+            this.bipedLeftArm.rotateAngleZ = 0.0F;
+            this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
+            this.bipedLeftArm.rotateAngleY = 0.1F - f * 0.6F;
+            float f2 = -(float)Math.PI / (flag ? 1.5F : 2.25F);
+            this.bipedRightArm.rotateAngleX = f2;
+            this.bipedLeftArm.rotateAngleX = f2;
+            this.bipedRightArm.rotateAngleX += f * 1.2F - f1 * 0.4F;
+            this.bipedLeftArm.rotateAngleX += f * 1.2F - f1 * 0.4F;
+            this.bipedRightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+            this.bipedLeftArm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+            this.bipedRightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+            this.bipedLeftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+        }
     }
 
     protected void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
