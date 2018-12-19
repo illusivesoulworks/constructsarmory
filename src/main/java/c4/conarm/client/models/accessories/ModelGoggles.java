@@ -38,13 +38,6 @@ public class ModelGoggles extends ModelBase {
 
     @Override
     public void render(@Nonnull Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-
-        if (entity.isSneaking()) {
-            GlStateManager.translate(0.0F, 0.2F, 0.0F);
-            setRotateAngle(goggles, 0.5F, 0.0F, 0.0F);
-        } else {
-            setRotateAngle(goggles, 0.0F, 0.0F, 0.0F);
-        }
         this.goggles.render(f5);
     }
 
