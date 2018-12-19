@@ -25,7 +25,6 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
-import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
 import java.util.ListIterator;
 

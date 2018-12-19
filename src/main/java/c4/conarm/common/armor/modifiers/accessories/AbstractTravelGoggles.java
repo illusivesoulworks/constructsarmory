@@ -14,10 +14,10 @@
 package c4.conarm.common.armor.modifiers.accessories;
 
 import c4.conarm.client.models.accessories.ModelGoggles;
-import c4.conarm.lib.modifiers.IToggleable;
-import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.modifiers.AccessoryModifier;
 import c4.conarm.lib.modifiers.IAccessoryRender;
+import c4.conarm.lib.modifiers.IToggleable;
+import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLiving;

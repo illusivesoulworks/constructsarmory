@@ -14,13 +14,10 @@
 package c4.conarm.client.gui;
 
 import c4.conarm.client.events.ClientArmorEvents;
-import c4.conarm.common.armor.modifiers.accessories.ModTravelSack;
-import c4.conarm.common.inventory.ContainerKnapsack;
 import c4.conarm.common.inventory.ContainerPotionBelt;
 import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 

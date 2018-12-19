@@ -16,13 +16,11 @@ package c4.conarm.common.inventory;
 import c4.conarm.common.ConstructsRegistry;
 import c4.conarm.common.armor.modifiers.ArmorModifiers;
 import c4.conarm.common.armor.modifiers.accessories.ModTravelPotion;
-import c4.conarm.common.armor.modifiers.accessories.ModTravelSack;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
 import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.utils.ModifierTagHolder;
 

@@ -13,8 +13,8 @@
 
 package c4.conarm.common.network;
 
-import c4.conarm.common.inventory.ContainerArmorStation;
 import c4.conarm.client.gui.GuiArmorStation;
+import c4.conarm.common.inventory.ContainerArmorStation;
 import c4.conarm.lib.armor.ArmorCore;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;

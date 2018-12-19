@@ -13,24 +13,15 @@
 
 package c4.conarm.common.armor.modifiers;
 
-import c4.conarm.common.armor.traits.TraitUtils;
 import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import java.util.List;
 
 public class ModSticky extends ArmorModifierTrait {
 

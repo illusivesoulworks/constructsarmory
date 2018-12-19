@@ -13,44 +13,28 @@
 
 package c4.conarm.client.gui;
 
-import c4.conarm.common.ConfigHandler;
-import c4.conarm.common.inventory.ContainerArmorForge;
-import c4.conarm.common.inventory.ContainerArmorStation;
-import c4.conarm.lib.ArmoryRegistry;
-import c4.conarm.lib.ArmoryRegistryClient;
 import c4.conarm.ConstructsArmory;
-import c4.conarm.lib.armor.ArmorCore;
-import c4.conarm.lib.client.ArmorBuildGuiInfo;
-import c4.conarm.lib.client.DynamicTextureHelper;
-import c4.conarm.lib.modifiers.IArmorModifyable;
-import c4.conarm.lib.tinkering.TinkersArmor;
+import c4.conarm.common.ConfigHandler;
+import c4.conarm.common.inventory.ContainerArmorStation;
 import c4.conarm.common.inventory.SlotArmorStationIn;
 import c4.conarm.common.network.ArmorStationSelectionPacket;
 import c4.conarm.common.network.ArmorStationTextPacket;
 import c4.conarm.common.tileentities.TileArmorStation;
-import c4.conarm.lib.utils.ConstructUtils;
+import c4.conarm.lib.ArmoryRegistry;
+import c4.conarm.lib.ArmoryRegistryClient;
+import c4.conarm.lib.armor.ArmorCore;
+import c4.conarm.lib.client.ArmorBuildGuiInfo;
+import c4.conarm.lib.modifiers.IArmorModifyable;
+import c4.conarm.lib.tinkering.TinkersArmor;
 import com.google.common.collect.Lists;
-import com.mojang.authlib.GameProfile;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.entity.RenderLivingBase;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.resources.DefaultPlayerSkin;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -58,13 +42,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.common.util.FakePlayerFactory;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.apache.logging.log4j.Level;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.util.Point;
 import slimeknights.mantle.client.gui.GuiElement;
@@ -86,10 +65,8 @@ import slimeknights.tconstruct.tools.common.inventory.ContainerTinkerStation;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 
 @SideOnly(Side.CLIENT)
 public class GuiArmorStation extends GuiTinkerStation

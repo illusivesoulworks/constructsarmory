@@ -13,9 +13,9 @@
 
 package c4.conarm.client.utils;
 
+import c4.conarm.client.gui.GuiContainerKnapsack;
 import c4.conarm.client.gui.GuiContainerPotionBelt;
 import c4.conarm.common.inventory.ContainerKnapsack;
-import c4.conarm.client.gui.GuiContainerKnapsack;
 import c4.conarm.common.inventory.ContainerPotionBelt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;

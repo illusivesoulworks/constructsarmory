@@ -14,17 +14,17 @@
 package c4.conarm.common;
 
 import c4.conarm.common.blocks.BlockArmorForge;
+import c4.conarm.common.blocks.BlockArmorStation;
 import c4.conarm.common.blocks.BlockSoftObsidian;
 import c4.conarm.common.items.*;
-import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.common.items.armor.Boots;
 import c4.conarm.common.items.armor.Chestplate;
 import c4.conarm.common.items.armor.Helmet;
 import c4.conarm.common.items.armor.Leggings;
-import c4.conarm.lib.armor.ArmorPart;
-import c4.conarm.common.blocks.BlockArmorStation;
-import c4.conarm.lib.utils.ConstructUtils;
+import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.armor.ArmorCore;
+import c4.conarm.lib.armor.ArmorPart;
+import c4.conarm.lib.utils.ConstructUtils;
 import com.google.common.collect.Lists;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;

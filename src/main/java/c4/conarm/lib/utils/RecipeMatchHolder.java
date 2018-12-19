@@ -19,7 +19,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import slimeknights.mantle.util.RecipeMatch;
-import slimeknights.mantle.util.RecipeMatchRegistry;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 
 import java.util.Comparator;

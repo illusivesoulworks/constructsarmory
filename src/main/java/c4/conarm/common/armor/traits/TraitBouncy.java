@@ -13,21 +13,17 @@
 
 package c4.conarm.common.armor.traits;
 
-import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.common.network.ArmorBouncedPacket;
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import slimeknights.tconstruct.common.TinkerNetwork;
 import slimeknights.tconstruct.library.SlimeBounceHandler;
-import slimeknights.tconstruct.tools.common.network.BouncedPacket;
 
 public class TraitBouncy extends AbstractArmorTrait {
 

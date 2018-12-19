@@ -14,14 +14,14 @@
 package c4.conarm.common.inventory;
 
 import c4.conarm.client.gui.GuiArmorStation;
-import c4.conarm.lib.ArmoryRegistry;
-import c4.conarm.lib.armor.ArmorCore;
-import c4.conarm.lib.modifiers.IArmorModifyable;
-import c4.conarm.lib.tinkering.TinkersArmor;
 import c4.conarm.common.network.ArmorStationSelectionPacket;
 import c4.conarm.common.network.ArmorStationTextPacket;
 import c4.conarm.common.tileentities.TileArmorStation;
+import c4.conarm.lib.ArmoryRegistry;
+import c4.conarm.lib.armor.ArmorCore;
+import c4.conarm.lib.modifiers.IArmorModifyable;
 import c4.conarm.lib.tinkering.ArmorBuilder;
+import c4.conarm.lib.tinkering.TinkersArmor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
@@ -43,9 +43,7 @@ import slimeknights.tconstruct.library.events.TinkerCraftingEvent;
 import slimeknights.tconstruct.library.modifiers.TinkerGuiException;
 import slimeknights.tconstruct.library.tinkering.IRepairable;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
-import slimeknights.tconstruct.library.tinkering.TinkersItem;
 import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolBuilder;
 import slimeknights.tconstruct.tools.common.inventory.ContainerTinkerStation;
 

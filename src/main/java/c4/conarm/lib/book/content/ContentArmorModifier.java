@@ -13,8 +13,8 @@
 
 package c4.conarm.lib.book.content;
 
-import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.armor.ArmorCore;
+import c4.conarm.lib.utils.ConstructUtils;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.gson.annotations.SerializedName;

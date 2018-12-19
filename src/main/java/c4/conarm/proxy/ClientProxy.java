@@ -13,21 +13,21 @@
 
 package c4.conarm.proxy;
 
+import c4.conarm.ConstructsArmory;
+import c4.conarm.client.events.ClientArmorEvents;
 import c4.conarm.client.fx.ParticleSoul;
 import c4.conarm.client.gui.PreviewPlayer;
-import c4.conarm.common.ConstructsRegistry;
-import c4.conarm.common.armor.modifiers.ArmorModifiers;
 import c4.conarm.client.layers.LayerAccessories;
-import c4.conarm.lib.ArmoryRegistry;
-import c4.conarm.lib.ArmoryRegistryClient;
-import c4.conarm.ConstructsArmory;
-import c4.conarm.lib.armor.ArmorCore;
-import c4.conarm.lib.armor.ArmorPart;
 import c4.conarm.client.utils.ArmorModelLoader;
 import c4.conarm.client.utils.ArmorModelUtils;
-import c4.conarm.lib.utils.ConstructUtils;
+import c4.conarm.common.ConstructsRegistry;
+import c4.conarm.common.armor.modifiers.ArmorModifiers;
+import c4.conarm.lib.ArmoryRegistry;
+import c4.conarm.lib.ArmoryRegistryClient;
+import c4.conarm.lib.armor.ArmorCore;
+import c4.conarm.lib.armor.ArmorPart;
 import c4.conarm.lib.book.ArmoryBook;
-import c4.conarm.client.events.ClientArmorEvents;
+import c4.conarm.lib.utils.ConstructUtils;
 import com.google.common.collect.Maps;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;

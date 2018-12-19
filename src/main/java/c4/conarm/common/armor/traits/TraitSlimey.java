@@ -22,11 +22,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import slimeknights.tconstruct.library.Util;
 
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 public class TraitSlimey extends AbstractArmorTrait {
 

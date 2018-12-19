@@ -14,7 +14,6 @@
 package c4.conarm.common.armor.traits;
 
 import c4.conarm.lib.armor.ArmorModifications;
-import c4.conarm.lib.traits.AbstractArmorTrait;
 import c4.conarm.lib.traits.AbstractArmorTraitLeveled;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.EntityLivingBase;

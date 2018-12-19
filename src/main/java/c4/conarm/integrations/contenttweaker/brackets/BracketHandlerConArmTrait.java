@@ -14,7 +14,6 @@
 package c4.conarm.integrations.contenttweaker.brackets;
 
 import c4.conarm.integrations.contenttweaker.traits.ConArmTraitRepresentation;
-import com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation;
 import crafttweaker.annotations.BracketHandler;
 import crafttweaker.annotations.ModOnly;
 import crafttweaker.annotations.ZenRegister;

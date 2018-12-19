@@ -14,8 +14,8 @@
 package c4.conarm.common.armor.traits;
 
 import c4.conarm.common.armor.utils.ArmorHelper;
-import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;

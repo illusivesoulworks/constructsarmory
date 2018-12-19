@@ -13,7 +13,6 @@
 
 package c4.conarm.common;
 
-import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;

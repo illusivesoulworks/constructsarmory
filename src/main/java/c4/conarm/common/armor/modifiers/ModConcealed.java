@@ -13,12 +13,9 @@
 
 package c4.conarm.common.armor.modifiers;
 
-import c4.conarm.lib.modifiers.ArmorModifier;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import slimeknights.tconstruct.library.modifiers.IToolMod;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 

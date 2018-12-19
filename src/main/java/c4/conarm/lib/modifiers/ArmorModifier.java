@@ -13,18 +13,12 @@
 
 package c4.conarm.lib.modifiers;
 
-import c4.conarm.ConstructsArmory;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.tinkering.TinkersArmor;
-import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.utils.RecipeMatchHolder;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import slimeknights.mantle.util.RecipeMatch;
-import slimeknights.tconstruct.library.modifiers.ModifierNBT;
-import slimeknights.tconstruct.library.modifiers.TinkerGuiException;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
 import java.util.List;

@@ -16,11 +16,7 @@ package c4.conarm.integrations.crafttweaker.actions;
 import c4.conarm.integrations.crafttweaker.materials.IConArmMaterial;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.materials.CoreMaterialStats;
-import c4.conarm.lib.materials.PlatesMaterialStats;
-import c4.conarm.lib.materials.TrimMaterialStats;
 import crafttweaker.IAction;
-import net.minecraft.inventory.EntityEquipmentSlot;
-import slimeknights.tconstruct.library.materials.IMaterialStats;
 import slimeknights.tconstruct.library.materials.Material;
 
 public class SetDefenseAction implements IAction {

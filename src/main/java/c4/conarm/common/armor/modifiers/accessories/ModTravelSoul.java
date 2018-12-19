@@ -17,7 +17,6 @@ import c4.conarm.ConstructsArmory;
 import c4.conarm.common.armor.traits.TraitUtils;
 import c4.conarm.common.armor.utils.ArmorHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;

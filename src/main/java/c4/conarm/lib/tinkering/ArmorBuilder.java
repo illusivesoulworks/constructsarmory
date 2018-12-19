@@ -14,11 +14,10 @@
 package c4.conarm.lib.tinkering;
 
 import c4.conarm.ConstructsArmory;
-import c4.conarm.lib.armor.ArmorCore;
-import c4.conarm.lib.modifiers.AccessoryModifier;
-import c4.conarm.lib.tinkering.TinkersArmor;
-import c4.conarm.lib.events.ArmoryEvent;
 import c4.conarm.lib.ArmoryRegistry;
+import c4.conarm.lib.armor.ArmorCore;
+import c4.conarm.lib.events.ArmoryEvent;
+import c4.conarm.lib.modifiers.AccessoryModifier;
 import c4.conarm.lib.utils.RecipeMatchHolder;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Sets;
@@ -41,7 +40,6 @@ import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.modifiers.TinkerGuiException;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
-import slimeknights.tconstruct.library.tinkering.TinkersItem;
 import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.Tags;

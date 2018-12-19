@@ -15,9 +15,7 @@ package c4.conarm.common.armor.modifiers;
 
 import c4.conarm.common.ConstructsRegistry;
 import c4.conarm.common.armor.utils.ArmorHelper;
-import c4.conarm.common.blocks.BlockSoftObsidian;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
-import com.google.common.base.Objects;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -35,7 +33,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.utils.ModifierTagHolder;
 import slimeknights.tconstruct.library.utils.TinkerUtil;

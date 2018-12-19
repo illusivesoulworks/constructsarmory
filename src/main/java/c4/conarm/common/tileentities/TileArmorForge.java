@@ -13,8 +13,8 @@
 
 package c4.conarm.common.tileentities;
 
-import c4.conarm.common.inventory.ContainerArmorForge;
 import c4.conarm.client.gui.GuiArmorForge;
+import c4.conarm.common.inventory.ContainerArmorForge;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

@@ -14,7 +14,6 @@
 package c4.conarm.lib.traits;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 

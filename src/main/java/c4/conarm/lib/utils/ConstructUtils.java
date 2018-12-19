@@ -20,7 +20,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
-import slimeknights.tconstruct.library.Util;
 
 import java.text.DecimalFormat;
 import java.util.Locale;

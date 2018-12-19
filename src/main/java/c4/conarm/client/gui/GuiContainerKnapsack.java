@@ -14,8 +14,8 @@
 package c4.conarm.client.gui;
 
 import c4.conarm.client.events.ClientArmorEvents;
-import c4.conarm.common.inventory.ContainerKnapsack;
 import c4.conarm.common.armor.modifiers.accessories.ModTravelSack;
+import c4.conarm.common.inventory.ContainerKnapsack;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.inventory.IInventory;

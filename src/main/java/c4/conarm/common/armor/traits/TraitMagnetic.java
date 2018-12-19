@@ -13,7 +13,6 @@
 
 package c4.conarm.common.armor.traits;
 
-import c4.conarm.lib.traits.AbstractArmorTrait;
 import c4.conarm.lib.traits.AbstractArmorTraitLeveled;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;

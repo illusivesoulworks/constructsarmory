@@ -14,14 +14,14 @@
 package c4.conarm.lib.book;
 
 import c4.conarm.ConstructsArmory;
-import c4.conarm.lib.book.sectiontransformers.ArmorAccessorySectionTransformer;
-import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.book.content.ContentArmor;
 import c4.conarm.lib.book.content.ContentArmorMaterial;
 import c4.conarm.lib.book.content.ContentArmorModifier;
 import c4.conarm.lib.book.content.ContentArmorModifierPolished;
+import c4.conarm.lib.book.sectiontransformers.ArmorAccessorySectionTransformer;
 import c4.conarm.lib.book.sectiontransformers.ArmorMaterialSectionTransformer;
 import c4.conarm.lib.book.sectiontransformers.ArmorModifierSectionTransformer;
+import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.mantle.client.book.BookLoader;

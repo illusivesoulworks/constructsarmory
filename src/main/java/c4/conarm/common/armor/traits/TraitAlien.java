@@ -13,8 +13,8 @@
 
 package c4.conarm.common.armor.traits;
 
-import c4.conarm.lib.armor.ArmorNBT;
 import c4.conarm.common.armor.utils.ArmorTagUtil;
+import c4.conarm.lib.armor.ArmorNBT;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import com.google.common.collect.ImmutableList;

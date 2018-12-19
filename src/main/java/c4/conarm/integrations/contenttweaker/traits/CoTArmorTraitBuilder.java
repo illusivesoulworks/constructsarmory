@@ -14,9 +14,7 @@
 package c4.conarm.integrations.contenttweaker.traits;
 
 import c4.conarm.integrations.contenttweaker.ArmorFunctions;
-import com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.utils.CoTRecipeMatch;
-import com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions;
 import crafttweaker.annotations.ModOnly;
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.item.IIngredient;

@@ -14,7 +14,6 @@
 package c4.conarm.lib.client;
 
 import c4.conarm.lib.materials.ArmorMaterialType;
-import c4.conarm.lib.modifiers.ArmorModifier;
 import c4.conarm.lib.modifiers.IArmorModelModifier;
 import c4.conarm.lib.tinkering.TinkersArmor;
 import com.google.common.cache.Cache;

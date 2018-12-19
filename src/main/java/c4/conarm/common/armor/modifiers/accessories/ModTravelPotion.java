@@ -16,32 +16,21 @@ package c4.conarm.common.armor.modifiers.accessories;
 import c4.conarm.ConstructsArmory;
 import c4.conarm.client.models.accessories.ModelBelt;
 import c4.conarm.client.utils.GuiHandler;
-import c4.conarm.common.inventory.ContainerPotionBelt;
 import c4.conarm.lib.modifiers.AccessoryModifier;
 import c4.conarm.lib.modifiers.IAccessoryRender;
 import c4.conarm.lib.utils.ConstructUtils;
-import com.google.common.collect.Lists;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagIntArray;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.potion.PotionType;
-import net.minecraft.potion.PotionUtils;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.ItemStackHandler;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
-import slimeknights.tconstruct.library.utils.ModifierTagHolder;
-
-import java.util.List;
 
 public class ModTravelPotion extends AccessoryModifier implements IAccessoryRender {
 

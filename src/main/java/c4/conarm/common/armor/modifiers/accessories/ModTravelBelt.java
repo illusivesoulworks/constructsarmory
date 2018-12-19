@@ -14,9 +14,9 @@
 package c4.conarm.common.armor.modifiers.accessories;
 
 import c4.conarm.client.models.accessories.ModelBelt;
-import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.modifiers.AccessoryModifier;
 import c4.conarm.lib.modifiers.IAccessoryRender;
+import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;

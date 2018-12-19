@@ -13,10 +13,10 @@
 
 package c4.conarm.lib.tinkering;
 
-import c4.conarm.common.armor.utils.ArmorHelper;
-import c4.conarm.lib.armor.ArmorModifications;
 import c4.conarm.client.models.ModelBrokenArmor;
 import c4.conarm.client.models.ModelConstructsArmor;
+import c4.conarm.common.armor.utils.ArmorHelper;
+import c4.conarm.lib.armor.ArmorModifications;
 import c4.conarm.lib.client.DynamicTextureHelper;
 import c4.conarm.lib.events.ArmoryEvent;
 import c4.conarm.lib.materials.ArmorMaterialType;
@@ -30,7 +30,6 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -44,7 +43,6 @@ import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.common.util.EnumHelper;
@@ -56,14 +54,19 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.TinkerGuiException;
-import slimeknights.tconstruct.library.tinkering.*;
+import slimeknights.tconstruct.library.tinkering.IRepairable;
+import slimeknights.tconstruct.library.tinkering.ITinkerable;
+import slimeknights.tconstruct.library.tinkering.IndestructibleEntityItem;
+import slimeknights.tconstruct.library.tinkering.PartMaterialType;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.*;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 

@@ -13,8 +13,8 @@
 
 package c4.conarm.common;
 
-import c4.conarm.lib.utils.ConstructUtils;
 import c4.conarm.lib.tinkering.TinkersArmor;
+import c4.conarm.lib.utils.ConstructUtils;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;

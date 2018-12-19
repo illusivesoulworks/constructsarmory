@@ -14,13 +14,10 @@
 package c4.conarm.common.armor.traits;
 
 import c4.conarm.lib.traits.AbstractArmorTrait;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.TextFormatting;
-
-import javax.annotation.Nonnull;
 
 public class TraitDuritosRanch extends AbstractArmorTrait {
 

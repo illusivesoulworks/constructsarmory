@@ -14,18 +14,14 @@
 package c4.conarm.common.armor.modifiers;
 
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
-import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
-
-import java.util.List;
 
 public class ModShulkerweight extends ArmorModifierTrait {
 

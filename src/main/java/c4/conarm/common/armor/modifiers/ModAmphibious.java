@@ -16,7 +16,6 @@ package c4.conarm.common.armor.modifiers;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;

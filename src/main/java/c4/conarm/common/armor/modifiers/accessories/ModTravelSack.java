@@ -14,11 +14,11 @@
 package c4.conarm.common.armor.modifiers.accessories;
 
 import c4.conarm.ConstructsArmory;
-import c4.conarm.client.utils.GuiHandler;
 import c4.conarm.client.models.accessories.ModelKnapsack;
-import c4.conarm.lib.utils.ConstructUtils;
+import c4.conarm.client.utils.GuiHandler;
 import c4.conarm.lib.modifiers.AccessoryModifier;
 import c4.conarm.lib.modifiers.IAccessoryRender;
+import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;

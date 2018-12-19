@@ -13,8 +13,6 @@
 
 package c4.conarm.common.armor.utils;
 
-import c4.conarm.common.ConstructsRegistry;
-import c4.conarm.common.armor.modifiers.ArmorModifiers;
 import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import c4.conarm.lib.events.ArmoryEvent;
 import c4.conarm.lib.tinkering.TinkersArmor;
@@ -33,14 +31,13 @@ import net.minecraftforge.common.ISpecialArmor;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
-import slimeknights.tconstruct.library.tinkering.TinkersItem;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.tools.modifiers.ModReinforced;
 
-import static slimeknights.tconstruct.library.utils.ToolHelper.*;
+import static slimeknights.tconstruct.library.utils.ToolHelper.getCurrentDurability;
+import static slimeknights.tconstruct.library.utils.ToolHelper.unbreakTool;
 
 public class ArmorHelper {
 

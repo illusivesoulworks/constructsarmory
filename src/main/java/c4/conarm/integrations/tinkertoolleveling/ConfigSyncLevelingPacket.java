@@ -13,7 +13,6 @@
 
 package c4.conarm.integrations.tinkertoolleveling;
 
-import c4.conarm.integrations.tinkertoolleveling.ModArmorLeveling;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.network.NetHandlerPlayServer;

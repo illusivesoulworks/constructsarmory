@@ -15,7 +15,6 @@ package c4.conarm.client.gui;
 
 import c4.conarm.lib.client.ArmorBuildGuiInfo;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.text.translation.I18n;
 import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.client.Icons;
 import slimeknights.tconstruct.tools.common.client.GuiButtonItem;

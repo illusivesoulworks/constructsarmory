@@ -15,7 +15,6 @@ package c4.conarm.client.utils;
 
 import c4.conarm.ConstructsArmory;
 import c4.conarm.lib.armor.ArmorCore;
-import c4.conarm.lib.modifiers.AccessoryModifier;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
@@ -29,8 +28,6 @@ import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.model.TRSRTransformation;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.logging.log4j.Level;
-import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.client.CustomTextureCreator;
 import slimeknights.tconstruct.library.client.model.*;
 import slimeknights.tconstruct.library.client.model.format.AmmoPosition;
@@ -39,7 +36,6 @@ import slimeknights.tconstruct.library.tools.IToolPart;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 

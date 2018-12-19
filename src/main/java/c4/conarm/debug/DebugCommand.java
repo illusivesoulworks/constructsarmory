@@ -15,31 +15,19 @@ package c4.conarm.debug;
 
 import c4.conarm.ConstructsArmory;
 import c4.conarm.common.armor.utils.ArmorHelper;
-import c4.conarm.integrations.tinkertoolleveling.ModArmorLeveling;
 import c4.conarm.lib.armor.ArmorCore;
-import c4.conarm.lib.capabilities.ArmorAbilityHandler;
 import com.google.common.collect.Lists;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionUtils;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.BlockPos;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
-import slimeknights.toolleveling.ModToolLeveling;
-import slimeknights.toolleveling.ToolLevelNBT;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.Collections;
 import java.util.List;
 
 public class DebugCommand extends CommandBase {

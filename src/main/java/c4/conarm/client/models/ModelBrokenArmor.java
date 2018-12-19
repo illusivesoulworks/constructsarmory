@@ -15,7 +15,6 @@ package c4.conarm.client.models;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
-import net.minecraft.inventory.EntityEquipmentSlot;
 
 import javax.annotation.Nullable;
 
