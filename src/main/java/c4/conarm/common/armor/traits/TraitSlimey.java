@@ -31,7 +31,6 @@ import java.lang.reflect.Method;
 public class TraitSlimey extends AbstractArmorTrait {
 
     private static final float CHANCE = 0.01F;
-    private static final Method SET_SLIME_SIZE = ReflectionHelper.findMethod(EntitySlime.class, "setSlimeSize", "func_70799_a", Integer.TYPE, Boolean.TYPE);
 
     protected final Class<? extends EntitySlime> slime;
 
@@ -65,7 +64,7 @@ public class TraitSlimey extends AbstractArmorTrait {
     protected void spawnSlime(EntityLivingBase player, double x, double y, double z, World world) {
         try {
             EntitySlime entity = slime.getConstructor(World.class).newInstance(world);
-            SET_SLIME_SIZE.invoke(entity, 1, true);
+            entity.setSlimeSize(1, true);
             entity.setPosition(x, y, z);
             world.spawnEntity(entity);
             entity.setLastAttackedEntity(player);

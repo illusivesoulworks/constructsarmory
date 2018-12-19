@@ -139,9 +139,6 @@ public class GuiArmorStation extends GuiTinkerStation
 //    public List<String> appearances;
 //    public int appearanceSlot = 0;
 
-    private static final Field GUI_TOP = ReflectionHelper.findField(GuiContainer.class, "guiTop", "field_147009_r");
-    private static final Field BUTTON_LIST = ReflectionHelper.findField(GuiScreen.class, "buttonList", "field_146292_n");
-
     public GuiArmorStation(InventoryPlayer playerInv, World world, BlockPos pos, TileArmorStation tile) {
         super(world, pos, (ContainerTinkerStation) tile.createContainer(playerInv, world, pos));
 
@@ -193,11 +190,7 @@ public class GuiArmorStation extends GuiTinkerStation
         }
 
         for(GuiModule module : modules) {
-            try {
-                GUI_TOP.setInt(module, module.getGuiTop() + 4);
-            } catch (IllegalAccessException e) {
-                ConstructsArmory.logger.error("Failed to set guiTop");
-            }
+            module.guiTop += 4;
         }
 
 //        this.nextButton = this.addButton(new AppearanceButton(1, cornerX + 154, cornerY + 60, true));
@@ -567,12 +560,6 @@ public class GuiArmorStation extends GuiTinkerStation
         x += beamC.drawScaledX(x, y, armorInfo.getXSize());
         beamR.draw(x, y);
 
-        List<GuiButton> buttonList = Lists.newLinkedList();
-        try {
-            buttonList = (List<GuiButton>) BUTTON_LIST.get(buttons);
-        } catch (IllegalAccessException e) {
-            ConstructsArmory.logger.log(Level.ERROR, "Failed to initialize buttonList");
-        }
         for(Object o : buttonList) {
             GuiButton button = (GuiButton) o;
             if (armorPreview == null && buttonList.get(buttonList.size() - 1) == button) {
