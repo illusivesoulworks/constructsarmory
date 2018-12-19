@@ -26,6 +26,8 @@ import slimeknights.tconstruct.library.traits.ITrait;
 
 public interface IArmorTrait extends ITrait {
 
+    //TODO: 1.13+ port - Do these parameters need to be EntityPlayer?
+
     /**
      * Called when calculating armor protection values for the wearer
      * See {@link net.minecraftforge.common.ISpecialArmor#getProperties(EntityLivingBase, ItemStack, DamageSource, double, int)}
