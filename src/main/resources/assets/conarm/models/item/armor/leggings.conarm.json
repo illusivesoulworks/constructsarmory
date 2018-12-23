@@ -3,6 +3,6 @@
     "layer0": "conarm:items/leggings/core",
     "layer1": "conarm:items/leggings/plate",
     "layer2": "conarm:items/leggings/trim",
-    "broken0": "conarm:items/leggings/core"
+    "broken0": "conarm:items/leggings/broken_core"
   }
 }

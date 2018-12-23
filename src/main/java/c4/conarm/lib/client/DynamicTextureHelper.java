@@ -81,7 +81,7 @@ public class DynamicTextureHelper {
             }
 
             TextureMap map = Minecraft.getMinecraft().getTextureMapBlocks();
-            String loc = armor.getArmorModelTexture(partIn);
+            String loc = armor.getArmorModelTexture(stack, partIn);
             TextureAtlasSprite sprite = map.getTextureExtry(String.format("%s_%s",loc,identifier));
 
             if (sprite == null) {

@@ -136,6 +136,7 @@ public class ClientProxy extends CommonProxy {
         CustomTextureCreator.registerTexture(ConstructUtils.getResource("models/armor/armor_core"));
         CustomTextureCreator.registerTexture(ConstructUtils.getResource("models/armor/armor_plates"));
         CustomTextureCreator.registerTexture(ConstructUtils.getResource("models/armor/armor_trim"));
+        CustomTextureCreator.registerTexture(ConstructUtils.getResource("models/armor/broken_armor_core"));
         try {
             Map<String, String> textureEntries = ModelHelper.loadTexturesFromJson(ConstructUtils.getResource("models/model_modifiers"));
             for (String s : textureEntries.keySet()) {

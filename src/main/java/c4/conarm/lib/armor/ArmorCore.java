@@ -131,6 +131,19 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
     }
 
     @Override
+    public void getTooltip(ItemStack stack, List<String> tooltips) {
+
+        if (ToolHelper.isBroken(stack)) {
+            tooltips.add("" + TextFormatting.DARK_RED + TextFormatting.BOLD + getBrokenTooltip(stack));
+        }
+        super.getTooltip(stack, tooltips);
+    }
+
+    protected String getBrokenTooltip(ItemStack itemStack) {
+        return Util.translate(TooltipBuilder.LOC_Broken);
+    }
+
+    @Override
     public void getTooltipComponents(ItemStack stack, List<String> tooltips) {
 
         List<Material> materials = TinkerUtil.getMaterialsFromTagList(TagUtil.getBaseMaterialsTagList(stack));

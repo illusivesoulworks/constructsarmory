@@ -3,6 +3,6 @@
     "layer0": "conarm:items/helmet/core",
     "layer1": "conarm:items/helmet/plate",
     "layer2": "conarm:items/helmet/trim",
-    "broken0": "conarm:items/helmet/core"
+    "broken0": "conarm:items/helmet/broken_core"
   }
 }

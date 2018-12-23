@@ -23,6 +23,7 @@ import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.modifiers.IArmorModifyable;
 import c4.conarm.lib.traits.IArmorTrait;
+import c4.conarm.lib.utils.ConstructUtils;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Sets;
 import net.minecraft.client.model.ModelBiped;
@@ -162,9 +163,10 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
     public abstract String getAppearanceName();
 
     @SideOnly(Side.CLIENT)
-    public String getArmorModelTexture(String type)
+    public String getArmorModelTexture(ItemStack stack, String type)
     {
-        return String.format("%s_%s", "conarm:models/armor/armor", type);
+        String base = ToolHelper.isBroken(stack) && type.equals(ArmorMaterialType.CORE) ? "broken_armor_core" : "armor_" + type;
+        return ConstructUtils.getResource("models/armor/" + base).toString();
     }
 
     @SideOnly(Side.CLIENT)
@@ -178,7 +180,7 @@ public abstract class TinkersArmor extends ItemArmor implements ITinkerable, IAr
         if (brokenModel == null) {
             brokenModel = new ModelBrokenArmor();
         }
-        if (ToolHelper.isBroken(itemStack) || ArmorHelper.disableRender(itemStack, entityLiving)) {
+        if (ArmorHelper.disableRender(itemStack, entityLiving)) {
             return brokenModel;
         }
         return model;
