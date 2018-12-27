@@ -144,6 +144,15 @@ public class ArmorFunctions {
         void handle(ConArmTraitRepresentation thisTrait, IItemStack stack, IPlayer player, int slot);
     }
 
+    //DO NOT USE!
+    //This is not called anywhere, this is just for binary compatibility
+    @Deprecated
+    @ZenClass("mods.conarm.traits.ArmorChange")
+    @ZenRegister
+    public interface OnArmorChange {
+        void handle(ConArmTraitRepresentation thisTrait, IItemStack stack, IPlayer player, int slot);
+    }
+
     @ZenClass("mods.conarm.traits.ArmorDamaged")
     @ZenRegister
     public interface OnArmorDamaged {
