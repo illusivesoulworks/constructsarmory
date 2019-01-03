@@ -1,5 +1,10 @@
 [
   {
+    "name": "parts",
+    "type": "text",
+    "data": "armory/parts.json"
+  },
+  {
     "name": "blocks",
     "type": "text",
     "data": "armory/blocks.json"
