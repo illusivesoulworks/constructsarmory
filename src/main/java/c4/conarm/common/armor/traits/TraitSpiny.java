@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 <C4>
+ * Copyright (c) 2018-2019 <C4>
  *
  * This Java class is distributed as a part of the Construct's Armory mod.
  * Construct's Armory is open source and distributed under the GNU Lesser General Public License v3.
