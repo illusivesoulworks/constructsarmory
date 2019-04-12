@@ -13,13 +13,16 @@
 
 package c4.conarm.common.armor.traits;
 
+import c4.conarm.common.armor.modifiers.ArmorModifiers;
 import c4.conarm.common.armor.utils.ArmorHelper;
+import c4.conarm.lib.modifiers.ArmorModifier;
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import slimeknights.tconstruct.library.modifiers.IToolMod;
 
 public class TraitAutoforge extends AbstractArmorTrait {
 
@@ -48,5 +51,10 @@ public class TraitAutoforge extends AbstractArmorTrait {
             return 0;
         }
         return super.onArmorDamage(armor, source, damage, newDamage, player, slot);
+    }
+
+    @Override
+    public boolean canApplyTogether(IToolMod otherModifier) {
+        return !otherModifier.getIdentifier().equals(ArmorModifiers.modWaterwalk.getIdentifier()) && super.canApplyTogether(otherModifier);
     }
 }

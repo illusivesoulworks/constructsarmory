@@ -14,6 +14,7 @@
 package c4.conarm.common.armor.modifiers;
 
 import c4.conarm.common.ConstructsRegistry;
+import c4.conarm.common.armor.traits.ArmorTraits;
 import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import net.minecraft.block.BlockLiquid;
@@ -33,6 +34,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import slimeknights.tconstruct.library.modifiers.IToolMod;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.utils.ModifierTagHolder;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
@@ -100,6 +102,11 @@ public class ModFrostWalker extends ArmorModifierTrait {
                 }
             }
         }
+    }
+
+    @Override
+    public boolean canApplyTogether(IToolMod otherModifier) {
+        return !otherModifier.getIdentifier().equals(ArmorTraits.autoforge.getIdentifier()) && super.canApplyTogether(otherModifier);
     }
 
     @Override
