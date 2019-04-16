@@ -6,10 +6,10 @@
     }
   ],
   "effects": [
-    "Stores a second hotbar that you can swap to",
+    "存有一个你可以切换到的快捷栏",
     "通过快捷键使用",
-    "Cannot access storage directly",
-    "每件护甲只能装配一个部件"
+    "不能直接打开",
+    "每件护甲只能装配一个配件"
   ],
   "demoArmor": [
     "conarm:leggings"
