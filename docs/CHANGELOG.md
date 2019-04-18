@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.2.3.3] - 2019.04.18
+### Changed
+- Combustive, Rough, and Spiny traits now do knockback on targets [#158](https://github.com/TheIllusiveC4/ConstructsArmory/issues/158)
+
 ## [1.2.3.2] - 2019.04.16
 ### Changed
 - Updated Chinese localization (thank you mcBegins2Snow)
