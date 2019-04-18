@@ -50,7 +50,7 @@ public class TraitSpiny extends AbstractArmorTrait {
         int oldHurtResistantTime = target.hurtResistantTime;
         int armorDamage = 1;
         int attackDamage = random.nextInt(4) + 1;
-        if (attackEntitySecondary(damageSource, attackDamage, target, true, false)) {
+        if (attackEntitySecondary(damageSource, attackDamage, target, true, false, false)) {
             TinkerTools.proxy.spawnEffectParticle(ParticleEffect.Type.HEART_CACTUS, target, 1);
             armorDamage = 3;
         }

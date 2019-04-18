@@ -44,7 +44,7 @@ public class TraitRough extends AbstractArmorTrait {
     @Override
     public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
         if (source.getImmediateSource() instanceof EntityLivingBase) {
-            attackEntitySecondary(new EntityDamageSource("prismarine", player).setIsThornsDamage(), (float) calcAttack(armor), source.getImmediateSource(), true, false);
+            attackEntitySecondary(new EntityDamageSource("prismarine", player).setIsThornsDamage(), (float) calcAttack(armor), source.getImmediateSource(), true, false, false);
         }
         return newDamage;
     }
