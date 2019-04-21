@@ -60,6 +60,8 @@ public class DynamicTextureHelper {
         List<BufferedImage> bufferedImages = Lists.newArrayList();
         List<Material> materials = TinkerUtil.getMaterialsFromTagList(TagUtil.getBaseMaterialsTagList(stack));
         List<IModifier> modifiers = TinkerUtil.getModifiers(stack);
+        int textureHeight = 0;
+        int textureWidth = 0;
 
         for (int i = 0; i < materials.size(); i++) {
 
@@ -102,6 +104,14 @@ public class DynamicTextureHelper {
             int iconWidth = sprite.getIconWidth();
             int iconHeight = sprite.getIconHeight();
             int frameCount = sprite.getFrameCount();
+
+            if (textureHeight < iconHeight) {
+                textureHeight = iconHeight;
+            }
+
+            if (textureWidth < iconWidth) {
+                textureWidth = iconWidth;
+            }
 
             if (iconWidth <= 0 || iconHeight <= 0 || frameCount <= 0) {
                 return null;
@@ -183,7 +193,7 @@ public class DynamicTextureHelper {
             bufferedImages.add(bufferedImage);
         }
 
-        BufferedImage combined = new BufferedImage(64, 64, BufferedImage.TYPE_4BYTE_ABGR);
+        BufferedImage combined = new BufferedImage(textureWidth, textureHeight, BufferedImage.TYPE_4BYTE_ABGR);
         Graphics2D g = combined.createGraphics();
 
         for (BufferedImage img : bufferedImages) {
