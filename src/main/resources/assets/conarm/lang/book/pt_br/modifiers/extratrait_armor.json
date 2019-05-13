@@ -1,0 +1,17 @@
+{
+  "armormodifier": "extratrait_armor",
+  "text": [
+    {
+      "text": "Pegue uma parte de armadura e estampe ela di- \nretamente na sua armadura! A armadura assume \na(s) característica(s) da parte de armadura sem \nalterar o material e o estado."
+    }
+  ],
+  "effects": [
+    "Adiciona características de outra parte",
+    "As características são iguais para trocar de parte",
+    "O estampamento é definiti- \nvo e não pode ser alterado",
+    "Não requer modificador"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

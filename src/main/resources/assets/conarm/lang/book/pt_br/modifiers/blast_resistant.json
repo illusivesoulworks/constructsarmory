@@ -1,0 +1,26 @@
+{
+  "armormodifier": "blast_resistant_armor",
+  "text": [
+    {
+      "text": "Reforçando sua armadura com um pouco de reves- \ntimento de resistência à explosão certamente \npermitirá que você resista melhor às explosões."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Nenhum cimento necessário, provavelmente."
+    }
+  ],
+  "effects": [
+    "Reduz o dano de explosões",
+    "Requer 1 único modificador",
+    "Não é compatível com outras resistências",
+    "Múltiplos níveis"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

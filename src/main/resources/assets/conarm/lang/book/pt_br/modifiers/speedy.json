@@ -1,0 +1,25 @@
+{
+  "armormodifier": "speedy_armor",
+  "text": [
+    {
+      "text": "Adicionando redstone numa parte de armadura parece aumentar sua velocidade."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "As propriedades da redstone que da velocidade extra ainda não é muito bem compreendido."
+    }
+  ],
+  "effects": [
+    "Cada pó de redstone aumenta uma pequena porcentagem da sua velocidade",
+    "Empilha com outras partes de armadura e buffs de movimento",
+    "Múltiplos níveis"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

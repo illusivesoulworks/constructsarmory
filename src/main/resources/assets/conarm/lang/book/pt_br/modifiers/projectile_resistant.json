@@ -1,0 +1,26 @@
+{
+  "armormodifier": "projectile_resistant_armor",
+  "text": [
+    {
+      "text": "Anexando mais revestimento aerodinâmico na sua armadura deve permitir que você reduza o dano \ndos projéteis."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Confie em nós dessa vez."
+    }
+  ],
+  "effects": [
+    "Reduz o dano por projéteis",
+    "Requer 1 único modificador",
+    "Não é compatível com outras resistências",
+    "Múltiplos níveis"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

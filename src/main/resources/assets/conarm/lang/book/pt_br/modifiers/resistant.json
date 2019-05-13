@@ -1,0 +1,26 @@
+{
+  "armormodifier": "resistant_armor",
+  "text": [
+    {
+      "text": "Você pode fortalecer sua armadura alguns reves- \ntimentos extras. É um material bem resistente."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Isso ajuda a te proteger contra todo tipo de \nataque."
+    }
+  ],
+  "effects": [
+    "Reduz o dano de todos os ataques",
+    "Requer 1 único modificador",
+    "Não é compatível com outras resistências",
+    "Múltiplos níveis"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

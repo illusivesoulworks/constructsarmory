@@ -65,6 +65,9 @@ item.conarm.gauntlet_mat_reach.tooltip=Modificador: Telecinético
 item.conarm.invisible_ink.name=Tinta Invisível
 item.conarm.invisible_ink.tooltip=Modificador: Escondido
 
+item.conarm.frosty_soles.name=Solas Geladas
+item.conarm.frosty_soles.tooltip=Modificador: Gelado
+
 #################
 #      GUI      #
 #################
@@ -195,6 +198,7 @@ modifier.voltaic_armor.desc=§oBiribiri!§r\nSer atingido carrega sua armadura. 
 #################
 modifier.amphibious_armor.name=Anfíbio
 modifier.amphibious_armor.desc=§oModa subaquática.§r\nLhe permite respirar debaixo d'água por um tempo limitado.
+modifier.amphibious_armor.extra=Oxigênio Armazenado: %d
 modifier.blast_resistant_armor.name=item.conarm.resist_mat_blast.name
 modifier.blast_resistant_armor.desc=§oProtejam-se!§r\nProteção adicional contra explosões.
 modifier.concealed_armor.name=Escondido
@@ -249,13 +253,21 @@ modifier.telekinetic_armor.desc=§oNão mais limitado pela realidade.§r\nVocê 
 #  Accessories  #
 #################
 modifier.travel_belt_armor.name=Cinto de Viajante (Armazenamento)
+modifier.travel_belt_armor.desc=§oTreinamento de força!§r\nTe dá uma segunda hotbar.
 modifier.potion_belt_armor.name=Cinto de Viajante (Alquimia)
+modifier.potion_belt_armor.desc=§oPara amantes de poções.§r\nTe dá um armazenamento para poções especial.
 modifier.travel_sack_armor.name=Mochila de Viajante
+modifier.travel_sack_armor.desc=§oMantenha seus pertences juntos!§r\nTe dá um segundo espaço de armazenamento.
 modifier.travel_sneak_armor.name=Capa de Viajante (Invisibilidade)
+modifier.travel_sneak_armor.desc=§oSorrateiro como um ninja!§r\nTe concede invisibilidade.
 modifier.travel_slowfall_armor.name=Capa de Viajante (Queda Lenta)
+modifier.travel_slowfall_armor.desc=§oDeixe o vento te levar.§r\nSua queda fica mais lenta.
 modifier.travel_goggles_armor.name=Óculos de Viajante (Zoom)
+modifier.travel_goggles_armor.desc=§oVeeeja através da armadura.§r\nVocê pode ampliar o zoom em locais distantes.
 modifier.night_vision_armor.name=Óculos de Viajante (Visão Noturna)
+modifier.night_vision_armor.desc=§oEu sou a noite.§r\nVocê consegue enxergar no escuro.
 modifier.soul_sight_armor.name=Óculos de Viajante (Visão de Alma)
+modifier.soul_sight_armor.desc=§oCoração é um grande poder.§r\nVocê consegue enxergar as almas das criaturas próximas.
 
 accessory.head.tooltip=Acessório de Capacete
 accessory.chest.tooltip=Acessório de Peitoral

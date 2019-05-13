@@ -1,0 +1,20 @@
+{
+  "armormodifier": "diamond_armor",
+  "text": [
+    {
+      "text": "Adicionando um diamante como revestimento de \numa armadura, torna mais resiliente e aumenta \na sua proteção."
+    }
+  ],
+  "effects": [
+    "Durabilidade extra",
+    "Leve aumento de armadura e resistência",
+    "Uso único",
+    "Fabuloso!"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

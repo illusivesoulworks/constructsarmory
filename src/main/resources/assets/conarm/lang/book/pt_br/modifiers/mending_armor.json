@@ -1,0 +1,19 @@
+{
+  "armormodifier": "mending_armor",
+  "text": [
+    {
+      "text": "Um pouco de musgo cresceu nas bordas desgasta- \ndas da sua armadura. Encantando ela com um pou- \nco de XP, faz com que ele se funda com a arma- \ndura, restaurando ela gradualmente."
+    }
+  ],
+  "effects": [
+    "Armazena o XP coletado",
+    "Repara lentamente a armadura ao longo do tempo",
+    "Múltiplos níveis"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
