@@ -1,0 +1,23 @@
+{
+  "armormodifier": "telekinetic_armor",
+  "text": [
+    {
+      "text": "Anexando esta manopla do longo alcance deve \nte dar poderes mágicos."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Especificamente, você vai descobrir que pode alcançar coisas de longe."
+    }
+  ],
+  "effects": [
+    "Aumenta a distância de alcance",
+    "Só pode ser aplicado no peitoral",
+    "Não pode ser aplicado junto com Poderoso ou Destreza",
+    "Uso único"
+  ],
+  "demoArmor": [
+    "conarm:chestplate"
+  ]
+}

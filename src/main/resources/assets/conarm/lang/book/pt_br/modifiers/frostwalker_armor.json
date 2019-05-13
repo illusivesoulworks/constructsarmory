@@ -1,0 +1,23 @@
+{
+  "armormodifier": "frostwalker_armor",
+  "text": [
+    {
+      "text": "Anexando alguns gelos compactados e vitórias- \nrégias debaixo dos pés, pode ficar frio o sufi- \nciente para congelar a água."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Será que se repetisse o processo ficaria ainda \nmais poderoso?"
+    }
+  ],
+  "effects": [
+    "Congela águas próximas",
+    "Nega o dano ao andar sobre superfícies quentes",
+    "Só pode ser aplicado nas botas",
+    "Múltiplos níveis"
+  ],
+  "demoArmor": [
+    "conarm:boots"
+  ]
+}

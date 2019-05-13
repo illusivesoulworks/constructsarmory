@@ -1,0 +1,14 @@
+// Sections
+welcome=Bem-Vindo
+materials=Materiais
+armory=Arsenal
+modifiers=Modificadores
+accessories=Acessórios
+
+armor.title=Armadura
+armor.properties=Propriedades:
+
+material.craft_partbuilder=Pode ser criado no Montador de Partes
+material.craft_casting=Pode ser fundido a partir de %s
+
+modifier.effect=Efeitos:

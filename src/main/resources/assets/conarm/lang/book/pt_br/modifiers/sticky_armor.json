@@ -1,0 +1,18 @@
+{
+  "armormodifier": "sticky_armor",
+  "text": [
+    {
+      "text": "Grudando um pouco de teia de aranha na sua armadura parece ficar mais feia, mas irá emba- \nraçar qualquer um que tocar em você."
+    }
+  ],
+  "effects": [
+    "Retarda os inimigos que te atacar diretamente",
+    "Uso único"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}

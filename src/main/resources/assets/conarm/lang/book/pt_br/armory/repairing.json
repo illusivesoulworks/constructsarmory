@@ -1,0 +1,17 @@
+{
+  "title": "Reparação",
+  "image": {
+    "file": "conarm:textures/gui/book/repair.png",
+    "width": 136,
+    "height": 70
+  },
+  "text": [
+    {
+      "text": "Lembra como que repara as ferramentas? O mesmo \npode ser aplicado nas partes de armadura. Basta \ncolocar a parte de armadura dentro de uma esta- \nção ou forja de armadura e adicione os itens e- \nquivalentes aos núcleos da armadura."
+    },
+    {
+      "text": "Para consertar quando estiver em movimento, bas- \nta usar um kit de polimento de armadura do mesmo \njeito que você usaria um kit de afiar.",
+      "paragraph": true
+    }
+  ]
+}

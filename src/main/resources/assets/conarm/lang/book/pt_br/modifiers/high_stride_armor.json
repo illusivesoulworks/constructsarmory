@@ -1,0 +1,16 @@
+{
+  "armormodifier": "high_stride_armor",
+  "text": [
+    {
+      "text": "Usando a engenharia dos pistões, suas botas \npodem dar passos mais altos."
+    }
+  ],
+  "effects": [
+    "Aumenta a altura dos passos",
+    "Só pode ser aplicado nas botas",
+    "Múltiplos níveis"
+  ],
+  "demoArmor": [
+    "conarm:boots"
+  ]
+}

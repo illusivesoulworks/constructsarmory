@@ -1,0 +1,25 @@
+{
+  "armormodifier": "shulkerweight_armor",
+  "text": [
+    {
+      "text": "Esfregando algumas frutas do coro estouradas \nna sua armadura deve te dar um salto muito \nmais forte."
+    },
+    {
+      "text": "\n"
+    },
+    {
+      "text": "Tenha cuidado ao pousar!"
+    }
+  ],
+  "effects": [
+    "Cada fruta do coro estourada aumenta o um pouco do salto",
+    "Não te protege contra dano de queda",
+    "Uso único"
+  ],
+  "demoArmor": [
+    "conarm:helmet",
+    "conarm:chestplate",
+    "conarm:leggings",
+    "conarm:boots"
+  ]
+}
