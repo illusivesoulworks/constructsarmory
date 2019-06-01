@@ -13,6 +13,7 @@
 
 package c4.conarm.common.armor.traits;
 
+import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.EntityLiving;
@@ -21,6 +22,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 import java.util.UUID;
@@ -41,6 +43,14 @@ public class TraitAquaspeed extends AbstractArmorTrait {
     public void getAttributeModifiers(@Nonnull EntityEquipmentSlot slot, ItemStack stack, Multimap<String, AttributeModifier> attributeMap) {
         if (slot == EntityLiving.getSlotForItemStack(stack)) {
             attributeMap.put(EntityPlayer.SWIM_SPEED.getName(), new AttributeModifier(SWIMSPEED_MODIFIERS[slot.getIndex()], "Aquaspeed trait modifier", SWIMSPEED_PER_LEVEL, 0));
+        }
+    }
+
+    @Override
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player) {
+
+        if (player.isInWater() && player.isSneaking()) {
+            player.motionY *= 1.1D;
         }
     }
 }
