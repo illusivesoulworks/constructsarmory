@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.2.4] - 2019.05.31
+## Changed
+- Aquaspeed trait can now provide faster sinking speed when players sneak while swimming [#169](https://github.com/TheIllusiveC4/ConstructsArmory/issues/169)
+- Updated Chinese localization (thank you mcBegins2Snow)
+- Updated Brazilian localization (thank you SAMUELPV)
+
+### Fixed
+- Fixed Steady trait causing erroneous knockbacks on entities with knockback resistance
+
 ## [1.2.3.4] - 2019.04.21
 ### Fixed
 - Fixed armor model texture scaling [#160](https://github.com/TheIllusiveC4/ConstructsArmory/issues/160)
