@@ -13,6 +13,7 @@
 
 package c4.conarm.common.armor.traits;
 
+import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.EntityLiving;
@@ -25,6 +26,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import javax.annotation.Nonnull;
@@ -52,13 +54,16 @@ public class TraitSteady extends AbstractArmorTrait {
 
     @SubscribeEvent
     public void onLivingHurt(LivingHurtEvent evt) {
+
         if (evt.getEntityLiving() instanceof EntityPlayer) {
+
             if (evt.getSource().getImmediateSource() instanceof EntityLivingBase) {
                 EntityPlayer player = (EntityPlayer) evt.getEntityLiving();
                 EntityLivingBase entity = (EntityLivingBase) evt.getSource().getImmediateSource();
-                float knockbackResist = (float) entity.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).getAttributeValue();
-                if (knockbackResist > 0) {
-                    entity.knockBack(entity, knockbackResist * 2, (double) MathHelper.sin(player.rotationYaw * 0.017453292F), (double)(-MathHelper.cos(player.rotationYaw * 0.017453292F)));
+                int level = (int) ArmorHelper.getArmorAbilityLevel(player, this.identifier);
+
+                if (level > 0) {
+                    entity.knockBack(entity, 0.2F * level, (double) MathHelper.sin(player.rotationYaw * 0.017453292F), (double)(-MathHelper.cos(player.rotationYaw * 0.017453292F)));
                 }
             }
         }
