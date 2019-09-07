@@ -24,14 +24,18 @@ public class ConfigSyncLevelingPacket extends AbstractPacketThreadsafe {
     public int maximumLevels;
     public int baseXP;
     public float levelMultiplier;
+    public int xpGainCap;
+    public float damageToXP;
 
     public ConfigSyncLevelingPacket() {}
 
-    public ConfigSyncLevelingPacket(int minModifiers, int maxLevels, int xp, float levelMult) {
-        newArmorMinModifiers = minModifiers;
-        maximumLevels = maxLevels;
-        baseXP = xp;
-        levelMultiplier = levelMult;
+    public ConfigSyncLevelingPacket(int minModifiers, int maxLevels, int xp, float levelMult, int xpGainCap, float damageToXP) {
+        this.newArmorMinModifiers = minModifiers;
+        this.maximumLevels = maxLevels;
+        this.baseXP = xp;
+        this.levelMultiplier = levelMult;
+        this.xpGainCap = xpGainCap;
+        this.damageToXP = damageToXP;
     }
 
     public void handleClientSafe(final NetHandlerPlayClient netHandler) {
@@ -39,6 +43,8 @@ public class ConfigSyncLevelingPacket extends AbstractPacketThreadsafe {
         ModArmorLeveling.maximumLevels = maximumLevels;
         ModArmorLeveling.baseXP = baseXP;
         ModArmorLeveling.levelMultiplier = levelMultiplier;
+        ModArmorLeveling.xpGainCap = xpGainCap;
+        ModArmorLeveling.damageToXP = damageToXP;
     }
 
     public void handleServerSafe(final NetHandlerPlayServer netHandler) {
@@ -50,6 +56,8 @@ public class ConfigSyncLevelingPacket extends AbstractPacketThreadsafe {
         this.maximumLevels = buf.readInt();
         this.baseXP = buf.readInt();
         this.levelMultiplier = buf.readFloat();
+        this.xpGainCap = buf.readInt();
+        this.damageToXP = buf.readFloat();
     }
 
     public void toBytes(final ByteBuf buf) {
@@ -57,5 +65,7 @@ public class ConfigSyncLevelingPacket extends AbstractPacketThreadsafe {
         buf.writeInt(maximumLevels);
         buf.writeInt(baseXP);
         buf.writeFloat(levelMultiplier);
+        buf.writeInt(xpGainCap);
+        buf.writeFloat(damageToXP);
     }
 }

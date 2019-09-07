@@ -60,6 +60,8 @@ public class ModArmorLeveling extends ArmorModifierTrait {
     public static int maximumLevels;
     public static int baseXP;
     public static float levelMultiplier;
+    public static int xpGainCap;
+    public static float damageToXP;
 
     public ModArmorLeveling() {
         super("leveling", 0xffffff);
@@ -71,6 +73,8 @@ public class ModArmorLeveling extends ArmorModifierTrait {
         maximumLevels = ConfigHandler.leveling.maximumLevels;
         baseXP = ConfigHandler.leveling.baseXP;
         levelMultiplier = ConfigHandler.leveling.levelMultiplier;
+        xpGainCap = ConfigHandler.leveling.xpGainCap;
+        damageToXP = ConfigHandler.leveling.damageToXP;
     }
 
     @SubscribeEvent
@@ -110,7 +114,7 @@ public class ModArmorLeveling extends ArmorModifierTrait {
     @Override
     public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
         if (damage > 0 && !source.isUnblockable()) {
-            addXp(armor, MathHelper.clamp((int) (damage / 4), 1, 100), player);
+            addXp(armor, MathHelper.clamp((int) (damage * damageToXP), 1, xpGainCap), player);
         }
         return newDamage;
     }

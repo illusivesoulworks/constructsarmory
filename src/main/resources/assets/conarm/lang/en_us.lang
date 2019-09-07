@@ -14,6 +14,10 @@ conarm.general.leveling.basexp=Base XP Requirement
 conarm.general.leveling.basexp.tooltip=Base XP needed for armor
 conarm.general.leveling.levelingmultiplier=Leveling Multiplier
 conarm.general.leveling.levelingmultiplier.tooltip=How much to multiply the experience needed for each level
+conarm.general.leveling.xpgaincap=XP Gain Cap
+conarm.general.leveling.xpgaincap.tooltip=Maximum amount of XP that a single hit can give
+conarm.general.leveling.damagetoxp=Damage to XP Multiplier
+conarm.general.leveling.damagetoxp.tooltip=Multiplier to calculate xp from damage (e.g 0.25 means 25% of damage will be given as XP)
 
 #################
 #     Blocks    #

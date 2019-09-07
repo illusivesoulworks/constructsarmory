@@ -57,7 +57,14 @@ public class ConfigHandler {
         @Config.Comment("How much to multiply the experience needed for each level")
         @Config.RequiresWorldRestart
         public float levelMultiplier = 2.0F;
-
+        @Config.Name("XP Gain Cap")
+        @Config.Comment("Maximum amount of XP that a single hit can give")
+        @Config.RequiresWorldRestart
+        public int xpGainCap = 100;
+        @Config.Name("Damage to XP Multiplier")
+        @Config.Comment("Multiplier to calculate xp from damage (e.g 0.25 means 25% of damage will be given as XP)")
+        @Config.RequiresWorldRestart
+        public float damageToXP = 0.25f;
     }
 
     @Mod.EventBusSubscriber(modid = ConstructsArmory.MODID)
@@ -72,7 +79,13 @@ public class ConfigHandler {
 
         @SubscribeEvent
         public static void playerLoggedIn(PlayerEvent.PlayerLoggedInEvent evt) {
-            ConfigSyncLevelingPacket sync = new ConfigSyncLevelingPacket(leveling.newArmorMinModifiers, leveling.maximumLevels, leveling.baseXP, leveling.levelMultiplier);
+            ConfigSyncLevelingPacket sync = new ConfigSyncLevelingPacket(
+                leveling.newArmorMinModifiers,
+                leveling.maximumLevels,
+                leveling.baseXP,
+                leveling.levelMultiplier,
+                leveling.xpGainCap,
+                leveling.damageToXP);
             TinkerNetwork.sendTo(sync, (EntityPlayerMP) evt.player);
         }
     }
