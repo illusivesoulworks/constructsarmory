@@ -33,7 +33,7 @@ import org.apache.logging.log4j.Logger;
                         "after:contenttweaker@(1.12.2-4.7.0,);" +
                         "after:crafttweaker@[1.12-4.1.9,)",
         acceptedMinecraftVersions = "[1.12.2, 1.13)",
-        certificateFingerprint = "5d5b8aee896a4f5ea3f3114784742662a67ad32f")
+        certificateFingerprint = "@FINGERPRINT@")
 public class ConstructsArmory {
 
     public static final String MODID = "conarm";
