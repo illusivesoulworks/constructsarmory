@@ -4,8 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.2.5] - 2019.10.14
+### Added
+- Added XP leveling configs, XP Gain Cap and Damage to XP Multiplier [#176](https://github.com/TheIllusiveC4/ConstructsArmory/issues/176)
+### Fixed
+- Fixed NoSuchFieldError with Tinkers' 2.13.0.171 [#178](https://github.com/TheIllusiveC4/ConstructsArmory/issues/178)
+
 ## [1.2.4] - 2019.05.31
-## Changed
+### Changed
 - Aquaspeed trait can now provide faster sinking speed when players sneak while swimming [#169](https://github.com/TheIllusiveC4/ConstructsArmory/issues/169)
 - Updated Chinese localization (thank you mcBegins2Snow)
 - Updated Brazilian localization (thank you SAMUELPV)
