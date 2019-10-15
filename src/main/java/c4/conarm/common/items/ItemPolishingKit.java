@@ -47,7 +47,7 @@ public class ItemPolishingKit extends ArmorPart {
             // this adds a variant of each material to the creative menu
             for(Material mat : TinkerRegistry.getAllMaterialsWithStats(ArmorMaterialType.PLATES)) {
                 subItems.add(getItemstackWithMaterial(mat));
-                if(!Config.listAllMaterials) {
+                if(!Config.listAllPartMaterials) {
                     break;
                 }
             }

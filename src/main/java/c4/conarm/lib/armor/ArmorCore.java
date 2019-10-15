@@ -321,7 +321,7 @@ public abstract class ArmorCore extends TinkersArmor implements IToolStationDisp
             ItemStack armor = buildItem(mats);
             if(hasValidMaterials(armor)) {
                 subItems.add(armor);
-                if(!Config.listAllMaterials) {
+                if(!Config.listAllToolMaterials) {
                     break;
                 }
             }

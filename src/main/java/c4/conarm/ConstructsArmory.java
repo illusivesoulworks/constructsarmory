@@ -29,7 +29,7 @@ import org.apache.logging.log4j.Logger;
         version = ConstructsArmory.MODVER,
         dependencies =  "required-after:forge@[14.23.4.2745,);" +
                         "required-after:mantle@[1.12-1.3.1,);" +
-                        "required-after:tconstruct@[1.12.2-2.10.1.87,);" +
+                        "required-after:tconstruct@[1.12.2-2.13.0.171,);" +
                         "after:contenttweaker@(1.12.2-4.7.0,);" +
                         "after:crafttweaker@[1.12-4.1.9,)",
         acceptedMinecraftVersions = "[1.12.2, 1.13)",
