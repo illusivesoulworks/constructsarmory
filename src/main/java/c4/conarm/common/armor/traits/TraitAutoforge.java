@@ -15,13 +15,14 @@ package c4.conarm.common.armor.traits;
 
 import c4.conarm.common.armor.modifiers.ArmorModifiers;
 import c4.conarm.common.armor.utils.ArmorHelper;
-import c4.conarm.lib.modifiers.ArmorModifier;
 import c4.conarm.lib.traits.AbstractArmorTrait;
+import net.minecraft.block.BlockFire;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraft.world.World;
 import slimeknights.tconstruct.library.modifiers.IToolMod;
 
 public class TraitAutoforge extends AbstractArmorTrait {
@@ -31,17 +32,17 @@ public class TraitAutoforge extends AbstractArmorTrait {
     }
 
     @Override
-    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
+    public void onArmorTick(ItemStack tool, World world, EntityPlayer player) {
 
-        if (source.isFireDamage()) {
-            if (source == DamageSource.LAVA) {
-                ArmorHelper.healArmor(armor, 3, player, EntityLiving.getSlotForItemStack(armor).getIndex());
-            } else {
-                ArmorHelper.healArmor(armor, 1, player, EntityLiving.getSlotForItemStack(armor).getIndex());
+        if (player.ticksExisted % 20 == 0) {
+            IBlockState state = player.world.getBlockState(player.getPosition());
+
+            if (player.isInLava()) {
+                ArmorHelper.healArmor(tool, 3, player, EntityLiving.getSlotForItemStack(tool).getIndex());
+            } else if (player.isBurning() || state.getBlock() instanceof BlockFire) {
+                ArmorHelper.healArmor(tool, 1, player, EntityLiving.getSlotForItemStack(tool).getIndex());
             }
         }
-
-        return newDamage;
     }
 
     @Override
@@ -50,6 +51,7 @@ public class TraitAutoforge extends AbstractArmorTrait {
         if (source.isFireDamage()) {
             return 0;
         }
+
         return super.onArmorDamage(armor, source, damage, newDamage, player, slot);
     }
 
