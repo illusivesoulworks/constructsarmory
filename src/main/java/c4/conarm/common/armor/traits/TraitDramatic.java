@@ -31,7 +31,7 @@ public class TraitDramatic extends AbstractArmorTrait {
     public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
         if ((player.getHealth() - newDamage) <= 0 && random.nextFloat() <= CHANCE) {
             player.heal(2);
-            return 0;
+            evt.setCanceled(true);
         }
         return newDamage;
     }
