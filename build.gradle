@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'com.wynprice.cursemaven'
 
-version = "1.12.2-1.2.5"
+version = "1.12.2-1.2.5.1"
 group = "c4.conarm"
 archivesBaseName = "conarm"
 

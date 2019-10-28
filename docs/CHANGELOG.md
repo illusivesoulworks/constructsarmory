@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.2.5.1] - 2019.10.27
+### Fixed
+- Fixed Autoforge trait not repairing when under the effects of Fire Resistance [#193](https://github.com/TheIllusiveC4/ConstructsArmory/issues/193)
+- Fixed Dramatic trait not preventing fatal damage [#177](https://github.com/TheIllusiveC4/ConstructsArmory/issues/177)
+
 ## [1.2.5] - 2019.10.14
 ### Added
 - Added XP leveling configs, XP Gain Cap and Damage to XP Multiplier [#176](https://github.com/TheIllusiveC4/ConstructsArmory/issues/176)
