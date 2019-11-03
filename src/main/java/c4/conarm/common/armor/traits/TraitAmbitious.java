@@ -30,18 +30,32 @@ public class TraitAmbitious extends AbstractArmorTrait {
 
     @SubscribeEvent
     public void onLivingXPDrop(LivingExperienceDropEvent evt) {
-        int addXP = getXpToAdd(evt.getAttackingPlayer());
-        evt.setDroppedExperience(addXP + evt.getDroppedExperience());
+        int xpToDrop = evt.getDroppedExperience();
+
+        if (xpToDrop > 0) {
+            int addXP = getXpToAdd(evt.getAttackingPlayer());
+
+            if (addXP > 0) {
+                evt.setDroppedExperience(addXP + xpToDrop);
+            }
+        }
     }
 
     @SubscribeEvent
     public void onBlockBreak(BlockEvent.BreakEvent evt) {
-        int addXP = getXpToAdd(evt.getPlayer());
-        evt.setExpToDrop(evt.getExpToDrop() + addXP);
+        int xpToDrop = evt.getExpToDrop();
+
+        if (xpToDrop > 0) {
+            int addXP = getXpToAdd(evt.getPlayer());
+
+            if (addXP > 0) {
+                evt.setExpToDrop(xpToDrop + addXP);
+            }
+        }
     }
 
     private static int getXpToAdd(EntityPlayer player) {
         int level = (int) ArmorHelper.getArmorAbilityLevel(player, ArmorTraits.ambitious.identifier);
-        return random.nextInt(level * 2 + 1) + 2;
+        return level > 0 ? random.nextInt(level * 2 + 1) + 2 : 0;
     }
 }
