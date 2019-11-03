@@ -11,7 +11,7 @@
  * View the MIT License here: https://tldrlegal.com/license/mit-license
  */
 
-package c4.conarm.integrations.contenttweaker;
+package c4.conarm.integrations.contenttweaker.utils;
 
 import c4.conarm.integrations.contenttweaker.traits.ConArmTraitRepresentation;
 import c4.conarm.lib.armor.ArmorModifications;
@@ -81,7 +81,7 @@ public class ArmorFunctions {
     @ZenClass("mods.conarm.traits.Modifications")
     @ZenRegister
     public interface GetModifications {
-        ArmorModifications handle(ConArmTraitRepresentation thisTrait, IPlayer player, ArmorModifications mods, IItemStack stack, IDamageSource damageSource, double damage, int slot);
+        void handle(ConArmTraitRepresentation thisTrait, IPlayer player, IArmorModifications mods, IItemStack stack, IDamageSource damageSource, double damage, int slot);
     }
 
     @ZenClass("mods.conarm.traits.ItemPickup")

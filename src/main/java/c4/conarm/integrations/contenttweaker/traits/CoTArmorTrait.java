@@ -13,7 +13,9 @@
 
 package c4.conarm.integrations.contenttweaker.traits;
 
-import c4.conarm.integrations.contenttweaker.ArmorFunctions;
+import c4.conarm.integrations.contenttweaker.utils.ArmorFunctions;
+import c4.conarm.integrations.contenttweaker.utils.CTArmorModifications;
+import c4.conarm.integrations.contenttweaker.utils.IArmorModifications;
 import c4.conarm.lib.armor.ArmorModifications;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
 import c4.conarm.lib.traits.IArmorTrait;
@@ -156,7 +158,7 @@ public class CoTArmorTrait extends ArmorModifierTrait implements IArmorTrait {
     @Override
     public ArmorModifications getModifications(EntityPlayer player, ArmorModifications mods, ItemStack armor, DamageSource source, double damage, int slot) {
         if (getModifications != null) {
-            return getModifications.handle(thisTrait, CraftTweakerMC.getIPlayer(player), mods, CraftTweakerMC.getIItemStack(armor), CraftTweakerMC.getIDamageSource(source), damage, slot);
+            getModifications.handle(thisTrait, CraftTweakerMC.getIPlayer(player), new CTArmorModifications(mods), CraftTweakerMC.getIItemStack(armor), CraftTweakerMC.getIDamageSource(source), damage, slot);
         }
         return super.getModifications(player, mods, armor, source, damage, slot);
     }

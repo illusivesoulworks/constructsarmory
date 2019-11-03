@@ -13,7 +13,7 @@
 
 package c4.conarm.integrations.contenttweaker.traits;
 
-import c4.conarm.integrations.contenttweaker.ArmorFunctions;
+import c4.conarm.integrations.contenttweaker.utils.ArmorFunctions;
 import com.teamacronymcoders.contenttweaker.modules.tinkers.utils.CoTRecipeMatch;
 import crafttweaker.annotations.ModOnly;
 import crafttweaker.annotations.ZenRegister;
