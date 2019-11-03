@@ -81,7 +81,7 @@ public class ArmorFunctions {
     @ZenClass("mods.conarm.traits.Modifications")
     @ZenRegister
     public interface GetModifications {
-        void handle(ConArmTraitRepresentation thisTrait, IPlayer player, IArmorModifications mods, IItemStack stack, IDamageSource damageSource, double damage, int slot);
+        IArmorModifications handle(ConArmTraitRepresentation thisTrait, IPlayer player, IArmorModifications mods, IItemStack stack, IDamageSource damageSource, double damage, int slot);
     }
 
     @ZenClass("mods.conarm.traits.ItemPickup")
