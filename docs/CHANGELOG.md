@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.2.5.3] - 2019.11.03
+### Fixed
+- Fix all blocks giving XP [#196](https://github.com/TheIllusiveC4/ConstructsArmory/issues/196)
+
 ## [1.2.5.2] - 2019.11.03
 ### Changed
 - Ambitious trait behavior changed to avoid potential exploits, it will now provide extra XP when killing mobs and breaking blocks rather than increasing XP on pickup [#172](https://github.com/TheIllusiveC4/ConstructsArmory/issues/172)
