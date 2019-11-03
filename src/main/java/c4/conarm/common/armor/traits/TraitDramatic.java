@@ -17,7 +17,7 @@ import c4.conarm.lib.traits.AbstractArmorTrait;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 
 public class TraitDramatic extends AbstractArmorTrait {
 
@@ -28,7 +28,8 @@ public class TraitDramatic extends AbstractArmorTrait {
     }
 
     @Override
-    public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
+    public float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage,
+        float newDamage, LivingDamageEvent evt) {
         if ((player.getHealth() - newDamage) <= 0 && random.nextFloat() <= CHANCE) {
             player.heal(2);
             evt.setCanceled(true);
