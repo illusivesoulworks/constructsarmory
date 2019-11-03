@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.2.5.2] - 2019.11.03
+### Changed
+- Ambitious trait behavior changed to avoid potential exploits, it will now provide extra XP when killing mobs and breaking blocks rather than increasing XP on pickup [#172](https://github.com/TheIllusiveC4/ConstructsArmory/issues/172)
+### Fixed
+- Fix Dramatic trait not accounting for protected damage [#177](https://github.com/TheIllusiveC4/ConstructsArmory/issues/177)
+- Fix ArmorModifications not being exposed to CraftTweaker [#175](https://github.com/TheIllusiveC4/ConstructsArmory/issues/175)
+- Fix ContentTweaker armor traits not being able to be added to items [#194](https://github.com/TheIllusiveC4/ConstructsArmory/issues/194)
+
 ## [1.2.5.1] - 2019.10.27
 ### Fixed
 - Fixed Autoforge trait not repairing when under the effects of Fire Resistance [#193](https://github.com/TheIllusiveC4/ConstructsArmory/issues/193)
