@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.2.5.4] - 2020.02.16
+### Fixed
+- Fix Alien growth potential being stunted by 25% [#208](https://github.com/TheIllusiveC4/ConstructsArmory/issues/208)
+- Fix preview panel cape rendering [#202](https://github.com/TheIllusiveC4/ConstructsArmory/issues/202)
+
 ## [1.2.5.3] - 2019.11.03
 ### Fixed
 - Fix all blocks giving XP [#196](https://github.com/TheIllusiveC4/ConstructsArmory/issues/196)
