@@ -1,14 +1,20 @@
 /*
- * Copyright (c) 2018-2019 <C4>
+ * Copyright (c) 2018-2020 C4
  *
- * This Java class is distributed as a part of the Construct's Armory mod.
- * Construct's Armory is open source and distributed under the GNU Lesser General Public License v3.
- * View the source code and license file on github: https://github.com/TheIllusiveC4/ConstructsArmory
+ * This file is part of Construct's Armory, a mod made for Minecraft.
  *
- * Some classes and assets are taken and modified from the parent mod, Tinkers' Construct.
- * Tinkers' Construct is open source and distributed under the MIT License.
- * View the source code on github: https://github.com/SlimeKnights/TinkersConstruct/
- * View the MIT License here: https://tldrlegal.com/license/mit-license
+ * Construct's Armory is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Construct's Armory is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with Construct's Armory.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package c4.conarm.integrations.jei;
