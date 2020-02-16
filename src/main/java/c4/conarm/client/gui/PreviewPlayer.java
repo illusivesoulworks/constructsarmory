@@ -60,8 +60,7 @@ public class PreviewPlayer extends AbstractClientPlayer {
     @Override public void openGui(@Nonnull Object mod, int modGuiId, @Nonnull World world, int x, int y, int z){}
     @Override public boolean isEntityInvulnerable(@Nonnull DamageSource source){ return true; }
     @Override public boolean canAttackPlayer(EntityPlayer player){ return false; }
-    @Override public void onDeath(@Nonnull DamageSource source){ }
-    @Override public void onUpdate(){ }
+    @Override public void onDeath(@Nonnull DamageSource source) {}
     @Override public Entity changeDimension(int dim, @Nonnull ITeleporter teleporter){ return this; }
     @Override
     @Nullable

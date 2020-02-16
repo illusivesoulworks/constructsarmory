@@ -40,16 +40,17 @@ public class GuiPreviewPanel extends GuiInfoPanel {
         this.xSize = xSize;
         this.ySize = ySize;
         this.previewPlayer = previewPlayer;
+        this.previewPlayer.chasingPosX = this.previewPlayer.posX;
+        this.previewPlayer.chasingPosY = this.previewPlayer.posY;
+        this.previewPlayer.chasingPosZ = this.previewPlayer.posZ;
     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-
         int i = this.guiLeft;
         int j = this.guiTop;
-
+        this.previewPlayer.onUpdate();
         GuiInventory.drawEntityOnScreen(i + 53, j + 135, 60, (float)(i + 50) - this.oldMouseX, (float)(j + 30) - this.oldMouseY, this.previewPlayer);
-
         super.drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY);
     }
 

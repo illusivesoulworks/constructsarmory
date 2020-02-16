@@ -192,12 +192,12 @@ public class GuiArmorStation extends GuiTinkerStation
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-        super.drawScreen(mouseX, mouseY, partialTicks);
 
         if (armorPreview != null) {
             armorPreview.oldMouseX = (float) mouseX;
             armorPreview.oldMouseY = (float) mouseY;
         }
+        super.drawScreen(mouseX, mouseY, partialTicks);
     }
 
     public Set<ArmorCore> getBuildableItems() {
