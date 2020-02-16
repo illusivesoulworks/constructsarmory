@@ -54,7 +54,7 @@ public class TraitAlien extends TraitProgressiveArmorStats {
 
             int statPoints = 800;
             for (; statPoints > 0; statPoints--) {
-                switch (random.nextInt(4)) {
+                switch (random.nextInt(3)) {
                     case 0:
                         data.durability += DURABILITY_STEP;
                         break;
