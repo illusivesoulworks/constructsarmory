@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'com.wynprice.cursemaven'
 
-version = "1.12.2-1.2.5.4"
+version = "1.12.2-1.2.5.5"
 group = "c4.conarm"
 archivesBaseName = "conarm"
 
@@ -38,7 +38,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.5.2772"
+    version = "1.12.2-14.23.5.2847"
     runDir = "run"
     useDepAts = true
     mappings = "stable_39"
