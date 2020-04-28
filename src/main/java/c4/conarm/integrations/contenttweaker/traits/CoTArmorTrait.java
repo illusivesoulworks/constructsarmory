@@ -32,6 +32,7 @@ import crafttweaker.mc1120.enchantments.MCEnchantmentDefinition;
 import crafttweaker.mc1120.events.handling.MCEntityLivingFallEvent;
 import crafttweaker.mc1120.events.handling.MCEntityLivingHurtEvent;
 import crafttweaker.mc1120.events.handling.MCEntityLivingJumpEvent;
+import crafttweaker.mc1120.events.handling.MCLivingKnockBackEvent;
 import crafttweaker.mc1120.events.handling.MCPlayerPickupItemEvent;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
@@ -205,7 +206,7 @@ public class CoTArmorTrait extends ArmorModifierTrait implements IArmorTrait {
     @Override
     public void onKnockback(ItemStack armor, EntityPlayer player, LivingKnockBackEvent evt) {
         if (onKnockback != null) {
-            onKnockback.handle(thisTrait, CraftTweakerMC.getIItemStack(armor), CraftTweakerMC.getIPlayer(player), evt);
+            onKnockback.handle(thisTrait, CraftTweakerMC.getIItemStack(armor), CraftTweakerMC.getIPlayer(player), new MCLivingKnockBackEvent(evt));
         } else {
             super.onKnockback(armor, player, evt);
         }

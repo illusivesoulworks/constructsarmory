@@ -30,13 +30,13 @@ import crafttweaker.api.entity.IEntityItem;
 import crafttweaker.api.event.EntityLivingFallEvent;
 import crafttweaker.api.event.EntityLivingHurtEvent;
 import crafttweaker.api.event.EntityLivingJumpEvent;
+import crafttweaker.api.event.LivingKnockBackEvent;
 import crafttweaker.api.event.PlayerPickupItemEvent;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.player.IPlayer;
 import crafttweaker.api.world.IWorld;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
-import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import stanhebben.zenscript.annotations.ZenClass;
 

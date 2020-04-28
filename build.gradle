@@ -51,8 +51,8 @@ dependencies {
     deobfCompile "slimeknights:TConstruct:1.12.2-2.13.0.171"
     compile curse.resolveUrl("https://www.curseforge.com/minecraft/mc-mods/tinkers-tool-leveling/files/2630860")
 
-    deobfProvided "CraftTweaker2:CraftTweaker2-API:4.1.13.508"
-    deobfProvided "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.13.508"
+    deobfProvided "CraftTweaker2:CraftTweaker2-API:4.1.20.564"
+    deobfProvided "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.564"
     deobfProvided "com.teamacronymcoders:ContentTweaker:1.12.2-4.9.1"
     deobfProvided "com.teamacronymcoders.base:base:1.12.2-3.11.0"
 

@@ -37,7 +37,7 @@ import org.apache.logging.log4j.Logger;
                         "required-after:mantle@[1.12-1.3.1,);" +
                         "required-after:tconstruct@[1.12.2-2.13.0.171,);" +
                         "after:contenttweaker@(1.12.2-4.7.0,);" +
-                        "after:crafttweaker@[1.12-4.1.9,)",
+                        "after:crafttweaker@[1.12-4.1.20.564,)",
         acceptedMinecraftVersions = "[1.12.2, 1.13)",
         certificateFingerprint = "@FINGERPRINT@")
 public class ConstructsArmory {
