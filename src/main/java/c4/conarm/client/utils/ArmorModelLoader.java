@@ -21,6 +21,7 @@ package c4.conarm.client.utils;
 
 import c4.conarm.ConstructsArmory;
 import c4.conarm.lib.armor.ArmorCore;
+import c4.conarm.lib.client.DynamicTextureHelper;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
@@ -203,6 +204,6 @@ public class ArmorModelLoader implements ICustomModelLoader {
 
     @Override
     public void onResourceManagerReload(@Nonnull IResourceManager resourceManager) {
-
+        DynamicTextureHelper.refreshCache();
     }
 }

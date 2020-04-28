@@ -61,6 +61,10 @@ public class DynamicTextureHelper {
         return rl;
     }
 
+    public static void refreshCache() {
+        dynamicTextureCache.invalidateAll();
+    }
+
     private static ResourceLocation getCombinedTexture(ItemStack stack, TinkersArmor armor) {
 
         List<BufferedImage> bufferedImages = Lists.newArrayList();
