@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.2.5.5] - 2020.04.27
+### Fixed
+- Fix CraftTweaker integration Knockback event handler [#222](https://github.com/TheIllusiveC4/ConstructsArmory/issues/222)
+- Fix armor texture reloading [#221](https://github.com/TheIllusiveC4/ConstructsArmory/issues/221)
+
 ## [1.2.5.4] - 2020.02.16
 ### Fixed
 - Fix Alien growth potential being stunted by 25% [#208](https://github.com/TheIllusiveC4/ConstructsArmory/issues/208)
