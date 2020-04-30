@@ -38,10 +38,13 @@ import com.google.common.collect.Maps;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderArmorStand;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -105,6 +108,8 @@ public class ClientProxy extends CommonProxy {
         for(RenderPlayer render : renderPlayerMap.values()) {
             render.addLayer(new LayerAccessories<>(render));
         }
+        RenderArmorStand renderer = (RenderArmorStand) manager.entityRenderMap.get(EntityArmorStand.class);
+        renderer.addLayer(new LayerAccessories<>(renderer));
         ArmoryBook.INSTANCE.fontRenderer = TinkerBook.INSTANCE.fontRenderer;
     }
 
