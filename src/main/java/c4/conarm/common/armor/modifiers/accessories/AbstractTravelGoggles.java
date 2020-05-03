@@ -25,7 +25,6 @@ import c4.conarm.lib.modifiers.IAccessoryRender;
 import c4.conarm.lib.modifiers.IToggleable;
 import c4.conarm.lib.utils.ConstructUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -76,16 +75,7 @@ public abstract class AbstractTravelGoggles extends AccessoryModifier implements
             model = new ModelGoggles();
         }
         Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
-        float yaw = entityLivingBaseIn.prevRotationYawHead + (entityLivingBaseIn.rotationYawHead - entityLivingBaseIn.prevRotationYawHead) * partialTicks;
-        float yawOffset = entityLivingBaseIn.prevRenderYawOffset + (entityLivingBaseIn.renderYawOffset - entityLivingBaseIn.prevRenderYawOffset) * partialTicks;
-        float pitch = entityLivingBaseIn.prevRotationPitch + (entityLivingBaseIn.rotationPitch - entityLivingBaseIn.prevRotationPitch) * partialTicks;
-        GlStateManager.pushMatrix();
-        GlStateManager.rotate(yawOffset, 0, -1, 0);
-        GlStateManager.rotate(yaw - 270, 0, 1, 0);
-        GlStateManager.rotate(pitch, 0, 0, 1);
-        GlStateManager.rotate(90, 0, -1, 0);
         model.render(entityLivingBaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        GlStateManager.popMatrix();
     }
 
     @Override

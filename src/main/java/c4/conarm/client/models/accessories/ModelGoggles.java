@@ -19,8 +19,13 @@
 
 package c4.conarm.client.models.accessories;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.entity.Entity;
 
 import javax.annotation.Nonnull;
@@ -43,6 +48,18 @@ public class ModelGoggles extends ModelBase {
 
     @Override
     public void render(@Nonnull Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        if (entity.isSneaking()) {
+            GlStateManager.translate(0.0F, 0.2F, 0.0F);
+        }
+        Render<?> render = Minecraft.getMinecraft().getRenderManager().getEntityRenderObject(entity);
+
+        if (render instanceof RenderLivingBase) {
+            ModelBase model = ((RenderLivingBase<?>) render).getMainModel();
+
+            if (model instanceof ModelBiped) {
+                ModelBiped.copyModelAngles(((ModelBiped) model).bipedHead, this.goggles);
+            }
+        }
         this.goggles.render(f5);
     }
 

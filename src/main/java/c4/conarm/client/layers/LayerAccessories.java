@@ -23,6 +23,7 @@ import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.armor.ArmorCore;
 import c4.conarm.lib.modifiers.IAccessoryRender;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.EntityLivingBase;
@@ -66,7 +67,9 @@ public class LayerAccessories <T extends ModelBase> implements LayerRenderer<Ent
 
             if (armorCore.getEquipmentSlot() == slotIn && modifier != null && modifier instanceof IAccessoryRender)
             {
+                GlStateManager.pushMatrix();
                 ((IAccessoryRender) modifier).onAccessoryRender(entityLivingBaseIn, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
+                GlStateManager.popMatrix();
             }
         }
     }
