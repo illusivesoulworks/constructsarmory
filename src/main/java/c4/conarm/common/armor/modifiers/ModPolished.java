@@ -33,11 +33,13 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerAPIException;
+import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.modifiers.ModifierAspect;
 import slimeknights.tconstruct.library.modifiers.ModifierNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.tools.modifiers.ToolModifier;
 
 public class ModPolished extends ToolModifier implements IArmorMaterialTexture {
@@ -76,32 +78,24 @@ public class ModPolished extends ToolModifier implements IArmorMaterialTexture {
 
     @Override
     public void applyEffect(NBTTagCompound rootCompound, NBTTagCompound modifierTag) {
-
-        ArmorNBT data = ArmorTagUtil.getArmorStats(rootCompound);
-        float originalToughness = ArmorTagUtil.getOriginalArmorStats(rootCompound).toughness;
-        float matToughness = ((PlatesMaterialStats) material.getStats(ArmorMaterialType.PLATES)).toughness;
-        float addedToughness = Math.max(0, matToughness - originalToughness);
-
-        if (addedToughness > 0) {
-            data.toughness += addedToughness;
-            TagUtil.setToolTag(rootCompound, data.get());
-        }
-
+        NBTTagCompound tag = TagUtil.getToolTag(rootCompound);
+        PlatesMaterialStats stats = material.getStats(ArmorMaterialType.PLATES);
+        tag.setFloat(ArmorTagUtil.TOUGHNESS, stats.toughness);
         NBTTagList tagList = TagUtil.getModifiersTagList(rootCompound);
+
         for(int i = 0; i < tagList.tagCount(); i++) {
             NBTTagCompound mod = tagList.getCompoundTagAt(i);
-            ModifierNBT modData = ModifierNBT.readTag(mod);
+            ModifierNBT data = ModifierNBT.readTag(mod);
 
-            if(modData.identifier.equals(this.identifier)) {
+            if(data.identifier.equals(this.identifier)) {
                 break;
             }
 
-            if(modData.identifier.startsWith("polished_armor")) {
+            if(data.identifier.startsWith("polished_armor")) {
                 tagList.removeTag(i);
                 i--;
             }
         }
-
         TagUtil.setModifiersTagList(rootCompound, tagList);
     }
 
