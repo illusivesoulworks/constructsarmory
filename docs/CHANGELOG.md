@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.2.5.8] - 2020.05.03
+### Changed
+- Changed Polishing modifier to original behavior that overrides toughness [#223](https://github.com/TheIllusiveC4/ConstructsArmory/issues/223)
+
 ## [1.2.5.7] - 2020.05.02
 ### Fixed
 - Fix accessory rendering issues while sneaking
