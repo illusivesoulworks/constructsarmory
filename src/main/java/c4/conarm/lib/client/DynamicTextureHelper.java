@@ -25,6 +25,7 @@ import c4.conarm.lib.tinkering.TinkersArmor;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.Lists;
+import javax.annotation.Nonnull;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -65,6 +66,7 @@ public class DynamicTextureHelper {
         dynamicTextureCache.invalidateAll();
     }
 
+    @Nonnull
     private static ResourceLocation getCombinedTexture(ItemStack stack, TinkersArmor armor) {
 
         List<BufferedImage> bufferedImages = Lists.newArrayList();
@@ -124,7 +126,11 @@ public class DynamicTextureHelper {
             }
 
             if (iconWidth <= 0 || iconHeight <= 0 || frameCount <= 0) {
-                return null;
+                sprite = map.getTextureExtry(loc);
+
+                if (sprite == null) {
+                    continue;
+                }
             }
 
             BufferedImage bufferedImage = new BufferedImage(iconWidth, iconHeight * frameCount, BufferedImage.TYPE_4BYTE_ABGR);
@@ -189,7 +195,7 @@ public class DynamicTextureHelper {
             int frameCount = sprite.getFrameCount();
 
             if (iconWidth <= 0 || iconHeight <= 0 || frameCount <= 0) {
-                return null;
+                continue;
             }
 
             BufferedImage bufferedImage = new BufferedImage(iconWidth, iconHeight * frameCount, BufferedImage.TYPE_4BYTE_ABGR);
