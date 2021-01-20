@@ -19,12 +19,14 @@
 
 package c4.conarm.lib.client;
 
+import c4.conarm.ConstructsArmory;
 import c4.conarm.lib.materials.ArmorMaterialType;
 import c4.conarm.lib.modifiers.IArmorModelModifier;
 import c4.conarm.lib.tinkering.TinkersArmor;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.Lists;
+import com.google.common.util.concurrent.UncheckedExecutionException;
 import javax.annotation.Nonnull;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
@@ -56,7 +58,9 @@ public class DynamicTextureHelper {
             try {
                 rl = dynamicTextureCache.get(key, () -> getCombinedTexture(stack, ((TinkersArmor) stack.getItem())));
             } catch (ExecutionException e) {
-                //NO-OP
+                ConstructsArmory.logger.error("Error fetching texture from cache!");
+            } catch (UncheckedExecutionException e) {
+                ConstructsArmory.logger.error("Unknown error while fetching texture from cache!");
             }
         }
         return rl;
@@ -115,6 +119,10 @@ public class DynamicTextureHelper {
 
             int iconWidth = sprite.getIconWidth();
             int iconHeight = sprite.getIconHeight();
+
+            // Tex-Fix Compatibility: https://github.com/TheIllusiveC4/ConstructsArmory/issues/207
+            sprite.getFrameCount();
+
             int frameCount = sprite.getFrameCount();
 
             if (textureHeight < iconHeight) {
@@ -129,6 +137,14 @@ public class DynamicTextureHelper {
                 sprite = map.getTextureExtry(loc);
 
                 if (sprite == null) {
+                    continue;
+                }
+                iconWidth = sprite.getIconWidth();
+                iconHeight = sprite.getIconHeight();
+                sprite.getFrameCount();
+                frameCount = sprite.getFrameCount();
+
+                if (iconWidth <= 0 || iconHeight <= 0 || frameCount <= 0) {
                     continue;
                 }
             }
