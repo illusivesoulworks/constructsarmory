@@ -29,6 +29,7 @@ import c4.conarm.lib.utils.RecipeMatchHolder;
 import crafttweaker.api.minecraft.CraftTweakerMC;
 import crafttweaker.mc1120.data.NBTConverter;
 import crafttweaker.mc1120.enchantments.MCEnchantmentDefinition;
+import crafttweaker.mc1120.events.handling.MCEntityLivingDamageEvent;
 import crafttweaker.mc1120.events.handling.MCEntityLivingFallEvent;
 import crafttweaker.mc1120.events.handling.MCEntityLivingHurtEvent;
 import crafttweaker.mc1120.events.handling.MCEntityLivingJumpEvent;
@@ -198,7 +199,7 @@ public class CoTArmorTrait extends ArmorModifierTrait implements IArmorTrait {
     @Override
     public float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent evt) {
         if (onDamaged != null) {
-            return onDamaged.handle(thisTrait, CraftTweakerMC.getIItemStack(armor), CraftTweakerMC.getIPlayer(player), CraftTweakerMC.getIDamageSource(source), damage, newDamage, evt);
+            return onDamaged.handle(thisTrait, CraftTweakerMC.getIItemStack(armor), CraftTweakerMC.getIPlayer(player), CraftTweakerMC.getIDamageSource(source), damage, newDamage, new MCEntityLivingDamageEvent(evt));
         }
         return super.onDamaged(armor, player, source, damage, newDamage, evt);
     }

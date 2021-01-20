@@ -27,6 +27,7 @@ import crafttweaker.api.data.IData;
 import crafttweaker.api.enchantments.IEnchantmentDefinition;
 import crafttweaker.api.entity.IEntity;
 import crafttweaker.api.entity.IEntityItem;
+import crafttweaker.api.event.EntityLivingDamageEvent;
 import crafttweaker.api.event.EntityLivingFallEvent;
 import crafttweaker.api.event.EntityLivingHurtEvent;
 import crafttweaker.api.event.EntityLivingJumpEvent;
@@ -111,7 +112,7 @@ public class ArmorFunctions {
     @ZenClass("mods.conarm.traits.Damaged")
     @ZenRegister
     public interface OnDamaged {
-        float handle(ConArmTraitRepresentation thisTrait, IItemStack stack, IPlayer player, IDamageSource source, float damage, float newDamage, LivingDamageEvent evt);
+        float handle(ConArmTraitRepresentation thisTrait, IItemStack stack, IPlayer player, IDamageSource source, float damage, float newDamage, EntityLivingDamageEvent evt);
     }
 
     @ZenClass("mods.conarm.traits.Knockback")
