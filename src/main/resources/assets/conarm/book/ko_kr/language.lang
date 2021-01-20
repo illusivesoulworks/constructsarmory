@@ -1,14 +1,14 @@
 // Sections
 welcome=환영합니다
 materials=갑옷 재료
-armory=아머리
+armory=갑옷
 modifiers=모디파이어
-accessories=액세서리들
+accessories=액세서리
 
 armor.title=갑옷
 armor.properties=특성:
 
-material.craft_partbuilder=파트빌더에서 제작가능
-material.craft_casting=%s에서 주조가능
+material.craft_partbuilder=부품 제작대에서 제작 가능
+material.craft_casting=%s(으)로 주조 가능
 
 modifier.effect=효과:
