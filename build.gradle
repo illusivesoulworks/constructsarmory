@@ -10,7 +10,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.12.2-1.2.5.9"
+version = "1.12.2-1.2.5.10"
 group = "c4.conarm"
 archivesBaseName = "conarm"
 

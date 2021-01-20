@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project does not adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 This project uses MCVERSION-MAJORMOD.MAJORAPI.MINOR.PATCH.
 
+## [1.2.5.10] - 2021.01.19
+### Fixed
+- Fixed Korean translation errors (thanks SnowBlack!)
+- Fixed texture loading errors with TexFix [#207](https://github.com/TheIllusiveC4/ConstructsArmory/issues/207)
+- Fixed ContentTweaker onDamaged function [#249](https://github.com/TheIllusiveC4/ConstructsArmory/issues/249)
+
 ## [1.2.5.9] - 2020.05.21
 ### Fixed
 - Fixed IllegalCacheLoadException when rendering textures [#226](https://github.com/TheIllusiveC4/ConstructsArmory/issues/226)
