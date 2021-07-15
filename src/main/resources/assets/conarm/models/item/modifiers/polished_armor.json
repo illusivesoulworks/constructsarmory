@@ -1,8 +1,0 @@
-{
-  "textures": {
-    "helmet": "conarm:items/helmet/mod_polished_armor",
-    "chestplate": "conarm:items/chestplate/mod_polished_armor",
-    "leggings": "conarm:items/leggings/mod_polished_armor",
-    "boots": "conarm:items/boots/mod_polished_armor"
-  }
-}

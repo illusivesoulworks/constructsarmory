@@ -1,8 +1,0 @@
-{
-    "textures": {
-        "helmet": "conarm:items/helmet/mod_shulkerweight_armor",
-        "chestplate": "conarm:items/chestplate/mod_shulkerweight_armor",
-        "leggings": "conarm:items/leggings/mod_shulkerweight_armor",
-        "boots": "conarm:items/boots/mod_shulkerweight_armor"
-    }
-}
