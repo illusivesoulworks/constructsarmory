@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "tconstruct:helmet_core",
+    "type": "tconstruct:material"
+  },
+  "cast_consumed": true,
+  "switch_slots": true,
+  "fluid": {
+    "tag": "tconstruct:molten_gold",
+    "amount": 144
+  },
+  "result": "tconstruct:helmet_core_cast",
+  "cooling_time": 57
+}

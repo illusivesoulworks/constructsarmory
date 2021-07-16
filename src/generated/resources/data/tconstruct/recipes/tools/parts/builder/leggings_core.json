@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:part_builder",
+  "pattern": "tconstruct:leggings_core",
+  "cost": 6,
+  "result": {
+    "item": "tconstruct:leggings_core"
+  }
+}

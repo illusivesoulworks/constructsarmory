@@ -1,0 +1,46 @@
+{
+  "stats": {
+    "constructsarmory:leggings_core": {
+      "identifier": {
+        "namespace": "constructsarmory",
+        "path": "leggings_core"
+      },
+      "durability": 135,
+      "armor": 11.0,
+      "toughness": 1.0
+    },
+    "constructsarmory:trim": {},
+    "constructsarmory:chestplate_core": {
+      "identifier": {
+        "namespace": "constructsarmory",
+        "path": "chestplate_core"
+      },
+      "durability": 144,
+      "armor": 11.0,
+      "toughness": 1.0
+    },
+    "constructsarmory:helmet_core": {
+      "identifier": {
+        "namespace": "constructsarmory",
+        "path": "helmet_core"
+      },
+      "durability": 99,
+      "armor": 11.0,
+      "toughness": 1.0
+    },
+    "constructsarmory:boots_core": {
+      "identifier": {
+        "namespace": "constructsarmory",
+        "path": "boots_core"
+      },
+      "durability": 117,
+      "armor": 11.0,
+      "toughness": 1.0
+    },
+    "constructsarmory:plate": {
+      "durability": 0.0,
+      "armor": 0.0,
+      "toughness": 0.0
+    }
+  }
+}

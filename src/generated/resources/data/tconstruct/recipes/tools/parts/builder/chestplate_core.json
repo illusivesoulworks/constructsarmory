@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:part_builder",
+  "pattern": "tconstruct:chestplate_core",
+  "cost": 7,
+  "result": {
+    "item": "tconstruct:chestplate_core"
+  }
+}

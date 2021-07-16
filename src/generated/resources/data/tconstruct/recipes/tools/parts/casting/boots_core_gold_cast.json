@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/boots_core"
+  },
+  "item_cost": 3,
+  "result": "tconstruct:boots_core"
+}
