@@ -1,0 +1,18 @@
+{
+  "itemGroup.constructsarmory.armor_parts": "Construct's Armory Parts",
+  "itemGroup.constructsarmory.armor": "Construct's Armory Armor",
+  "item.tconstruct.helmet_core": "Helmet Core",
+  "item.tconstruct.chestplate_core": "Chestplate Core",
+  "item.tconstruct.leggings_core": "Leggings Core",
+  "item.tconstruct.boots_core": "Boots Core",
+  "item.tconstruct.armor_plate": "Armor Plate",
+  "item.tconstruct.armor_trim": "Armor Trim",
+  "stat.constructsarmory.helmet_core": "Core",
+  "stat.constructsarmory.chestplate_core": "Core",
+  "stat.constructsarmory.leggings_core": "Core",
+  "stat.constructsarmory.boots_core": "Core",
+  "stat.constructsarmory.plate": "Plate",
+  "stat.constructsarmory.trim": "Trim",
+  "tool_stat.constructsarmory.armor": "Armor: ",
+  "tool_stat.constructsarmory.toughness": "Toughness: "
+}

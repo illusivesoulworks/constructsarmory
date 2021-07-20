@@ -1,7 +1,7 @@
-package top.theillusivec4.constructsarmory.common.stats.impl;
+package top.theillusivec4.constructsarmory.common.stat.impl;
 
 import top.theillusivec4.constructsarmory.api.ArmorMaterialStatsIdentifiers;
-import top.theillusivec4.constructsarmory.common.stats.base.AbstractCoreMaterialStats;
+import top.theillusivec4.constructsarmory.common.stat.base.AbstractCoreMaterialStats;
 
 public class HelmetCoreMaterialStats extends AbstractCoreMaterialStats {
 

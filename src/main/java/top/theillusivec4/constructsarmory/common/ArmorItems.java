@@ -9,11 +9,11 @@ import slimeknights.mantle.util.SupplierItemGroup;
 import slimeknights.tconstruct.common.TinkerModule;
 import top.theillusivec4.constructsarmory.ConstructsArmoryMod;
 
-public class ArmorItems extends TinkerModule {
+public final class ArmorItems extends TinkerModule {
 
-  public static final ItemGroup
-      TAB_ARMOR = new SupplierItemGroup(
-      ConstructsArmoryMod.MOD_ID, "armor", () -> ArmorItems.helmet.get().getRenderTool());
+  public static final ItemGroup TAB_ARMOR =
+      new SupplierItemGroup(ConstructsArmoryMod.MOD_ID, "armor",
+          () -> ArmorItems.helmet.get().getRenderTool());
 
   private static final Supplier<Item.Properties> ARMOR =
       () -> new Item.Properties().group(TAB_ARMOR);

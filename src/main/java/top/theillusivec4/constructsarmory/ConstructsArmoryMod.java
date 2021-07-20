@@ -4,7 +4,6 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
@@ -15,7 +14,7 @@ import slimeknights.tconstruct.tools.data.MaterialDataProvider;
 import top.theillusivec4.constructsarmory.common.ArmorItems;
 import top.theillusivec4.constructsarmory.common.ArmorParts;
 import top.theillusivec4.constructsarmory.common.ArmorSmeltery;
-import top.theillusivec4.constructsarmory.common.stats.ConstructsArmoryMaterialStats;
+import top.theillusivec4.constructsarmory.common.stat.ConstructsArmoryMaterialStats;
 import top.theillusivec4.constructsarmory.data.ArmorMaterialStatsDataProvider;
 import top.theillusivec4.constructsarmory.data.ArmorRecipeProvider;
 

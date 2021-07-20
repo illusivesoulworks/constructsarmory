@@ -1,26 +1,17 @@
 package top.theillusivec4.constructsarmory.data;
 
-import static slimeknights.tconstruct.library.utils.HarvestLevels.DIAMOND;
-import static slimeknights.tconstruct.library.utils.HarvestLevels.IRON;
-import static slimeknights.tconstruct.library.utils.HarvestLevels.NETHERITE;
-import static slimeknights.tconstruct.library.utils.HarvestLevels.STONE;
-import static slimeknights.tconstruct.library.utils.HarvestLevels.WOOD;
-
 import javax.annotation.Nonnull;
 import net.minecraft.data.DataGenerator;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.tools.data.MaterialIds;
-import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
-import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
-import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
-import top.theillusivec4.constructsarmory.common.stats.impl.BootsCoreMaterialStats;
-import top.theillusivec4.constructsarmory.common.stats.impl.ChestplateCoreMaterialStats;
-import top.theillusivec4.constructsarmory.common.stats.impl.HelmetCoreMaterialStats;
-import top.theillusivec4.constructsarmory.common.stats.impl.LeggingsCoreMaterialStats;
-import top.theillusivec4.constructsarmory.common.stats.impl.PlateMaterialStats;
-import top.theillusivec4.constructsarmory.common.stats.impl.TrimMaterialStats;
+import top.theillusivec4.constructsarmory.common.stat.impl.BootsCoreMaterialStats;
+import top.theillusivec4.constructsarmory.common.stat.impl.ChestplateCoreMaterialStats;
+import top.theillusivec4.constructsarmory.common.stat.impl.HelmetCoreMaterialStats;
+import top.theillusivec4.constructsarmory.common.stat.impl.LeggingsCoreMaterialStats;
+import top.theillusivec4.constructsarmory.common.stat.impl.PlateMaterialStats;
+import top.theillusivec4.constructsarmory.common.stat.impl.TrimMaterialStats;
 
 public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataProvider {
 

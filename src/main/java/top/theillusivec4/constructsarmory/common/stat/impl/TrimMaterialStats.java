@@ -1,4 +1,4 @@
-package top.theillusivec4.constructsarmory.common.stats.impl;
+package top.theillusivec4.constructsarmory.common.stat.impl;
 
 import javax.annotation.Nonnull;
 import lombok.EqualsAndHashCode;

@@ -1,4 +1,4 @@
-package top.theillusivec4.constructsarmory.common.stats.impl;
+package top.theillusivec4.constructsarmory.common.stat.impl;
 
 import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class PlateMaterialStats extends BaseMaterialStats {
   private static final String ARMOR_PREFIX =
       makeTooltipKey(ConstructsArmoryMod.getResource("armor"));
   private static final String TOUGHNESS_PREFIX =
-      makeTooltipKey(ConstructsArmoryMod.getResource("armor"));
+      makeTooltipKey(ConstructsArmoryMod.getResource("toughness"));
 
   private static final ITextComponent DURABILITY_DESCRIPTION =
       makeTooltip(ConstructsArmoryMod.getResource("plate.durability.description"));
@@ -45,9 +45,9 @@ public class PlateMaterialStats extends BaseMaterialStats {
   private static final List<ITextComponent> DESCRIPTION =
       ImmutableList.of(DURABILITY_DESCRIPTION, ARMOR_DESCRIPTION, TOUGHNESS_DESCRIPTION);
 
-  private float durability;
-  private float armor;
-  private float toughness;
+  private float durability = 1.0f;
+  private float armor = 1.0f;
+  private float toughness = 1.0f;
 
   @Override
   public void encode(PacketBuffer buffer) {
@@ -85,23 +85,14 @@ public class PlateMaterialStats extends BaseMaterialStats {
     return DESCRIPTION;
   }
 
-  /**
-   * Applies formatting for durability
-   */
   public static ITextComponent formatDurability(float durability) {
     return IToolStat.formatColoredMultiplier(DURABILITY_PREFIX, durability);
   }
 
-  /**
-   * Applies formatting for attack speed
-   */
   public static ITextComponent formatArmor(float armor) {
     return IToolStat.formatColoredMultiplier(ARMOR_PREFIX, armor);
   }
 
-  /**
-   * Applies formatting for attack speed
-   */
   public static ITextComponent formatToughness(float toughness) {
     return IToolStat.formatColoredMultiplier(TOUGHNESS_PREFIX, toughness);
   }
