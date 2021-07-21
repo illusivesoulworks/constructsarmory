@@ -3,6 +3,6 @@
   "pattern": "tconstruct:armor_trim",
   "cost": 1,
   "result": {
-    "item": "tconstruct:armor_trim"
+    "item": "constructsarmory:armor_trim"
   }
 }

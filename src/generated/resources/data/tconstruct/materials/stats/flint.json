@@ -38,9 +38,9 @@
       "toughness": 0.0
     },
     "constructsarmory:plate": {
-      "durability": 0.0,
-      "armor": 0.0,
-      "toughness": 0.0
+      "durability": 1.0,
+      "armor": 1.0,
+      "toughness": 1.0
     }
   }
 }

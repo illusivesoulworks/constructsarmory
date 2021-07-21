@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:casting_table",
   "cast": {
-    "item": "tconstruct:armor_plate",
+    "item": "constructsarmory:armor_plate",
     "type": "tconstruct:material"
   },
   "cast_consumed": true,
@@ -10,6 +10,6 @@
     "tag": "tconstruct:molten_gold",
     "amount": 144
   },
-  "result": "tconstruct:armor_plate_cast",
+  "result": "constructsarmory:armor_plate_cast",
   "cooling_time": 57
 }

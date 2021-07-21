@@ -3,6 +3,6 @@
   "pattern": "tconstruct:helmet_core",
   "cost": 4,
   "result": {
-    "item": "tconstruct:helmet_core"
+    "item": "constructsarmory:helmet_core"
   }
 }

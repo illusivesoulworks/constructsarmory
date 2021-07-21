@@ -1,0 +1,9 @@
+{
+  "slots": [
+    { "position": [ 48, 30 ] },
+    { "position": [ 12, 30 ] },
+    { "position": [ 30, 48 ] }
+  ],
+  "item": "tconstruct:helmet",
+  "sortIndex": 24
+}

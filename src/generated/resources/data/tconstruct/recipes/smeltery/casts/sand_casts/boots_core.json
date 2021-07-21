@@ -4,8 +4,8 @@
     "item": "tconstruct:blank_sand_cast"
   },
   "pattern": {
-    "item": "tconstruct:boots_core",
+    "item": "constructsarmory:boots_core",
     "type": "tconstruct:material"
   },
-  "result": "tconstruct:boots_core_sand_cast"
+  "result": "constructsarmory:boots_core_sand_cast"
 }

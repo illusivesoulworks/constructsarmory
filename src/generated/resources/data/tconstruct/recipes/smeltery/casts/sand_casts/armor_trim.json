@@ -4,8 +4,8 @@
     "item": "tconstruct:blank_sand_cast"
   },
   "pattern": {
-    "item": "tconstruct:armor_trim",
+    "item": "constructsarmory:armor_trim",
     "type": "tconstruct:material"
   },
-  "result": "tconstruct:armor_trim_sand_cast"
+  "result": "constructsarmory:armor_trim_sand_cast"
 }

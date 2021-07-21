@@ -5,7 +5,7 @@ import slimeknights.tconstruct.common.TinkerModule;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
-public class ArmorSmeltery extends TinkerModule {
+public class ArmorSmeltery extends ConstructsArmoryModule {
 
   private static final Item.Properties SMELTERY_PROPS =
       new Item.Properties().group(TinkerSmeltery.TAB_SMELTERY);

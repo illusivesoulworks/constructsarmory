@@ -3,6 +3,6 @@
   "pattern": "tconstruct:boots_core",
   "cost": 3,
   "result": {
-    "item": "tconstruct:boots_core"
+    "item": "constructsarmory:boots_core"
   }
 }

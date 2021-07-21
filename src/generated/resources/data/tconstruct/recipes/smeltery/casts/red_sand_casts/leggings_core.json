@@ -4,8 +4,8 @@
     "item": "tconstruct:blank_red_sand_cast"
   },
   "pattern": {
-    "item": "tconstruct:leggings_core",
+    "item": "constructsarmory:leggings_core",
     "type": "tconstruct:material"
   },
-  "result": "tconstruct:leggings_core_red_sand_cast"
+  "result": "constructsarmory:leggings_core_red_sand_cast"
 }

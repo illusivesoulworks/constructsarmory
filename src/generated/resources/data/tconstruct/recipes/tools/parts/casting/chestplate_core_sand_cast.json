@@ -1,9 +1,9 @@
 {
   "type": "tconstruct:table_casting_material",
   "cast": {
-    "tag": "tconstruct:casts/single_use/chestplate_core"
+    "tag": "constructsarmory:casts/single_use/chestplate_core"
   },
   "cast_consumed": true,
-  "item_cost": 7,
-  "result": "tconstruct:chestplate_core"
+  "item_cost": 6,
+  "result": "constructsarmory:chestplate_core"
 }

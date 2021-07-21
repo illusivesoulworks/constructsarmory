@@ -1,5 +1,5 @@
 {
   "type": "tconstruct:table_casting_composite",
-  "result": "tconstruct:chestplate_core",
-  "item_cost": 7
+  "result": "constructsarmory:chestplate_core",
+  "item_cost": 6
 }

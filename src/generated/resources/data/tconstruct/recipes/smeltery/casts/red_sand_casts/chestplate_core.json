@@ -4,8 +4,8 @@
     "item": "tconstruct:blank_red_sand_cast"
   },
   "pattern": {
-    "item": "tconstruct:chestplate_core",
+    "item": "constructsarmory:chestplate_core",
     "type": "tconstruct:material"
   },
-  "result": "tconstruct:chestplate_core_red_sand_cast"
+  "result": "constructsarmory:chestplate_core_red_sand_cast"
 }

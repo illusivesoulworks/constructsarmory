@@ -15,7 +15,7 @@ import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import top.theillusivec4.constructsarmory.ConstructsArmoryMod;
 import top.theillusivec4.constructsarmory.api.ArmorMaterialStatsIdentifiers;
 
-public final class ArmorParts extends TinkerModule {
+public final class ArmorParts extends ConstructsArmoryModule {
 
   public static final ItemGroup TAB_ARMOR_PARTS =
       new SupplierItemGroup(ConstructsArmoryMod.MOD_ID, "armor_parts", () -> {

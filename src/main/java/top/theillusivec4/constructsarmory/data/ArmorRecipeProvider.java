@@ -30,9 +30,9 @@ public class ArmorRecipeProvider extends BaseRecipeProvider implements IMaterial
     String castFolder = "smeltery/casts/";
     partRecipes(consumer, ArmorParts.helmetCore, ArmorSmeltery.helmetCoreCast, 4, partFolder,
         castFolder);
-    partRecipes(consumer, ArmorParts.chestplateCore, ArmorSmeltery.chestplateCoreCast, 7,
+    partRecipes(consumer, ArmorParts.chestplateCore, ArmorSmeltery.chestplateCoreCast, 6,
         partFolder, castFolder);
-    partRecipes(consumer, ArmorParts.leggingsCore, ArmorSmeltery.leggingsCoreCast, 6, partFolder,
+    partRecipes(consumer, ArmorParts.leggingsCore, ArmorSmeltery.leggingsCoreCast, 5, partFolder,
         castFolder);
     partRecipes(consumer, ArmorParts.bootsCore, ArmorSmeltery.bootsCoreCast, 3, partFolder,
         castFolder);
@@ -42,8 +42,8 @@ public class ArmorRecipeProvider extends BaseRecipeProvider implements IMaterial
         castFolder);
   }
 
-  @Override
   @Nonnull
+  @Override
   public String getName() {
     return "Construct's Armory Armor Recipes";
   }

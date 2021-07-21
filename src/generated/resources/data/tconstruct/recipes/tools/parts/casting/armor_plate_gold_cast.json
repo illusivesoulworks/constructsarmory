@@ -1,8 +1,8 @@
 {
   "type": "tconstruct:table_casting_material",
   "cast": {
-    "tag": "tconstruct:casts/multi_use/armor_plate"
+    "tag": "constructsarmory:casts/multi_use/armor_plate"
   },
   "item_cost": 2,
-  "result": "tconstruct:armor_plate"
+  "result": "constructsarmory:armor_plate"
 }
