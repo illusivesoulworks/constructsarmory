@@ -4,6 +4,6 @@
     { "position": [ 12, 30 ] },
     { "position": [ 30, 48 ] }
   ],
-  "item": "tconstruct:helmet",
+  "item": "constructsarmory:helmet",
   "sortIndex": 24
 }
