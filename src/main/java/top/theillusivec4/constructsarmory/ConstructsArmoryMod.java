@@ -15,10 +15,12 @@ import slimeknights.tconstruct.common.data.tags.BlockTagProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import top.theillusivec4.constructsarmory.client.ConstructsArmoryClient;
 import top.theillusivec4.constructsarmory.common.ConstructsArmoryItems;
+import top.theillusivec4.constructsarmory.common.ConstructsArmoryModifiers;
 import top.theillusivec4.constructsarmory.common.stat.ConstructsArmoryMaterialStats;
 import top.theillusivec4.constructsarmory.data.ArmorDefinitionDataProvider;
 import top.theillusivec4.constructsarmory.data.ArmorMaterialDataProvider;
 import top.theillusivec4.constructsarmory.data.ArmorMaterialStatsDataProvider;
+import top.theillusivec4.constructsarmory.data.ArmorMaterialTraitsDataProvider;
 import top.theillusivec4.constructsarmory.data.ArmorRecipeProvider;
 import top.theillusivec4.constructsarmory.data.ArmorSlotLayoutProvider;
 import top.theillusivec4.constructsarmory.data.ArmorTagProvider;
@@ -35,6 +37,7 @@ public class ConstructsArmoryMod {
     eventBus.addListener(this::colors);
     eventBus.addListener(this::gatherData);
     ConstructsArmoryItems.init();
+    ConstructsArmoryModifiers.init();
   }
 
   private void setup(final FMLCommonSetupEvent evt) {
@@ -54,6 +57,7 @@ public class ConstructsArmoryMod {
       AbstractMaterialDataProvider materials = new ArmorMaterialDataProvider(generator);
       generator.addProvider(materials);
       generator.addProvider(new ArmorMaterialStatsDataProvider(generator, materials));
+      generator.addProvider(new ArmorMaterialTraitsDataProvider(generator, materials));
       generator.addProvider(new ArmorRecipeProvider(generator));
       generator.addProvider(new ArmorDefinitionDataProvider(generator));
       generator.addProvider(new ArmorSlotLayoutProvider(generator));

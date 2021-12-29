@@ -28,6 +28,7 @@ b44a79df75bcecbace1d6c3531cc2f0234d6f07f data/tconstruct/materials/stats/flint.j
 08e820176ad380d93837e56b35d647e6ae3a1975 data/tconstruct/materials/stats/hepatizon.json
 fe65318b850efea76fa31b0371af63666b1b5ac8 data/tconstruct/materials/stats/iron.json
 289848ad340bab438b7de78eaeacfbba7848c00e data/tconstruct/materials/stats/lead.json
+5f53d032477a423e1de61d318443861ff496aa26 data/tconstruct/materials/stats/leather.json
 2119f4f3bf61bf1b25f3f501391db8686ba60ce8 data/tconstruct/materials/stats/manyullyn.json
 d1b609f627afadcb885cc93861d3bfd464cc2f61 data/tconstruct/materials/stats/nahuatl.json
 b913f26436df1cdaefa75dfc46529a33ca2acf67 data/tconstruct/materials/stats/necrotic_bone.json
@@ -43,6 +44,7 @@ f4c68fc33869740b72793f3802933d243625d886 data/tconstruct/materials/stats/steel.j
 6ec76ecc0887cd7d359d74d5fc920e1e91925d3a data/tconstruct/materials/stats/stone.json
 5ffcb66a6faa4e67224168d4e779c882f1829e41 data/tconstruct/materials/stats/tinkers_bronze.json
 2bb5ca95ee6f9c08062cb34c8dda9ba6f0e100c5 data/tconstruct/materials/stats/wood.json
+0cdcacc54f1509ad0f80cbc4ebd07f486e185bd1 data/tconstruct/materials/traits/leather.json
 7f138528ccff5e690a73a321e138edda5215594a data/tconstruct/recipes/smeltery/casts/gold_casts/chest_plate.json
 a46ccdd34dbe07b90ec5696f45de4aaf9b467d55 data/tconstruct/recipes/smeltery/casts/gold_casts/feet_plate.json
 fc1688f017e550e5381e7b032ed0153308b0d719 data/tconstruct/recipes/smeltery/casts/gold_casts/head_plate.json

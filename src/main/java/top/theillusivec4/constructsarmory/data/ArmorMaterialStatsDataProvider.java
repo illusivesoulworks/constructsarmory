@@ -43,6 +43,7 @@ public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataPro
     addMaterialStats(MaterialIds.queensSlime, 560, 18.0f, 3.0f, 0.0f);
     addMaterialStats(MaterialIds.manyullyn, 528, 20.0f, 4.0f, 0.0f);
     addMaterialStats(MaterialIds.hepatizon, 512, 24.0f, 2.0f, 0.0f);
+    addMaterialStats(MaterialIds.leather, 80, 7.0f, 0.0f, 0.0f);
   }
 
   protected void addMaterialStats(MaterialId id, int durability, float armor, float toughness,
