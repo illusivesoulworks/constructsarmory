@@ -13,6 +13,7 @@ import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.stat.IToolStat;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.library.tools.stat.ToolStatsBuilder;
+import slimeknights.tconstruct.tools.item.ArmorSlotType;
 import top.theillusivec4.constructsarmory.api.ArmorMaterialStatsIdentifiers;
 import top.theillusivec4.constructsarmory.common.stat.impl.MailMaterialStats;
 import top.theillusivec4.constructsarmory.common.stat.impl.PlateMaterialStats;
@@ -21,28 +22,31 @@ import top.theillusivec4.constructsarmory.common.stat.impl.TrimMaterialStats;
 @Getter(AccessLevel.PROTECTED)
 public final class ArmorStatsBuilder extends ToolStatsBuilder {
 
+  private final ArmorSlotType slotType;
   private final List<PlateMaterialStats> plates;
   private final List<MailMaterialStats> mail;
   private final List<TrimMaterialStats> trims;
 
   @VisibleForTesting
-  public ArmorStatsBuilder(ToolDefinitionData toolData, List<PlateMaterialStats> plates,
-                           List<MailMaterialStats> mail,
+  public ArmorStatsBuilder(ArmorSlotType slotType, ToolDefinitionData toolData,
+                           List<PlateMaterialStats> plates, List<MailMaterialStats> mail,
                            List<TrimMaterialStats> trims) {
     super(toolData);
+    this.slotType = slotType;
     this.plates = plates;
     this.mail = mail;
     this.trims = trims;
   }
 
-  public static ToolStatsBuilder from(ToolDefinition toolDefinition, List<IMaterial> materials) {
+  public static ToolStatsBuilder from(ArmorSlotType slotType, ToolDefinition toolDefinition,
+                                      List<IMaterial> materials) {
     ToolDefinitionData data = toolDefinition.getData();
     List<PartRequirement> requiredComponents = data.getParts();
     // if the NBT is invalid, at least we can return the default stats builder, as an exception here could kill itemstacks
     if (materials.size() != requiredComponents.size()) {
       return ToolStatsBuilder.noParts(toolDefinition);
     }
-    return new ArmorStatsBuilder(data,
+    return new ArmorStatsBuilder(slotType, data,
         listOfCompatibleWith(ArmorMaterialStatsIdentifiers.PLATE, materials, requiredComponents),
         listOfCompatibleWith(ArmorMaterialStatsIdentifiers.MAIL, materials, requiredComponents),
         listOfCompatibleWith(ArmorMaterialStatsIdentifiers.TRIM, materials, requiredComponents));
@@ -67,6 +71,17 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
         getAverageValue(this.plates, PlateMaterialStats::getDurability) +
             this.toolData.getBonus(ToolStats.DURABILITY);
     double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getDurability, 1);
+
+    switch (this.slotType) {
+      case HELMET:
+        averagePlateDurability *= 0.6875f;
+        break;
+      case BOOTS:
+        averagePlateDurability *= 0.8125f;
+        break;
+      case LEGGINGS:
+        averagePlateDurability *= 0.9375f;
+    }
     return Math.max(1, (int) (averagePlateDurability * averageMailModifier));
   }
 
@@ -74,6 +89,18 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
     double averageArmor = getAverageValue(this.plates, PlateMaterialStats::getArmor) +
         this.toolData.getBonus(ToolStats.ARMOR);
     double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getArmor, 1);
+
+    switch (this.slotType) {
+      case HELMET:
+      case BOOTS:
+        averageArmor *= 0.15f;
+        break;
+      case LEGGINGS:
+        averageArmor *= 0.3f;
+        break;
+      case CHESTPLATE:
+        averageArmor *= 0.4f;
+    }
     return (float) Math.max(0, averageArmor * averageMailModifier);
   }
 
