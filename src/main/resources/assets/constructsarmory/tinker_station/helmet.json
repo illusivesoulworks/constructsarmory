@@ -1,9 +1,0 @@
-{
-  "slots": [
-    { "position": [ 48, 30 ] },
-    { "position": [ 12, 30 ] },
-    { "position": [ 30, 48 ] }
-  ],
-  "item": "constructsarmory:helmet",
-  "sortIndex": 24
-}

@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "constructsarmory:casts/multi_use/mail_cast"
+  },
+  "item_cost": 2,
+  "result": "constructsarmory:mail"
+}

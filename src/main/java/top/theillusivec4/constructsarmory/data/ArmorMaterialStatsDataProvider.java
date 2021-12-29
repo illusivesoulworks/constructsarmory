@@ -5,11 +5,8 @@ import net.minecraft.data.DataGenerator;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
-import slimeknights.tconstruct.tools.data.MaterialIds;
-import top.theillusivec4.constructsarmory.common.stat.impl.BootsCoreMaterialStats;
-import top.theillusivec4.constructsarmory.common.stat.impl.ChestplateCoreMaterialStats;
-import top.theillusivec4.constructsarmory.common.stat.impl.HelmetCoreMaterialStats;
-import top.theillusivec4.constructsarmory.common.stat.impl.LeggingsCoreMaterialStats;
+import slimeknights.tconstruct.tools.data.material.MaterialIds;
+import top.theillusivec4.constructsarmory.common.stat.impl.MailMaterialStats;
 import top.theillusivec4.constructsarmory.common.stat.impl.PlateMaterialStats;
 import top.theillusivec4.constructsarmory.common.stat.impl.TrimMaterialStats;
 
@@ -21,39 +18,37 @@ public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataPro
 
   @Override
   protected void addMaterialStats() {
-    addMaterialStats(MaterialIds.wood, 3.5f, 4.0f, 0.0f);
-    addMaterialStats(MaterialIds.flint, 5.0f, 6.5f, 0.0f);
-    addMaterialStats(MaterialIds.stone, 8.5f, 7.0f, 0.0f);
-    addMaterialStats(MaterialIds.bone, 6.5f, 6.0f, 1.0f);
-    addMaterialStats(MaterialIds.necroticBone, 9.0f, 5.5f, 1.0f);
-    addMaterialStats(MaterialIds.iron, 14.0f, 15.0f, 0.0f);
-    addMaterialStats(MaterialIds.searedStone, 10.0f, 13.0f, 1.0f);
-    addMaterialStats(MaterialIds.scorchedStone, 9.0f, 11.0f, 1.0f);
-    addMaterialStats(MaterialIds.copper, 12.5f, 15.0f, 0.0f);
-    addMaterialStats(MaterialIds.slimewood, 19.0f, 9.0f, 2.0f);
-    addMaterialStats(MaterialIds.roseGold, 9.0f, 20.0f, 0.0f);
-    addMaterialStats(MaterialIds.silver, 18.0f, 13.0f, 1.0f);
-    addMaterialStats(MaterialIds.lead, 12.0f, 12.0f, 1);
-    addMaterialStats(MaterialIds.electrum, 13.0f, 16.0f, 0.0f);
-    addMaterialStats(MaterialIds.slimesteel, 24.0f, 13.0f, 3.0f);
-    addMaterialStats(MaterialIds.nahuatl, 18.0f, 16.0f, 2.0f);
-    addMaterialStats(MaterialIds.tinkersBronze, 20.0f, 18.0f, 1.0f);
-    addMaterialStats(MaterialIds.pigIron, 20.0f, 17.0f, 2.0f);
-    addMaterialStats(MaterialIds.steel, 22.0f, 19.0f, 2.0f);
-    addMaterialStats(MaterialIds.bronze, 21.5f, 18.5f, 1.0f);
-    addMaterialStats(MaterialIds.constantan, 21.0f, 18.0f, 2.0f);
-    addMaterialStats(MaterialIds.cobalt, 22.0f, 20.0f, 2.0f);
-    addMaterialStats(MaterialIds.queensSlime, 35.0f, 18.0f, 3.0f);
-    addMaterialStats(MaterialIds.manyullyn, 33.0f, 20.0f, 4.0f);
-    addMaterialStats(MaterialIds.hepatizon, 32.0f, 24.0f, 2.0f);
+    addMaterialStats(MaterialIds.wood, 56, 4.0f, 0.0f, 0.0f);
+    addMaterialStats(MaterialIds.flint, 80, 6.5f, 0.0f, 0.0f);
+    addMaterialStats(MaterialIds.stone, 136, 7.0f, 0.0f, 0.0f);
+    addMaterialStats(MaterialIds.bone, 104, 6.0f, 1.0f, 0.0f);
+    addMaterialStats(MaterialIds.necroticBone, 144, 5.5f, 1.0f, 0.0f);
+    addMaterialStats(MaterialIds.iron, 224, 15.0f, 0.0f, 0.0f);
+    addMaterialStats(MaterialIds.searedStone, 160, 13.0f, 1.0f, 0.0f);
+    addMaterialStats(MaterialIds.scorchedStone, 144, 11.0f, 1.0f, 0.0f);
+    addMaterialStats(MaterialIds.copper, 200, 15.0f, 0.0f, 0.0f);
+    addMaterialStats(MaterialIds.slimewood, 304, 9.0f, 2.0f, 0.0f);
+    addMaterialStats(MaterialIds.roseGold, 144, 20.0f, 0.0f, 0.0f);
+    addMaterialStats(MaterialIds.silver, 288, 13.0f, 1.0f, 0.0f);
+    addMaterialStats(MaterialIds.lead, 192, 12.0f, 1, 0.15f);
+    addMaterialStats(MaterialIds.electrum, 208, 16.0f, 0.0f, 0.0f);
+    addMaterialStats(MaterialIds.slimesteel, 384, 13.0f, 3.0f, 0.0f);
+    addMaterialStats(MaterialIds.nahuatl, 288, 16.0f, 2.0f, 0.0f);
+    addMaterialStats(MaterialIds.tinkersBronze, 320, 18.0f, 1.0f, 0.0f);
+    addMaterialStats(MaterialIds.pigIron, 320, 17.0f, 2.0f, 0.0f);
+    addMaterialStats(MaterialIds.steel, 352, 19.0f, 2.0f, 0.0f);
+    addMaterialStats(MaterialIds.bronze, 344, 18.5f, 1.0f, 0.0f);
+    addMaterialStats(MaterialIds.constantan, 336, 18.0f, 2.0f, 0.0f);
+    addMaterialStats(MaterialIds.cobalt, 352, 20.0f, 2.0f, 0.0f);
+    addMaterialStats(MaterialIds.queensSlime, 560, 18.0f, 3.0f, 0.0f);
+    addMaterialStats(MaterialIds.manyullyn, 528, 20.0f, 4.0f, 0.0f);
+    addMaterialStats(MaterialIds.hepatizon, 512, 24.0f, 2.0f, 0.0f);
   }
 
-  protected void addMaterialStats(MaterialId id, float durability, float armor, float toughness) {
-    addMaterialStats(id, new HelmetCoreMaterialStats(durability, armor, toughness),
-        new ChestplateCoreMaterialStats(durability, armor, toughness),
-        new LeggingsCoreMaterialStats(durability, armor, toughness),
-        new BootsCoreMaterialStats(durability, armor, toughness),
-        new PlateMaterialStats(), new TrimMaterialStats());
+  protected void addMaterialStats(MaterialId id, int durability, float armor, float toughness,
+                                  float knockbackResistance) {
+    addMaterialStats(id, new PlateMaterialStats(durability, armor, toughness, knockbackResistance),
+        new MailMaterialStats(), new TrimMaterialStats());
   }
 
   @Override

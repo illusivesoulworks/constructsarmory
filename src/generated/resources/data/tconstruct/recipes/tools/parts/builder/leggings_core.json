@@ -1,8 +1,0 @@
-{
-  "type": "tconstruct:part_builder",
-  "pattern": "tconstruct:leggings_core",
-  "cost": 5,
-  "result": {
-    "item": "constructsarmory:leggings_core"
-  }
-}

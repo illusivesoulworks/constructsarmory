@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "constructsarmory:feet_plate",
+    "type": "tconstruct:material"
+  },
+  "cast_consumed": true,
+  "switch_slots": true,
+  "fluid": {
+    "tag": "forge:molten_gold",
+    "amount": 144
+  },
+  "result": "constructsarmory:feet_plate_cast_cast",
+  "cooling_time": 57
+}

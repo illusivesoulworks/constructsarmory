@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:table_casting_material",
-  "cast": {
-    "tag": "constructsarmory:casts/single_use/armor_plate"
-  },
-  "cast_consumed": true,
-  "item_cost": 2,
-  "result": "constructsarmory:armor_plate"
-}

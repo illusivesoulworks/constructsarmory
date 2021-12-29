@@ -1,0 +1,25 @@
+{
+  "parts": [
+    {
+      "item": "constructsarmory:legs_plate"
+    },
+    {
+      "item": "constructsarmory:mail"
+    },
+    {
+      "item": "constructsarmory:trim"
+    }
+  ],
+  "stats": {
+    "base": {
+      "tconstruct:armor": 0.0,
+      "tconstruct:armor_toughness": 0.0,
+      "tconstruct:knockback_resistance": 0.0
+    }
+  },
+  "slots": {
+    "upgrades": 1,
+    "defense": 1,
+    "abilities": 1
+  }
+}

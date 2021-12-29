@@ -1,8 +1,0 @@
-{
-  "type": "tconstruct:table_casting_material",
-  "cast": {
-    "tag": "constructsarmory:casts/multi_use/leggings_core"
-  },
-  "item_cost": 5,
-  "result": "constructsarmory:leggings_core"
-}

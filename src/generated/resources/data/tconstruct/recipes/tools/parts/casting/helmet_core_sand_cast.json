@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:table_casting_material",
-  "cast": {
-    "tag": "constructsarmory:casts/single_use/helmet_core"
-  },
-  "cast_consumed": true,
-  "item_cost": 4,
-  "result": "constructsarmory:helmet_core"
-}

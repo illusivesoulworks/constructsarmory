@@ -1,8 +1,0 @@
-{
-  "type": "tconstruct:part_builder",
-  "pattern": "tconstruct:helmet_core",
-  "cost": 4,
-  "result": {
-    "item": "constructsarmory:helmet_core"
-  }
-}

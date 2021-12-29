@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "constructsarmory:casts/multi_use/legs_plate_cast"
+  },
+  "item_cost": 5,
+  "result": "constructsarmory:legs_plate"
+}

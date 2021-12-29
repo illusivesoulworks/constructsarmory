@@ -1,0 +1,14 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "head_plate": "constructsarmory:item/tool/helmet/head_plate",
+    "mail": "constructsarmory:item/tool/helmet/mail",
+    "trim":  "constructsarmory:item/tool/helmet/trim"
+  },
+  "parts": [
+    { "name": "head_plate", "index": 1 },
+    { "name": "mail", "index": 0 },
+    { "name": "trim", "index": 2 }
+  ]
+}

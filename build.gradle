@@ -5,7 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.7', changing: true
         classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
         classpath 'io.freefair.gradle:lombok-plugin:4.+'
     }
@@ -18,7 +18,7 @@ version = "${mod_version}"
 group = "${mod_group}"
 archivesBaseName = "${mod_id}-forge"
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 minecraft {
     mappings channel: 'snapshot', version: "${version_mcp}".toString()
@@ -79,6 +79,8 @@ dependencies {
 
     compile fg.deobf("slimeknights.mantle:Mantle:${version_mantle}")
     compile fg.deobf("slimeknights.tconstruct:TConstruct:${version_tic}")
+
+    runtimeOnly fg.deobf("mezz.jei:jei-${version_minecraft}:${version_jei}")
 }
 
 sourceSets {

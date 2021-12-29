@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
+import top.theillusivec4.constructsarmory.ConstructsArmoryMod;
 import top.theillusivec4.constructsarmory.api.ArmorMaterialStatsIdentifiers;
 
 @Getter
@@ -15,6 +16,7 @@ import top.theillusivec4.constructsarmory.api.ArmorMaterialStatsIdentifiers;
 @ToString
 public class TrimMaterialStats extends ExtraMaterialStats {
 
+  public static final MaterialStatsId ID = new MaterialStatsId(ConstructsArmoryMod.getResource("trim"));
   public static final TrimMaterialStats DEFAULT = new TrimMaterialStats();
 
   @Override

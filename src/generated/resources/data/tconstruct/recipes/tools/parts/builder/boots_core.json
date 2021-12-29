@@ -1,8 +1,0 @@
-{
-  "type": "tconstruct:part_builder",
-  "pattern": "tconstruct:boots_core",
-  "cost": 3,
-  "result": {
-    "item": "constructsarmory:boots_core"
-  }
-}
