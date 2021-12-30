@@ -6,6 +6,7 @@ import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -34,6 +35,7 @@ public class ConstructsArmoryMod {
   public ConstructsArmoryMod() {
     IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
     eventBus.addListener(this::setup);
+    eventBus.addListener(this::clientSetup);
     eventBus.addListener(this::colors);
     eventBus.addListener(this::gatherData);
     ConstructsArmoryItems.init();
@@ -42,6 +44,10 @@ public class ConstructsArmoryMod {
 
   private void setup(final FMLCommonSetupEvent evt) {
     evt.enqueueWork(ConstructsArmoryMaterialStats::setup);
+  }
+
+  private void clientSetup(final FMLClientSetupEvent evt) {
+    ConstructsArmoryClient.setup();
   }
 
   private void colors(final ColorHandlerEvent.Item evt) {

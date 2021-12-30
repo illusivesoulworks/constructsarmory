@@ -17,7 +17,6 @@ import slimeknights.tconstruct.tools.item.ArmorSlotType;
 import top.theillusivec4.constructsarmory.api.ArmorMaterialStatsIdentifiers;
 import top.theillusivec4.constructsarmory.common.stat.impl.MailMaterialStats;
 import top.theillusivec4.constructsarmory.common.stat.impl.PlateMaterialStats;
-import top.theillusivec4.constructsarmory.common.stat.impl.TrimMaterialStats;
 
 @Getter(AccessLevel.PROTECTED)
 public final class ArmorStatsBuilder extends ToolStatsBuilder {
@@ -25,17 +24,13 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
   private final ArmorSlotType slotType;
   private final List<PlateMaterialStats> plates;
   private final List<MailMaterialStats> mail;
-  private final List<TrimMaterialStats> trims;
 
   @VisibleForTesting
-  public ArmorStatsBuilder(ArmorSlotType slotType, ToolDefinitionData toolData,
-                           List<PlateMaterialStats> plates, List<MailMaterialStats> mail,
-                           List<TrimMaterialStats> trims) {
+  public ArmorStatsBuilder(ArmorSlotType slotType, ToolDefinitionData toolData, List<PlateMaterialStats> plates, List<MailMaterialStats> mail) {
     super(toolData);
     this.slotType = slotType;
     this.plates = plates;
     this.mail = mail;
-    this.trims = trims;
   }
 
   public static ToolStatsBuilder from(ArmorSlotType slotType, ToolDefinition toolDefinition,
@@ -48,8 +43,7 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
     }
     return new ArmorStatsBuilder(slotType, data,
         listOfCompatibleWith(ArmorMaterialStatsIdentifiers.PLATE, materials, requiredComponents),
-        listOfCompatibleWith(ArmorMaterialStatsIdentifiers.MAIL, materials, requiredComponents),
-        listOfCompatibleWith(ArmorMaterialStatsIdentifiers.TRIM, materials, requiredComponents));
+        listOfCompatibleWith(ArmorMaterialStatsIdentifiers.MAIL, materials, requiredComponents));
   }
 
   @Override

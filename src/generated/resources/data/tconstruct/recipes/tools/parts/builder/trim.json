@@ -1,8 +1,0 @@
-{
-  "type": "tconstruct:part_builder",
-  "pattern": "tconstruct:trim",
-  "cost": 1,
-  "result": {
-    "item": "constructsarmory:trim"
-  }
-}

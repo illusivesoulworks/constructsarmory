@@ -36,8 +36,6 @@ public class ArmorRecipeProvider extends BaseRecipeProvider implements IMaterial
         3, partFolder, castFolder);
     partRecipes(consumer, ConstructsArmoryItems.MAIL, ConstructsArmoryItems.MAIL_CAST, 2,
         partFolder, castFolder);
-    partRecipes(consumer, ConstructsArmoryItems.TRIM, ConstructsArmoryItems.TRIM_CAST, 1,
-        partFolder, castFolder);
   }
 
   @Nonnull

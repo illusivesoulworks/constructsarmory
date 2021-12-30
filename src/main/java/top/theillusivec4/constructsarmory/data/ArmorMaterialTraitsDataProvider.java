@@ -8,7 +8,6 @@ import slimeknights.tconstruct.tools.data.material.MaterialIds;
 import top.theillusivec4.constructsarmory.common.ConstructsArmoryModifiers;
 import top.theillusivec4.constructsarmory.common.stat.impl.MailMaterialStats;
 import top.theillusivec4.constructsarmory.common.stat.impl.PlateMaterialStats;
-import top.theillusivec4.constructsarmory.common.stat.impl.TrimMaterialStats;
 
 public class ArmorMaterialTraitsDataProvider extends AbstractMaterialTraitDataProvider {
 
@@ -21,7 +20,6 @@ public class ArmorMaterialTraitsDataProvider extends AbstractMaterialTraitDataPr
   protected void addMaterialTraits() {
     addTraits(MaterialIds.leather, PlateMaterialStats.ID, ConstructsArmoryModifiers.PADDED.get());
     addTraits(MaterialIds.leather, MailMaterialStats.ID, ConstructsArmoryModifiers.PADDED.get());
-    addTraits(MaterialIds.leather, TrimMaterialStats.ID, ConstructsArmoryModifiers.PADDED.get());
   }
 
   @Override

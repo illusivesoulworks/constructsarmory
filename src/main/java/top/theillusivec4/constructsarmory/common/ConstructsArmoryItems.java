@@ -22,6 +22,7 @@ import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.item.ArmorSlotType;
 import top.theillusivec4.constructsarmory.ConstructsArmoryMod;
 import top.theillusivec4.constructsarmory.api.ArmorMaterialStatsIdentifiers;
+import top.theillusivec4.constructsarmory.common.item.MaterialArmorItem;
 
 public class ConstructsArmoryItems {
 
@@ -38,7 +39,7 @@ public class ConstructsArmoryItems {
 
   public static final EnumObject<ArmorSlotType, ModifiableArmorItem> MATERIAL_ARMOR =
       ITEMS.registerEnum("material_armor", ArmorSlotType.values(),
-          type -> new ModifiableArmorItem(ConstructsArmoryDefinitions.MATERIAL_ARMOR, type,
+          type -> new MaterialArmorItem(ConstructsArmoryDefinitions.MATERIAL_ARMOR, type,
               ARMOR.get()));
 
   // Armor Parts
@@ -70,8 +71,6 @@ public class ConstructsArmoryItems {
           ArmorMaterialStatsIdentifiers.PLATE));
   public static final ItemObject<ToolPartItem> MAIL = ITEMS.register("mail",
       () -> new ToolPartItem(PARTS_PROPS, ArmorMaterialStatsIdentifiers.MAIL));
-  public static final ItemObject<ToolPartItem> TRIM = ITEMS.register("trim",
-      () -> new ToolPartItem(PARTS_PROPS, ArmorMaterialStatsIdentifiers.TRIM));
 
   // Smeltery
   private static final Item.Properties SMELTERY_PROPS =

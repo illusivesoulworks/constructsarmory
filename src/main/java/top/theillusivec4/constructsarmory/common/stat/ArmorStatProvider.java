@@ -12,7 +12,6 @@ import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.tools.item.ArmorSlotType;
 import top.theillusivec4.constructsarmory.common.stat.impl.MailMaterialStats;
 import top.theillusivec4.constructsarmory.common.stat.impl.PlateMaterialStats;
-import top.theillusivec4.constructsarmory.common.stat.impl.TrimMaterialStats;
 
 public class ArmorStatProvider implements IToolStatProvider {
 
@@ -48,10 +47,9 @@ public class ArmorStatProvider implements IToolStatProvider {
 
       if (statType.equals(PlateMaterialStats.ID)) {
         foundPlate = true;
-      } else if (!statType.equals(MailMaterialStats.ID) &&
-          !statType.equals(TrimMaterialStats.ID)) {
+      } else if (!statType.equals(MailMaterialStats.ID)) {
         throw new IllegalStateException(
-            "Invalid armor part type, only support plate, mail, and trim part types");
+            "Invalid armor part type, only supports plate and mail part types");
       }
     }
 

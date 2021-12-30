@@ -28,7 +28,7 @@ public class ArmorTagProvider extends ItemTagProvider {
     this.getOrCreateBuilder(TinkerTags.Items.TOOL_PARTS)
         .add(ConstructsArmoryItems.HEAD_PLATE.get(), ConstructsArmoryItems.CHEST_PLATE.get(),
             ConstructsArmoryItems.LEGS_PLATE.get(), ConstructsArmoryItems.FEET_PLATE.get(),
-            ConstructsArmoryItems.MAIL.get(), ConstructsArmoryItems.TRIM.get());
+            ConstructsArmoryItems.MAIL.get());
     TagsProvider.Builder<Item> goldCasts = this.getOrCreateBuilder(TinkerTags.Items.GOLD_CASTS);
     TagsProvider.Builder<Item> sandCasts = this.getOrCreateBuilder(TinkerTags.Items.SAND_CASTS);
     TagsProvider.Builder<Item> redSandCasts =

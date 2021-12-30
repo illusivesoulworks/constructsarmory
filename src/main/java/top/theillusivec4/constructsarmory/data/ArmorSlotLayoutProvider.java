@@ -29,7 +29,6 @@ public class ArmorSlotLayoutProvider extends AbstractStationSlotLayoutProvider {
             .sortIndex(SORT_ARMOR)
             .addInputItem(plates.get(slotType), 30, 48)
             .addInputItem(ConstructsArmoryItems.MAIL, 12, 30)
-            .addInputItem(ConstructsArmoryItems.TRIM, 48, 30)
             .build());
   }
 

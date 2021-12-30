@@ -9,6 +9,4 @@ public class ArmorMaterialStatsIdentifiers {
       new MaterialStatsId(ConstructsArmoryMod.getResource("plate"));
   public static final MaterialStatsId MAIL =
       new MaterialStatsId(ConstructsArmoryMod.getResource("mail"));
-  public static final MaterialStatsId TRIM =
-      new MaterialStatsId(ConstructsArmoryMod.getResource("trim"));
 }

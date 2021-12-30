@@ -1,8 +1,0 @@
-{
-  "type": "tconstruct:table_casting_material",
-  "cast": {
-    "tag": "constructsarmory:casts/multi_use/trim_cast"
-  },
-  "item_cost": 1,
-  "result": "constructsarmory:trim"
-}

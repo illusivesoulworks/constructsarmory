@@ -8,7 +8,6 @@ import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
 import top.theillusivec4.constructsarmory.common.stat.impl.MailMaterialStats;
 import top.theillusivec4.constructsarmory.common.stat.impl.PlateMaterialStats;
-import top.theillusivec4.constructsarmory.common.stat.impl.TrimMaterialStats;
 
 public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataProvider {
 
@@ -49,7 +48,7 @@ public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataPro
   protected void addMaterialStats(MaterialId id, int durability, float armor, float toughness,
                                   float knockbackResistance) {
     addMaterialStats(id, new PlateMaterialStats(durability, armor, toughness, knockbackResistance),
-        new MailMaterialStats(), new TrimMaterialStats());
+        new MailMaterialStats());
   }
 
   @Override

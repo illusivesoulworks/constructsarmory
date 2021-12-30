@@ -23,15 +23,6 @@
       "filter": {
         "item": "constructsarmory:mail"
       }
-    },
-    {
-      "icon": "constructsarmory:trim",
-      "translation_key": "item.constructsarmory.trim",
-      "x": 48,
-      "y": 30,
-      "filter": {
-        "item": "constructsarmory:trim"
-      }
     }
   ]
 }
