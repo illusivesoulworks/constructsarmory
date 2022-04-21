@@ -47,8 +47,8 @@ public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataPro
 
   protected void addMaterialStats(MaterialId id, int durability, float armor, float toughness,
                                   float knockbackResistance) {
-    addMaterialStats(id, new PlateMaterialStats(durability, armor, toughness, knockbackResistance),
-        new MailMaterialStats());
+    addMaterialStats(id, new PlateMaterialStats(durability, armor),
+        new MailMaterialStats(1.0f, 1.0f, toughness, knockbackResistance));
   }
 
   @Override

@@ -26,7 +26,8 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
   private final List<MailMaterialStats> mail;
 
   @VisibleForTesting
-  public ArmorStatsBuilder(ArmorSlotType slotType, ToolDefinitionData toolData, List<PlateMaterialStats> plates, List<MailMaterialStats> mail) {
+  public ArmorStatsBuilder(ArmorSlotType slotType, ToolDefinitionData toolData,
+                           List<PlateMaterialStats> plates, List<MailMaterialStats> mail) {
     super(toolData);
     this.slotType = slotType;
     this.plates = plates;
@@ -37,7 +38,7 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
                                       List<IMaterial> materials) {
     ToolDefinitionData data = toolDefinition.getData();
     List<PartRequirement> requiredComponents = data.getParts();
-    // if the NBT is invalid, at least we can return the default stats builder, as an exception here could kill itemstacks
+
     if (materials.size() != requiredComponents.size()) {
       return ToolStatsBuilder.noParts(toolDefinition);
     }
@@ -82,7 +83,7 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
   public float buildArmor() {
     double averageArmor = getAverageValue(this.plates, PlateMaterialStats::getArmor) +
         this.toolData.getBonus(ToolStats.ARMOR);
-    double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getArmor, 1);
+    double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getArmor, 0);
 
     switch (this.slotType) {
       case HELMET:
@@ -99,16 +100,14 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
   }
 
   public float buildArmorToughness() {
-    double averageToughness = getAverageValue(this.plates, PlateMaterialStats::getArmorToughness) +
+    double averageToughness = getAverageValue(this.mail, MailMaterialStats::getArmorToughness, 0) +
         this.toolData.getBonus(ToolStats.ARMOR_TOUGHNESS);
-    double averageMailModifier =
-        getAverageValue(this.mail, MailMaterialStats::getArmorToughness, 1);
-    return (float) Math.max(0, averageToughness * averageMailModifier);
+    return (float) Math.max(0, averageToughness);
   }
 
   public float buildKnockbackResistance() {
     double averageKnockbackResistance =
-        getAverageValue(this.plates, PlateMaterialStats::getKnockbackResistance) +
+        getAverageValue(this.mail, MailMaterialStats::getKnockbackResistance, 0) +
             this.toolData.getBonus(ToolStats.KNOCKBACK_RESISTANCE);
     return (float) Math.max(0, averageKnockbackResistance);
   }

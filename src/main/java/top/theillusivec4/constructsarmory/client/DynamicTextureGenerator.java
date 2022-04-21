@@ -1,8 +1,10 @@
 package top.theillusivec4.constructsarmory.client;
 
+import java.awt.Color;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.Nonnull;
 import lombok.Data;
 import net.minecraft.client.Minecraft;
@@ -53,14 +55,17 @@ public class DynamicTextureGenerator {
       TextureAtlasSprite sprite = renderMaterial.getSprite();
       int width = sprite.getWidth();
       int height = sprite.getHeight();
-      int materialColor = MaterialRenderInfoLoader.INSTANCE.getRenderInfo(identifier)
-          .map(renderInfo -> renderInfo.getSprite(renderMaterial, RenderMaterial::getSprite)
-              .getColor())
-          .orElse(0);
-      int a = (materialColor >> 24) & 0xFF;
-      int r = (materialColor >> 16) & 0xFF;
-      int g = (materialColor >> 8) & 0xFF;
-      int b = (materialColor) & 0xFF;
+      AtomicInteger light = new AtomicInteger();
+      AtomicInteger materialColor = new AtomicInteger();
+      MaterialRenderInfoLoader.INSTANCE.getRenderInfo(identifier).ifPresent(renderInfo -> {
+        materialColor.set(
+            renderInfo.getSprite(renderMaterial, RenderMaterial::getSprite).getColor());
+        light.set(renderInfo.getLuminosity());
+      });
+      int a = (materialColor.get() >> 24) & 0xFF;
+      int r = (materialColor.get() >> 16) & 0xFF;
+      int g = (materialColor.get() >> 8) & 0xFF;
+      int b = (materialColor.get()) & 0xFF;
 
       if (a == 0) {
         a = 255;
@@ -82,6 +87,12 @@ public class DynamicTextureGenerator {
           gx *= G;
           bx *= B;
           ax *= A;
+          float[] hsb = Color.RGBtoHSB(rx, gx, bx, null);
+          hsb[2] = Math.min(1.0f, hsb[2] * 1.25f);
+          int newRgb = Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]);
+          rx = (newRgb >> 16) & 0xFF;
+          gx = (newRgb >> 8) & 0xFF;
+          bx = (newRgb) & 0xFF;
 
           if (i == 0 || ax > 0.0f) {
             nativeImage.setPixelRGBA(j, k, (ax << 24) | (bx << 16) | (gx << 8) | (rx));
@@ -91,6 +102,73 @@ public class DynamicTextureGenerator {
     }
     return Minecraft.getInstance().getTextureManager()
         .getDynamicTextureLocation(ConstructsArmoryMod.MOD_ID, new DynamicTexture(nativeImage));
+  }
+
+  private static float[] brightenRgb(float r, float g, float b, float increase) {
+    float cmax = Math.max(r, Math.max(g, b));
+    float cmin = Math.min(r, Math.min(g, b));
+    float diff = cmax - cmin;
+    float h = -1, s;
+
+    if (cmax == cmin) {
+      h = 0;
+    } else if (cmax == r) {
+      h = (60 * ((g - b) / diff) + 360) % 360;
+    } else if (cmax == g) {
+      h = (60 * ((b - r) / diff) + 120) % 360;
+    } else if (cmax == b) {
+      h = (60 * ((r - g) / diff) + 240) % 360;
+    }
+
+    if (cmax == 0) {
+      s = 0;
+    } else {
+      s = (diff / cmax) * 100;
+    }
+    float v = cmax * 100 * increase;
+
+    if (s == 0.0F) {
+      r = g = b = (int)(v * 255.0F + 0.5F);
+    } else {
+      float h1 = (h - (float)Math.floor(h)) * 6.0F;
+      float f = h1 - (float)Math.floor(h1);
+      float p = v * (1.0F - s);
+      float q = v * (1.0F - s * f);
+      float t = v * (1.0F - s * (1.0F - f));
+
+      switch((int)h1) {
+        case 0:
+          r = (int)(v * 255.0F + 0.5F);
+          g = (int)(t * 255.0F + 0.5F);
+          b = (int)(p * 255.0F + 0.5F);
+          break;
+        case 1:
+          r = (int)(q * 255.0F + 0.5F);
+          g = (int)(v * 255.0F + 0.5F);
+          b = (int)(p * 255.0F + 0.5F);
+          break;
+        case 2:
+          r = (int)(p * 255.0F + 0.5F);
+          g = (int)(v * 255.0F + 0.5F);
+          b = (int)(t * 255.0F + 0.5F);
+          break;
+        case 3:
+          r = (int)(p * 255.0F + 0.5F);
+          g = (int)(q * 255.0F + 0.5F);
+          b = (int)(v * 255.0F + 0.5F);
+          break;
+        case 4:
+          r = (int)(t * 255.0F + 0.5F);
+          g = (int)(p * 255.0F + 0.5F);
+          b = (int)(v * 255.0F + 0.5F);
+          break;
+        case 5:
+          r = (int)(v * 255.0F + 0.5F);
+          g = (int)(p * 255.0F + 0.5F);
+          b = (int)(q * 255.0F + 0.5F);
+      }
+    }
+    return new float[]{r, g, b};
   }
 
   public static ArmorCacheKey getCacheKey(ItemStack stack, boolean isLegs) {

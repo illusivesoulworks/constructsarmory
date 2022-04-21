@@ -24,33 +24,26 @@ import top.theillusivec4.constructsarmory.ConstructsArmoryMod;
 @ToString
 public class PlateMaterialStats extends BaseMaterialStats implements IRepairableMaterialStats {
 
-  public static final MaterialStatsId ID = new MaterialStatsId(ConstructsArmoryMod.getResource("plate"));
+  public static final MaterialStatsId ID =
+      new MaterialStatsId(ConstructsArmoryMod.getResource("plate"));
   public static final PlateMaterialStats DEFAULT = new PlateMaterialStats();
 
   private static final List<ITextComponent> DESCRIPTION =
-      ImmutableList.of(ToolStats.DURABILITY.getDescription(), ToolStats.ARMOR.getDescription(),
-          ToolStats.ARMOR_TOUGHNESS.getDescription(),
-          ToolStats.KNOCKBACK_RESISTANCE.getDescription());
+      ImmutableList.of(ToolStats.DURABILITY.getDescription(), ToolStats.ARMOR.getDescription());
 
   private int durability;
   private float armor;
-  private float armorToughness;
-  private float knockbackResistance;
 
   @Override
   public void encode(PacketBuffer buffer) {
     buffer.writeInt(this.durability);
     buffer.writeFloat(this.armor);
-    buffer.writeFloat(this.armorToughness);
-    buffer.writeFloat(this.knockbackResistance);
   }
 
   @Override
   public void decode(PacketBuffer buffer) {
     this.durability = buffer.readInt();
     this.armor = buffer.readFloat();
-    this.armorToughness = buffer.readFloat();
-    this.knockbackResistance = buffer.readFloat();
   }
 
   @Nonnull
@@ -65,8 +58,6 @@ public class PlateMaterialStats extends BaseMaterialStats implements IRepairable
     List<ITextComponent> info = Lists.newArrayList();
     info.add(ToolStats.DURABILITY.formatValue(this.durability));
     info.add(ToolStats.ARMOR.formatValue(this.armor));
-    info.add(ToolStats.ARMOR_TOUGHNESS.formatValue(this.armorToughness));
-    info.add(ToolStats.KNOCKBACK_RESISTANCE.formatValue(this.knockbackResistance));
     return info;
   }
 

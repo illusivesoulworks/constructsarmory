@@ -16,6 +16,7 @@ import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.materials.stats.BaseMaterialStats;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.library.tools.stat.IToolStat;
+import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import top.theillusivec4.constructsarmory.ConstructsArmoryMod;
 import top.theillusivec4.constructsarmory.api.ArmorMaterialStatsIdentifiers;
 
@@ -27,34 +28,35 @@ import top.theillusivec4.constructsarmory.api.ArmorMaterialStatsIdentifiers;
 @With
 public class MailMaterialStats extends BaseMaterialStats {
 
-  public static final MaterialStatsId ID = new MaterialStatsId(ConstructsArmoryMod.getResource("mail"));
+  public static final MaterialStatsId ID =
+      new MaterialStatsId(ConstructsArmoryMod.getResource("mail"));
   public static final MailMaterialStats DEFAULT = new MailMaterialStats();
 
   private static final String DURABILITY_PREFIX =
       makeTooltipKey(TConstruct.getResource("durability"));
   private static final String ARMOR_PREFIX =
       makeTooltipKey(TConstruct.getResource("armor"));
-  private static final String TOUGHNESS_PREFIX =
-      makeTooltipKey(TConstruct.getResource("armor_toughness"));
 
   private static final ITextComponent DURABILITY_DESCRIPTION =
       makeTooltip(ConstructsArmoryMod.getResource("mail.durability.description"));
   private static final ITextComponent ARMOR_DESCRIPTION =
       makeTooltip(ConstructsArmoryMod.getResource("mail.armor.description"));
-  private static final ITextComponent TOUGHNESS_DESCRIPTION =
-      makeTooltip(ConstructsArmoryMod.getResource("mail.armor_toughness.description"));
   private static final List<ITextComponent> DESCRIPTION =
-      ImmutableList.of(DURABILITY_DESCRIPTION, ARMOR_DESCRIPTION, TOUGHNESS_DESCRIPTION);
+      ImmutableList.of(DURABILITY_DESCRIPTION, ARMOR_DESCRIPTION,
+          ToolStats.ARMOR_TOUGHNESS.getDescription(),
+          ToolStats.KNOCKBACK_RESISTANCE.getDescription());
 
   private float durability = 1.0f;
   private float armor = 1.0f;
-  private float armorToughness = 1.0f;
+  private float armorToughness;
+  private float knockbackResistance;
 
   @Override
   public void encode(PacketBuffer buffer) {
     buffer.writeFloat(this.durability);
     buffer.writeFloat(this.armor);
     buffer.writeFloat(this.armorToughness);
+    buffer.writeFloat(this.knockbackResistance);
   }
 
   @Override
@@ -62,6 +64,7 @@ public class MailMaterialStats extends BaseMaterialStats {
     this.durability = buffer.readFloat();
     this.armor = buffer.readFloat();
     this.armorToughness = buffer.readFloat();
+    this.knockbackResistance = buffer.readFloat();
   }
 
   @Override
@@ -76,7 +79,8 @@ public class MailMaterialStats extends BaseMaterialStats {
     List<ITextComponent> list = new ArrayList<>();
     list.add(formatDurability(this.durability));
     list.add(formatArmor(this.armor));
-    list.add(formatToughness(this.armorToughness));
+    list.add(ToolStats.ARMOR_TOUGHNESS.formatValue(this.armorToughness));
+    list.add(ToolStats.KNOCKBACK_RESISTANCE.formatValue(this.knockbackResistance));
     return list;
   }
 
@@ -92,9 +96,5 @@ public class MailMaterialStats extends BaseMaterialStats {
 
   public static ITextComponent formatArmor(float armor) {
     return IToolStat.formatColoredMultiplier(ARMOR_PREFIX, armor);
-  }
-
-  public static ITextComponent formatToughness(float toughness) {
-    return IToolStat.formatColoredMultiplier(TOUGHNESS_PREFIX, toughness);
   }
 }

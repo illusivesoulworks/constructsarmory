@@ -31,7 +31,7 @@ public class ArmorDefinitionDataProvider extends AbstractToolDefinitionDataProvi
         .stat(ToolStats.ARMOR_TOUGHNESS, 0)
         .stat(ToolStats.KNOCKBACK_RESISTANCE, 0)
         .startingSlots(SlotType.UPGRADE, 1)
-        .startingSlots(SlotType.DEFENSE, 1)
+        .startingSlots(SlotType.DEFENSE, 2)
         .startingSlots(SlotType.ABILITY, 1);
   }
 
