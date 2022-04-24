@@ -7,12 +7,12 @@
   "sortIndex": 16,
   "input_slots": [
     {
-      "icon": "constructsarmory:chest_plate",
-      "translation_key": "item.constructsarmory.chest_plate",
+      "icon": "constructsarmory:body_plate",
+      "translation_key": "item.constructsarmory.body_plate",
       "x": 30,
       "y": 48,
       "filter": {
-        "item": "constructsarmory:chest_plate"
+        "item": "constructsarmory:body_plate"
       }
     },
     {

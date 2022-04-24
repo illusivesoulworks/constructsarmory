@@ -3,12 +3,11 @@
   "parent": "forge:item/default-tool",
   "textures": {
     "head_plate": "constructsarmory:item/tool/helmet/head_plate",
-    "mail": "constructsarmory:item/tool/helmet/mail",
-    "trim":  "constructsarmory:item/tool/helmet/trim"
+    "broken_head_plate": "constructsarmory:item/tool/boots/broken_head_plate",
+    "mail": "constructsarmory:item/tool/helmet/mail"
   },
   "parts": [
-    { "name": "head_plate", "index": 1 },
-    { "name": "mail", "index": 0 },
-    { "name": "trim", "index": 2 }
+    { "name": "head_plate", "index": 0, "broken": "broken_head_plate" },
+    { "name": "mail", "index": 1 }
   ]
 }

@@ -1,0 +1,13 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "feet_plate": "constructsarmory:item/tool/boots/feet_plate",
+    "broken_feet_plate": "constructsarmory:item/tool/boots/broken_feet_plate",
+    "mail": "constructsarmory:item/tool/boots/mail"
+  },
+  "parts": [
+    { "name": "feet_plate", "index": 0, "broken": "broken_feet_plate" },
+    { "name": "mail", "index": 1 }
+  ]
+}

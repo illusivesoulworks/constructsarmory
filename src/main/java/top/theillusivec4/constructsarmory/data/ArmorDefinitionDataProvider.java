@@ -21,7 +21,7 @@ public class ArmorDefinitionDataProvider extends AbstractToolDefinitionDataProvi
     defineArmor(ConstructsArmoryDefinitions.MATERIAL_ARMOR)
         .part(ArmorSlotType.HELMET, ConstructsArmoryItems.HEAD_PLATE.get(), 1)
         .part(ArmorSlotType.HELMET, ConstructsArmoryItems.MAIL.get(), 1)
-        .part(ArmorSlotType.CHESTPLATE, ConstructsArmoryItems.CHEST_PLATE.get(), 1)
+        .part(ArmorSlotType.CHESTPLATE, ConstructsArmoryItems.BODY_PLATE.get(), 1)
         .part(ArmorSlotType.CHESTPLATE, ConstructsArmoryItems.MAIL.get(), 1)
         .part(ArmorSlotType.LEGGINGS, ConstructsArmoryItems.LEGS_PLATE.get(), 1)
         .part(ArmorSlotType.LEGGINGS, ConstructsArmoryItems.MAIL.get(), 1)

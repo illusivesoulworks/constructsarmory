@@ -1,7 +1,0 @@
-{
-  "loader": "tconstruct:material",
-  "parent": "forge:item/default",
-  "textures": {
-    "texture": "constructsarmory:item/tool/parts/trim"
-  }
-}

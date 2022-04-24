@@ -56,7 +56,7 @@ minecraft {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'constructsarmory', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'constructsarmory', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), '--existing-mod', 'tconstruct'
 
             mods {
                 constructsarmory {

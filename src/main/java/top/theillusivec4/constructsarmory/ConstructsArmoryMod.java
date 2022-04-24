@@ -13,6 +13,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import slimeknights.tconstruct.common.data.tags.BlockTagProvider;
+import slimeknights.tconstruct.library.client.data.material.GeneratorPartTextureJsonGenerator;
+import slimeknights.tconstruct.library.client.data.material.MaterialPartTextureGenerator;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import top.theillusivec4.constructsarmory.client.ConstructsArmoryClient;
 import top.theillusivec4.constructsarmory.common.ConstructsArmoryItems;
@@ -20,8 +22,10 @@ import top.theillusivec4.constructsarmory.common.ConstructsArmoryModifiers;
 import top.theillusivec4.constructsarmory.common.stat.ConstructsArmoryMaterialStats;
 import top.theillusivec4.constructsarmory.data.ArmorDefinitionDataProvider;
 import top.theillusivec4.constructsarmory.data.ArmorMaterialDataProvider;
+import top.theillusivec4.constructsarmory.data.ArmorMaterialSpriteProvider;
 import top.theillusivec4.constructsarmory.data.ArmorMaterialStatsDataProvider;
 import top.theillusivec4.constructsarmory.data.ArmorMaterialTraitsDataProvider;
+import top.theillusivec4.constructsarmory.data.ArmorPartSpriteProvider;
 import top.theillusivec4.constructsarmory.data.ArmorRecipeProvider;
 import top.theillusivec4.constructsarmory.data.ArmorSlotLayoutProvider;
 import top.theillusivec4.constructsarmory.data.ArmorTagProvider;
@@ -55,10 +59,10 @@ public class ConstructsArmoryMod {
   }
 
   private void gatherData(final GatherDataEvent evt) {
+    ExistingFileHelper existingFileHelper = evt.getExistingFileHelper();
+    DataGenerator generator = evt.getGenerator();
 
     if (evt.includeServer()) {
-      DataGenerator generator = evt.getGenerator();
-      ExistingFileHelper existingFileHelper = evt.getExistingFileHelper();
       BlockTagProvider blockTags = new BlockTagProvider(generator, existingFileHelper);
       AbstractMaterialDataProvider materials = new ArmorMaterialDataProvider(generator);
       generator.addProvider(materials);
@@ -68,6 +72,16 @@ public class ConstructsArmoryMod {
       generator.addProvider(new ArmorDefinitionDataProvider(generator));
       generator.addProvider(new ArmorSlotLayoutProvider(generator));
       generator.addProvider(new ArmorTagProvider(generator, blockTags, existingFileHelper));
+    }
+
+    if (evt.includeClient()) {
+      ArmorPartSpriteProvider armorPartSpriteProvider = new ArmorPartSpriteProvider();
+      generator.addProvider(
+          new GeneratorPartTextureJsonGenerator(generator, ConstructsArmoryMod.MOD_ID,
+              armorPartSpriteProvider));
+      generator.addProvider(
+          new MaterialPartTextureGenerator(generator, existingFileHelper, armorPartSpriteProvider,
+              new ArmorMaterialSpriteProvider()));
     }
   }
 

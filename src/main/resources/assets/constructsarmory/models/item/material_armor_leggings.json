@@ -1,0 +1,13 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "legs_plate": "constructsarmory:item/tool/leggings/legs_plate",
+    "broken_legs_plate": "constructsarmory:item/tool/boots/broken_legs_plate",
+    "mail": "constructsarmory:item/tool/leggings/mail"
+  },
+  "parts": [
+    { "name": "legs_plate", "index": 0, "broken": "broken_legs_plate" },
+    { "name": "mail", "index": 1 }
+  ]
+}

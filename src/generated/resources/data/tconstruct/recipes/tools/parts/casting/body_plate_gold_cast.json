@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "constructsarmory:casts/multi_use/body_plate_cast"
+  },
+  "item_cost": 6,
+  "result": "constructsarmory:body_plate"
+}

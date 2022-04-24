@@ -1,0 +1,13 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "body_plate": "constructsarmory:item/tool/chestplate/body_plate",
+    "broken_body_plate": "constructsarmory:item/tool/boots/broken_body_plate",
+    "mail": "constructsarmory:item/tool/chestplate/mail"
+  },
+  "parts": [
+    { "name": "body_plate", "index": 0, "broken": "broken_body_plate" },
+    { "name": "mail", "index": 1 }
+  ]
+}

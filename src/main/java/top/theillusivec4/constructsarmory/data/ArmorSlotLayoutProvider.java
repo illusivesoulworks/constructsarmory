@@ -21,7 +21,7 @@ public class ArmorSlotLayoutProvider extends AbstractStationSlotLayoutProvider {
   protected void addLayouts() {
     Map<ArmorSlotType, IItemProvider> plates = new HashMap<>();
     plates.put(ArmorSlotType.HELMET, ConstructsArmoryItems.HEAD_PLATE);
-    plates.put(ArmorSlotType.CHESTPLATE, ConstructsArmoryItems.CHEST_PLATE);
+    plates.put(ArmorSlotType.CHESTPLATE, ConstructsArmoryItems.BODY_PLATE);
     plates.put(ArmorSlotType.LEGGINGS, ConstructsArmoryItems.LEGS_PLATE);
     plates.put(ArmorSlotType.BOOTS, ConstructsArmoryItems.FEET_PLATE);
     ConstructsArmoryItems.MATERIAL_ARMOR.forEach((slotType, item) ->

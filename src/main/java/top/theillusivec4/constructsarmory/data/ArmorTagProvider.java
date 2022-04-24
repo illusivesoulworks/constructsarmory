@@ -26,7 +26,7 @@ public class ArmorTagProvider extends ItemTagProvider {
     addArmorTags(ConstructsArmoryItems.MATERIAL_ARMOR, TinkerTags.Items.DURABILITY,
         TinkerTags.Items.MULTIPART_TOOL);
     this.getOrCreateBuilder(TinkerTags.Items.TOOL_PARTS)
-        .add(ConstructsArmoryItems.HEAD_PLATE.get(), ConstructsArmoryItems.CHEST_PLATE.get(),
+        .add(ConstructsArmoryItems.HEAD_PLATE.get(), ConstructsArmoryItems.BODY_PLATE.get(),
             ConstructsArmoryItems.LEGS_PLATE.get(), ConstructsArmoryItems.FEET_PLATE.get(),
             ConstructsArmoryItems.MAIL.get());
     TagsProvider.Builder<Item> goldCasts = this.getOrCreateBuilder(TinkerTags.Items.GOLD_CASTS);
@@ -49,11 +49,10 @@ public class ArmorTagProvider extends ItemTagProvider {
       this.getOrCreateBuilder(cast.getMultiUseTag()).add(cast.get());
     };
     addCast.accept(ConstructsArmoryItems.HEAD_PLATE_CAST);
-    addCast.accept(ConstructsArmoryItems.CHEST_PLATE_CAST);
+    addCast.accept(ConstructsArmoryItems.BODY_PLATE_CAST);
     addCast.accept(ConstructsArmoryItems.LEGS_PLATE_CAST);
     addCast.accept(ConstructsArmoryItems.FEET_PLATE_CAST);
     addCast.accept(ConstructsArmoryItems.MAIL_CAST);
-    addCast.accept(ConstructsArmoryItems.TRIM_CAST);
   }
 
   private ITag.INamedTag<Item> getArmorTag(ArmorSlotType slotType) {

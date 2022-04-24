@@ -2,10 +2,9 @@
   "replace": false,
   "values": [
     "constructsarmory:head_plate_cast_cast",
-    "constructsarmory:chest_plate_cast_cast",
+    "constructsarmory:body_plate_cast_cast",
     "constructsarmory:legs_plate_cast_cast",
     "constructsarmory:feet_plate_cast_cast",
-    "constructsarmory:mail_cast_cast",
-    "constructsarmory:trim_cast_cast"
+    "constructsarmory:mail_cast_cast"
   ]
 }

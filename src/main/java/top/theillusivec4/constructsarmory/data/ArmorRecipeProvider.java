@@ -28,7 +28,7 @@ public class ArmorRecipeProvider extends BaseRecipeProvider implements IMaterial
     String castFolder = "smeltery/casts/";
     partRecipes(consumer, ConstructsArmoryItems.HEAD_PLATE, ConstructsArmoryItems.HEAD_PLATE_CAST,
         4, partFolder, castFolder);
-    partRecipes(consumer, ConstructsArmoryItems.CHEST_PLATE, ConstructsArmoryItems.CHEST_PLATE_CAST,
+    partRecipes(consumer, ConstructsArmoryItems.BODY_PLATE, ConstructsArmoryItems.BODY_PLATE_CAST,
         6, partFolder, castFolder);
     partRecipes(consumer, ConstructsArmoryItems.LEGS_PLATE, ConstructsArmoryItems.LEGS_PLATE_CAST,
         5, partFolder, castFolder);

@@ -2,10 +2,9 @@
   "replace": false,
   "values": [
     "#constructsarmory:casts/multi_use/head_plate_cast",
-    "#constructsarmory:casts/multi_use/chest_plate_cast",
+    "#constructsarmory:casts/multi_use/body_plate_cast",
     "#constructsarmory:casts/multi_use/legs_plate_cast",
     "#constructsarmory:casts/multi_use/feet_plate_cast",
-    "#constructsarmory:casts/multi_use/mail_cast",
-    "#constructsarmory:casts/multi_use/trim_cast"
+    "#constructsarmory:casts/multi_use/mail_cast"
   ]
 }

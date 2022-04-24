@@ -60,8 +60,8 @@ public class ConstructsArmoryItems {
   public static final ItemObject<ToolPartItem> HEAD_PLATE =
       ITEMS.register("head_plate", () -> new ToolPartItem(PARTS_PROPS,
           ArmorMaterialStatsIdentifiers.PLATE));
-  public static final ItemObject<ToolPartItem> CHEST_PLATE =
-      ITEMS.register("chest_plate", () -> new ToolPartItem(PARTS_PROPS,
+  public static final ItemObject<ToolPartItem> BODY_PLATE =
+      ITEMS.register("body_plate", () -> new ToolPartItem(PARTS_PROPS,
           ArmorMaterialStatsIdentifiers.PLATE));
   public static final ItemObject<ToolPartItem> LEGS_PLATE =
       ITEMS.register("legs_plate", () -> new ToolPartItem(PARTS_PROPS,
@@ -78,16 +78,14 @@ public class ConstructsArmoryItems {
 
   public static final CastItemObject HEAD_PLATE_CAST =
       ITEMS.registerCast("head_plate_cast", SMELTERY_PROPS);
-  public static final CastItemObject CHEST_PLATE_CAST =
-      ITEMS.registerCast("chest_plate_cast", SMELTERY_PROPS);
+  public static final CastItemObject BODY_PLATE_CAST =
+      ITEMS.registerCast("body_plate_cast", SMELTERY_PROPS);
   public static final CastItemObject LEGS_PLATE_CAST =
       ITEMS.registerCast("legs_plate_cast", SMELTERY_PROPS);
   public static final CastItemObject FEET_PLATE_CAST =
       ITEMS.registerCast("feet_plate_cast", SMELTERY_PROPS);
   public static final CastItemObject MAIL_CAST =
       ITEMS.registerCast("mail_cast", SMELTERY_PROPS);
-  public static final CastItemObject TRIM_CAST =
-      ITEMS.registerCast("trim_cast", SMELTERY_PROPS);
 
   public static void init() {
     IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
