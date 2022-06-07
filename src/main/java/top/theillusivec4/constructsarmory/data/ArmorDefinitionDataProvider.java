@@ -9,6 +9,7 @@ import slimeknights.tconstruct.tools.item.ArmorSlotType;
 import top.theillusivec4.constructsarmory.ConstructsArmoryMod;
 import top.theillusivec4.constructsarmory.common.ConstructsArmoryDefinitions;
 import top.theillusivec4.constructsarmory.common.ConstructsArmoryItems;
+import top.theillusivec4.constructsarmory.common.stat.ConstructsArmoryStats;
 
 public class ArmorDefinitionDataProvider extends AbstractToolDefinitionDataProvider {
 
@@ -30,6 +31,7 @@ public class ArmorDefinitionDataProvider extends AbstractToolDefinitionDataProvi
         .stat(ToolStats.ARMOR, 0)
         .stat(ToolStats.ARMOR_TOUGHNESS, 0)
         .stat(ToolStats.KNOCKBACK_RESISTANCE, 0)
+        .stat(ConstructsArmoryStats.MOVEMENT_SPEED, 0)
         .startingSlots(SlotType.UPGRADE, 1)
         .startingSlots(SlotType.DEFENSE, 2)
         .startingSlots(SlotType.ABILITY, 1);

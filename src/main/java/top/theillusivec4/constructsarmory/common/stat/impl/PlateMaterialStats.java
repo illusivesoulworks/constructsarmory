@@ -16,6 +16,7 @@ import slimeknights.tconstruct.library.materials.stats.IRepairableMaterialStats;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import top.theillusivec4.constructsarmory.ConstructsArmoryMod;
+import top.theillusivec4.constructsarmory.common.stat.ConstructsArmoryStats;
 
 @Getter
 @NoArgsConstructor
@@ -29,21 +30,33 @@ public class PlateMaterialStats extends BaseMaterialStats implements IRepairable
   public static final PlateMaterialStats DEFAULT = new PlateMaterialStats();
 
   private static final List<ITextComponent> DESCRIPTION =
-      ImmutableList.of(ToolStats.DURABILITY.getDescription(), ToolStats.ARMOR.getDescription());
+      ImmutableList.of(ToolStats.DURABILITY.getDescription(), ToolStats.ARMOR.getDescription(),
+          ToolStats.ARMOR_TOUGHNESS.getDescription(),
+          ToolStats.KNOCKBACK_RESISTANCE.getDescription(),
+          ConstructsArmoryStats.MOVEMENT_SPEED.getDescription());
 
   private int durability;
   private float armor;
+  private float toughness;
+  private float knockbackResistance;
+  private float movementSpeed;
 
   @Override
   public void encode(PacketBuffer buffer) {
     buffer.writeInt(this.durability);
     buffer.writeFloat(this.armor);
+    buffer.writeFloat(this.toughness);
+    buffer.writeFloat(this.knockbackResistance);
+    buffer.writeFloat(this.movementSpeed);
   }
 
   @Override
   public void decode(PacketBuffer buffer) {
     this.durability = buffer.readInt();
     this.armor = buffer.readFloat();
+    this.toughness = buffer.readFloat();
+    this.knockbackResistance = buffer.readFloat();
+    this.movementSpeed = buffer.readFloat();
   }
 
   @Nonnull
@@ -58,6 +71,9 @@ public class PlateMaterialStats extends BaseMaterialStats implements IRepairable
     List<ITextComponent> info = Lists.newArrayList();
     info.add(ToolStats.DURABILITY.formatValue(this.durability));
     info.add(ToolStats.ARMOR.formatValue(this.armor));
+    info.add(ToolStats.ARMOR_TOUGHNESS.formatValue(this.toughness));
+    info.add(ToolStats.KNOCKBACK_RESISTANCE.formatValue(this.knockbackResistance));
+    info.add(ConstructsArmoryStats.MOVEMENT_SPEED.formatValue(this.movementSpeed));
     return info;
   }
 

@@ -1,7 +1,9 @@
 package top.theillusivec4.constructsarmory.common.stat;
 
 import com.google.common.annotations.VisibleForTesting;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.Nonnull;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -20,6 +22,10 @@ import top.theillusivec4.constructsarmory.common.stat.impl.PlateMaterialStats;
 
 @Getter(AccessLevel.PROTECTED)
 public final class ArmorStatsBuilder extends ToolStatsBuilder {
+
+  private static final int[] ARMOR_ARRAY =
+      new int[] {0, 1, 2, 3, 2, 3, 3, 0, 1, 2, 3, 2, 3, 0, 1, 2, 3, 2, 3, 3};
+  private static final Map<Float, float[]> ARMOR_VALUES = new HashMap<>();
 
   private final ArmorSlotType slotType;
   private final List<PlateMaterialStats> plates;
@@ -53,12 +59,14 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
     builder.set(ToolStats.ARMOR, buildArmor());
     builder.set(ToolStats.ARMOR_TOUGHNESS, buildArmorToughness());
     builder.set(ToolStats.KNOCKBACK_RESISTANCE, buildKnockbackResistance());
+    builder.set(ConstructsArmoryStats.MOVEMENT_SPEED, buildMovementSpeed());
   }
 
   @Override
   protected boolean handles(@Nonnull IToolStat<?> stat) {
     return stat == ToolStats.DURABILITY || stat == ToolStats.ARMOR ||
-        stat == ToolStats.ARMOR_TOUGHNESS || stat == ToolStats.KNOCKBACK_RESISTANCE;
+        stat == ToolStats.ARMOR_TOUGHNESS || stat == ToolStats.KNOCKBACK_RESISTANCE ||
+        stat == ConstructsArmoryStats.MOVEMENT_SPEED;
   }
 
   public float buildDurability() {
@@ -84,31 +92,58 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
     double averageArmor = getAverageValue(this.plates, PlateMaterialStats::getArmor) +
         this.toolData.getBonus(ToolStats.ARMOR);
     double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getArmor, 0);
+    return Math.round((float) Math.max(0, averageArmor * averageMailModifier) * 100f) / 100f;
+  }
 
-    switch (this.slotType) {
-      case HELMET:
-      case BOOTS:
-        averageArmor *= 0.15f;
-        break;
-      case LEGGINGS:
-        averageArmor *= 0.3f;
-        break;
-      case CHESTPLATE:
-        averageArmor *= 0.4f;
+  public static float getArmor(float armor, ArmorSlotType slotType) {
+    final float finalArmor = armor;
+    float[] values = ARMOR_VALUES.computeIfAbsent(finalArmor, (k) -> {
+      float points = finalArmor;
+      float[] result = new float[] {0.0f, 0.0f, 0.0f, 0.0f};
+      float step = 0.1f;
+
+      while (points >= step) {
+
+        for (int i = 0; i < ARMOR_ARRAY.length && points >= step; i++) {
+          int index = ARMOR_ARRAY[i];
+          result[index] += step;
+          points -= step;
+        }
+      }
+      result[0] += points;
+      return result;
+    });
+    int index = 0;
+
+    if (slotType == ArmorSlotType.HELMET) {
+      index = 1;
+    } else if (slotType == ArmorSlotType.LEGGINGS) {
+      index = 2;
+    } else if (slotType == ArmorSlotType.CHESTPLATE) {
+      index = 3;
     }
-    return (float) Math.max(0, averageArmor * averageMailModifier);
+    return values[index];
   }
 
   public float buildArmorToughness() {
-    double averageToughness = getAverageValue(this.mail, MailMaterialStats::getArmorToughness, 0) +
+    double averageToughness = getAverageValue(this.plates, PlateMaterialStats::getToughness, 0) +
         this.toolData.getBonus(ToolStats.ARMOR_TOUGHNESS);
     return (float) Math.max(0, averageToughness);
   }
 
   public float buildKnockbackResistance() {
     double averageKnockbackResistance =
-        getAverageValue(this.mail, MailMaterialStats::getKnockbackResistance, 0) +
+        getAverageValue(this.plates, PlateMaterialStats::getKnockbackResistance, 0) +
             this.toolData.getBonus(ToolStats.KNOCKBACK_RESISTANCE);
     return (float) Math.max(0, averageKnockbackResistance);
+  }
+
+  private float buildMovementSpeed() {
+    double averageMovementSpeed =
+        getAverageValue(this.plates, PlateMaterialStats::getMovementSpeed, 0) +
+            this.toolData.getBonus(ConstructsArmoryStats.MOVEMENT_SPEED);
+    double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getMovementSpeed, 1);
+    return Math.round((float) Math.max(0, averageMovementSpeed * averageMailModifier) * 100f) /
+        100f;
   }
 }

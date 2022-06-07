@@ -36,35 +36,34 @@ public class MailMaterialStats extends BaseMaterialStats {
       makeTooltipKey(TConstruct.getResource("durability"));
   private static final String ARMOR_PREFIX =
       makeTooltipKey(TConstruct.getResource("armor"));
+  private static final String MOVEMENT_SPEED_PREFIX =
+      makeTooltipKey(ConstructsArmoryMod.getResource("movement_speed"));
 
   private static final ITextComponent DURABILITY_DESCRIPTION =
       makeTooltip(ConstructsArmoryMod.getResource("mail.durability.description"));
   private static final ITextComponent ARMOR_DESCRIPTION =
       makeTooltip(ConstructsArmoryMod.getResource("mail.armor.description"));
+  private static final ITextComponent MOVEMENT_SPEED_DESCRIPTION =
+      makeTooltip(ConstructsArmoryMod.getResource("mail.movement_speed.description"));
   private static final List<ITextComponent> DESCRIPTION =
-      ImmutableList.of(DURABILITY_DESCRIPTION, ARMOR_DESCRIPTION,
-          ToolStats.ARMOR_TOUGHNESS.getDescription(),
-          ToolStats.KNOCKBACK_RESISTANCE.getDescription());
+      ImmutableList.of(DURABILITY_DESCRIPTION, ARMOR_DESCRIPTION, MOVEMENT_SPEED_DESCRIPTION);
 
   private float durability = 1.0f;
   private float armor = 1.0f;
-  private float armorToughness;
-  private float knockbackResistance;
+  private float movementSpeed = 1.0f;
 
   @Override
   public void encode(PacketBuffer buffer) {
     buffer.writeFloat(this.durability);
     buffer.writeFloat(this.armor);
-    buffer.writeFloat(this.armorToughness);
-    buffer.writeFloat(this.knockbackResistance);
+    buffer.writeFloat(this.movementSpeed);
   }
 
   @Override
   public void decode(PacketBuffer buffer) {
     this.durability = buffer.readFloat();
     this.armor = buffer.readFloat();
-    this.armorToughness = buffer.readFloat();
-    this.knockbackResistance = buffer.readFloat();
+    this.movementSpeed = buffer.readFloat();
   }
 
   @Override
@@ -79,8 +78,7 @@ public class MailMaterialStats extends BaseMaterialStats {
     List<ITextComponent> list = new ArrayList<>();
     list.add(formatDurability(this.durability));
     list.add(formatArmor(this.armor));
-    list.add(ToolStats.ARMOR_TOUGHNESS.formatValue(this.armorToughness));
-    list.add(ToolStats.KNOCKBACK_RESISTANCE.formatValue(this.knockbackResistance));
+    list.add(formatMovementSpeed(this.movementSpeed));
     return list;
   }
 
@@ -96,5 +94,9 @@ public class MailMaterialStats extends BaseMaterialStats {
 
   public static ITextComponent formatArmor(float armor) {
     return IToolStat.formatColoredMultiplier(ARMOR_PREFIX, armor);
+  }
+
+  public static ITextComponent formatMovementSpeed(float movementSpeed) {
+    return IToolStat.formatColoredMultiplier(MOVEMENT_SPEED_PREFIX, movementSpeed);
   }
 }

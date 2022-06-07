@@ -20,6 +20,7 @@ import top.theillusivec4.constructsarmory.client.ConstructsArmoryClient;
 import top.theillusivec4.constructsarmory.common.ConstructsArmoryItems;
 import top.theillusivec4.constructsarmory.common.ConstructsArmoryModifiers;
 import top.theillusivec4.constructsarmory.common.stat.ConstructsArmoryMaterialStats;
+import top.theillusivec4.constructsarmory.common.stat.ConstructsArmoryStats;
 import top.theillusivec4.constructsarmory.data.ArmorDefinitionDataProvider;
 import top.theillusivec4.constructsarmory.data.ArmorMaterialDataProvider;
 import top.theillusivec4.constructsarmory.data.ArmorMaterialSpriteProvider;
@@ -44,6 +45,7 @@ public class ConstructsArmoryMod {
     eventBus.addListener(this::gatherData);
     ConstructsArmoryItems.init();
     ConstructsArmoryModifiers.init();
+    ConstructsArmoryStats.init();
   }
 
   private void setup(final FMLCommonSetupEvent evt) {

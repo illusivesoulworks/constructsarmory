@@ -17,38 +17,72 @@ public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataPro
 
   @Override
   protected void addMaterialStats() {
-    addMaterialStats(MaterialIds.wood, 56, 4.0f, 0.0f, 0.0f);
-    addMaterialStats(MaterialIds.flint, 80, 6.5f, 0.0f, 0.0f);
-    addMaterialStats(MaterialIds.stone, 136, 7.0f, 0.0f, 0.0f);
-    addMaterialStats(MaterialIds.bone, 104, 6.0f, 1.0f, 0.0f);
-    addMaterialStats(MaterialIds.necroticBone, 144, 5.5f, 1.0f, 0.0f);
-    addMaterialStats(MaterialIds.iron, 224, 15.0f, 0.0f, 0.0f);
-    addMaterialStats(MaterialIds.searedStone, 160, 13.0f, 1.0f, 0.0f);
-    addMaterialStats(MaterialIds.scorchedStone, 144, 11.0f, 1.0f, 0.0f);
-    addMaterialStats(MaterialIds.copper, 200, 15.0f, 0.0f, 0.0f);
-    addMaterialStats(MaterialIds.slimewood, 304, 9.0f, 2.0f, 0.0f);
-    addMaterialStats(MaterialIds.roseGold, 144, 20.0f, 0.0f, 0.0f);
-    addMaterialStats(MaterialIds.silver, 288, 13.0f, 1.0f, 0.0f);
-    addMaterialStats(MaterialIds.lead, 192, 12.0f, 1, 0.15f);
-    addMaterialStats(MaterialIds.electrum, 208, 16.0f, 0.0f, 0.0f);
-    addMaterialStats(MaterialIds.slimesteel, 384, 13.0f, 3.0f, 0.0f);
-    addMaterialStats(MaterialIds.nahuatl, 288, 16.0f, 2.0f, 0.0f);
-    addMaterialStats(MaterialIds.tinkersBronze, 320, 18.0f, 1.0f, 0.0f);
-    addMaterialStats(MaterialIds.pigIron, 320, 17.0f, 2.0f, 0.0f);
-    addMaterialStats(MaterialIds.steel, 352, 19.0f, 2.0f, 0.0f);
-    addMaterialStats(MaterialIds.bronze, 344, 18.5f, 1.0f, 0.0f);
-    addMaterialStats(MaterialIds.constantan, 336, 18.0f, 2.0f, 0.0f);
-    addMaterialStats(MaterialIds.cobalt, 352, 20.0f, 2.0f, 0.0f);
-    addMaterialStats(MaterialIds.queensSlime, 560, 18.0f, 3.0f, 0.0f);
-    addMaterialStats(MaterialIds.manyullyn, 528, 20.0f, 4.0f, 0.0f);
-    addMaterialStats(MaterialIds.hepatizon, 512, 24.0f, 2.0f, 0.0f);
-    addMaterialStats(MaterialIds.leather, 80, 7.0f, 0.0f, 0.0f);
+
+    // Tier 1
+    addMaterialStats(MaterialIds.wood, 45, 2.0f, 0.0f, 0.0f, 0.075f, 1.0f, 1.0f, 1.0f);
+    addMaterialStats(MaterialIds.stone, 121, 3.0f, 0.0f, 0.025f, 0.005f, 0.8f, 1.05f, 1.0f);
+    addMaterialStats(MaterialIds.leather, 80, 4.0f, 0.0f, 0.0f, 0.0375f, 0.8f, 1.0f, 1.1f);
+    addMaterialStats(MaterialIds.bone, 95, 5.0f, 1.0f, 0.0f, 0.0150f, 0.75f, 1.1f, 1.0f);
+    addMailStats(MaterialIds.vine, 0.85f, 1.0f, 1.05f);
+
+    // Tier 2
+    addMaterialStats(MaterialIds.iron, 240, 14.0f, 0.0f, 0.0f, 0.0125f, 1.1f, 1.0f, 1.0f);
+    addMaterialStats(MaterialIds.copper, 200, 10.0f, 0.0f, 0.0f, 0.045f, 0.85f, 1.0f, 1.15f);
+    addMaterialStats(MaterialIds.searedStone, 211, 13.0f, 0.0f, 0.05f, 0.01f, 0.85f, 1.15f, 1.0f);
+    addMaterialStats(MaterialIds.slimewood, 309, 8.0f, 2.0f, 0.08f, 0.02f, 1.3f, 0.8f, 1.0f);
+    addMaterialStats(MaterialIds.necroticBone, 153, 12.0f, 2.0f, 0.0f, 0.015f, 0.7f, 1.15f, 1.0f);
+    addMaterialStats(MaterialIds.bloodbone, 172, 11.0f, 2.0f, 0.0f, 0.025f, 0.9f, 1.0f, 1.05f);
+    addMailStats(MaterialIds.skyslimeVine, 1.2f, 0.85f, 1.0f);
+
+    // Tier 2 - Addons
+    addMaterialStats(MaterialIds.osmium, 345, 10.0f, 0.0f, 0.05f, 0.025f, 1.2f, 1.05f, 0.9f);
+    addMaterialStats(MaterialIds.tungsten, 295, 13.0f, 1.0f, 0.05f, 0.005f, 0.9f, 1.2f, 0.95f);
+    addMaterialStats(MaterialIds.platinum, 323, 11.0f, 0.0f, 0.0f, 0.035f, 1.05f, 0.95f, 1.05f);
+    addMaterialStats(MaterialIds.silver, 257, 13.0f, 1.0f, 0.0f, 0.0125f, 0.9f, 1.1f, 1.0f);
+    addMaterialStats(MaterialIds.lead, 198, 14.0f, 1.0f, 0.05f, 0.0025f, 0.9f, 1.25f, 0.9f);
+    addMaterialStats(MaterialIds.whitestone, 249, 12.0f, 0.0f, 0.05f, 0.02f, 1.05f, 1.1f, 0.95f);
+
+    // Tier 3
+    addMaterialStats(MaterialIds.slimesteel, 502, 11.0f, 3.0f, 0.125f, 0.025f, 1.2f, 0.9f, 0.95f);
+    addMaterialStats(MaterialIds.tinkersBronze, 437, 12.0f, 2.0f, 0.05f, 0.055f, 1.05f, 1.0f, 1.1f);
+    addMaterialStats(MaterialIds.nahuatl, 275, 15.0f, 2.0f, 0.08f, 0.01f, 0.9f, 1.25f, 0.95f);
+    addMaterialStats(MaterialIds.pigIron, 386, 14.0f, 2.0f, 0.05f, 0.03f, 1.1f, 1.05f, 1.0f);
+    addMaterialStats(MaterialIds.roseGold, 182, 11.0f, 0.0f, 0.0f, 0.07f, 0.6f, 1.0f, 1.45f);
+    addMaterialStats(MaterialIds.cobalt, 480, 12.0f, 2.0f, 0.1f, 0.05f, 1.05f, 0.9f, 1.15f);
+
+    // Tier 3 - Addons
+    addMaterialStats(MaterialIds.steel, 474, 13.0f, 2.0f, 0.1f, 0.025f, 1.05f, 1.1f, 1.0f);
+    addMaterialStats(MaterialIds.bronze, 453, 11.0f, 2.0f, 0.05f, 0.0575f, 1.1f, 1.0f, 1.05f);
+    addMaterialStats(MaterialIds.constantan, 428, 12.0f, 2.0f, 0.08f, 0.05f, 0.95f, 1.0f, 1.15f);
+    addMaterialStats(MaterialIds.invar, 400, 15.0f, 2.0f, 0.05f, 0.0125f, 1.0f, 1.15f, 1.0f);
+    addMaterialStats(MaterialIds.necronium, 279, 14.0f, 3.0f, 0.0f, 0.02f, 0.8f, 1.2f, 1.1f);
+    addMaterialStats(MaterialIds.electrum, 227, 12.0f, 0.0f, 0.0f, 0.065f, 0.8f, 1.0f, 1.3f);
+    addMaterialStats(MaterialIds.platedSlimewood, 393, 10.0f, 3.0f, 0.1f, 0.025f, 1.25f, 0.95f,
+        0.9f);
+
+    // Tier 4
+    addMaterialStats(MaterialIds.queensSlime, 549, 12.0f, 4.0f, 0.15f, 0.03f, 1.35f, 0.9f, 0.95f);
+    addMaterialStats(MaterialIds.hepatizon, 496, 12.0f, 3.0f, 0.1f, 0.0625f, 1.1f, 0.9f, 1.2f);
+    addMaterialStats(MaterialIds.manyullyn, 521, 16.0f, 3.0f, 0.125f, 0.01f, 1.1f, 1.2f, 0.85f);
+    addMaterialStats(MaterialIds.blazingBone, 356, 14.0f, 3.0f, 0.0f, 0.035f, 0.85f, 1.15f, 1.1f);
+
+    // Tier 5
+    addMailStats(MaterialIds.enderslimeVine, 1.3f, 0.95f, 1.0f);
+  }
+
+  protected void addMailStats(MaterialId id, float durabilityMultiplier, float armorMultiplier,
+                              float movementMultiplier) {
+    addMaterialStats(id,
+        new MailMaterialStats(durabilityMultiplier, armorMultiplier, movementMultiplier));
   }
 
   protected void addMaterialStats(MaterialId id, int durability, float armor, float toughness,
-                                  float knockbackResistance) {
-    addMaterialStats(id, new PlateMaterialStats(durability, armor),
-        new MailMaterialStats(1.0f, 1.0f, toughness, knockbackResistance));
+                                  float knockbackResistance, float movementSpeed,
+                                  float durabilityMultiplier, float armorMultiplier,
+                                  float movementMultiplier) {
+    addMaterialStats(id,
+        new PlateMaterialStats(durability, armor, toughness, knockbackResistance, movementSpeed),
+        new MailMaterialStats(durabilityMultiplier, armorMultiplier, movementMultiplier));
   }
 
   @Override
