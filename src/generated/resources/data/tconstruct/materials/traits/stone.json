@@ -2,13 +2,13 @@
   "perStat": {
     "constructsarmory:mail": [
       {
-        "name": "constructsarmory:woven",
+        "name": "constructsarmory:petrous",
         "level": 1
       }
     ],
     "constructsarmory:plate": [
       {
-        "name": "constructsarmory:woven",
+        "name": "constructsarmory:petrous",
         "level": 1
       }
     ]

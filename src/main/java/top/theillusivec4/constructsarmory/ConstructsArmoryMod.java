@@ -16,6 +16,7 @@ import slimeknights.tconstruct.common.data.tags.BlockTagProvider;
 import slimeknights.tconstruct.library.client.data.material.GeneratorPartTextureJsonGenerator;
 import slimeknights.tconstruct.library.client.data.material.MaterialPartTextureGenerator;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
+import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
 import top.theillusivec4.constructsarmory.client.ConstructsArmoryClient;
 import top.theillusivec4.constructsarmory.common.ConstructsArmoryItems;
 import top.theillusivec4.constructsarmory.common.ConstructsArmoryModifiers;
@@ -89,5 +90,9 @@ public class ConstructsArmoryMod {
 
   public static ResourceLocation getResource(String id) {
     return new ResourceLocation(MOD_ID, id);
+  }
+
+  public static <T> TinkerDataCapability.TinkerDataKey<T> createKey(String name) {
+    return TinkerDataCapability.TinkerDataKey.of(getResource(name));
   }
 }

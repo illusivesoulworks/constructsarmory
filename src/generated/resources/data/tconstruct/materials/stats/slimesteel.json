@@ -1,14 +1,16 @@
 {
   "stats": {
     "constructsarmory:mail": {
-      "durability": 1.0,
-      "armor": 1.0,
-      "armorToughness": 3.0,
-      "knockbackResistance": 0.0
+      "durability": 1.2,
+      "armor": 0.9,
+      "movementSpeed": 0.95
     },
     "constructsarmory:plate": {
-      "durability": 384,
-      "armor": 13.0
+      "durability": 502,
+      "armor": 11.0,
+      "toughness": 3.0,
+      "knockbackResistance": 0.125,
+      "movementSpeed": 0.025
     }
   }
 }

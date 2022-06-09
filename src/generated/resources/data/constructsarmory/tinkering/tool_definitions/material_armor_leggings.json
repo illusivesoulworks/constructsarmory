@@ -11,7 +11,8 @@
     "base": {
       "tconstruct:armor": 0.0,
       "tconstruct:armor_toughness": 0.0,
-      "tconstruct:knockback_resistance": 0.0
+      "tconstruct:knockback_resistance": 0.0,
+      "constructsarmory:movement_speed": 0.0
     }
   },
   "slots": {

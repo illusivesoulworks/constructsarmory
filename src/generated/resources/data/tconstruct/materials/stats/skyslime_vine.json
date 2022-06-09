@@ -1,0 +1,9 @@
+{
+  "stats": {
+    "constructsarmory:mail": {
+      "durability": 1.2,
+      "armor": 0.85,
+      "movementSpeed": 1.0
+    }
+  }
+}

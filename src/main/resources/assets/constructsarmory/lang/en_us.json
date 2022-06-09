@@ -16,5 +16,10 @@
   "pattern.tconstruct.feet_plate": "Feet Plate",
   "pattern.tconstruct.mail": "Mail",
   "stat.constructsarmory.plate": "Plate",
-  "stat.constructsarmory.mail": "Mail"
+  "stat.constructsarmory.mail": "Mail",
+  "tool_stat.constructsarmory.movement_speed": "Movement Speed: ",
+  "modifier.constructsarmory.petrous": "Petrous",
+  "modifier.constructsarmory.woven": "Woven",
+  "modifier.constructsarmory.splintered": "Splintered",
+  "modifier.constructsarmory.delving": "Delving"
 }
