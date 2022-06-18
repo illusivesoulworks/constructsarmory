@@ -92,7 +92,9 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
     double averageArmor = getAverageValue(this.plates, PlateMaterialStats::getArmor) +
         this.toolData.getBonus(ToolStats.ARMOR);
     double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getArmor, 0);
-    return Math.round((float) Math.max(0, averageArmor * averageMailModifier) * 100f) / 100f;
+    return getArmor(
+        Math.round((float) Math.max(0, averageArmor * averageMailModifier) * 100f) / 100f,
+        this.slotType);
   }
 
   public static float getArmor(float armor, ArmorSlotType slotType) {
@@ -100,7 +102,15 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
     float[] values = ARMOR_VALUES.computeIfAbsent(finalArmor, (k) -> {
       float points = finalArmor;
       float[] result = new float[] {0.0f, 0.0f, 0.0f, 0.0f};
-      float step = 0.1f;
+      float step;
+
+      if (k > 4.0f) {
+        step = 1.0f;
+      } else if (k > 2.0f) {
+        step = 0.5f;
+      } else {
+        step = 0.1f;
+      }
 
       while (points >= step) {
 

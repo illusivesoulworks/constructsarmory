@@ -18,6 +18,8 @@ import slimeknights.tconstruct.library.client.data.material.MaterialPartTextureG
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
 import top.theillusivec4.constructsarmory.client.ConstructsArmoryClient;
+import top.theillusivec4.constructsarmory.common.ConstructsArmoryEffects;
+import top.theillusivec4.constructsarmory.common.ConstructsArmoryEvents;
 import top.theillusivec4.constructsarmory.common.ConstructsArmoryItems;
 import top.theillusivec4.constructsarmory.common.ConstructsArmoryModifiers;
 import top.theillusivec4.constructsarmory.common.stat.ConstructsArmoryMaterialStats;
@@ -47,9 +49,11 @@ public class ConstructsArmoryMod {
     ConstructsArmoryItems.init();
     ConstructsArmoryModifiers.init();
     ConstructsArmoryStats.init();
+    ConstructsArmoryEffects.init();
   }
 
   private void setup(final FMLCommonSetupEvent evt) {
+    ConstructsArmoryEvents.setup();
     evt.enqueueWork(ConstructsArmoryMaterialStats::setup);
   }
 

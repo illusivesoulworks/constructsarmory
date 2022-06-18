@@ -2,7 +2,7 @@
   "stats": {
     "constructsarmory:mail": {
       "durability": 0.9,
-      "armor": 1.0,
+      "armor": 1.1,
       "movementSpeed": 1.05
     },
     "constructsarmory:plate": {

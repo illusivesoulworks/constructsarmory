@@ -30,8 +30,8 @@ public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataPro
     addMaterialStats(MaterialIds.copper, 200, 10.0f, 0.0f, 0.0f, 0.045f, 0.85f, 1.0f, 1.15f);
     addMaterialStats(MaterialIds.searedStone, 211, 13.0f, 0.0f, 0.05f, 0.01f, 0.85f, 1.15f, 1.0f);
     addMaterialStats(MaterialIds.slimewood, 309, 8.0f, 2.0f, 0.08f, 0.02f, 1.3f, 0.8f, 1.0f);
-    addMaterialStats(MaterialIds.necroticBone, 153, 12.0f, 2.0f, 0.0f, 0.015f, 0.7f, 1.15f, 1.0f);
-    addMaterialStats(MaterialIds.bloodbone, 172, 11.0f, 2.0f, 0.0f, 0.025f, 0.9f, 1.0f, 1.05f);
+    addMaterialStats(MaterialIds.necroticBone, 153, 12.0f, 2.0f, 0.0f, 0.015f, 0.7f, 1.15f, 1.1f);
+    addMaterialStats(MaterialIds.bloodbone, 172, 11.0f, 2.0f, 0.0f, 0.025f, 0.9f, 1.1f, 1.05f);
     addMailStats(MaterialIds.skyslimeVine, 1.2f, 0.85f, 1.0f);
 
     // Tier 2 - Addons
