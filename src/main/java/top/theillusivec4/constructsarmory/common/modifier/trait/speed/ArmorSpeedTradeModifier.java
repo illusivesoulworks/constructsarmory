@@ -1,7 +1,5 @@
 package top.theillusivec4.constructsarmory.common.modifier.trait.speed;
 
-import java.util.EnumMap;
-import java.util.Map;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 import javax.annotation.Nonnull;
@@ -14,14 +12,19 @@ import net.minecraftforge.common.util.Lazy;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
+import top.theillusivec4.constructsarmory.common.modifier.EquipmentUtil;
+import top.theillusivec4.constructsarmory.common.stat.ConstructsArmoryStats;
 
 public class ArmorSpeedTradeModifier extends Modifier {
 
   private final float multiplier;
-  private final Map<EquipmentSlotType, UUID> uuid = new EnumMap<>(EquipmentSlotType.class);
-  private final Lazy<String> attributeName = Lazy.of(() -> {
+  private final Lazy<String> speedName = Lazy.of(() -> {
     ResourceLocation id = getId();
-    return id.getPath() + "." + id.getNamespace() + ".attack_damage";
+    return id.getPath() + "." + id.getNamespace() + ".speed";
+  });
+  private final Lazy<String> armorName = Lazy.of(() -> {
+    ResourceLocation id = getId();
+    return id.getPath() + "." + id.getNamespace() + ".armor";
   });
 
   /**
@@ -36,9 +39,9 @@ public class ArmorSpeedTradeModifier extends Modifier {
   /**
    * Gets the multiplier for this modifier at the current durability and level
    */
-  private double getMultiplier(IModifierToolStack armor, int level) {
-    return Math.sqrt(armor.getDamage() * level / armor.getModifier(ToolStats.DURABILITY)) *
-        multiplier;
+  private float getMultiplier(IModifierToolStack armor, int level) {
+    return (float) (Math.sqrt(armor.getDamage() * level / armor.getModifier(ToolStats.DURABILITY)) *
+        multiplier);
   }
 
   @Override
@@ -47,23 +50,18 @@ public class ArmorSpeedTradeModifier extends Modifier {
                             @Nonnull BiConsumer<Attribute, AttributeModifier> consumer) {
 
     if (slot.getSlotType() == EquipmentSlotType.Group.ARMOR) {
-      double boost = getMultiplier(armor, level);
+      float boost = getMultiplier(armor, level);
+      float movementBonus = armor.getStats().getFloat(ConstructsArmoryStats.MOVEMENT_SPEED);
+      float floor = (1f - 1f / (1f + movementBonus)) * -1f;
 
       if (boost != 0) {
-        consumer.accept(Attributes.ARMOR,
-            new AttributeModifier(getUuid(slot), attributeName.get(), boost * 0.8d,
-                AttributeModifier.Operation.MULTIPLY_TOTAL));
+        UUID uuid = EquipmentUtil.getUuid(getId(), slot);
+        consumer.accept(Attributes.ARMOR, new AttributeModifier(uuid, armorName.get(), boost * 0.8f,
+            AttributeModifier.Operation.MULTIPLY_TOTAL));
         consumer.accept(Attributes.MOVEMENT_SPEED,
-            new AttributeModifier(getUuid(slot), attributeName.get(), -boost,
+            new AttributeModifier(uuid, speedName.get(), Math.max(-boost, floor),
                 AttributeModifier.Operation.MULTIPLY_TOTAL));
       }
     }
-  }
-
-  private UUID getUuid(EquipmentSlotType slotType) {
-    return uuid.computeIfAbsent(slotType, (k) -> {
-      String key = getId() + slotType.toString();
-      return UUID.nameUUIDFromBytes(key.getBytes());
-    });
   }
 }

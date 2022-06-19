@@ -19,7 +19,7 @@ public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataPro
   protected void addMaterialStats() {
 
     // Tier 1
-    addMaterialStats(MaterialIds.wood, 45, 2.0f, 0.0f, 0.0f, 0.075f, 1.0f, 1.0f, 1.0f);
+    addMaterialStats(MaterialIds.wood, 45, 2.0f, 0.0f, 0.0f, 0.0075f, 1.0f, 1.0f, 1.0f);
     addMaterialStats(MaterialIds.stone, 121, 3.0f, 0.0f, 0.025f, 0.005f, 0.8f, 1.05f, 1.0f);
     addMaterialStats(MaterialIds.leather, 80, 4.0f, 0.0f, 0.0f, 0.0375f, 0.8f, 1.0f, 1.1f);
     addMaterialStats(MaterialIds.bone, 95, 5.0f, 1.0f, 0.0f, 0.0150f, 0.75f, 1.1f, 1.0f);
