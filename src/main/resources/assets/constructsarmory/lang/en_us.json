@@ -21,6 +21,8 @@
   "__comment": "Stats",
   "stat.constructsarmory.plate": "Plate",
   "stat.constructsarmory.mail": "Mail",
+  "tool_stat.constructsarmory.durability": "Durability (Head/Chest/Leggings/Feet): ",
+  "tool_stat.constructsarmory.armor": "Armor (Head/Chest/Leggings/Feet): ",
   "tool_stat.constructsarmory.movement_speed": "Movement Speed: ",
   "__comment": "Tier 1 Traits",
   "modifier.constructsarmory.cultivated": "Cultivated",
