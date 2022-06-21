@@ -2,6 +2,7 @@ package top.theillusivec4.constructsarmory.common.stat.impl;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import java.text.DecimalFormat;
 import java.util.List;
 import javax.annotation.Nonnull;
 import lombok.AllArgsConstructor;
@@ -10,7 +11,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.Color;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -36,8 +36,13 @@ public class PlateMaterialStats extends BaseMaterialStats implements IRepairable
       new MaterialStatsId(ConstructsArmoryMod.getResource("plate"));
   public static final PlateMaterialStats DEFAULT = new PlateMaterialStats();
 
+  public static final DecimalFormat PERCENT_FORMAT = new DecimalFormat("#.##%");
+
   private static final List<ITextComponent> DESCRIPTION =
-      ImmutableList.of(ToolStats.DURABILITY.getDescription(), ToolStats.ARMOR.getDescription(),
+      ImmutableList.of(new TranslationTextComponent(
+              "tool_stat." + ConstructsArmoryMod.MOD_ID + ".durability.description"),
+          new TranslationTextComponent(
+              "tool_stat." + ConstructsArmoryMod.MOD_ID + ".armor.description"),
           ToolStats.ARMOR_TOUGHNESS.getDescription(),
           ToolStats.KNOCKBACK_RESISTANCE.getDescription(),
           ConstructsArmoryStats.MOVEMENT_SPEED.getDescription());
@@ -82,8 +87,11 @@ public class PlateMaterialStats extends BaseMaterialStats implements IRepairable
     float[] armors = ArmorStatsCalculator.getArmorStats(this.armor);
     info.add(formatArray(ToolStats.ARMOR, armors[1], armors[3], armors[2], armors[0]));
     info.add(ToolStats.ARMOR_TOUGHNESS.formatValue(this.toughness));
-    info.add(ToolStats.KNOCKBACK_RESISTANCE.formatValue(this.knockbackResistance));
-    info.add(ConstructsArmoryStats.MOVEMENT_SPEED.formatValue(this.movementSpeed));
+    info.add(ToolStats.KNOCKBACK_RESISTANCE.formatValue(this.knockbackResistance * 10f));
+    info.add(new TranslationTextComponent(
+        "tool_stat." + ConstructsArmoryMod.MOD_ID + ".movement_speed").appendSibling(
+        new StringTextComponent(PERCENT_FORMAT.format(this.movementSpeed)).modifyStyle(
+            style -> style.setColor(ConstructsArmoryStats.MOVEMENT_SPEED.getColor()))));
     return info;
   }
 

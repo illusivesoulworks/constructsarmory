@@ -1,8 +1,12 @@
 package top.theillusivec4.constructsarmory.common.item;
 
+import static top.theillusivec4.constructsarmory.common.stat.impl.PlateMaterialStats.PERCENT_FORMAT;
+
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import java.util.List;
 import java.util.UUID;
+import java.util.function.BiPredicate;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import net.minecraft.client.renderer.entity.model.BipedModel;
@@ -10,15 +14,29 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
+import slimeknights.tconstruct.library.tools.helper.TooltipBuilder;
+import slimeknights.tconstruct.library.tools.helper.TooltipUtil;
 import slimeknights.tconstruct.library.tools.item.ModifiableArmorItem;
 import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
 import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
+import slimeknights.tconstruct.library.tools.stat.ToolStats;
+import slimeknights.tconstruct.library.utils.TooltipFlag;
+import slimeknights.tconstruct.library.utils.TooltipKey;
+import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.item.ArmorSlotType;
+import top.theillusivec4.constructsarmory.ConstructsArmoryMod;
 import top.theillusivec4.constructsarmory.client.MaterialArmorModel;
 import top.theillusivec4.constructsarmory.common.stat.ConstructsArmoryStats;
 
@@ -64,5 +82,59 @@ public class MaterialArmorItem extends ModifiableArmorItem {
               AttributeModifier.Operation.MULTIPLY_TOTAL));
     }
     return builder.build();
+  }
+
+  public static final BiPredicate<Attribute, AttributeModifier.Operation>
+      SHOW_ARMOR_ATTRIBUTES = (att, op) -> (op != AttributeModifier.Operation.ADDITION &&
+      !(op == AttributeModifier.Operation.MULTIPLY_TOTAL && att == Attributes.MOVEMENT_SPEED)) ||
+      (att != Attributes.ARMOR && att != Attributes.ARMOR_TOUGHNESS &&
+          att != Attributes.KNOCKBACK_RESISTANCE && att != Attributes.MOVEMENT_SPEED);
+
+  @Nonnull
+  @Override
+  public List<ITextComponent> getStatInformation(@Nonnull IModifierToolStack tool,
+                                                 @Nullable PlayerEntity player,
+                                                 @Nonnull List<ITextComponent> tooltips,
+                                                 @Nonnull TooltipKey key,
+                                                 @Nonnull TooltipFlag tooltipFlag) {
+    tooltips = getArmorStats(tool, player, tooltips, key, tooltipFlag);
+    TooltipUtil.addAttributes(this, tool, player, tooltips, SHOW_ARMOR_ATTRIBUTES,
+        getEquipmentSlot());
+    return tooltips;
+  }
+
+  public static List<ITextComponent> getArmorStats(IModifierToolStack tool,
+                                                   @Nullable PlayerEntity player,
+                                                   List<ITextComponent> tooltip, TooltipKey key,
+                                                   TooltipFlag flag) {
+    TooltipBuilder builder = new TooltipBuilder(tool, tooltip);
+    Item item = tool.getItem();
+
+    if (TinkerTags.Items.DURABILITY.contains(item)) {
+      builder.addDurability();
+    }
+
+    if (TinkerTags.Items.ARMOR.contains(item)) {
+      builder.add(ToolStats.ARMOR);
+      builder.add(ToolStats.ARMOR_TOUGHNESS);
+      builder.add(ToolStats.KNOCKBACK_RESISTANCE.formatValue(
+          tool.getStats().getFloat(ToolStats.KNOCKBACK_RESISTANCE) * 10f));
+      builder.add(new TranslationTextComponent(
+          "tool_stat." + ConstructsArmoryMod.MOD_ID + ".movement_speed").appendSibling(
+          new StringTextComponent(PERCENT_FORMAT.format(
+              tool.getStats().getFloat(ConstructsArmoryStats.MOVEMENT_SPEED))).modifyStyle(
+              style -> style.setColor(ConstructsArmoryStats.MOVEMENT_SPEED.getColor()))));
+    }
+
+    if (TinkerTags.Items.CHESTPLATES.contains(item) &&
+        tool.getModifierLevel(TinkerModifiers.unarmed.get()) > 0) {
+      builder.addWithAttribute(ToolStats.ATTACK_DAMAGE, Attributes.ATTACK_DAMAGE);
+    }
+    builder.addAllFreeSlots();
+
+    for (ModifierEntry entry : tool.getModifierList()) {
+      entry.getModifier().addInformation(tool, entry.getLevel(), player, tooltip, key, flag);
+    }
+    return builder.getTooltips();
   }
 }
