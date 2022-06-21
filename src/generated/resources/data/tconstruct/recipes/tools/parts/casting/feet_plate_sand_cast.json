@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:table_casting_material",
   "cast": {
-    "tag": "constructsarmory:casts/single_use/feet_plate_cast"
+    "tag": "constructsarmory:casts/single_use/feet_plate"
   },
   "cast_consumed": true,
   "item_cost": 3,

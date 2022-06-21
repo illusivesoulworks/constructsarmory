@@ -10,6 +10,6 @@
     "tag": "forge:molten_gold",
     "amount": 144
   },
-  "result": "constructsarmory:body_plate_cast_cast",
+  "result": "constructsarmory:body_plate_cast",
   "cooling_time": 57
 }

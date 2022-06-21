@@ -77,15 +77,15 @@ public class ConstructsArmoryItems {
       new Item.Properties().group(TinkerSmeltery.TAB_SMELTERY);
 
   public static final CastItemObject HEAD_PLATE_CAST =
-      ITEMS.registerCast("head_plate_cast", SMELTERY_PROPS);
+      ITEMS.registerCast("head_plate", SMELTERY_PROPS);
   public static final CastItemObject BODY_PLATE_CAST =
-      ITEMS.registerCast("body_plate_cast", SMELTERY_PROPS);
+      ITEMS.registerCast("body_plate", SMELTERY_PROPS);
   public static final CastItemObject LEGS_PLATE_CAST =
-      ITEMS.registerCast("legs_plate_cast", SMELTERY_PROPS);
+      ITEMS.registerCast("legs_plate", SMELTERY_PROPS);
   public static final CastItemObject FEET_PLATE_CAST =
-      ITEMS.registerCast("feet_plate_cast", SMELTERY_PROPS);
+      ITEMS.registerCast("feet_plate", SMELTERY_PROPS);
   public static final CastItemObject MAIL_CAST =
-      ITEMS.registerCast("mail_cast", SMELTERY_PROPS);
+      ITEMS.registerCast("mail", SMELTERY_PROPS);
 
   public static void init() {
     IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

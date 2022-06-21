@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "constructsarmory:head_plate_cast_red_sand_cast",
-    "constructsarmory:body_plate_cast_red_sand_cast",
-    "constructsarmory:legs_plate_cast_red_sand_cast",
-    "constructsarmory:feet_plate_cast_red_sand_cast",
-    "constructsarmory:mail_cast_red_sand_cast"
+    "constructsarmory:head_plate_red_sand_cast",
+    "constructsarmory:body_plate_red_sand_cast",
+    "constructsarmory:legs_plate_red_sand_cast",
+    "constructsarmory:feet_plate_red_sand_cast",
+    "constructsarmory:mail_red_sand_cast"
   ]
 }
