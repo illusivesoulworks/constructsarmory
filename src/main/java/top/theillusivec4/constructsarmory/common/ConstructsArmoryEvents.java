@@ -25,10 +25,12 @@ public class ConstructsArmoryEvents {
     MinecraftForge.EVENT_BUS.addListener(ConstructsArmoryEvents::livingHurt);
 //    MinecraftForge.EVENT_BUS.addListener(ConstructsArmoryEvents::livingDamage);
   }
-//
+
 //  private static void livingDamage(final LivingDamageEvent evt) {
 //
 //    if (evt.getEntityLiving() instanceof PlayerEntity) {
+////      ConstructsArmoryMod.LOGGER.info(evt.getAmount());
+//    } else if (evt.getSource().getTrueSource() instanceof PlayerEntity){
 //      ConstructsArmoryMod.LOGGER.info(evt.getAmount());
 //    }
 //  }
@@ -58,6 +60,7 @@ public class ConstructsArmoryEvents {
       if (toughnessAtt != null) {
         toughness = (float) toughnessAtt.getValue();
       }
+//      ConstructsArmoryMod.LOGGER.info(evt.getAmount());
       float damage = CombatRules.getDamageAfterAbsorb(evt.getAmount(), armor, toughness);
       evt.setAmount(
           ArmorUtil.getDamageBeforeArmorAbsorb(damage, living.getTotalArmorValue(), toughness));

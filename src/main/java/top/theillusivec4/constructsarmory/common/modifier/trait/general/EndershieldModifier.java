@@ -27,8 +27,7 @@ public class EndershieldModifier extends Modifier {
     LivingEntity self = context.getEntity();
 
     if (!self.isPotionActive(TinkerModifiers.teleportCooldownEffect.get()) &&
-        source.getTrueSource() instanceof LivingEntity &&
-        RANDOM.nextInt(10 - level) == 0) {
+        RANDOM.nextInt(10 - level * 2) == 0) {
 
       if (TeleportHelper.randomNearbyTeleport(context.getEntity(), FACTORY)) {
         TinkerModifiers.teleportCooldownEffect.get().apply(self, 15 * 20, 1, true);

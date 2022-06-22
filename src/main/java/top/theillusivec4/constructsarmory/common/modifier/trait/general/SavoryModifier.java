@@ -25,7 +25,7 @@ public class SavoryModifier extends Modifier {
       LivingEntity livingEntity = context.getEntity();
 
       if (livingEntity.hurtResistantTime <= 10 &&
-          RANDOM.nextInt(48 / level) <= (Math.log(amount + 1.0f) * 2.0f)) {
+          RANDOM.nextInt(24 / level) <= (Math.log(amount + 1.0f) * 2.0f)) {
         context.getEntity().entityDropItem(new ItemStack(TinkerCommons.bacon));
       }
     }

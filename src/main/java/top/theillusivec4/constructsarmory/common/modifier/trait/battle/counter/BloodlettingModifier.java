@@ -47,14 +47,14 @@ public class BloodlettingModifier extends TotalArmorLevelModifier {
 
     if (attacker instanceof LivingEntity && attacker.isAlive() && isDirectDamage &&
         RANDOM.nextFloat() < 0.15f * level) {
-      EffectInstance effect = ((LivingEntity) attacker).getActivePotionEffect(
+      EffectInstance effect = context.getEntity().getActivePotionEffect(
           ConstructsArmoryEffects.BLOODLETTING.get());
 
       if (effect != null) {
         int effectLevel = effect.getAmplifier() + 1;
         float percent = effectLevel / 16f;
         attacker.attackEntityFrom(DamageSource.causeThornsDamage(context.getEntity()),
-            4f * level * percent);
+            2f * level * percent);
         ToolDamageUtil.damageAnimated(tool, 1, context.getEntity(), slotType);
       }
     }

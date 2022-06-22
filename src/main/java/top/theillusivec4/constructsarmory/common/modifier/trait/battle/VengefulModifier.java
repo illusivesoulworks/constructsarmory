@@ -72,6 +72,6 @@ public class VengefulModifier extends TotalArmorLevelModifier {
     } else {
       bonus = 2f;
     }
-    EquipmentUtil.addResistanceTooltip(this, tool, level, bonus, tooltip);
+    EquipmentUtil.addResistanceTooltip(this, tool, bonus, tooltip);
   }
 }

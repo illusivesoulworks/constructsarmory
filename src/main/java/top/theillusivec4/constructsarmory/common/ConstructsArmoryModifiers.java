@@ -16,6 +16,7 @@ import slimeknights.tconstruct.tools.modifiers.traits.general.SturdyModifier;
 import top.theillusivec4.constructsarmory.ConstructsArmoryMod;
 import top.theillusivec4.constructsarmory.common.modifier.trait.battle.HallowedModifier;
 import top.theillusivec4.constructsarmory.common.modifier.trait.battle.IgneousModifier;
+import top.theillusivec4.constructsarmory.common.modifier.trait.battle.PetrousModifier;
 import top.theillusivec4.constructsarmory.common.modifier.trait.battle.StableModifier;
 import top.theillusivec4.constructsarmory.common.modifier.trait.battle.VengefulModifier;
 import top.theillusivec4.constructsarmory.common.modifier.trait.battle.WeightyModifier;
@@ -34,7 +35,6 @@ import top.theillusivec4.constructsarmory.common.modifier.trait.general.Shieldin
 import top.theillusivec4.constructsarmory.common.modifier.trait.general.StoneguardModifier;
 import top.theillusivec4.constructsarmory.common.modifier.trait.speed.AccelerationModifier;
 import top.theillusivec4.constructsarmory.common.modifier.trait.speed.AerialModifier;
-import top.theillusivec4.constructsarmory.common.modifier.trait.speed.ArmorSpeedTradeModifier;
 import top.theillusivec4.constructsarmory.common.modifier.trait.speed.DelvingModifier;
 import top.theillusivec4.constructsarmory.common.modifier.trait.speed.FerventModifier;
 import top.theillusivec4.constructsarmory.common.modifier.trait.speed.ImmaculateModifier;
@@ -42,6 +42,7 @@ import top.theillusivec4.constructsarmory.common.modifier.trait.speed.Immaculate
 import top.theillusivec4.constructsarmory.common.modifier.trait.speed.NimbleModifier;
 import top.theillusivec4.constructsarmory.common.modifier.trait.speed.RadiantModifier;
 import top.theillusivec4.constructsarmory.common.modifier.trait.speed.SalvagedModifier;
+import top.theillusivec4.constructsarmory.common.modifier.trait.speed.WovenModifier;
 
 public class ConstructsArmoryModifiers {
 
@@ -51,10 +52,10 @@ public class ConstructsArmoryModifiers {
   // Tier 1
   public static final RegistryObject<CultivatedModifier> CULTIVATED =
       MODIFIERS.register("cultivated", CultivatedModifier::new);
-  public static final RegistryObject<ArmorSpeedTradeModifier> WOVEN =
-      MODIFIERS.register("woven", () -> new ArmorSpeedTradeModifier(0xc65c35, -0.005f));
-  public static final RegistryObject<ArmorSpeedTradeModifier> PETROUS =
-      MODIFIERS.register("petrous", () -> new ArmorSpeedTradeModifier(0x999999, 0.005f));
+  public static final RegistryObject<WovenModifier> WOVEN =
+      MODIFIERS.register("woven", WovenModifier::new);
+  public static final RegistryObject<PetrousModifier> PETROUS =
+      MODIFIERS.register("petrous", PetrousModifier::new);
   public static final RegistryObject<CounterattackModifier> SPLINTERED =
       MODIFIERS.register("splintered", SplinteredModifier::new);
   public static final RegistryObject<SolarPoweredModifier> SOLAR_POWERED =

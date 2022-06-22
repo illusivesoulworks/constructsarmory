@@ -32,7 +32,7 @@ public class HallowedModifier extends Modifier {
       Entity attacker = source.getTrueSource();
 
       if (attacker instanceof LivingEntity && ((LivingEntity) attacker).isEntityUndead()) {
-        modifierValue += 2f;
+        modifierValue += level * 2f;
       }
     }
     return modifierValue;
@@ -42,6 +42,6 @@ public class HallowedModifier extends Modifier {
   public void addInformation(@Nonnull IModifierToolStack tool, int level,
                              @Nullable PlayerEntity player, @Nonnull List<ITextComponent> tooltip,
                              @Nonnull TooltipKey key, @Nonnull TooltipFlag flag) {
-    EquipmentUtil.addResistanceTooltip(this, tool, level, 2f, tooltip);
+    EquipmentUtil.addResistanceTooltip(this, tool, level * 2f, tooltip);
   }
 }

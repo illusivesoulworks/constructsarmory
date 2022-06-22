@@ -24,7 +24,7 @@ public class AerialModifier extends AbstractSpeedModifier {
 
   private static final int SEA_LEVEL = 64;
   private static final int MAX_LEVEL = 128;
-  private static final float BOOST_AT_255 = 0.02f;
+  private static final float BOOST_AT_255 = 0.04f;
 
   private static float getBoost(int y, int level) {
     return (y - SEA_LEVEL) / (float) (MAX_LEVEL - SEA_LEVEL) * level * BOOST_AT_255;

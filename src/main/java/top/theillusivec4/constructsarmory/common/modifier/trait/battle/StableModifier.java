@@ -53,6 +53,6 @@ public class StableModifier extends Modifier {
     } else {
       bonus = level * 1.25f;
     }
-    EquipmentUtil.addResistanceTooltip(this, tool, level, bonus, tooltip);
+    EquipmentUtil.addResistanceTooltip(this, tool, bonus, tooltip);
   }
 }

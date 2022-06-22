@@ -44,7 +44,12 @@ public class WeightyModifier extends Modifier {
                                      float modifierValue) {
 
     if (!source.isDamageAbsolute() && !source.canHarmInCreative()) {
-      modifierValue += 2f;
+      ModifiableAttributeInstance attributeInstance =
+          context.getEntity().getAttribute(Attributes.MOVEMENT_SPEED);
+
+      if (attributeInstance != null) {
+        modifierValue += getBonus((float) attributeInstance.getValue(), 0.0f, 2.0f) * level;
+      }
     }
     return modifierValue;
   }
@@ -65,8 +70,8 @@ public class WeightyModifier extends Modifier {
         bonus = 0f;
       }
     } else {
-      bonus = 2f;
+      bonus = level * 2f;
     }
-    EquipmentUtil.addResistanceTooltip(this, tool, level, bonus, tooltip);
+    EquipmentUtil.addResistanceTooltip(this, tool, bonus, tooltip);
   }
 }

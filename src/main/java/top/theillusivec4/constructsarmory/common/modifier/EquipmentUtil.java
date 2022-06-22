@@ -27,12 +27,12 @@ public class EquipmentUtil {
         });
   }
 
-  public static void addResistanceTooltip(Modifier modifier, IModifierToolStack armor, int level,
+  public static void addResistanceTooltip(Modifier modifier, IModifierToolStack armor,
                                           float multiplier, List<ITextComponent> tooltip) {
 
     if (armor.hasTag(TinkerTags.Items.ARMOR)) {
       tooltip.add(modifier.applyStyle(new StringTextComponent(
-          Util.PERCENT_BOOST_FORMAT.format(level * multiplier / 25f))
+          Util.PERCENT_BOOST_FORMAT.format(multiplier / 25f))
           .appendString(" ")
           .appendSibling(
               new TranslationTextComponent(modifier.getTranslationKey() + ".resistance"))));
