@@ -100,7 +100,6 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
         getAverageValue(this.plates, PlateMaterialStats::getMovementSpeed, 0) +
             this.toolData.getBonus(ConstructsArmoryStats.MOVEMENT_SPEED);
     double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getMovementSpeed, 1);
-    return Math.round((float) Math.max(0, averageMovementSpeed * averageMailModifier) * 100f) /
-        100f;
+    return (float) Math.max(0, averageMovementSpeed * averageMailModifier);
   }
 }
