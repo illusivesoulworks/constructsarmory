@@ -10,6 +10,7 @@ import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.LightType;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
 import slimeknights.tconstruct.library.utils.TooltipFlag;
@@ -37,7 +38,14 @@ public class RadiantModifier extends AbstractSpeedModifier {
       float boost;
 
       if (player != null && key == TooltipKey.SHIFT) {
-        boost = getBoost(player.world.getLight(player.getPosition()), level);
+        int i = player.world.getLightFor(LightType.BLOCK, player.getPosition());
+
+        if (player.world.getDimensionType().hasSkyLight()) {
+          player.world.calculateInitialSkylight();
+          i = Math.max(i, player.world.getLightFor(LightType.SKY, player.getPosition()) -
+              player.world.getSkylightSubtracted());
+        }
+        boost = getBoost(i, level);
       } else {
         boost = BOOST_AT_15 * level;
       }
@@ -52,7 +60,13 @@ public class RadiantModifier extends AbstractSpeedModifier {
   protected void applyBoost(IModifierToolStack armor, EquipmentSlotType slotType,
                             ModifiableAttributeInstance attribute, UUID uuid, int level,
                             LivingEntity living) {
-    float boost = getBoost((int) living.getPosY(), level);
+    int i = living.world.getLightFor(LightType.BLOCK, living.getPosition());
+
+    if (living.world.getDimensionType().hasSkyLight()) {
+      i = Math.max(i, living.world.getLightFor(LightType.SKY, living.getPosition()) -
+          living.world.getSkylightSubtracted());
+    }
+    float boost = getBoost(i, level);
 
     if (boost > 0) {
       attribute.applyNonPersistentModifier(

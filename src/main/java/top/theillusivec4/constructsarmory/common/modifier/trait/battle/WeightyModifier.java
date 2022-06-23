@@ -48,7 +48,7 @@ public class WeightyModifier extends Modifier {
           context.getEntity().getAttribute(Attributes.MOVEMENT_SPEED);
 
       if (attributeInstance != null) {
-        modifierValue += getBonus((float) attributeInstance.getValue(), 0.0f, 2.0f) * level;
+        modifierValue += getBonus((float) attributeInstance.getValue(), 0.0f, 1.5f) * level;
       }
     }
     return modifierValue;
@@ -65,12 +65,12 @@ public class WeightyModifier extends Modifier {
           player.getAttribute(Attributes.MOVEMENT_SPEED);
 
       if (attributeInstance != null) {
-        bonus = getBonus((float) attributeInstance.getValue(), 0.0f, 2.0f);
+        bonus = getBonus((float) attributeInstance.getValue(), 0.0f, 1.5f) * level;
       } else {
         bonus = 0f;
       }
     } else {
-      bonus = level * 2f;
+      bonus = level * 1.5f;
     }
     EquipmentUtil.addResistanceTooltip(this, tool, bonus, tooltip);
   }

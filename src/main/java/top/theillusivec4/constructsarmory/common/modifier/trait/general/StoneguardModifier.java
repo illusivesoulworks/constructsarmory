@@ -6,7 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.DurabilityShieldModifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -33,7 +33,7 @@ public class StoneguardModifier extends DurabilityShieldModifier {
     return 175;
   }
 
-  private static void onItemPickup(final PlayerEvent.ItemPickupEvent evt) {
+  private static void onItemPickup(final EntityItemPickupEvent evt) {
     PlayerEntity player = evt.getPlayer();
 
     if (player.isSpectator()) {
@@ -44,7 +44,7 @@ public class StoneguardModifier extends DurabilityShieldModifier {
     if (!context.hasModifiableArmor()) {
       return;
     }
-    ItemStack stack = evt.getStack();
+    ItemStack stack = evt.getItem().getItem();
 
     if (!TinkerTags.Items.STONESHIELDS.contains(stack.getItem())) {
       return;
@@ -66,6 +66,7 @@ public class StoneguardModifier extends DurabilityShieldModifier {
 
               if (chance >= 1.0f) {
                 addedShield += stack.getCount();
+                stack.shrink(stack.getCount());
               } else {
                 int reduced = 0;
 
