@@ -140,7 +140,6 @@ public class AccelerationModifier extends TotalArmorLevelModifier implements IAr
       float boost = level * effectLevel / 400f;
 
       if (boost > 0) {
-        ConstructsArmoryMod.LOGGER.info(boost);
         attribute.applyNonPersistentModifier(
             new AttributeModifier(uuid, "constructsarmory.modifier.acceleration", boost,
                 AttributeModifier.Operation.MULTIPLY_TOTAL));
