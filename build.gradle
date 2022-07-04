@@ -88,7 +88,6 @@ dependencies {
 sourceSets {
     main {
         resources {
-            srcDirs += 'docs'
             srcDirs 'src/generated/resources'
             exclude '.cache'
         }
@@ -115,6 +114,11 @@ task sourcesJar(type: Jar) {
 tasks.build.dependsOn sourcesJar
 
 processResources {
+    from("CHANGELOG.md")
+    from("COPYING")
+    from("COPYING.LESSER")
+    from("LICENSE")
+    from("README.md")
 
     from(sourceSets.main.resources.srcDirs) {
         include 'META-INF/mods.toml'
@@ -123,6 +127,7 @@ processResources {
 
     from(sourceSets.main.resources.srcDirs) {
         exclude 'META-INF/mods.toml'
+        exclude '.cache/**'
     }
 }
 
@@ -134,7 +139,7 @@ curseforge {
         id = "${curse_id}"
         releaseType = "${curse_release}"
         changelogType = 'markdown'
-        changelog = file('docs/CHANGELOG.md')
+        changelog = file('CHANGELOG_LATEST.md')
         addArtifact(sourcesJar)
     }
 }
