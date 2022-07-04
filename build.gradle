@@ -136,10 +136,17 @@ curseforge {
 
     project {
         apiKey = findProperty('curseKey') ?: 0
-        id = "${curse_id}"
-        releaseType = "${curse_release}"
+        id = "${cf_id}"
+        releaseType = "${cf_release}"
         changelogType = 'markdown'
         changelog = file('CHANGELOG_LATEST.md')
         addArtifact(sourcesJar)
+        "${cf_versions}".split(',').each {
+            addGameVersion "${it}"
+        }
+        relations {
+            requiredDependency 'tinkers-construct'
+            requiredDependency 'mantle'
+        }
     }
 }
