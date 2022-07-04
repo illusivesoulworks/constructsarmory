@@ -28,5 +28,5 @@ ${mod_description}
     modId="tconstruct"
     mandatory=true
     versionRange="[1.16.5-3.3.2.324,)"
-    ordering="BEFORE"
+    ordering="NONE"
     side="BOTH"

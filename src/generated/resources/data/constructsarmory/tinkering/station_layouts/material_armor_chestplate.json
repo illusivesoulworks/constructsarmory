@@ -9,7 +9,7 @@
     {
       "icon": "constructsarmory:body_plate",
       "translation_key": "item.constructsarmory.body_plate",
-      "x": 30,
+      "x": 37,
       "y": 48,
       "filter": {
         "item": "constructsarmory:body_plate"
@@ -18,7 +18,7 @@
     {
       "icon": "constructsarmory:mail",
       "translation_key": "item.constructsarmory.mail",
-      "x": 12,
+      "x": 19,
       "y": 30,
       "filter": {
         "item": "constructsarmory:mail"

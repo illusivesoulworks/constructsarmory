@@ -1,8 +1,0 @@
-{
-  "type": "tconstruct:part_builder",
-  "pattern": "tconstruct:mail",
-  "cost": 2,
-  "result": {
-    "item": "constructsarmory:mail"
-  }
-}

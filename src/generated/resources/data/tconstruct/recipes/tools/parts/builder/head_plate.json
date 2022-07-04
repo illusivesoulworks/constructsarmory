@@ -1,8 +1,0 @@
-{
-  "type": "tconstruct:part_builder",
-  "pattern": "tconstruct:head_plate",
-  "cost": 4,
-  "result": {
-    "item": "constructsarmory:head_plate"
-  }
-}
