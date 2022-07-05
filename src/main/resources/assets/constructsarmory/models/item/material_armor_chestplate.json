@@ -1,6 +1,6 @@
 {
   "loader": "tconstruct:tool",
-  "parent": "forge:item/default-tool",
+  "parent": "forge:item/default",
   "textures": {
     "body_plate": "constructsarmory:item/tool/chestplate/body_plate",
     "broken_body_plate": "constructsarmory:item/tool/chestplate/broken_body_plate",

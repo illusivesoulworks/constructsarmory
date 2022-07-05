@@ -1,6 +1,6 @@
 {
   "loader": "tconstruct:tool",
-  "parent": "forge:item/default-tool",
+  "parent": "forge:item/default",
   "textures": {
     "head_plate": "constructsarmory:item/tool/helmet/head_plate",
     "broken_head_plate": "constructsarmory:item/tool/helmet/broken_head_plate",

@@ -1,6 +1,6 @@
 {
   "loader": "tconstruct:tool",
-  "parent": "forge:item/default-tool",
+  "parent": "forge:item/default",
   "textures": {
     "feet_plate": "constructsarmory:item/tool/boots/feet_plate",
     "broken_feet_plate": "constructsarmory:item/tool/boots/broken_feet_plate",
