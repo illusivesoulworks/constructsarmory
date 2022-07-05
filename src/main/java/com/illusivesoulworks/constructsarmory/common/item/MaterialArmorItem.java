@@ -21,6 +21,9 @@ import static com.illusivesoulworks.constructsarmory.common.stat.impl.PlateMater
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
+import com.illusivesoulworks.constructsarmory.client.MaterialArmorModel;
+import com.illusivesoulworks.constructsarmory.common.stat.ConstructsArmoryStats;
 import java.util.List;
 import java.util.UUID;
 import java.util.function.BiPredicate;
@@ -53,9 +56,6 @@ import slimeknights.tconstruct.library.utils.TooltipFlag;
 import slimeknights.tconstruct.library.utils.TooltipKey;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.item.ArmorSlotType;
-import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
-import com.illusivesoulworks.constructsarmory.client.MaterialArmorModel;
-import com.illusivesoulworks.constructsarmory.common.stat.ConstructsArmoryStats;
 
 public class MaterialArmorItem extends ModifiableArmorItem {
 

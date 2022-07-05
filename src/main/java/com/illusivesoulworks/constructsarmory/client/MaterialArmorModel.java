@@ -17,6 +17,7 @@
 
 package com.illusivesoulworks.constructsarmory.client;
 
+import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import java.util.ArrayList;
@@ -33,12 +34,16 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import slimeknights.tconstruct.library.data.ISafeManagerReloadListener;
-import slimeknights.tconstruct.library.materials.definition.IMaterial;
-import slimeknights.tconstruct.library.tools.nbt.ToolStack;
+import slimeknights.tconstruct.library.materials.definition.MaterialId;
+import slimeknights.tconstruct.library.tools.nbt.MaterialIdNBT;
 import slimeknights.tconstruct.tools.client.ArmorModelWrapper;
+import slimeknights.tconstruct.tools.client.PlateArmorModel;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
-import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
 
+/**
+ * Modified copy of {@link PlateArmorModel} from Tinkers' Construct
+ * MIT License (c) SlimeKnights
+ */
 public class MaterialArmorModel<T extends LivingEntity> extends ArmorModelWrapper<T> {
 
   private static final MaterialArmorModel<LivingEntity> INSTANCE = new MaterialArmorModel<>();
@@ -115,8 +120,8 @@ public class MaterialArmorModel<T extends LivingEntity> extends ArmorModelWrappe
     this.base = base;
     this.materials = new ArrayList<>();
 
-    for (IMaterial material : ToolStack.from(stack).getMaterialsList()) {
-      this.materials.add(material.getIdentifier().toString());
+    for (MaterialId material : MaterialIdNBT.from(stack).getMaterials()) {
+      this.materials.add(material.toString());
     }
     this.isLegs = slot == EquipmentSlotType.LEGS;
     hasGlint = stack.hasEffect();
