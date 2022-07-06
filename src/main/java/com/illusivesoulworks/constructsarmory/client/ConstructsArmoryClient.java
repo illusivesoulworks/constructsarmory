@@ -17,18 +17,27 @@
 
 package com.illusivesoulworks.constructsarmory.client;
 
+import com.illusivesoulworks.constructsarmory.common.ConstructsArmoryItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.resources.IReloadableResourceManager;
 import net.minecraft.resources.IResourceManager;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import slimeknights.tconstruct.library.client.model.tools.ToolModel;
 import slimeknights.tconstruct.library.tools.item.ModifiableArmorItem;
-import com.illusivesoulworks.constructsarmory.common.ConstructsArmoryItems;
 
 public class ConstructsArmoryClient {
 
-  public static void registerColors(final ColorHandlerEvent.Item evt) {
+  public static void init() {
+    IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    eventBus.addListener(ConstructsArmoryClient::setup);
+    eventBus.addListener(ConstructsArmoryClient::colors);
+  }
+
+  public static void colors(final ColorHandlerEvent.Item evt) {
     final ItemColors colors = evt.getItemColors();
 
     for (ModifiableArmorItem item : ConstructsArmoryItems.MATERIAL_ARMOR.values()) {
@@ -36,7 +45,7 @@ public class ConstructsArmoryClient {
     }
   }
 
-  public static void setup() {
+  public static void setup(final FMLClientSetupEvent evt) {
     Minecraft minecraft = Minecraft.getInstance();
     //noinspection ConstantConditions
     if (minecraft != null) {

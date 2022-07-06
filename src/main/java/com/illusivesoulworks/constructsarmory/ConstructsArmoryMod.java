@@ -19,9 +19,11 @@ package com.illusivesoulworks.constructsarmory;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -60,26 +62,17 @@ public class ConstructsArmoryMod {
   public ConstructsArmoryMod() {
     IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
     eventBus.addListener(this::setup);
-    eventBus.addListener(this::clientSetup);
-    eventBus.addListener(this::colors);
     eventBus.addListener(this::gatherData);
     ConstructsArmoryItems.init();
     ConstructsArmoryModifiers.init();
     ConstructsArmoryStats.init();
     ConstructsArmoryEffects.init();
+    DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> ConstructsArmoryClient::init);
   }
 
   private void setup(final FMLCommonSetupEvent evt) {
     ConstructsArmoryEvents.setup();
     evt.enqueueWork(ConstructsArmoryMaterialStats::setup);
-  }
-
-  private void clientSetup(final FMLClientSetupEvent evt) {
-    ConstructsArmoryClient.setup();
-  }
-
-  private void colors(final ColorHandlerEvent.Item evt) {
-    ConstructsArmoryClient.registerColors(evt);
   }
 
   private void gatherData(final GatherDataEvent evt) {
