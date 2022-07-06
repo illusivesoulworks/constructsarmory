@@ -17,25 +17,6 @@
 
 package com.illusivesoulworks.constructsarmory;
 
-import net.minecraft.data.DataGenerator;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import slimeknights.tconstruct.common.data.tags.BlockTagProvider;
-import slimeknights.tconstruct.library.client.data.material.GeneratorPartTextureJsonGenerator;
-import slimeknights.tconstruct.library.client.data.material.MaterialPartTextureGenerator;
-import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
-import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
 import com.illusivesoulworks.constructsarmory.client.ConstructsArmoryClient;
 import com.illusivesoulworks.constructsarmory.common.ConstructsArmoryEffects;
 import com.illusivesoulworks.constructsarmory.common.ConstructsArmoryEvents;
@@ -52,6 +33,23 @@ import com.illusivesoulworks.constructsarmory.data.ArmorPartSpriteProvider;
 import com.illusivesoulworks.constructsarmory.data.ArmorRecipeProvider;
 import com.illusivesoulworks.constructsarmory.data.ArmorSlotLayoutProvider;
 import com.illusivesoulworks.constructsarmory.data.ArmorTagProvider;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import slimeknights.tconstruct.common.data.tags.BlockTagProvider;
+import slimeknights.tconstruct.library.client.data.material.GeneratorPartTextureJsonGenerator;
+import slimeknights.tconstruct.library.client.data.material.MaterialPartTextureGenerator;
+import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
+import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
 
 @Mod(ConstructsArmoryMod.MOD_ID)
 public class ConstructsArmoryMod {
