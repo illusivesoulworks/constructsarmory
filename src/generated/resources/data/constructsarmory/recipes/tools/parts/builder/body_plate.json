@@ -1,8 +1,0 @@
-{
-  "type": "tconstruct:part_builder",
-  "pattern": "constructsarmory:body_plate",
-  "cost": 6,
-  "result": {
-    "item": "constructsarmory:body_plate"
-  }
-}

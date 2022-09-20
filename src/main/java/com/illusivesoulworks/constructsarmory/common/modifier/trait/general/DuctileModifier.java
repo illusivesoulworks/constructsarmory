@@ -26,10 +26,6 @@ import com.illusivesoulworks.constructsarmory.common.stat.ConstructsArmoryStats;
 
 public class DuctileModifier extends Modifier {
 
-  public DuctileModifier() {
-    super(0x959595);
-  }
-
   @Override
   public void addToolStats(@Nonnull ToolRebuildContext context, int level,
                            @Nonnull ModifierStatsBuilder builder) {

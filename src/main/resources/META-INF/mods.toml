@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[36,)"
+loaderVersion="[40,)"
 issueTrackerURL="https://github.com/TheIllusiveC4/ConstructsArmory/issues"
 logoFile="${mod_icon}"
 license="LGPL-3.0-or-later"
@@ -15,18 +15,18 @@ ${mod_description}
 [[dependencies.constructsarmory]]
     modId="forge"
     mandatory=true
-    versionRange="[36,)"
+    versionRange="[40,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.constructsarmory]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.5]"
+    versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.constructsarmory]]
     modId="tconstruct"
     mandatory=true
-    versionRange="[1.16.5-3.3.2.324,)"
+    versionRange="[1.18.2-3.5.2.39,)"
     ordering="NONE"
     side="BOTH"

@@ -19,9 +19,9 @@ package com.illusivesoulworks.constructsarmory.client;
 
 import com.illusivesoulworks.constructsarmory.common.ConstructsArmoryItems;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.resources.IReloadableResourceManager;
-import net.minecraft.resources.IResourceManager;
+import net.minecraft.client.color.item.ItemColors;
+import net.minecraft.server.packs.resources.ReloadableResourceManager;
+import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -49,10 +49,10 @@ public class ConstructsArmoryClient {
     Minecraft minecraft = Minecraft.getInstance();
     //noinspection ConstantConditions
     if (minecraft != null) {
-      IResourceManager manager = Minecraft.getInstance().getResourceManager();
+      ResourceManager manager = Minecraft.getInstance().getResourceManager();
 
-      if (manager instanceof IReloadableResourceManager) {
-        ((IReloadableResourceManager) manager).addReloadListener(
+      if (manager instanceof ReloadableResourceManager) {
+        ((ReloadableResourceManager) manager).registerReloadListener(
             MaterialArmorModel.RELOAD_LISTENER);
       }
     }

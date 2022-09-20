@@ -2,15 +2,18 @@ buildscript {
     repositories {
         maven { url 'https://files.minecraftforge.net/maven' }
         maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url = 'https://maven.parchmentmc.org' }
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.7', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'org.parchmentmc:librarian:1.+'
         classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
-        classpath 'io.freefair.gradle:lombok-plugin:4.+'
+        classpath 'io.freefair.gradle:lombok-plugin:6.+'
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'com.matthewprenger.cursegradle'
 apply plugin: 'io.freefair.lombok'
 
@@ -18,10 +21,10 @@ version = "${mod_version}"
 group = "${mod_group}"
 archivesBaseName = "${mod_id}-forge"
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'snapshot', version: "${version_mcp}".toString()
+    mappings channel: 'parchment', version: "2022.09.04-1.18.2"
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -72,15 +75,17 @@ minecraft {
 repositories {
 	maven {
         name 'DVS1 Maven FS'
-        url 'http://dvs1.progwml6.com/files/maven'
+        url 'https://dvs1.progwml6.com/files/maven'
     }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${version_forge}"
 
-    compile fg.deobf("slimeknights.mantle:Mantle:${version_mantle}")
-    compile fg.deobf("slimeknights.tconstruct:TConstruct:${version_tic}")
+    compileOnly fg.deobf("slimeknights.mantle:Mantle:${version_mantle}")
+    runtimeOnly fg.deobf("slimeknights.mantle:Mantle:${version_mantle}")
+    compileOnly fg.deobf("slimeknights.tconstruct:TConstruct:${version_tic}")
+    runtimeOnly fg.deobf("slimeknights.tconstruct:TConstruct:${version_tic}")
 
     runtimeOnly fg.deobf("mezz.jei:jei-${version_minecraft}:${version_jei}")
 }
@@ -124,6 +129,7 @@ processResources {
         include 'META-INF/mods.toml'
         expand 'version': project.version, 'mod_id': mod_id, 'mod_name': mod_name, 'mod_url': mod_url, 'mod_author': mod_author, 'mod_description': mod_description, 'mod_icon': mod_icon
     }
+    duplicatesStrategy = DuplicatesStrategy.WARN
 
     from(sourceSets.main.resources.srcDirs) {
         exclude 'META-INF/mods.toml'

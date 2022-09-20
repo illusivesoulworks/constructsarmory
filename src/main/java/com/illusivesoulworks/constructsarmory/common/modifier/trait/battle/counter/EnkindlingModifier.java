@@ -18,27 +18,24 @@
 package com.illusivesoulworks.constructsarmory.common.modifier.trait.battle.counter;
 
 import javax.annotation.Nonnull;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.DamageSource;
+
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 public class EnkindlingModifier extends CounterattackModifier {
 
-  public EnkindlingModifier() {
-    super(0xdbcc0b);
-  }
-
   @Override
-  protected int counter(@Nonnull IModifierToolStack tool, int level, LivingEntity attacker,
-                        @Nonnull EquipmentContext context, @Nonnull EquipmentSlotType slotType,
+  protected int counter(@Nonnull IToolStackView tool, int level, LivingEntity attacker,
+                        @Nonnull EquipmentContext context, @Nonnull EquipmentSlot slotType,
                         DamageSource source, float amount) {
 
     if (RANDOM.nextFloat() < 0.15f * level) {
-      attacker.attackEntityFrom(DamageSource.causeThornsDamage(context.getEntity()).setFireDamage(),
+      attacker.hurt(DamageSource.thorns(context.getEntity()).setIsFire(),
           level);
-      attacker.setFire(5 * level);
+      attacker.setSecondsOnFire(5 * level);
       return 1;
     }
     return 0;

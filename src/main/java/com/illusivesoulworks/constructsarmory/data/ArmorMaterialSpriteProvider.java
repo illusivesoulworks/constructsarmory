@@ -18,7 +18,8 @@
 package com.illusivesoulworks.constructsarmory.data;
 
 import javax.annotation.Nonnull;
-import net.minecraft.util.ResourceLocation;
+
+import net.minecraft.resources.ResourceLocation;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
 import slimeknights.tconstruct.library.client.data.spritetransformer.GreyToColorMapping;
@@ -49,7 +50,7 @@ public class ArmorMaterialSpriteProvider extends AbstractMaterialSpriteProvider 
             GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF281E0B).addARGB(102, 0xFF493615)
                 .addARGB(140, 0xFF584014).addARGB(178, 0xFF684E1E).addARGB(216, 0xFF785A22)
                 .addARGB(255, 0xFF896727).build());
-    buildArmorMaterial(MaterialIds.stone)
+    buildArmorMaterial(MaterialIds.rock)
         .fallbacks("rock")
         .colorMapper(
             GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF181818).addARGB(102, 0xFF494949)
@@ -161,7 +162,7 @@ public class ArmorMaterialSpriteProvider extends AbstractMaterialSpriteProvider 
             GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF157891).addARGB(102, 0xFF2094A4)
                 .addARGB(140, 0xFF2DB3B9).addARGB(178, 0xFF35D3D6).addARGB(216, 0xFF47EFEA)
                 .addARGB(255, 0xFFAAFFFF).build());
-    buildArmorMaterial(MaterialIds.tinkersBronze)
+    buildArmorMaterial(MaterialIds.bronze)
         .fallbacks("metal")
         .colorMapper(
             GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF684420).addARGB(102, 0xFF895D31)

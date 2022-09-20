@@ -19,17 +19,18 @@ package com.illusivesoulworks.constructsarmory.common.modifier.trait.general;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
+
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import slimeknights.tconstruct.common.TinkerTags;
-import slimeknights.tconstruct.library.modifiers.DurabilityShieldModifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.impl.DurabilityShieldModifier;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.modifiers.traits.general.StoneshieldModifier;
 import com.illusivesoulworks.constructsarmory.common.ConstructsArmoryModifiers;
@@ -41,13 +42,12 @@ import com.illusivesoulworks.constructsarmory.common.ConstructsArmoryModifiers;
 public class StoneguardModifier extends DurabilityShieldModifier {
 
   public StoneguardModifier() {
-    super(0xe0e9ec);
     MinecraftForge.EVENT_BUS.addListener(StoneguardModifier::onItemPickup);
   }
 
   @Override
-  protected int getShieldCapacity(IModifierToolStack tool, int level) {
-    return (int) (level * 100 * tool.getModifier(ToolStats.DURABILITY));
+  protected int getShieldCapacity(IToolStackView tool, int level) {
+    return (int) (level * 100 * tool.getMultiplier(ToolStats.DURABILITY));
   }
 
   @Override
@@ -56,7 +56,7 @@ public class StoneguardModifier extends DurabilityShieldModifier {
   }
 
   private static void onItemPickup(final EntityItemPickupEvent evt) {
-    PlayerEntity player = evt.getPlayer();
+    Player player = evt.getPlayer();
 
     if (player.isSpectator()) {
       return;
@@ -68,14 +68,14 @@ public class StoneguardModifier extends DurabilityShieldModifier {
     }
     ItemStack stack = evt.getItem().getItem();
 
-    if (!TinkerTags.Items.STONESHIELDS.contains(stack.getItem())) {
+    if (!stack.is(TinkerTags.Items.STONESHIELDS)) {
       return;
     }
 
-    if (!player.world.isRemote() && player.isAlive()) {
+    if (!player.level.isClientSide() && player.isAlive()) {
 
-      for (EquipmentSlotType slotType : ModifiableArmorMaterial.ARMOR_SLOTS) {
-        IModifierToolStack armor = context.getToolInSlot(slotType);
+      for (EquipmentSlot slotType : ModifiableArmorMaterial.ARMOR_SLOTS) {
+        IToolStackView armor = context.getToolInSlot(slotType);
 
         if (armor != null && !armor.isBroken()) {
 
@@ -118,12 +118,12 @@ public class StoneguardModifier extends DurabilityShieldModifier {
 
   @Nullable
   @Override
-  public Boolean showDurabilityBar(@Nonnull IModifierToolStack tool, int level) {
+  public Boolean showDurabilityBar(@Nonnull IToolStackView tool, int level) {
     return getShield(tool) > 0 ? true : null;
   }
 
   @Override
-  public int getDurabilityRGB(@Nonnull IModifierToolStack tool, int level) {
+  public int getDurabilityRGB(@Nonnull IToolStackView tool, int level) {
 
     if (getShield(tool) > 0) {
       return 0x7f7f7f;

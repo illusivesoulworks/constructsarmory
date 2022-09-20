@@ -17,33 +17,31 @@
 
 package com.illusivesoulworks.constructsarmory.common.modifier.trait.battle;
 
-import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.TooltipFlag;
+import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.context.ToolRebuildContext;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
-import slimeknights.tconstruct.library.utils.TooltipFlag;
-import slimeknights.tconstruct.library.utils.TooltipKey;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import com.illusivesoulworks.constructsarmory.common.modifier.EquipmentUtil;
+
+import java.util.List;
 
 public class IgneousModifier extends Modifier {
 
   private static final float BASELINE_TEMPERATURE = 0.75f;
-
-  public IgneousModifier() {
-    super(0x4f4a47);
-  }
 
   @Override
   public void addVolatileData(@Nonnull ToolRebuildContext context, int level,
@@ -52,27 +50,27 @@ public class IgneousModifier extends Modifier {
   }
 
   private static float temperatureBoost(LivingEntity living, int level) {
-    BlockPos attackerPos = living.getPosition();
-    return (living.world.getBiome(attackerPos).getTemperature(attackerPos) - BASELINE_TEMPERATURE) *
+    BlockPos attackerPos = living.blockPosition();
+    return (living.level.getBiome(attackerPos).value().getBaseTemperature() - BASELINE_TEMPERATURE) *
         (level * 1.6f);
   }
 
   @Override
-  public float getProtectionModifier(@Nonnull IModifierToolStack tool, int level,
+  public float getProtectionModifier(@Nonnull IToolStackView tool, int level,
                                      @Nonnull EquipmentContext context,
-                                     @Nonnull EquipmentSlotType slotType, DamageSource source,
+                                     @Nonnull EquipmentSlot slotType, DamageSource source,
                                      float modifierValue) {
 
-    if (!source.isDamageAbsolute() && !source.canHarmInCreative()) {
+    if (!source.isBypassMagic() && !source.isBypassInvul()) {
       modifierValue += temperatureBoost(context.getEntity(), level);
     }
     return modifierValue;
   }
 
   @Override
-  public void addInformation(@Nonnull IModifierToolStack tool, int level,
-                             @Nullable PlayerEntity player,
-                             @Nonnull List<ITextComponent> tooltip, @Nonnull TooltipKey key,
+  public void addInformation(@Nonnull IToolStackView tool, int level,
+                             @Nullable Player player,
+                             @Nonnull List<Component> tooltip, @Nonnull TooltipKey key,
                              @Nonnull TooltipFlag flag) {
     float bonus;
 

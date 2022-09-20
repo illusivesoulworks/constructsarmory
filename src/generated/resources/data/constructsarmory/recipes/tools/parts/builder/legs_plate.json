@@ -1,8 +1,0 @@
-{
-  "type": "tconstruct:part_builder",
-  "pattern": "constructsarmory:legs_plate",
-  "cost": 5,
-  "result": {
-    "item": "constructsarmory:legs_plate"
-  }
-}

@@ -18,26 +18,23 @@
 package com.illusivesoulworks.constructsarmory.common.modifier.trait.battle.counter;
 
 import javax.annotation.Nonnull;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.DamageSource;
+
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 public abstract class CounterattackModifier extends Modifier {
 
-  public CounterattackModifier(int color) {
-    super(color);
-  }
-
   @Override
-  public void onAttacked(@Nonnull IModifierToolStack tool, int level,
-                         @Nonnull EquipmentContext context, @Nonnull EquipmentSlotType slotType,
+  public void onAttacked(@Nonnull IToolStackView tool, int level,
+                         @Nonnull EquipmentContext context, @Nonnull EquipmentSlot slotType,
                          DamageSource source, float amount, boolean isDirectDamage) {
-    Entity attacker = source.getTrueSource();
+    Entity attacker = source.getEntity();
 
     if (attacker instanceof LivingEntity && attacker.isAlive() && isDirectDamage) {
       int durabilityDamage =
@@ -49,8 +46,8 @@ public abstract class CounterattackModifier extends Modifier {
     }
   }
 
-  protected abstract int counter(@Nonnull IModifierToolStack tool, int level,
+  protected abstract int counter(@Nonnull IToolStackView tool, int level,
                                  LivingEntity attacker, @Nonnull EquipmentContext context,
-                                 @Nonnull EquipmentSlotType slotType, DamageSource source,
+                                 @Nonnull EquipmentSlot slotType, DamageSource source,
                                  float amount);
 }

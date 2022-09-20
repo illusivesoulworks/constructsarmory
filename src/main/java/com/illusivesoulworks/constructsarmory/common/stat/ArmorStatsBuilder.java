@@ -22,10 +22,10 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import lombok.AccessLevel;
 import lombok.Getter;
-import slimeknights.tconstruct.library.materials.definition.IMaterial;
-import slimeknights.tconstruct.library.tools.ToolDefinition;
 import slimeknights.tconstruct.library.tools.definition.PartRequirement;
+import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinitionData;
+import slimeknights.tconstruct.library.tools.nbt.MaterialNBT;
 import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.stat.IToolStat;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
@@ -53,7 +53,7 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
   }
 
   public static ToolStatsBuilder from(ArmorSlotType slotType, ToolDefinition toolDefinition,
-                                      List<IMaterial> materials) {
+                                      MaterialNBT materials) {
     ToolDefinitionData data = toolDefinition.getData();
     List<PartRequirement> requiredComponents = data.getParts();
 
@@ -84,7 +84,7 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
   public float buildDurability() {
     double averagePlateDurability =
         getAverageValue(this.plates, PlateMaterialStats::getDurability) +
-            this.toolData.getBonus(ToolStats.DURABILITY);
+            this.toolData.getMultiplier(ToolStats.DURABILITY);
     double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getDurability, 1);
     return Math.max(1,
         (int) (ArmorStatsCalculator.getDurabilityStat((int) averagePlateDurability, this.slotType) *
@@ -93,7 +93,7 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
 
   public float buildArmor() {
     double averageArmor = getAverageValue(this.plates, PlateMaterialStats::getArmor) +
-        this.toolData.getBonus(ToolStats.ARMOR);
+        this.toolData.getMultiplier(ToolStats.ARMOR);
     double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getArmor, 0);
     return (float) (ArmorStatsCalculator.getArmorStat((int) averageArmor, this.slotType) *
         averageMailModifier);
@@ -101,21 +101,21 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
 
   public float buildArmorToughness() {
     double averageToughness = getAverageValue(this.plates, PlateMaterialStats::getToughness, 0) +
-        this.toolData.getBonus(ToolStats.ARMOR_TOUGHNESS);
+        this.toolData.getMultiplier(ToolStats.ARMOR_TOUGHNESS);
     return (float) Math.max(0, averageToughness);
   }
 
   public float buildKnockbackResistance() {
     double averageKnockbackResistance =
         getAverageValue(this.plates, PlateMaterialStats::getKnockbackResistance, 0) +
-            this.toolData.getBonus(ToolStats.KNOCKBACK_RESISTANCE);
+            this.toolData.getMultiplier(ToolStats.KNOCKBACK_RESISTANCE);
     return (float) Math.max(0, averageKnockbackResistance);
   }
 
   private float buildMovementSpeed() {
     double averageMovementSpeed =
         getAverageValue(this.plates, PlateMaterialStats::getMovementSpeed, 0) +
-            this.toolData.getBonus(ConstructsArmoryStats.MOVEMENT_SPEED);
+            this.toolData.getMultiplier(ConstructsArmoryStats.MOVEMENT_SPEED);
     double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getMovementSpeed, 1);
     return (float) Math.max(0, averageMovementSpeed * averageMailModifier);
   }

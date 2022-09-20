@@ -20,27 +20,24 @@ package com.illusivesoulworks.constructsarmory.common.modifier.trait.battle;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.text.ITextComponent;
+
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.TooltipFlag;
+import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
-import slimeknights.tconstruct.library.utils.TooltipFlag;
-import slimeknights.tconstruct.library.utils.TooltipKey;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import com.illusivesoulworks.constructsarmory.common.modifier.EquipmentUtil;
 
 public class WeightyModifier extends Modifier {
 
   private static final float BASELINE_MOVEMENT = 0.1f;
   private static final float MAX_MOVEMENT = 0.15f;
-
-  public WeightyModifier() {
-    super(0xd1c08b);
-  }
 
   private static float getBonus(float movementSpeed, float min, float max) {
 
@@ -55,13 +52,13 @@ public class WeightyModifier extends Modifier {
   }
 
   @Override
-  public float getProtectionModifier(@Nonnull IModifierToolStack tool, int level,
+  public float getProtectionModifier(@Nonnull IToolStackView tool, int level,
                                      @Nonnull EquipmentContext context,
-                                     @Nonnull EquipmentSlotType slotType, DamageSource source,
+                                     @Nonnull EquipmentSlot slotType, DamageSource source,
                                      float modifierValue) {
 
-    if (!source.isDamageAbsolute() && !source.canHarmInCreative()) {
-      ModifiableAttributeInstance attributeInstance =
+    if (!source.isBypassMagic() && !source.isBypassInvul()) {
+      AttributeInstance attributeInstance =
           context.getEntity().getAttribute(Attributes.MOVEMENT_SPEED);
 
       if (attributeInstance != null) {
@@ -72,13 +69,13 @@ public class WeightyModifier extends Modifier {
   }
 
   @Override
-  public void addInformation(@Nonnull IModifierToolStack tool, int level,
-                             @Nullable PlayerEntity player, @Nonnull List<ITextComponent> tooltip,
+  public void addInformation(@Nonnull IToolStackView tool, int level,
+                             @Nullable Player player, @Nonnull List<Component> tooltip,
                              @Nonnull TooltipKey key, @Nonnull TooltipFlag flag) {
     float bonus;
 
     if (player != null) {
-      ModifiableAttributeInstance attributeInstance =
+      AttributeInstance attributeInstance =
           player.getAttribute(Attributes.MOVEMENT_SPEED);
 
       if (attributeInstance != null) {
