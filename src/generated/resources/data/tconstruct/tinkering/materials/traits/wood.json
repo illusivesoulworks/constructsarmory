@@ -1,0 +1,16 @@
+{
+  "perStat": {
+    "constructsarmory:mail": [
+      {
+        "name": "constructsarmory:cultivated",
+        "level": 1
+      }
+    ],
+    "constructsarmory:plate": [
+      {
+        "name": "constructsarmory:cultivated",
+        "level": 1
+      }
+    ]
+  }
+}

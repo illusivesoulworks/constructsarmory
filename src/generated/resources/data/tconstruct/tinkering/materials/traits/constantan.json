@@ -1,0 +1,16 @@
+{
+  "perStat": {
+    "constructsarmory:mail": [
+      {
+        "name": "constructsarmory:fervent",
+        "level": 1
+      }
+    ],
+    "constructsarmory:plate": [
+      {
+        "name": "constructsarmory:fervent",
+        "level": 1
+      }
+    ]
+  }
+}

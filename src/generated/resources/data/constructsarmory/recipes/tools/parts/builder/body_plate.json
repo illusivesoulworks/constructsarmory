@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:part_builder",
+  "pattern": "constructsarmory:body_plate",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "constructsarmory:body_plate_cast"
+    }
+  ],
+  "cost": 6,
+  "result": {
+    "item": "constructsarmory:body_plate"
+  }
+}

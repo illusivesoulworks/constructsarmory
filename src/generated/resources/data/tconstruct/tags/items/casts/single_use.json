@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#constructsarmory:casts/single_use/head_plate",
+    "#constructsarmory:casts/single_use/body_plate",
+    "#constructsarmory:casts/single_use/legs_plate",
+    "#constructsarmory:casts/single_use/feet_plate",
+    "#constructsarmory:casts/single_use/mail"
+  ]
+}

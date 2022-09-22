@@ -1,0 +1,28 @@
+{
+  "translation_key": "item.constructsarmory.material_armor_leggings",
+  "icon": {
+    "item": "constructsarmory:material_armor_leggings",
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#head\",\"tconstruct:ui_render#handle\",\"tconstruct:ui_render#extra\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+  },
+  "sortIndex": 16,
+  "input_slots": [
+    {
+      "icon": "constructsarmory:legs_plate",
+      "translation_key": "item.constructsarmory.legs_plate",
+      "x": 37,
+      "y": 48,
+      "filter": {
+        "item": "constructsarmory:legs_plate"
+      }
+    },
+    {
+      "icon": "constructsarmory:mail",
+      "translation_key": "item.constructsarmory.mail",
+      "x": 19,
+      "y": 30,
+      "filter": {
+        "item": "constructsarmory:mail"
+      }
+    }
+  ]
+}

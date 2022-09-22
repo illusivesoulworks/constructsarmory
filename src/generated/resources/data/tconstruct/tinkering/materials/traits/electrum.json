@@ -1,0 +1,16 @@
+{
+  "perStat": {
+    "constructsarmory:mail": [
+      {
+        "name": "constructsarmory:experienced",
+        "level": 1
+      }
+    ],
+    "constructsarmory:plate": [
+      {
+        "name": "constructsarmory:experienced",
+        "level": 1
+      }
+    ]
+  }
+}

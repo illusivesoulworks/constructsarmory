@@ -69,7 +69,6 @@ public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataPro
 
     // Tier 3 - Addons
     addMaterialStats(MaterialIds.steel, 474, 13.0f, 2.0f, 0.1f, 0.025f, 1.05f, 1.1f, 1.0f);
-    addMaterialStats(MaterialIds.bronze, 453, 11.0f, 2.0f, 0.05f, 0.0575f, 1.1f, 1.0f, 1.05f);
     addMaterialStats(MaterialIds.constantan, 428, 12.0f, 2.0f, 0.08f, 0.05f, 0.95f, 1.0f, 1.15f);
     addMaterialStats(MaterialIds.invar, 400, 15.0f, 2.0f, 0.05f, 0.0125f, 1.0f, 1.15f, 1.0f);
     addMaterialStats(MaterialIds.necronium, 279, 14.0f, 3.0f, 0.0f, 0.02f, 0.8f, 1.2f, 1.1f);

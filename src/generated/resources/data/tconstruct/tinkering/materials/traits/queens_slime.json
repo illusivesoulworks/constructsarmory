@@ -1,0 +1,16 @@
+{
+  "perStat": {
+    "constructsarmory:mail": [
+      {
+        "name": "constructsarmory:overlord",
+        "level": 1
+      }
+    ],
+    "constructsarmory:plate": [
+      {
+        "name": "constructsarmory:overlord",
+        "level": 1
+      }
+    ]
+  }
+}

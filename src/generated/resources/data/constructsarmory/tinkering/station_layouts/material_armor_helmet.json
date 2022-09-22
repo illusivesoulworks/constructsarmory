@@ -1,0 +1,28 @@
+{
+  "translation_key": "item.constructsarmory.material_armor_helmet",
+  "icon": {
+    "item": "constructsarmory:material_armor_helmet",
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#head\",\"tconstruct:ui_render#handle\",\"tconstruct:ui_render#extra\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+  },
+  "sortIndex": 16,
+  "input_slots": [
+    {
+      "icon": "constructsarmory:head_plate",
+      "translation_key": "item.constructsarmory.head_plate",
+      "x": 37,
+      "y": 48,
+      "filter": {
+        "item": "constructsarmory:head_plate"
+      }
+    },
+    {
+      "icon": "constructsarmory:mail",
+      "translation_key": "item.constructsarmory.mail",
+      "x": 19,
+      "y": 30,
+      "filter": {
+        "item": "constructsarmory:mail"
+      }
+    }
+  ]
+}

@@ -68,8 +68,10 @@ public class MailMaterialStats extends BaseMaterialStats {
   private float armor = 1.0f;
   private float movementSpeed = 1.0f;
 
-  public MailMaterialStats(FriendlyByteBuf friendlyByteBuf) {
-    decode(friendlyByteBuf);
+  public MailMaterialStats(FriendlyByteBuf buffer) {
+    this.durability = buffer.readFloat();
+    this.armor = buffer.readFloat();
+    this.movementSpeed = buffer.readFloat();
   }
 
   @Override
@@ -77,12 +79,6 @@ public class MailMaterialStats extends BaseMaterialStats {
     buffer.writeFloat(this.durability);
     buffer.writeFloat(this.armor);
     buffer.writeFloat(this.movementSpeed);
-  }
-
-  public void decode(FriendlyByteBuf buffer) {
-    this.durability = buffer.readFloat();
-    this.armor = buffer.readFloat();
-    this.movementSpeed = buffer.readFloat();
   }
 
   @Override

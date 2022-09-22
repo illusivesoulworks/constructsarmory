@@ -1,0 +1,16 @@
+{
+  "perStat": {
+    "constructsarmory:mail": [
+      {
+        "name": "constructsarmory:blighted",
+        "level": 1
+      }
+    ],
+    "constructsarmory:plate": [
+      {
+        "name": "constructsarmory:blighted",
+        "level": 1
+      }
+    ]
+  }
+}

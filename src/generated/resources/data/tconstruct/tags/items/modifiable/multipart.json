@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "constructsarmory:material_armor_boots",
+    "constructsarmory:material_armor_leggings",
+    "constructsarmory:material_armor_chestplate",
+    "constructsarmory:material_armor_helmet"
+  ]
+}

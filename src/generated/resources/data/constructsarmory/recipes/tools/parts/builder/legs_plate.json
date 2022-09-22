@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:part_builder",
+  "pattern": "constructsarmory:legs_plate",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "constructsarmory:legs_plate_cast"
+    }
+  ],
+  "cost": 5,
+  "result": {
+    "item": "constructsarmory:legs_plate"
+  }
+}

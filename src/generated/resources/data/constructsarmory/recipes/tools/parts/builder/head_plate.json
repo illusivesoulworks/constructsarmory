@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:part_builder",
+  "pattern": "constructsarmory:head_plate",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "constructsarmory:head_plate_cast"
+    }
+  ],
+  "cost": 4,
+  "result": {
+    "item": "constructsarmory:head_plate"
+  }
+}

@@ -19,31 +19,25 @@ package com.illusivesoulworks.constructsarmory.common.stat.impl;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import java.text.DecimalFormat;
-import java.util.List;
-import java.util.function.Function;
-import javax.annotation.Nonnull;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
+import com.illusivesoulworks.constructsarmory.api.ArmorStatsCalculator;
+import com.illusivesoulworks.constructsarmory.common.stat.ConstructsArmoryStats;
+import lombok.*;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
-import slimeknights.tconstruct.library.materials.IMaterialRegistry;
 import slimeknights.tconstruct.library.materials.stats.BaseMaterialStats;
-import slimeknights.tconstruct.library.materials.stats.IMaterialStats;
 import slimeknights.tconstruct.library.materials.stats.IRepairableMaterialStats;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.library.tools.stat.FloatToolStat;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.library.utils.Util;
-import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
-import com.illusivesoulworks.constructsarmory.api.ArmorStatsCalculator;
-import com.illusivesoulworks.constructsarmory.common.stat.ConstructsArmoryStats;
+
+import javax.annotation.Nonnull;
+import java.text.DecimalFormat;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -73,8 +67,12 @@ public class PlateMaterialStats extends BaseMaterialStats implements IRepairable
   private float knockbackResistance;
   private float movementSpeed;
 
-  public PlateMaterialStats(FriendlyByteBuf friendlyByteBuf) {
-    decode(friendlyByteBuf);
+  public PlateMaterialStats(FriendlyByteBuf buffer) {
+    this.durability = buffer.readInt();
+    this.armor = buffer.readFloat();
+    this.toughness = buffer.readFloat();
+    this.knockbackResistance = buffer.readFloat();
+    this.movementSpeed = buffer.readFloat();
   }
 
   @Override
@@ -84,14 +82,6 @@ public class PlateMaterialStats extends BaseMaterialStats implements IRepairable
     buffer.writeFloat(this.toughness);
     buffer.writeFloat(this.knockbackResistance);
     buffer.writeFloat(this.movementSpeed);
-  }
-
-  public void decode(FriendlyByteBuf buffer) {
-    this.durability = buffer.readInt();
-    this.armor = buffer.readFloat();
-    this.toughness = buffer.readFloat();
-    this.knockbackResistance = buffer.readFloat();
-    this.movementSpeed = buffer.readFloat();
   }
 
   @Nonnull

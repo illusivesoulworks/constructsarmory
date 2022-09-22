@@ -1,0 +1,28 @@
+{
+  "translation_key": "item.constructsarmory.material_armor_chestplate",
+  "icon": {
+    "item": "constructsarmory:material_armor_chestplate",
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#head\",\"tconstruct:ui_render#handle\",\"tconstruct:ui_render#extra\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+  },
+  "sortIndex": 16,
+  "input_slots": [
+    {
+      "icon": "constructsarmory:body_plate",
+      "translation_key": "item.constructsarmory.body_plate",
+      "x": 37,
+      "y": 48,
+      "filter": {
+        "item": "constructsarmory:body_plate"
+      }
+    },
+    {
+      "icon": "constructsarmory:mail",
+      "translation_key": "item.constructsarmory.mail",
+      "x": 19,
+      "y": 30,
+      "filter": {
+        "item": "constructsarmory:mail"
+      }
+    }
+  ]
+}

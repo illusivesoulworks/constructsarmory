@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "constructsarmory:head_plate_sand_cast",
+    "constructsarmory:body_plate_sand_cast",
+    "constructsarmory:legs_plate_sand_cast",
+    "constructsarmory:feet_plate_sand_cast",
+    "constructsarmory:mail_sand_cast"
+  ]
+}

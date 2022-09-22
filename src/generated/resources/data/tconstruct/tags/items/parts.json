@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "constructsarmory:head_plate",
+    "constructsarmory:body_plate",
+    "constructsarmory:legs_plate",
+    "constructsarmory:feet_plate",
+    "constructsarmory:mail"
+  ]
+}
