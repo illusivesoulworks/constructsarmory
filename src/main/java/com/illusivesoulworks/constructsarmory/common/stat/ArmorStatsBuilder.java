@@ -84,7 +84,7 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
   public float buildDurability() {
     double averagePlateDurability =
         getAverageValue(this.plates, PlateMaterialStats::getDurability) +
-            this.toolData.getMultiplier(ToolStats.DURABILITY);
+            this.toolData.getBaseStat(ToolStats.DURABILITY);
     double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getDurability, 1);
     return Math.max(1,
         (int) (ArmorStatsCalculator.getDurabilityStat((int) averagePlateDurability, this.slotType) *
@@ -101,21 +101,21 @@ public final class ArmorStatsBuilder extends ToolStatsBuilder {
 
   public float buildArmorToughness() {
     double averageToughness = getAverageValue(this.plates, PlateMaterialStats::getToughness, 0) +
-        this.toolData.getMultiplier(ToolStats.ARMOR_TOUGHNESS);
+        this.toolData.getBaseStat(ToolStats.ARMOR_TOUGHNESS);
     return (float) Math.max(0, averageToughness);
   }
 
   public float buildKnockbackResistance() {
     double averageKnockbackResistance =
         getAverageValue(this.plates, PlateMaterialStats::getKnockbackResistance, 0) +
-            this.toolData.getMultiplier(ToolStats.KNOCKBACK_RESISTANCE);
+            this.toolData.getBaseStat(ToolStats.KNOCKBACK_RESISTANCE);
     return (float) Math.max(0, averageKnockbackResistance);
   }
 
   private float buildMovementSpeed() {
     double averageMovementSpeed =
         getAverageValue(this.plates, PlateMaterialStats::getMovementSpeed, 0) +
-            this.toolData.getMultiplier(ConstructsArmoryStats.MOVEMENT_SPEED);
+            this.toolData.getBaseStat(ConstructsArmoryStats.MOVEMENT_SPEED);
     double averageMailModifier = getAverageValue(this.mail, MailMaterialStats::getMovementSpeed, 1);
     return (float) Math.max(0, averageMovementSpeed * averageMailModifier);
   }
