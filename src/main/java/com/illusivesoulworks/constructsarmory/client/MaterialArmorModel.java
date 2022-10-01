@@ -32,7 +32,6 @@ import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.jetbrains.annotations.NotNull;
 import slimeknights.mantle.data.ISafeManagerReloadListener;
-import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
 import slimeknights.tconstruct.library.tools.nbt.MaterialIdNBT;
 import slimeknights.tconstruct.tools.client.ArmorModelHelper;
@@ -61,9 +60,10 @@ public class MaterialArmorModel extends Model {
   }
 
   private static ResourceLocation getArmorTexture(String material, String part, int variant) {
-    MaterialVariantId variantId = MaterialId.tryParse(material);
+    MaterialVariantId variantId = MaterialVariantId.tryParse(material);
 
     if (variantId == null) {
+      System.out.println("Invalid material: " + material);
       variantId = MaterialIds.cobalt;
     }
     ResourceLocation location = variantId.getLocation('_');
