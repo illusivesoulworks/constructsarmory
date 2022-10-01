@@ -18,10 +18,9 @@
 package com.illusivesoulworks.constructsarmory.common;
 
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import slimeknights.tconstruct.library.modifiers.Modifier;
+import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
+import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 import slimeknights.tconstruct.tools.modifiers.traits.general.CultivatedModifier;
 import slimeknights.tconstruct.tools.modifiers.traits.general.DenseModifier;
 import slimeknights.tconstruct.tools.modifiers.traits.general.OvercastModifier;
@@ -29,7 +28,6 @@ import slimeknights.tconstruct.tools.modifiers.traits.general.OvergrowthModifier
 import slimeknights.tconstruct.tools.modifiers.traits.general.OverlordModifier;
 import slimeknights.tconstruct.tools.modifiers.traits.general.OverworkedModifier;
 import slimeknights.tconstruct.tools.modifiers.traits.general.SolarPoweredModifier;
-import slimeknights.tconstruct.tools.modifiers.traits.general.SturdyModifier;
 import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
 import com.illusivesoulworks.constructsarmory.common.modifier.trait.battle.HallowedModifier;
 import com.illusivesoulworks.constructsarmory.common.modifier.trait.battle.IgneousModifier;
@@ -60,96 +58,96 @@ import com.illusivesoulworks.constructsarmory.common.modifier.trait.speed.Nimble
 import com.illusivesoulworks.constructsarmory.common.modifier.trait.speed.RadiantModifier;
 import com.illusivesoulworks.constructsarmory.common.modifier.trait.speed.SalvagedModifier;
 import com.illusivesoulworks.constructsarmory.common.modifier.trait.speed.WovenModifier;
+import slimeknights.tconstruct.tools.modifiers.upgrades.general.ReinforcedModifier;
 
 public class ConstructsArmoryModifiers {
 
-  private static final DeferredRegister<Modifier>
-      MODIFIERS = DeferredRegister.create(Modifier.class, ConstructsArmoryMod.MOD_ID);
+  private static final ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(ConstructsArmoryMod.MOD_ID);
 
   // Tier 1
-  public static final RegistryObject<CultivatedModifier> CULTIVATED =
+  public static final StaticModifier<CultivatedModifier> CULTIVATED =
       MODIFIERS.register("cultivated", CultivatedModifier::new);
-  public static final RegistryObject<WovenModifier> WOVEN =
+  public static final StaticModifier<WovenModifier> WOVEN =
       MODIFIERS.register("woven", WovenModifier::new);
-  public static final RegistryObject<PetrousModifier> PETROUS =
+  public static final StaticModifier<PetrousModifier> PETROUS =
       MODIFIERS.register("petrous", PetrousModifier::new);
-  public static final RegistryObject<CounterattackModifier> SPLINTERED =
+  public static final StaticModifier<CounterattackModifier> SPLINTERED =
       MODIFIERS.register("splintered", SplinteredModifier::new);
-  public static final RegistryObject<SolarPoweredModifier> SOLAR_POWERED =
+  public static final StaticModifier<SolarPoweredModifier> SOLAR_POWERED =
       MODIFIERS.register("solar_powered", SolarPoweredModifier::new);
 
   // Tier 2
-  public static final RegistryObject<SturdyModifier> STURDY =
-      MODIFIERS.register("sturdy", SturdyModifier::new);
-  public static final RegistryObject<DelvingModifier> DELVING =
+  public static final StaticModifier<ReinforcedModifier> REINFORCED =
+      MODIFIERS.register("reinforced", ReinforcedModifier::new);
+  public static final StaticModifier<DelvingModifier> DELVING =
       MODIFIERS.register("delving", DelvingModifier::new);
-  public static final RegistryObject<OvergrowthModifier> OVERGROWTH =
+  public static final StaticModifier<OvergrowthModifier> OVERGROWTH =
       MODIFIERS.register("overgrowth", OvergrowthModifier::new);
-  public static final RegistryObject<IgneousModifier> IGNEOUS =
+  public static final StaticModifier<IgneousModifier> IGNEOUS =
       MODIFIERS.register("igneous", IgneousModifier::new);
-  public static final RegistryObject<AerialModifier> AERIAL =
+  public static final StaticModifier<AerialModifier> AERIAL =
       MODIFIERS.register("aerial", AerialModifier::new);
-  public static final RegistryObject<BloodlettingModifier> BLOODLETTING =
+  public static final StaticModifier<BloodlettingModifier> BLOODLETTING =
       MODIFIERS.register("bloodletting", BloodlettingModifier::new);
-  public static final RegistryObject<MalignantModifier> MALIGNANT =
+  public static final StaticModifier<MalignantModifier> MALIGNANT =
       MODIFIERS.register("malignant", MalignantModifier::new);
 
   // Tier 2 Addons
-  public static final RegistryObject<DenseModifier> DENSE =
+  public static final StaticModifier<DenseModifier> DENSE =
       MODIFIERS.register("dense", DenseModifier::new);
-  public static final RegistryObject<WeightyModifier> WEIGHTY =
+  public static final StaticModifier<WeightyModifier> WEIGHTY =
       MODIFIERS.register("weighty", WeightyModifier::new);
-  public static final RegistryObject<RadiantModifier> RADIANT =
+  public static final StaticModifier<RadiantModifier> RADIANT =
       MODIFIERS.register("radiant", RadiantModifier::new);
-  public static final RegistryObject<HallowedModifier> HALLOWED =
+  public static final StaticModifier<HallowedModifier> HALLOWED =
       MODIFIERS.register("hallowed", HallowedModifier::new);
-  public static final RegistryObject<ShieldingModifier> SHIELDING =
+  public static final StaticModifier<ShieldingModifier> SHIELDING =
       MODIFIERS.register("shielding", ShieldingModifier::new);
-  public static final RegistryObject<StoneguardModifier> STONEGUARD =
+  public static final StaticModifier<StoneguardModifier> STONEGUARD =
       MODIFIERS.register("stoneguard", StoneguardModifier::new);
 
   // Tier 3
-  public static final RegistryObject<OvercastModifier> OVERCAST =
+  public static final StaticModifier<OvercastModifier> OVERCAST =
       MODIFIERS.register("overcast", OvercastModifier::new);
-  public static final RegistryObject<ImmaculateModifier> IMMACULATE =
+  public static final StaticModifier<ImmaculateModifier> IMMACULATE =
       MODIFIERS.register("immaculate", ImmaculateModifier::new);
-  public static final RegistryObject<NimbleModifier> NIMBLE =
+  public static final StaticModifier<NimbleModifier> NIMBLE =
       MODIFIERS.register("nimble", NimbleModifier::new);
-  public static final RegistryObject<PricklyModifier> PRICKLY =
+  public static final StaticModifier<PricklyModifier> PRICKLY =
       MODIFIERS.register("prickly", PricklyModifier::new);
-  public static final RegistryObject<SavoryModifier> SAVORY =
+  public static final StaticModifier<SavoryModifier> SAVORY =
       MODIFIERS.register("savory", SavoryModifier::new);
 
   // Tier 3 Addons
-  public static final RegistryObject<DuctileModifier> DUCTILE =
+  public static final StaticModifier<DuctileModifier> DUCTILE =
       MODIFIERS.register("ductile", DuctileModifier::new);
-  public static final RegistryObject<ImmaculateModifier2> IMMACULATE2 =
+  public static final StaticModifier<ImmaculateModifier2> IMMACULATE2 =
       MODIFIERS.register("immaculate_2", ImmaculateModifier2::new);
-  public static final RegistryObject<StableModifier> STABLE =
+  public static final StaticModifier<StableModifier> STABLE =
       MODIFIERS.register("stable", StableModifier::new);
-  public static final RegistryObject<FerventModifier> FERVENT =
+  public static final StaticModifier<FerventModifier> FERVENT =
       MODIFIERS.register("fervent", FerventModifier::new);
-  public static final RegistryObject<ExperiencedModifier> EXPERIENCED =
+  public static final StaticModifier<ExperiencedModifier> EXPERIENCED =
       MODIFIERS.register("experienced", ExperiencedModifier::new);
-  public static final RegistryObject<CounterattackModifier> BLIGHTED =
+  public static final StaticModifier<CounterattackModifier> BLIGHTED =
       MODIFIERS.register("blighted", BlightedModifier::new);
-  public static final RegistryObject<OverworkedModifier> OVERWORKED =
+  public static final StaticModifier<OverworkedModifier> OVERWORKED =
       MODIFIERS.register("overworked", OverworkedModifier::new);
 
   // Tier 4
-  public static final RegistryObject<OverlordModifier> OVERLORD =
+  public static final StaticModifier<OverlordModifier> OVERLORD =
       MODIFIERS.register("overlord", OverlordModifier::new);
-  public static final RegistryObject<SalvagedModifier> SALVAGED =
+  public static final StaticModifier<SalvagedModifier> SALVAGED =
       MODIFIERS.register("salvaged", SalvagedModifier::new);
-  public static final RegistryObject<AccelerationModifier> ACCELERATION =
+  public static final StaticModifier<AccelerationModifier> ACCELERATION =
       MODIFIERS.register("acceleration", AccelerationModifier::new);
-  public static final RegistryObject<VengefulModifier> VENGEFUL =
+  public static final StaticModifier<VengefulModifier> VENGEFUL =
       MODIFIERS.register("vengeful", VengefulModifier::new);
-  public static final RegistryObject<CounterattackModifier> ENKINDLING =
+  public static final StaticModifier<CounterattackModifier> ENKINDLING =
       MODIFIERS.register("enkindling", EnkindlingModifier::new);
 
   // Tier 5
-  public static final RegistryObject<EndershieldModifier> ENDERSHIELD =
+  public static final StaticModifier<EndershieldModifier> ENDERSHIELD =
       MODIFIERS.register("endershield", EndershieldModifier::new);
 
   public static void init() {

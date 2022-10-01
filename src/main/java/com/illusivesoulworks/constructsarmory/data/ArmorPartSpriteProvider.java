@@ -18,7 +18,8 @@
 package com.illusivesoulworks.constructsarmory.data;
 
 import javax.annotation.Nonnull;
-import net.minecraft.util.ResourceLocation;
+
+import net.minecraft.resources.ResourceLocation;
 import slimeknights.tconstruct.library.client.data.material.AbstractPartSpriteProvider;
 import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
 import com.illusivesoulworks.constructsarmory.api.ArmorMaterialStatsIdentifiers;

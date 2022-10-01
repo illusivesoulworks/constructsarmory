@@ -27,8 +27,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.With;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.chat.Component;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.materials.stats.BaseMaterialStats;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
@@ -55,31 +55,30 @@ public class MailMaterialStats extends BaseMaterialStats {
   private static final String MOVEMENT_SPEED_PREFIX =
       makeTooltipKey(ConstructsArmoryMod.getResource("movement_speed"));
 
-  private static final ITextComponent DURABILITY_DESCRIPTION =
+  private static final Component DURABILITY_DESCRIPTION =
       makeTooltip(ConstructsArmoryMod.getResource("mail.durability.description"));
-  private static final ITextComponent ARMOR_DESCRIPTION =
+  private static final Component ARMOR_DESCRIPTION =
       makeTooltip(ConstructsArmoryMod.getResource("mail.armor.description"));
-  private static final ITextComponent MOVEMENT_SPEED_DESCRIPTION =
+  private static final Component MOVEMENT_SPEED_DESCRIPTION =
       makeTooltip(ConstructsArmoryMod.getResource("mail.movement_speed.description"));
-  private static final List<ITextComponent> DESCRIPTION =
+  private static final List<Component> DESCRIPTION =
       ImmutableList.of(DURABILITY_DESCRIPTION, ARMOR_DESCRIPTION, MOVEMENT_SPEED_DESCRIPTION);
 
   private float durability = 1.0f;
   private float armor = 1.0f;
   private float movementSpeed = 1.0f;
 
-  @Override
-  public void encode(PacketBuffer buffer) {
-    buffer.writeFloat(this.durability);
-    buffer.writeFloat(this.armor);
-    buffer.writeFloat(this.movementSpeed);
-  }
-
-  @Override
-  public void decode(PacketBuffer buffer) {
+  public MailMaterialStats(FriendlyByteBuf buffer) {
     this.durability = buffer.readFloat();
     this.armor = buffer.readFloat();
     this.movementSpeed = buffer.readFloat();
+  }
+
+  @Override
+  public void encode(FriendlyByteBuf buffer) {
+    buffer.writeFloat(this.durability);
+    buffer.writeFloat(this.armor);
+    buffer.writeFloat(this.movementSpeed);
   }
 
   @Override
@@ -90,8 +89,8 @@ public class MailMaterialStats extends BaseMaterialStats {
 
   @Override
   @Nonnull
-  public List<ITextComponent> getLocalizedInfo() {
-    List<ITextComponent> list = new ArrayList<>();
+  public List<Component> getLocalizedInfo() {
+    List<Component> list = new ArrayList<>();
     list.add(formatDurability(this.durability));
     list.add(formatArmor(this.armor));
     list.add(formatMovementSpeed(this.movementSpeed));
@@ -100,19 +99,19 @@ public class MailMaterialStats extends BaseMaterialStats {
 
   @Override
   @Nonnull
-  public List<ITextComponent> getLocalizedDescriptions() {
+  public List<Component> getLocalizedDescriptions() {
     return DESCRIPTION;
   }
 
-  public static ITextComponent formatDurability(float durability) {
+  public static Component formatDurability(float durability) {
     return IToolStat.formatColoredMultiplier(DURABILITY_PREFIX, durability);
   }
 
-  public static ITextComponent formatArmor(float armor) {
+  public static Component formatArmor(float armor) {
     return IToolStat.formatColoredMultiplier(ARMOR_PREFIX, armor);
   }
 
-  public static ITextComponent formatMovementSpeed(float movementSpeed) {
+  public static Component formatMovementSpeed(float movementSpeed) {
     return IToolStat.formatColoredMultiplier(MOVEMENT_SPEED_PREFIX, movementSpeed);
   }
 }

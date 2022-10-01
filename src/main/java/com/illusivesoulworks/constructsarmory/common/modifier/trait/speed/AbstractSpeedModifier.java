@@ -20,30 +20,26 @@ package com.illusivesoulworks.constructsarmory.common.modifier.trait.speed;
 import java.util.UUID;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
-import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
 import com.illusivesoulworks.constructsarmory.common.modifier.EquipmentUtil;
 import com.illusivesoulworks.constructsarmory.common.modifier.IArmorUpdateModifier;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 public abstract class AbstractSpeedModifier extends Modifier implements IArmorUpdateModifier {
 
-  public AbstractSpeedModifier(int color) {
-    super(color);
-  }
-
   @Override
-  public void onUnequip(@Nonnull IModifierToolStack tool, int level,
+  public void onUnequip(IToolStackView tool, int level,
                         EquipmentChangeContext context) {
     LivingEntity livingEntity = context.getEntity();
-    IModifierToolStack newTool = context.getReplacementTool();
+    IToolStackView newTool = context.getReplacementTool();
 
     if (newTool == null || newTool.isBroken() || newTool.getModifierLevel(this) != level) {
-      ModifiableAttributeInstance attribute = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
+      AttributeInstance attribute = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
 
       if (attribute != null) {
         attribute.removeModifier(EquipmentUtil.getUuid(getId(), context.getChangedSlot()));
@@ -58,13 +54,13 @@ public abstract class AbstractSpeedModifier extends Modifier implements IArmorUp
   }
 
   @Override
-  public void onUpdate(IModifierToolStack armor, EquipmentSlotType slotType, int level,
+  public void onUpdate(IToolStackView armor, EquipmentSlot slotType, int level,
                        LivingEntity living) {
 
-    if (living.world.isRemote) {
+    if (living.level.isClientSide()) {
       return;
     }
-    ModifiableAttributeInstance attribute = living.getAttribute(Attributes.MOVEMENT_SPEED);
+    AttributeInstance attribute = living.getAttribute(Attributes.MOVEMENT_SPEED);
 
     if (attribute == null) {
       return;
@@ -77,7 +73,7 @@ public abstract class AbstractSpeedModifier extends Modifier implements IArmorUp
     }
   }
 
-  protected abstract void applyBoost(IModifierToolStack armor, EquipmentSlotType slotType,
-                                     ModifiableAttributeInstance attribute, UUID uuid, int level,
+  protected abstract void applyBoost(IToolStackView armor, EquipmentSlot slotType,
+                                     AttributeInstance attribute, UUID uuid, int level,
                                      LivingEntity living);
 }

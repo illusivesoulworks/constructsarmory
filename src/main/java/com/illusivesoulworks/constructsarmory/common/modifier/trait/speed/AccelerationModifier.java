@@ -17,31 +17,32 @@
 
 package com.illusivesoulworks.constructsarmory.common.modifier.trait.speed;
 
-import java.util.List;
-import java.util.UUID;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.text.ITextComponent;
+import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
+import com.illusivesoulworks.constructsarmory.common.ConstructsArmoryEffects;
+import com.illusivesoulworks.constructsarmory.common.modifier.EquipmentUtil;
+import com.illusivesoulworks.constructsarmory.common.modifier.IArmorUpdateModifier;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.impl.TotalArmorLevelModifier;
 import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
-import slimeknights.tconstruct.library.utils.TooltipFlag;
-import slimeknights.tconstruct.library.utils.TooltipKey;
-import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
-import com.illusivesoulworks.constructsarmory.common.ConstructsArmoryEffects;
-import com.illusivesoulworks.constructsarmory.common.modifier.EquipmentUtil;
-import com.illusivesoulworks.constructsarmory.common.modifier.IArmorUpdateModifier;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.UUID;
 
 public class AccelerationModifier extends TotalArmorLevelModifier implements IArmorUpdateModifier {
 
@@ -49,7 +50,7 @@ public class AccelerationModifier extends TotalArmorLevelModifier implements IAr
       ConstructsArmoryMod.createKey("acceleration");
 
   public AccelerationModifier() {
-    super(0x60496b, ACCELERATION);
+    super(ACCELERATION);
     MinecraftForge.EVENT_BUS.addListener(AccelerationModifier::onUpdateApply);
   }
 
@@ -65,9 +66,9 @@ public class AccelerationModifier extends TotalArmorLevelModifier implements IAr
       return;
     }
 
-    if (!living.world.isRemote() && living.isAlive() && living.ticksExisted % 20 == 0 &&
+    if (!living.level.isClientSide && living.isAlive() && living.tickCount % 20 == 0 &&
         living.isSprinting()) {
-      ModifiableAttributeInstance attributeInstance =
+      AttributeInstance attributeInstance =
           living.getAttribute(Attributes.MOVEMENT_SPEED);
 
       if (attributeInstance != null) {
@@ -85,8 +86,8 @@ public class AccelerationModifier extends TotalArmorLevelModifier implements IAr
   }
 
   @Override
-  public void addInformation(@Nonnull IModifierToolStack armor, int level,
-                             @Nullable PlayerEntity player, @Nonnull List<ITextComponent> tooltip,
+  public void addInformation(@Nonnull IToolStackView armor, int level,
+                             @Nullable Player player, @Nonnull List<Component> tooltip,
                              @Nonnull TooltipKey key, @Nonnull TooltipFlag tooltipFlag) {
 
     if (armor.hasTag(TinkerTags.Items.ARMOR)) {
@@ -107,13 +108,13 @@ public class AccelerationModifier extends TotalArmorLevelModifier implements IAr
   }
 
   @Override
-  public void onUnequip(@Nonnull IModifierToolStack tool, int level,
+  public void onUnequip(@Nonnull IToolStackView tool, int level,
                         EquipmentChangeContext context) {
     LivingEntity livingEntity = context.getEntity();
-    IModifierToolStack newTool = context.getReplacementTool();
+    IToolStackView newTool = context.getReplacementTool();
 
     if (newTool == null || newTool.isBroken() || newTool.getModifierLevel(this) != level) {
-      ModifiableAttributeInstance attribute = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
+      AttributeInstance attribute = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
 
       if (attribute != null) {
         attribute.removeModifier(EquipmentUtil.getUuid(getId(), context.getChangedSlot()));
@@ -128,13 +129,13 @@ public class AccelerationModifier extends TotalArmorLevelModifier implements IAr
   }
 
   @Override
-  public void onUpdate(IModifierToolStack armor, EquipmentSlotType slotType, int level,
+  public void onUpdate(IToolStackView armor, EquipmentSlot slotType, int level,
                        LivingEntity living) {
 
-    if (living.world.isRemote) {
+    if (living.level.isClientSide()) {
       return;
     }
-    ModifiableAttributeInstance attribute = living.getAttribute(Attributes.MOVEMENT_SPEED);
+    AttributeInstance attribute = living.getAttribute(Attributes.MOVEMENT_SPEED);
 
     if (attribute == null) {
       return;
@@ -147,8 +148,8 @@ public class AccelerationModifier extends TotalArmorLevelModifier implements IAr
     }
   }
 
-  protected void applyBoost(IModifierToolStack armor, EquipmentSlotType slotType,
-                            ModifiableAttributeInstance attribute, UUID uuid, int level,
+  protected void applyBoost(IToolStackView armor, EquipmentSlot slotType,
+                            AttributeInstance attribute, UUID uuid, int level,
                             LivingEntity living) {
 
     if (living.isSprinting()) {
@@ -157,7 +158,7 @@ public class AccelerationModifier extends TotalArmorLevelModifier implements IAr
       float boost = level * effectLevel / 400f;
 
       if (boost > 0) {
-        attribute.applyNonPersistentModifier(
+        attribute.addTransientModifier(
             new AttributeModifier(uuid, "constructsarmory.modifier.acceleration", boost,
                 AttributeModifier.Operation.MULTIPLY_TOTAL));
       }

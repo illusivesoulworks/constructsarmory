@@ -17,12 +17,12 @@
 
 package com.illusivesoulworks.constructsarmory.common.modifier;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 public interface IArmorUpdateModifier {
 
-  void onUpdate(IModifierToolStack armor, EquipmentSlotType slotType, int level,
+  void onUpdate(IToolStackView armor, EquipmentSlot slotType, int level,
                 LivingEntity living);
 }

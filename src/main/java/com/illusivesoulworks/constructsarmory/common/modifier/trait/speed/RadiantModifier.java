@@ -21,46 +21,43 @@ import java.util.List;
 import java.util.UUID;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.LightType;
+
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.LightLayer;
+import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.common.TinkerTags;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
-import slimeknights.tconstruct.library.utils.TooltipFlag;
-import slimeknights.tconstruct.library.utils.TooltipKey;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import com.illusivesoulworks.constructsarmory.common.modifier.EquipmentUtil;
 
 public class RadiantModifier extends AbstractSpeedModifier {
 
   private static final float BOOST_AT_15 = 0.02f;
 
-  public RadiantModifier() {
-    super(0xa3e7fe);
-  }
-
   private static float getBoost(int lightLevel, int level) {
     return level * BOOST_AT_15 * (lightLevel / 15f);
   }
 
   @Override
-  public void addInformation(@Nonnull IModifierToolStack armor, int level,
-                             @Nullable PlayerEntity player, @Nonnull List<ITextComponent> tooltip,
+  public void addInformation(@Nonnull IToolStackView armor, int level,
+                             @Nullable Player player, @Nonnull List<Component> tooltip,
                              @Nonnull TooltipKey key, @Nonnull TooltipFlag tooltipFlag) {
 
     if (armor.hasTag(TinkerTags.Items.ARMOR)) {
       float boost;
 
       if (player != null && key == TooltipKey.SHIFT) {
-        int i = player.world.getLightFor(LightType.BLOCK, player.getPosition());
+        int i = player.level.getBrightness(LightLayer.BLOCK, player.blockPosition());
 
-        if (player.world.getDimensionType().hasSkyLight()) {
-          player.world.calculateInitialSkylight();
-          i = Math.max(i, player.world.getLightFor(LightType.SKY, player.getPosition()) -
-              player.world.getSkylightSubtracted());
+        if (player.level.dimensionType().hasSkyLight()) {
+          player.level.updateSkyBrightness();
+          i = Math.max(i, player.level.getBrightness(LightLayer.BLOCK, player.blockPosition()) -
+              player.level.getSkyDarken());
         }
         boost = getBoost(i, level);
       } else {
@@ -74,19 +71,19 @@ public class RadiantModifier extends AbstractSpeedModifier {
   }
 
   @Override
-  protected void applyBoost(IModifierToolStack armor, EquipmentSlotType slotType,
-                            ModifiableAttributeInstance attribute, UUID uuid, int level,
+  protected void applyBoost(IToolStackView armor, EquipmentSlot slotType,
+                            AttributeInstance attribute, UUID uuid, int level,
                             LivingEntity living) {
-    int i = living.world.getLightFor(LightType.BLOCK, living.getPosition());
+    int i = living.level.getBrightness(LightLayer.BLOCK, living.blockPosition());
 
-    if (living.world.getDimensionType().hasSkyLight()) {
-      i = Math.max(i, living.world.getLightFor(LightType.SKY, living.getPosition()) -
-          living.world.getSkylightSubtracted());
+    if (living.level.dimensionType().hasSkyLight()) {
+      i = Math.max(i, living.level.getBrightness(LightLayer.SKY, living.blockPosition()) -
+          living.level.getSkyDarken());
     }
     float boost = getBoost(i, level);
 
     if (boost > 0) {
-      attribute.applyNonPersistentModifier(
+      attribute.addTransientModifier(
           new AttributeModifier(uuid, "constructsarmory.modifier.radiant", boost,
               AttributeModifier.Operation.MULTIPLY_TOTAL));
     }

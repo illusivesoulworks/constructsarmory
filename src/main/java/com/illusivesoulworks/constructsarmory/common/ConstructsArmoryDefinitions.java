@@ -21,7 +21,7 @@ import java.util.EnumMap;
 import java.util.Map;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import net.minecraft.util.Util;
+import net.minecraft.Util;
 import slimeknights.tconstruct.common.Sounds;
 import slimeknights.tconstruct.library.tools.definition.IToolStatProvider;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;

@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nonnull;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.util.IItemProvider;
+import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.library.data.tinkering.AbstractStationSlotLayoutProvider;
 import slimeknights.tconstruct.tools.item.ArmorSlotType;
 import com.illusivesoulworks.constructsarmory.common.ConstructsArmoryItems;
@@ -36,7 +36,7 @@ public class ArmorSlotLayoutProvider extends AbstractStationSlotLayoutProvider {
 
   @Override
   protected void addLayouts() {
-    Map<ArmorSlotType, IItemProvider> plates = new HashMap<>();
+    Map<ArmorSlotType, ItemObject<?>> plates = new HashMap<>();
     plates.put(ArmorSlotType.HELMET, ConstructsArmoryItems.HEAD_PLATE);
     plates.put(ArmorSlotType.CHESTPLATE, ConstructsArmoryItems.BODY_PLATE);
     plates.put(ArmorSlotType.LEGGINGS, ConstructsArmoryItems.LEGS_PLATE);
