@@ -49,10 +49,10 @@ public class ConstructsArmoryClient {
     Minecraft minecraft = Minecraft.getInstance();
     //noinspection ConstantConditions
     if (minecraft != null) {
-      ResourceManager manager = Minecraft.getInstance().getResourceManager();
+      ResourceManager rm = Minecraft.getInstance().getResourceManager();
 
-      if (manager instanceof ReloadableResourceManager) {
-        ((ReloadableResourceManager) manager).registerReloadListener(
+      if (rm instanceof ReloadableResourceManager resource) {
+        resource.registerReloadListener(
             MaterialArmorModel.RELOAD_LISTENER);
       }
     }

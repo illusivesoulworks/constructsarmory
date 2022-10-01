@@ -32,6 +32,7 @@ import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.jetbrains.annotations.NotNull;
 import slimeknights.mantle.data.ISafeManagerReloadListener;
+import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
 import slimeknights.tconstruct.library.tools.nbt.MaterialIdNBT;
 import slimeknights.tconstruct.tools.client.ArmorModelHelper;
@@ -39,10 +40,7 @@ import slimeknights.tconstruct.tools.client.PlateArmorModel;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.BiFunction;
 
 /**
@@ -63,14 +61,15 @@ public class MaterialArmorModel extends Model {
   }
 
   private static ResourceLocation getArmorTexture(String material, String part, int variant) {
-    ResourceLocation location = ResourceLocation.tryParse(material);
+    MaterialVariantId variantId = MaterialId.tryParse(material);
 
-    if (location == null) {
-      location = MaterialIds.cobalt;
+    if (variantId == null) {
+      variantId = MaterialIds.cobalt;
     }
+    ResourceLocation location = variantId.getLocation('_');
     return ConstructsArmoryMod.getResource(
-        String.format("textures/models/armor/material_armor_%s_layer_%d_%s_%s.png", part, variant,
-            location.getNamespace(), location.getPath()));
+            String.format("textures/models/armor/material_armor_%s_layer_%d_%s_%s.png", part, variant,
+                    location.getNamespace(), location.getPath()));
   }
 
   private static final BiFunction<String, String, RenderType> ARMOR_GETTER =
@@ -83,18 +82,17 @@ public class MaterialArmorModel extends Model {
     PLATE_LEG_RENDER_CACHE.clear();
   };
 
-  @Nullable
-  private HumanoidModel<?> base;
-
   /**
    * Gets the model for a given entity
    */
-  @SuppressWarnings("unchecked")
   public static Model getModel(ItemStack stack, EquipmentSlot slot,
                                           HumanoidModel<?> baseModel) {
     INSTANCE.setup(stack, slot, baseModel);
     return INSTANCE;
   }
+
+  @Nullable
+  private HumanoidModel<?> base;
 
   private List<String> materials = new ArrayList<>();
   private boolean isLegs = false;
@@ -102,41 +100,34 @@ public class MaterialArmorModel extends Model {
 
   @SneakyThrows
   @Override
-  public void renderToBuffer(@NotNull PoseStack matrices, @NotNull VertexConsumer buffer, int packedOverlayIn,
-                             int packedOverlay, float red, float green,
+  public void renderToBuffer(@NotNull PoseStack matrices, @NotNull VertexConsumer buffer, int packedLightIn,
+                             int packedOverlayIn, float red, float green,
                              float blue, float alpha) {
     if (base != null) {
-      base.renderToBuffer(matrices, buffer, packedOverlayIn, packedOverlay, red, green, blue, alpha);
-
+      base.renderToBuffer(matrices, buffer, packedLightIn, packedOverlayIn, red, green, blue, alpha);
       if (!materials.isEmpty()) {
         MultiBufferSource mbf = (MultiBufferSource) FieldUtils.getDeclaredField(ArmorModelHelper.class, "buffer", true).get(null);
-        //For some reasons access transformers don't work for this method
         VertexConsumer overlayBuffer = ItemRenderer.getArmorFoilBuffer(mbf, isLegs ?
                 PLATE_LEG_RENDER_CACHE.computeIfAbsent(materials.get(0),
                         (k) -> LEG_GETTER.apply(k, "plate")) :
                 PLATE_RENDER_CACHE.computeIfAbsent(materials.get(0),
                         (k) -> ARMOR_GETTER.apply(k, "plate")), false, hasGlint);
-        base.renderToBuffer(matrices, overlayBuffer, packedOverlayIn, packedOverlayIn, red, green, blue,
-                alpha);
+        base.renderToBuffer(matrices, overlayBuffer, packedLightIn, packedOverlayIn, red, green, blue, alpha);
 
         overlayBuffer = ItemRenderer.getArmorFoilBuffer(mbf, isLegs ?
                 MAIL_LEG_RENDER_CACHE.computeIfAbsent(materials.get(1),
                         (k) -> LEG_GETTER.apply(k, "mail")) :
                 MAIL_RENDER_CACHE.computeIfAbsent(materials.get(1),
                         (k) -> ARMOR_GETTER.apply(k, "mail")), false, hasGlint);
-        base.renderToBuffer(matrices, overlayBuffer, packedOverlayIn, packedOverlayIn, red, green, blue,
-                alpha);
+        base.renderToBuffer(matrices, overlayBuffer, packedLightIn, packedOverlayIn, red, green, blue, alpha);
       }
     }
   }
 
   private void setup(ItemStack stack, EquipmentSlot slot, HumanoidModel<?> base) {
     this.base = base;
-    this.materials = new ArrayList<>();
-
-    for (MaterialVariantId material : MaterialIdNBT.from(stack).getMaterials()) {
-      this.materials.add(material.toString());
-    }
+    this.materials = MaterialIdNBT.from(stack).getMaterials()
+            .stream().map(Object::toString).toList();
     this.isLegs = slot == EquipmentSlot.LEGS;
     hasGlint = stack.hasFoil();
   }
