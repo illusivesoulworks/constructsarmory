@@ -82,10 +82,8 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${version_forge}"
 
-    compileOnly fg.deobf("slimeknights.mantle:Mantle:${version_mantle}")
-    runtimeOnly fg.deobf("slimeknights.mantle:Mantle:${version_mantle}")
-    compileOnly fg.deobf("slimeknights.tconstruct:TConstruct:${version_tic}")
-    runtimeOnly fg.deobf("slimeknights.tconstruct:TConstruct:${version_tic}")
+    implementation fg.deobf("slimeknights.mantle:Mantle:${version_mantle}")
+    implementation fg.deobf("slimeknights.tconstruct:TConstruct:${version_tic}")
 
     runtimeOnly fg.deobf("mezz.jei:jei-${version_minecraft}:${version_jei}")
 }
