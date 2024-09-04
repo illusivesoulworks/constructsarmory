@@ -1,4 +1,5 @@
 {
   "type": "tconstruct:tool_building",
-  "result": "constructsarmory:material_armor_boots"
+  "result": "constructsarmory:material_armor_boots",
+  "result_count": 1
 }

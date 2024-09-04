@@ -34,15 +34,16 @@ import com.illusivesoulworks.constructsarmory.data.ArmorRecipeProvider;
 import com.illusivesoulworks.constructsarmory.data.ArmorSlotLayoutProvider;
 import com.illusivesoulworks.constructsarmory.data.ArmorTagProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import slimeknights.tconstruct.common.data.tags.BlockTagProvider;
@@ -78,7 +79,7 @@ public class ConstructsArmoryMod {
     DataGenerator generator = evt.getGenerator();
 
     if (evt.includeServer()) {
-      BlockTagProvider blockTags = new BlockTagProvider(generator, existingFileHelper);
+      BlockTagsProvider blockTags = new BlockTagProvider(generator, existingFileHelper);
       AbstractMaterialDataProvider materials = new ArmorMaterialDataProvider(generator);
       generator.addProvider(materials);
       generator.addProvider(new ArmorMaterialStatsDataProvider(generator, materials));

@@ -1,0 +1,41 @@
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ "1.18.2", "1.19.2" ]
+  pull_request:
+    branches: [ "1.18.2", "1.19.2" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      attestations: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gradle/actions/wrapper-validation@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Build with Gradle wrapper
+        run: ./gradlew build
+
+      - name: Rename jar
+        run: mv $(find build/libs/ | grep -P "\d\.jar") constructarmory.jar
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Construct Armory
+          path: ./constructarmory.jar
+
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: ./constructarmory.jar

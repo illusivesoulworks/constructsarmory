@@ -92,6 +92,7 @@
   "modifier.constructsarmory.aerial.flavor": "Take to the skies!",
   "modifier.constructsarmory.aerial.description": "Increased movement speed at high elevations",
   "modifier.constructsarmory.aerial.speed": "Aerial Speed",
+  "modifier.constructsarmory.reinforced": "Reinforced",
   "__comment": "Tier 2 Addon Traits",
   "modifier.constructsarmory.dense": "Dense",
   "modifier.constructsarmory.dense.flavor": "Barely loses its shape",

@@ -18,7 +18,7 @@
 package com.illusivesoulworks.constructsarmory.common;
 
 import java.util.function.Supplier;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import slimeknights.mantle.registration.object.EnumObject;
@@ -42,7 +42,7 @@ public class ConstructsArmoryItems {
 
   // Armor
   private static final Supplier<Item.Properties> ARMOR =
-      () -> new Item.Properties().group(TinkerTools.TAB_TOOLS);
+      () -> new Item.Properties().tab(TinkerTools.TAB_TOOLS);
 
   public static final EnumObject<ArmorSlotType, ModifiableArmorItem> MATERIAL_ARMOR =
       ITEMS.registerEnum("material_armor", ArmorSlotType.values(),
@@ -51,7 +51,7 @@ public class ConstructsArmoryItems {
 
   // Armor Parts
   private static final Item.Properties PARTS_PROPS =
-      new Item.Properties().group(TinkerToolParts.TAB_TOOL_PARTS);
+      new Item.Properties().tab(TinkerToolParts.TAB_TOOL_PARTS);
 
   public static final ItemObject<ToolPartItem> HEAD_PLATE =
       ITEMS.register("head_plate", () -> new ToolPartItem(PARTS_PROPS,
@@ -70,7 +70,7 @@ public class ConstructsArmoryItems {
 
   // Smeltery
   private static final Item.Properties SMELTERY_PROPS =
-      new Item.Properties().group(TinkerSmeltery.TAB_SMELTERY);
+      new Item.Properties().tab(TinkerSmeltery.TAB_SMELTERY);
 
   public static final CastItemObject HEAD_PLATE_CAST =
       ITEMS.registerCast("head_plate", SMELTERY_PROPS);

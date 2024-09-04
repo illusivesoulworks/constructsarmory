@@ -20,14 +20,14 @@ package com.illusivesoulworks.constructsarmory.common.modifier.trait.speed;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 import javax.annotation.Nonnull;
-import net.minecraft.entity.ai.attributes.Attribute;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.common.util.Lazy;
 import slimeknights.tconstruct.library.modifiers.Modifier;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.modifiers.traits.DamageSpeedTradeModifier;
 import com.illusivesoulworks.constructsarmory.common.modifier.EquipmentUtil;
@@ -48,21 +48,17 @@ public class WovenModifier extends Modifier {
     return id.getPath() + "." + id.getNamespace() + ".armor";
   });
 
-  public WovenModifier() {
-    super(0xc65c35);
-  }
-
-  private float getMultiplier(IModifierToolStack armor, int level) {
-    return (float) (Math.sqrt(armor.getDamage() * level / armor.getModifier(ToolStats.DURABILITY)) *
+  private float getMultiplier(IToolStackView armor, int level) {
+    return (float) (Math.sqrt(armor.getDamage() * level / armor.getMultiplier(ToolStats.DURABILITY)) *
         MULTIPLIER);
   }
 
   @Override
-  public void addAttributes(@Nonnull IModifierToolStack armor, int level,
-                            @Nonnull EquipmentSlotType slot,
+  public void addAttributes(@Nonnull IToolStackView armor, int level,
+                            @Nonnull EquipmentSlot slot,
                             @Nonnull BiConsumer<Attribute, AttributeModifier> consumer) {
 
-    if (slot.getSlotType() == EquipmentSlotType.Group.ARMOR) {
+    if (slot.getType() == EquipmentSlot.Type.ARMOR) {
       float boost = getMultiplier(armor, level);
 
       if (boost != 0) {

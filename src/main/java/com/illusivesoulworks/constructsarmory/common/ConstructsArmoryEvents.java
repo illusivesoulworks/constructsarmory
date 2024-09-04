@@ -17,11 +17,11 @@
 
 package com.illusivesoulworks.constructsarmory.common;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.CombatRules;
+import net.minecraft.world.damagesource.CombatRules;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -29,8 +29,8 @@ import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
 import slimeknights.tconstruct.library.tools.helper.ArmorUtil;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
 import com.illusivesoulworks.constructsarmory.common.modifier.IArmorUpdateModifier;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 public class ConstructsArmoryEvents {
 
@@ -47,8 +47,8 @@ public class ConstructsArmoryEvents {
       return;
     }
 
-    if (!evt.getSource().isUnblockable()) {
-      ModifiableAttributeInstance armorAtt = living.getAttribute(Attributes.ARMOR);
+    if (!evt.getSource().isBypassArmor()) {
+      AttributeInstance armorAtt = living.getAttribute(Attributes.ARMOR);
       float armor = 0;
 
       if (armorAtt != null) {
@@ -58,7 +58,7 @@ public class ConstructsArmoryEvents {
       if (armor % 1 == 0) {
         return;
       }
-      ModifiableAttributeInstance toughnessAtt = living.getAttribute(Attributes.ARMOR_TOUGHNESS);
+      AttributeInstance toughnessAtt = living.getAttribute(Attributes.ARMOR_TOUGHNESS);
       float toughness = 0;
 
       if (toughnessAtt != null) {
@@ -66,7 +66,7 @@ public class ConstructsArmoryEvents {
       }
       float damage = CombatRules.getDamageAfterAbsorb(evt.getAmount(), armor, toughness);
       evt.setAmount(
-          ArmorUtil.getDamageBeforeArmorAbsorb(damage, living.getTotalArmorValue(), toughness));
+          ArmorUtil.getDamageBeforeArmorAbsorb(damage, living.getArmorValue(), toughness));
     }
   }
 
@@ -82,10 +82,10 @@ public class ConstructsArmoryEvents {
       return;
     }
 
-    if (!living.world.isRemote() && living.isAlive() && living.ticksExisted % 20 == 0) {
+    if (!living.level.isClientSide() && living.isAlive() && living.tickCount % 20 == 0) {
 
-      for (EquipmentSlotType slotType : ModifiableArmorMaterial.ARMOR_SLOTS) {
-        IModifierToolStack armor = context.getToolInSlot(slotType);
+      for (EquipmentSlot slotType : ModifiableArmorMaterial.ARMOR_SLOTS) {
+        IToolStackView armor = context.getToolInSlot(slotType);
 
         if (armor != null) {
 

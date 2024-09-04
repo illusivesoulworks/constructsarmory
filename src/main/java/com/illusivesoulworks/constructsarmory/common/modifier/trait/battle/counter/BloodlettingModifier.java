@@ -18,18 +18,19 @@
 package com.illusivesoulworks.constructsarmory.common.modifier.trait.battle.counter;
 
 import javax.annotation.Nonnull;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.util.DamageSource;
+
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import slimeknights.tconstruct.library.modifiers.impl.TotalArmorLevelModifier;
 import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
 import com.illusivesoulworks.constructsarmory.common.ConstructsArmoryEffects;
 
@@ -39,7 +40,7 @@ public class BloodlettingModifier extends TotalArmorLevelModifier {
       ConstructsArmoryMod.createKey("bloodletting");
 
   public BloodlettingModifier() {
-    super(0xb30000, BLOODLETTING);
+    super(BLOODLETTING);
     MinecraftForge.EVENT_BUS.addListener(BloodlettingModifier::onHurt);
   }
 
@@ -57,20 +58,20 @@ public class BloodlettingModifier extends TotalArmorLevelModifier {
   }
 
   @Override
-  public void onAttacked(@Nonnull IModifierToolStack tool, int level,
-                         @Nonnull EquipmentContext context, @Nonnull EquipmentSlotType slotType,
+  public void onAttacked(@Nonnull IToolStackView tool, int level,
+                         @Nonnull EquipmentContext context, @Nonnull EquipmentSlot slotType,
                          DamageSource source, float amount, boolean isDirectDamage) {
-    Entity attacker = source.getTrueSource();
+    Entity attacker = source.getEntity();
 
     if (attacker instanceof LivingEntity && attacker.isAlive() && isDirectDamage &&
         RANDOM.nextFloat() < 0.15f * level) {
-      EffectInstance effect = context.getEntity().getActivePotionEffect(
+      MobEffectInstance effect = context.getEntity().getEffect(
           ConstructsArmoryEffects.BLOODLETTING.get());
 
       if (effect != null) {
         int effectLevel = effect.getAmplifier() + 1;
         float percent = effectLevel / 16f;
-        attacker.attackEntityFrom(DamageSource.causeThornsDamage(context.getEntity()),
+        attacker.hurt(DamageSource.thorns(context.getEntity()),
             2f * level * percent);
         ToolDamageUtil.damageAnimated(tool, 1, context.getEntity(), slotType);
       }

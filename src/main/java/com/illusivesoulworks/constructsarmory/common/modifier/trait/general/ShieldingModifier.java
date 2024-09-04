@@ -17,13 +17,16 @@
 
 package com.illusivesoulworks.constructsarmory.common.modifier.trait.general;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.potion.EffectInstance;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.PotionEvent;
+import org.apache.commons.lang3.reflect.FieldUtils;
 import slimeknights.tconstruct.library.modifiers.impl.TotalArmorLevelModifier;
 import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
 import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
+
+import java.lang.reflect.Field;
 
 public class ShieldingModifier extends TotalArmorLevelModifier {
 
@@ -31,12 +34,12 @@ public class ShieldingModifier extends TotalArmorLevelModifier {
       ConstructsArmoryMod.createKey("shielding");
 
   public ShieldingModifier() {
-    super(0x575e79, SHIELDING);
+    super(SHIELDING);
     MinecraftForge.EVENT_BUS.addListener(ShieldingModifier::onPotionStart);
   }
 
   private static void onPotionStart(final PotionEvent.PotionAddedEvent evt) {
-    EffectInstance newEffect = evt.getPotionEffect();
+    MobEffectInstance newEffect = evt.getPotionEffect();
 
     if (!newEffect.getCurativeItems().isEmpty()) {
       LivingEntity living = evt.getEntityLiving();
@@ -46,10 +49,16 @@ public class ShieldingModifier extends TotalArmorLevelModifier {
         if (levels > 0) {
           float change = levels * 0.05f;
 
-          if (!newEffect.getPotion().isBeneficial()) {
+          if (!newEffect.getEffect().isBeneficial()) {
             change *= -1;
           }
-          newEffect.duration = Math.max(0, (int) (newEffect.getDuration() * (1 + change)));
+          try {
+            Field f_19503_ = FieldUtils.getDeclaredField(MobEffectInstance.class, "f_19503_", true);
+            f_19503_.setAccessible(true);
+            f_19503_.set(newEffect, Math.max(0, (int) (newEffect.getDuration() * (1 + change))));
+          } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+          }
         }
       });
     }

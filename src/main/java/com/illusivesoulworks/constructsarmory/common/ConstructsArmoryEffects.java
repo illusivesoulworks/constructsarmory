@@ -19,24 +19,24 @@ package com.illusivesoulworks.constructsarmory.common;
 
 import java.util.function.IntFunction;
 import java.util.function.Supplier;
-import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectType;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import slimeknights.tconstruct.common.TinkerEffect;
 import slimeknights.tconstruct.tools.modifiers.effect.NoMilkEffect;
 import com.illusivesoulworks.constructsarmory.ConstructsArmoryMod;
 
 public class ConstructsArmoryEffects {
 
-  protected static final DeferredRegister<Effect> POTIONS =
-      DeferredRegister.create(ForgeRegistries.POTIONS, ConstructsArmoryMod.MOD_ID);
+  protected static final DeferredRegister<MobEffect> POTIONS =
+      DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, ConstructsArmoryMod.MOD_ID);
 
   private static final IntFunction<Supplier<TinkerEffect>> MARKER_EFFECT =
-      color -> () -> new NoMilkEffect(EffectType.BENEFICIAL, color, true);
+      color -> () -> new NoMilkEffect(MobEffectCategory.BENEFICIAL, color, true);
 
   public static final RegistryObject<TinkerEffect> VENGEFUL =
       POTIONS.register("vengeful", MARKER_EFFECT.apply(0x9261cc));

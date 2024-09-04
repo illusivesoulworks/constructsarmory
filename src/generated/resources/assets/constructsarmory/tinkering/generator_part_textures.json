@@ -1,0 +1,89 @@
+{
+  "replace": false,
+  "parts": [
+    {
+      "path": "constructsarmory:item/tool/parts/body_plate",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:item/tool/parts/head_plate",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:item/tool/parts/legs_plate",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:item/tool/parts/feet_plate",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:item/tool/parts/mail",
+      "statType": "constructsarmory:mail"
+    },
+    {
+      "path": "constructsarmory:models/armor/material_armor_plate_layer_1",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:models/armor/material_armor_plate_layer_2",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:models/armor/material_armor_mail_layer_1",
+      "statType": "constructsarmory:mail"
+    },
+    {
+      "path": "constructsarmory:models/armor/material_armor_mail_layer_2",
+      "statType": "constructsarmory:mail"
+    },
+    {
+      "path": "constructsarmory:item/tool/helmet/mail",
+      "statType": "constructsarmory:mail"
+    },
+    {
+      "path": "constructsarmory:item/tool/helmet/broken_head_plate",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:item/tool/helmet/head_plate",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:item/tool/chestplate/broken_body_plate",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:item/tool/chestplate/body_plate",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:item/tool/chestplate/mail",
+      "statType": "constructsarmory:mail"
+    },
+    {
+      "path": "constructsarmory:item/tool/leggings/mail",
+      "statType": "constructsarmory:mail"
+    },
+    {
+      "path": "constructsarmory:item/tool/leggings/legs_plate",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:item/tool/leggings/broken_legs_plate",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:item/tool/boots/feet_plate",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:item/tool/boots/broken_feet_plate",
+      "statType": "constructsarmory:plate"
+    },
+    {
+      "path": "constructsarmory:item/tool/boots/mail",
+      "statType": "constructsarmory:mail"
+    }
+  ]
+}

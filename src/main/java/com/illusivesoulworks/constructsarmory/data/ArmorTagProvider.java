@@ -18,11 +18,11 @@
 package com.illusivesoulworks.constructsarmory.data;
 
 import java.util.function.Consumer;
-import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.TagsProvider;
-import net.minecraft.item.Item;
-import net.minecraft.tags.ITag;
+import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.tconstruct.common.TinkerTags;
@@ -39,21 +39,18 @@ public class ArmorTagProvider extends ItemTagProvider {
   }
 
   @Override
-  protected void registerTags() {
+  protected void addTags() {
     addArmorTags(ConstructsArmoryItems.MATERIAL_ARMOR, TinkerTags.Items.DURABILITY,
-        TinkerTags.Items.MULTIPART_TOOL);
-    this.getOrCreateBuilder(TinkerTags.Items.TOOL_PARTS)
-        .add(ConstructsArmoryItems.HEAD_PLATE.get(), ConstructsArmoryItems.BODY_PLATE.get(),
-            ConstructsArmoryItems.LEGS_PLATE.get(), ConstructsArmoryItems.FEET_PLATE.get(),
-            ConstructsArmoryItems.MAIL.get());
-    TagsProvider.Builder<Item> goldCasts = this.getOrCreateBuilder(TinkerTags.Items.GOLD_CASTS);
-    TagsProvider.Builder<Item> sandCasts = this.getOrCreateBuilder(TinkerTags.Items.SAND_CASTS);
-    TagsProvider.Builder<Item> redSandCasts =
-        this.getOrCreateBuilder(TinkerTags.Items.RED_SAND_CASTS);
-    TagsProvider.Builder<Item> singleUseCasts =
-        this.getOrCreateBuilder(TinkerTags.Items.SINGLE_USE_CASTS);
-    TagsProvider.Builder<Item> multiUseCasts =
-        this.getOrCreateBuilder(TinkerTags.Items.MULTI_USE_CASTS);
+            TinkerTags.Items.MULTIPART_TOOL);
+    this.tag(TinkerTags.Items.TOOL_PARTS)
+            .add(ConstructsArmoryItems.HEAD_PLATE.get(), ConstructsArmoryItems.BODY_PLATE.get(),
+                    ConstructsArmoryItems.LEGS_PLATE.get(), ConstructsArmoryItems.FEET_PLATE.get(),
+                    ConstructsArmoryItems.MAIL.get());
+    TagsProvider.TagAppender<Item> goldCasts = this.tag(TinkerTags.Items.GOLD_CASTS);
+    TagsProvider.TagAppender<Item> sandCasts = this.tag(TinkerTags.Items.SAND_CASTS);
+    TagsProvider.TagAppender<Item> redSandCasts = this.tag(TinkerTags.Items.RED_SAND_CASTS);
+    TagsProvider.TagAppender<Item> singleUseCasts = this.tag(TinkerTags.Items.SINGLE_USE_CASTS);
+    TagsProvider.TagAppender<Item> multiUseCasts = this.tag(TinkerTags.Items.MULTI_USE_CASTS);
     Consumer<CastItemObject> addCast = cast -> {
       // tag based on material
       goldCasts.add(cast.get());
@@ -61,9 +58,9 @@ public class ArmorTagProvider extends ItemTagProvider {
       redSandCasts.add(cast.getRedSand());
       // tag based on usage
       singleUseCasts.addTag(cast.getSingleUseTag());
-      this.getOrCreateBuilder(cast.getSingleUseTag()).add(cast.getSand(), cast.getRedSand());
+      this.tag(cast.getSingleUseTag()).add(cast.getSand(), cast.getRedSand());
       multiUseCasts.addTag(cast.getMultiUseTag());
-      this.getOrCreateBuilder(cast.getMultiUseTag()).add(cast.get());
+      this.tag(cast.getMultiUseTag()).add(cast.get());
     };
     addCast.accept(ConstructsArmoryItems.HEAD_PLATE_CAST);
     addCast.accept(ConstructsArmoryItems.BODY_PLATE_CAST);
@@ -72,28 +69,22 @@ public class ArmorTagProvider extends ItemTagProvider {
     addCast.accept(ConstructsArmoryItems.MAIL_CAST);
   }
 
-  private ITag.INamedTag<Item> getArmorTag(ArmorSlotType slotType) {
-    switch (slotType) {
-      case BOOTS:
-        return TinkerTags.Items.BOOTS;
-      case LEGGINGS:
-        return TinkerTags.Items.LEGGINGS;
-      case CHESTPLATE:
-        return TinkerTags.Items.CHESTPLATES;
-      case HELMET:
-        return TinkerTags.Items.HELMETS;
-    }
-    return TinkerTags.Items.ARMOR;
+  private TagKey<Item> getArmorTag(ArmorSlotType slotType) {
+    return switch (slotType) {
+      case BOOTS -> TinkerTags.Items.BOOTS;
+      case LEGGINGS -> TinkerTags.Items.LEGGINGS;
+      case CHESTPLATE -> TinkerTags.Items.CHESTPLATES;
+      case HELMET -> TinkerTags.Items.HELMETS;
+    };
   }
 
   @SafeVarargs
-  private final void addArmorTags(EnumObject<ArmorSlotType, ? extends Item> armor,
-                                  ITag.INamedTag<Item>... tags) {
+  private void addArmorTags(EnumObject<ArmorSlotType, ? extends Item> armor, TagKey<Item>... tags) {
     armor.forEach((type, item) -> {
-      for (ITag.INamedTag<Item> tag : tags) {
-        this.getOrCreateBuilder(tag).add(item);
+      for (TagKey<Item> tag : tags) {
+        this.tag(tag).add(item);
       }
-      this.getOrCreateBuilder(getArmorTag(type)).add(item);
+      this.tag(getArmorTag(type)).add(item);
     });
   }
 }

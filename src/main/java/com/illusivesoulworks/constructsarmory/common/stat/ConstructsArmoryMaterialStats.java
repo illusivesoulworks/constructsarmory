@@ -26,7 +26,7 @@ public class ConstructsArmoryMaterialStats {
 
   public static void setup() {
     IMaterialRegistry registry = MaterialRegistry.getInstance();
-    registry.registerStatType(PlateMaterialStats.DEFAULT, PlateMaterialStats.class);
-    registry.registerStatType(MailMaterialStats.DEFAULT, MailMaterialStats.class);
+    registry.registerStatType(PlateMaterialStats.DEFAULT, PlateMaterialStats.class, PlateMaterialStats::new);
+    registry.registerStatType(MailMaterialStats.DEFAULT, MailMaterialStats.class, MailMaterialStats::new);
   }
 }

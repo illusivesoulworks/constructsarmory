@@ -17,38 +17,36 @@
 
 package com.illusivesoulworks.constructsarmory.common.modifier.trait.battle;
 
-import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.text.ITextComponent;
+
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.TooltipFlag;
+import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
-import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
-import slimeknights.tconstruct.library.utils.TooltipFlag;
-import slimeknights.tconstruct.library.utils.TooltipKey;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import com.illusivesoulworks.constructsarmory.common.modifier.EquipmentUtil;
+
+import java.util.List;
 
 public class HallowedModifier extends Modifier {
 
-  public HallowedModifier() {
-    super(0xcc9720);
-  }
-
   @Override
-  public float getProtectionModifier(@Nonnull IModifierToolStack tool, int level,
+  public float getProtectionModifier(@Nonnull IToolStackView tool, int level,
                                      @Nonnull EquipmentContext context,
-                                     @Nonnull EquipmentSlotType slotType, DamageSource source,
+                                     @Nonnull EquipmentSlot slotType, DamageSource source,
                                      float modifierValue) {
 
-    if (!source.isDamageAbsolute() && !source.canHarmInCreative()) {
-      Entity attacker = source.getTrueSource();
+    if (!source.isBypassMagic() && !source.isBypassInvul()) {
+      Entity attacker = source.getEntity();
 
-      if (attacker instanceof LivingEntity && ((LivingEntity) attacker).isEntityUndead()) {
+      if (attacker instanceof LivingEntity entity && entity.isInvertedHealAndHarm()) {
         modifierValue += level * 2f;
       }
     }
@@ -56,8 +54,8 @@ public class HallowedModifier extends Modifier {
   }
 
   @Override
-  public void addInformation(@Nonnull IModifierToolStack tool, int level,
-                             @Nullable PlayerEntity player, @Nonnull List<ITextComponent> tooltip,
+  public void addInformation(@Nonnull IToolStackView tool, int level,
+                             @Nullable Player player, @Nonnull List<Component> tooltip,
                              @Nonnull TooltipKey key, @Nonnull TooltipFlag flag) {
     EquipmentUtil.addResistanceTooltip(this, tool, level * 2f, tooltip);
   }

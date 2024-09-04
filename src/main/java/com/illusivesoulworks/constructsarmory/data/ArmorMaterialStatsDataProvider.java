@@ -37,7 +37,7 @@ public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataPro
 
     // Tier 1
     addMaterialStats(MaterialIds.wood, 45, 2.0f, 0.0f, 0.0f, 0.0075f, 1.0f, 1.0f, 1.0f);
-    addMaterialStats(MaterialIds.stone, 121, 3.0f, 0.0f, 0.025f, 0.005f, 0.8f, 1.05f, 1.0f);
+    addMaterialStats(MaterialIds.rock, 121, 3.0f, 0.0f, 0.025f, 0.005f, 0.8f, 1.05f, 1.0f);
     addMaterialStats(MaterialIds.leather, 80, 4.0f, 0.0f, 0.0f, 0.0375f, 0.8f, 1.0f, 1.1f);
     addMaterialStats(MaterialIds.bone, 95, 5.0f, 1.0f, 0.0f, 0.0150f, 0.75f, 1.1f, 1.0f);
     addMailStats(MaterialIds.vine, 0.85f, 1.0f, 1.05f);
@@ -61,7 +61,7 @@ public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataPro
 
     // Tier 3
     addMaterialStats(MaterialIds.slimesteel, 502, 11.0f, 3.0f, 0.125f, 0.025f, 1.2f, 0.9f, 0.95f);
-    addMaterialStats(MaterialIds.tinkersBronze, 437, 12.0f, 2.0f, 0.05f, 0.055f, 1.05f, 1.0f, 1.1f);
+    addMaterialStats(MaterialIds.bronze, 437, 12.0f, 2.0f, 0.05f, 0.055f, 1.05f, 1.0f, 1.1f);
     addMaterialStats(MaterialIds.nahuatl, 275, 15.0f, 2.0f, 0.08f, 0.01f, 0.9f, 1.25f, 0.95f);
     addMaterialStats(MaterialIds.pigIron, 386, 14.0f, 2.0f, 0.05f, 0.03f, 1.1f, 1.05f, 1.0f);
     addMaterialStats(MaterialIds.roseGold, 182, 11.0f, 0.0f, 0.0f, 0.07f, 0.6f, 1.0f, 1.45f);
@@ -69,7 +69,6 @@ public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataPro
 
     // Tier 3 - Addons
     addMaterialStats(MaterialIds.steel, 474, 13.0f, 2.0f, 0.1f, 0.025f, 1.05f, 1.1f, 1.0f);
-    addMaterialStats(MaterialIds.bronze, 453, 11.0f, 2.0f, 0.05f, 0.0575f, 1.1f, 1.0f, 1.05f);
     addMaterialStats(MaterialIds.constantan, 428, 12.0f, 2.0f, 0.08f, 0.05f, 0.95f, 1.0f, 1.15f);
     addMaterialStats(MaterialIds.invar, 400, 15.0f, 2.0f, 0.05f, 0.0125f, 1.0f, 1.15f, 1.0f);
     addMaterialStats(MaterialIds.necronium, 279, 14.0f, 3.0f, 0.0f, 0.02f, 0.8f, 1.2f, 1.1f);
@@ -97,6 +96,7 @@ public class ArmorMaterialStatsDataProvider extends AbstractMaterialStatsDataPro
                                   float knockbackResistance, float movementSpeed,
                                   float durabilityMultiplier, float armorMultiplier,
                                   float movementMultiplier) {
+    //TODO: For some reasons when the plate is added, it throws an IllegalArgumentException because it's duplicated
     addMaterialStats(id,
         new PlateMaterialStats(durability, armor, toughness, knockbackResistance, movementSpeed),
         new MailMaterialStats(durabilityMultiplier, armorMultiplier, movementMultiplier));
